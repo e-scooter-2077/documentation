@@ -1,0 +1,25 @@
+name: Update GitHub Actions
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  update-gh-pages:
+    name: Generate and upload new GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run action
+        uses: ldeluigi/markdown-docs@master
+        with:
+          src: .
+          dst: ./gh-pages
+      - name: Deploy GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages
