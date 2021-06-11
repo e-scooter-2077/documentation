@@ -295,6 +295,8 @@
         </section>
         <section class="print-page" id="index"><h1 id="index-documentation">documentation</h1>
 <p>Documentation reports and diagrams</p></section><section class="print-page" id="ubiquitous%20language"><h1 id="ubiquitous%20language-ubiquitous-language">Ubiquitous Language</h1>
+<h2 id="ubiquitous%20language-e-scooter-service">E-Scooter service</h2>
+<p>A service that allows <a href="#ubiquitous%20language-customer">customers</a> to <a href="#ubiquitous%20language-rent">rent</a> <a href="#ubiquitous%20language-electric-scooters">electric scooters</a> placed in public areas for a <a href="#ubiquitous%20language-trip">trip</a> within the boundaries of an <a href="#ubiquitous%20language-area-of-service">area of service</a>.</p>
 <h2 id="ubiquitous%20language-electric-scooter">Electric Scooter</h2>
 <p>Alias: e-scooter, scooter
 Motorized vehicle with two wheels, usable by a person standing on it. It's equipped with some sensors and other devices.</p>
@@ -312,7 +314,7 @@ Motorized vehicle with two wheels, usable by a person standing on it. It's equip
 <h4 id="ubiquitous%20language-accelerometer">Accelerometer</h4>
 <p>Measures acceleration forces along the three axis</p>
 <h4 id="ubiquitous%20language-electronic-wheel-block">Electronic wheel block</h4>
-<p>Alias: electric break
+<p>Alias: electric break, electric block
 If turned on, the wheel becomes very hard to rotate</p>
 <h4 id="ubiquitous%20language-headlight">Headlight</h4>
 <p>Light source embedded in the front to enable night usage</p>
@@ -322,7 +324,64 @@ Friction based stopping system;
 Placed on the back wheel;
 Controlled by a hand lever.</p>
 <h4 id="ubiquitous%20language-accelerator">Accelerator</h4>
-<p>Handle that controls the speed; If the handle isn't turned the <a href="#ubiquitous%20language-electronic-wheel-block">electric break</a> is activated.</p></section></div>
+<p>Handle that controls the speed; If the handle isn't turned the <a href="#ubiquitous%20language-electronic-wheel-block">electric break</a> is activated.</p>
+<h3 id="ubiquitous%20language-operations"><em>Operations</em></h3>
+<h4 id="ubiquitous%20language-unlock">Unlock</h4>
+<p>To turn off the <a href="#ubiquitous%20language-electronic-wheel-block">electric block</a></p>
+<h4 id="ubiquitous%20language-lock">Lock</h4>
+<p>To turn on the <a href="#ubiquitous%20language-electronic-wheel-block">electric block</a>.</p>
+<h4 id="ubiquitous%20language-ride">Ride</h4>
+<p>Use the scooter to move.</p>
+<h4 id="ubiquitous%20language-disable">Disable</h4>
+<p>To deny the possibility that a <a href="#ubiquitous%20language-customer">customer</a> pays for <a href="#ubiquitous%20language-unlock">unlocking</a> the scooter.</p>
+<h4 id="ubiquitous%20language-enable">Enable</h4>
+<p>To allow the possibility that a <a href="#ubiquitous%20language-customer">customer</a> pays for <a href="#ubiquitous%20language-unlock">unlocking</a> the scooter.</p>
+<h4 id="ubiquitous%20language-maintain">Maintain</h4>
+<p>Repair any damage and/or recharge the battery.</p>
+<h4 id="ubiquitous%20language-rent">Rent</h4>
+<p>As a <a href="#ubiquitous%20language-customer">customer</a>, paying or exploiting a <a href="#ubiquitous%20language-subscription">subscription</a> for <a href="#ubiquitous%20language-unlock">unlocking</a> an <a href="#ubiquitous%20language-electric-scooter">e-scooter</a>. This action lasts until the scooter is <a href="#ubiquitous%20language-lock">locked</a> again (in normal conditions).</p>
+<h4 id="ubiquitous%20language-assign-to-area">Assign to area</h4>
+<p>An e-scooter can be assigned to an area if, from that moment, that e-scooter mutually exclusively <a href="#ubiquitous%20language-belong-to-area">belongs</a> to that <a href="#ubiquitous%20language-area-of-service">area</a>.</p>
+<h4 id="ubiquitous%20language-recover">Recover</h4>
+<p><em>See <a href="#ubiquitous%20language-recovery">recovery</a>.</em></p>
+<h3 id="ubiquitous%20language-relationships"><em>Relationships</em></h3>
+<h4 id="ubiquitous%20language-belong-to-area">Belong to area</h4>
+<p>The <a href="#ubiquitous%20language-electric-scooter">e-scooter</a> can be only rented inside that <a href="#ubiquitous%20language-area-of-service">area</a>.</p>
+<h2 id="ubiquitous%20language-customer">Customer</h2>
+<p>Alias: person; user
+A customer for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter service</a>.</p>
+<h3 id="ubiquitous%20language-anagraphic-information">Anagraphic information</h3>
+<p>Collection of data about the customer, including first name, date of birth, and all the other possible information useful for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter service</a>.</p>
+<h3 id="ubiquitous%20language-subscription">Subscription</h3>
+<p>A customer has it if they are able to <a href="#ubiquitous%20language-rent">rent</a> <a href="#ubiquitous%20language-electric-scooter">e-scooters</a> without paying upfront.</p>
+<h2 id="ubiquitous%20language-recovery">Recovery</h2>
+<p>The act of picking up an <a href="#ubiquitous%20language-electric-scooter">e-scooter</a>, providing <a href="#ubiquitous%20language-maintenance">maintenance</a> and dropping it somewhere inside the <a href="#ubiquitous%20language-area-of-service">area of service</a> sometime later. The scooter may be unlocked if necessary.</p>
+<h3 id="ubiquitous%20language-recovery-assistant">Recovery assistant</h3>
+<p>Alias: assistant, employee.
+Works for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter service</a> and does recoveries with a <a href="#ubiquitous%20language-recovery-van">recovery van</a>.</p>
+<h3 id="ubiquitous%20language-recovery-van">Recovery van</h3>
+<p>A vehicle that allows <a href="#ubiquitous%20language-recovery-assistant">assistants</a> to recover <a href="#ubiquitous%20language-electric-scooter">e-scooters</a>.</p>
+<h2 id="ubiquitous%20language-map">Map</h2>
+<p>Bidimensional, polar representation of the Earth surface. Shows, for example, streets, buildings, water courses; what scooters can or cannot cross.</p>
+<h3 id="ubiquitous%20language-area-of-service">Area of service</h3>
+<p>The map portion inside which <a href="#ubiquitous%20language-electric-scooter">e-scooters</a> <a href="#ubiquitous%20language-assign">assigned</a> to it can be rented.</p>
+<h4 id="ubiquitous%20language-drop-point">Drop Point</h4>
+<p>A place of interest, inside an area of service, where <a href="#ubiquitous%20language-electric-scooter">electric scooter</a> are usually dropped after <a href="#ubiquitous%20language-recovery">recovery</a>.</p>
+<h2 id="ubiquitous%20language-trip">Trip</h2>
+<p>Information about a <a href="#ubiquitous%20language-rent">rent</a> period, during and after its lasting.</p>
+<h3 id="ubiquitous%20language-properties"><em>Properties</em></h3>
+<h4 id="ubiquitous%20language-rider">Rider</h4>
+<p>The rider is the <a href="#ubiquitous%20language-customer">customer</a> that <a href="#ubiquitous%20language-rent">rents</a> the <a href="#ubiquitous%20language-electric-scooter">e-scooter</a> during the trip.</p>
+<h4 id="ubiquitous%20language-vehicle">Vehicle</h4>
+<p>The <a href="#ubiquitous%20language-electric-scooter">scooter</a> used for transportation.</p>
+<h4 id="ubiquitous%20language-distance">Distance</h4>
+<p>The distance, in meters, traveled during the trip.</p>
+<h4 id="ubiquitous%20language-start-position">Start position</h4>
+<p>Alias: start
+A point inside the <a href="#ubiquitous%20language-area-of-service">area of service</a> where the vehicle was <a href="#ubiquitous%20language-unlock">unlocked</a>.</p>
+<h4 id="ubiquitous%20language-end-position">End position</h4>
+<p>Alias: end
+A point inside the <a href="#ubiquitous%20language-map">map</a> where the vehicle was <a href="#ubiquitous%20language-lock">locked</a> because the <a href="#ubiquitous%20language-rent">rent</a> ended.</p></section></div>
                 
               
               
