@@ -1,7 +1,7 @@
 # Ubiquitous Language
 
 ## E-Scooter service
-A service that allows [customers](#customer) to [rent](#rent) [electric scooters](#electric-scooters) placed in public areas for a [trip](#trip) within the boundaries of an [area of service](#area-of-service).
+A service that allows [customers](#customer) to [rent](#rent) [electric scooters](#electric-scooter) placed in public areas for a [trip](#trip) within the boundaries of an [area of service](#area-of-service).
 
 ## Electric Scooter
 Alias: e-scooter, scooter
