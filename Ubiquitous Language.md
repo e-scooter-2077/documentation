@@ -32,6 +32,8 @@ Placed on the back wheel;
 Controlled by a hand lever.
 #### Accelerator
 Handle that controls the speed; If the handle isn't turned the [electric break](#electronic-wheel-block) is activated.
+#### Speaker
+A device that can play sounds and can be remotely activated.
 ### _Operations_
 #### Unlock
 To turn off the [electric block](#electronic-wheel-block)
@@ -51,6 +53,8 @@ As a [customer](#customer), paying or exploiting a [subscription](#subscription)
 An e-scooter can be assigned to an area if, from that moment, that e-scooter mutually exclusively [belongs](#belong-to-area) to that [area](#area-of-service).
 #### Recover
 _See [recovery](#recovery)._
+#### Ring
+Make the speaker play a ringtone, useful to find it.
 
 ### _Relationships_
 #### Belong to area
@@ -95,3 +99,5 @@ A point inside the [area of service](#area-of-service) where the vehicle was [un
 #### End position
 Alias: end
 A point inside the [map](#map) where the vehicle was [locked](#lock) because the [rent](#rent) ended.
+
+## 
