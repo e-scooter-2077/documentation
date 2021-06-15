@@ -57,8 +57,8 @@ rectangle "Use Cases" {
     usecase "Ride the scooter until battery runs out" as ride_lot
     confirm_end .down.> end_trip : <<includes>>
     exit_area .down.> end_trip : <<includes>>
-    ride_lot .down.> ride : <<extends>>
-    ride_lot .down.> end_trip : <<includes>>
+    ride_lot .up.> ride : <<extends>>
+    ride_lot .left.> end_trip : <<includes>>
     rent .down.> unlock : <<includes>>
     rent .down.> end_trip : <<includes>>
     rent .> pay : <<includes>>
