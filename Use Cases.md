@@ -63,15 +63,15 @@ rectangle "Use Cases" {
     usecase "Monitor all scooters in the map" as monitor
     usecase "See suggested drop points" as see_points
 
-    confirm_end .down.> end_trip : <<includes>>
-    exit_area .down.> end_trip : <<includes>>
-    exit_area .down.> area_notification : <<includes>>
-    ride_lot .up.> ride : <<extends>>
-    ride_lot .up.> end_trip : <<includes>>
-    rent .down.> start_trip : <<includes>>
-    rent .down.> end_trip : <<includes>>
-    rent .> pay : <<includes>>
-    ride_lot .> battery_notification : <<includes>>
+    confirm_end .down.> end_trip : <<include>>
+    exit_area .down.> end_trip : <<include>>
+    exit_area .down.> area_notification : <<include>>
+    ride_lot .up.> ride : <<extend>>
+    ride_lot .up.> end_trip : <<include>>
+    rent .down.> start_trip : <<include>>
+    rent .down.> end_trip : <<include>>
+    rent .> pay : <<include>>
+    ride_lot .> battery_notification : <<include>>
 }
 c -- search
 c -- ring
