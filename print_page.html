@@ -250,6 +250,21 @@
   
   
     <li class="md-nav__item">
+      <a href="Use%20Cases.html" class="md-nav__link">
+        Use Cases
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
@@ -325,6 +340,8 @@ Placed on the back wheel;
 Controlled by a hand lever.</p>
 <h4 id="ubiquitous%20language-accelerator">Accelerator</h4>
 <p>Handle that controls the speed; If the handle isn't turned the <a href="#ubiquitous%20language-electronic-wheel-block">electric break</a> is activated.</p>
+<h4 id="ubiquitous%20language-speaker">Speaker</h4>
+<p>A device that can play sounds and can be remotely activated.</p>
 <h3 id="ubiquitous%20language-operations"><em>Operations</em></h3>
 <h4 id="ubiquitous%20language-unlock">Unlock</h4>
 <p>To turn off the <a href="#ubiquitous%20language-electronic-wheel-block">electric block</a></p>
@@ -344,6 +361,8 @@ Controlled by a hand lever.</p>
 <p>An e-scooter can be assigned to an area if, from that moment, that e-scooter mutually exclusively <a href="#ubiquitous%20language-belong-to-area">belongs</a> to that <a href="#ubiquitous%20language-area-of-service">area</a>.</p>
 <h4 id="ubiquitous%20language-recover">Recover</h4>
 <p><em>See <a href="#ubiquitous%20language-recovery">recovery</a>.</em></p>
+<h4 id="ubiquitous%20language-ring">Ring</h4>
+<p>Make the speaker play a ringtone, useful to find it.</p>
 <h3 id="ubiquitous%20language-relationships"><em>Relationships</em></h3>
 <h4 id="ubiquitous%20language-belong-to-area">Belong to area</h4>
 <p>The <a href="#ubiquitous%20language-electric-scooter">e-scooter</a> can be only rented inside that <a href="#ubiquitous%20language-area-of-service">area</a>.</p>
@@ -381,7 +400,79 @@ Works for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter servi
 A point inside the <a href="#ubiquitous%20language-area-of-service">area of service</a> where the vehicle was <a href="#ubiquitous%20language-unlock">unlocked</a>.</p>
 <h4 id="ubiquitous%20language-end-position">End position</h4>
 <p>Alias: end
-A point inside the <a href="#ubiquitous%20language-map">map</a> where the vehicle was <a href="#ubiquitous%20language-lock">locked</a> because the <a href="#ubiquitous%20language-rent">rent</a> ended.</p></section></div>
+A point inside the <a href="#ubiquitous%20language-map">map</a> where the vehicle was <a href="#ubiquitous%20language-lock">locked</a> because the <a href="#ubiquitous%20language-rent">rent</a> ended.</p>
+<h2 id="ubiquitous%20language-payment">Payment</h2>
+<p>A payment is a money transaction from the <a href="#ubiquitous%20language-customer">customer</a> to the business bank account.</p>
+<h3 id="ubiquitous%20language-payment-legacy-system">Payment legacy system</h3>
+<p>The preexisting service that manages user data and payments for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter service</a>.</p></section><section class="print-page" id="use%20cases"><h1 id="use%20cases-use-cases">Use Cases</h1>
+<h2 id="use%20cases-user-stories">User stories</h2>
+<p>Some user stories are taken from end users and some other are taken from the business representative, business employees.</p>
+<h3 id="use%20cases-story-1a">Story #1a</h3>
+<blockquote>
+<p>As a customer, I want to open the mobile application and search for free scooters in my area.</p>
+</blockquote>
+<h3 id="use%20cases-story-1b">Story #1b</h3>
+<blockquote>
+<p>As a customer, I want to be able to select a scooter near myself and make it ring in order to find it if it's hidden.</p>
+</blockquote>
+<h3 id="use%20cases-story-1c">Story #1c</h3>
+<blockquote>
+<p>As a customer, I want to confirm on my phone and start riding. When I'm done, I want to leave the scooter where I can and confirm the end of the trip on the app.</p>
+</blockquote>
+<h3 id="use%20cases-story-2">Story #2</h3>
+<blockquote>
+<p>As a customer, when I'm searching a scooter, I want to know its battery level in advance.</p>
+</blockquote>
+<h3 id="use%20cases-story-3a">Story #3a</h3>
+<blockquote>
+<p>When a scooter is taken out of the area of service borders, it locks.</p>
+</blockquote>
+<h3 id="use%20cases-story-3b">Story #3b</h3>
+<blockquote>
+<p>As a customer, when I'm approaching the area of service border, I want to be warned about the possibility that my scooter gets locked.</p>
+</blockquote>
+<p><em>How do you want to get warned?</em></p>
+<blockquote>
+<p>I'd like the scooter to play a specific sound, while I get a notification on my phone.</p>
+</blockquote>
+<h3 id="use%20cases-story-4">Story #4</h3>
+<blockquote>
+<p>As a customer, I want to be warned when the battery is running low. I want to be warned with a ringtone.</p>
+</blockquote>
+<h3 id="use%20cases-story-5">Story #5</h3>
+<blockquote>
+<p>When the battery goes below a threshold, the scooter enters a power save mode, during which it runs slower than normal.</p>
+</blockquote>
+<h3 id="use%20cases-story-6">Story #6</h3>
+<blockquote>
+<p>When the battery is running low, the scooter warns the customer, if present, that the run must end and enters a standby mode during which it's disabled.</p>
+</blockquote>
+<h3 id="use%20cases-story-7">Story #7</h3>
+<blockquote>
+<p>As the business manager, I want to be able to see the position and the battery level of every scooter in a map.</p>
+</blockquote>
+<h3 id="use%20cases-story-8">Story #8</h3>
+<blockquote>
+<p>As the business manager, I want to get suggestions about strategic places for the drop points of the next day.</p>
+</blockquote>
+<h3 id="use%20cases-story-9">Story #9</h3>
+<blockquote>
+<p>As a business employee I want to be able to unlock freely the scooters in order to move them.</p>
+</blockquote>
+<h3 id="use%20cases-story-10">Story #10</h3>
+<blockquote>
+<p>The scooter should discourage theft and vandalism by playing a message when moved while locked or disabled.</p>
+</blockquote>
+<h3 id="use%20cases-story-11">Story #11</h3>
+<blockquote>
+<p>As the business manager, I want the customers to pay for rides through the existing system.</p>
+</blockquote>
+<p><em>Does the legacy system keep track of all users data?</em></p>
+<blockquote>
+<p>If I remember correctly, yes.</p>
+</blockquote>
+<p><em>From the legacy system documentation:</em>
+The legacy payment system needs access to trip data and to customers rent/unlock requests.</p></section></div>
                 
               
               
