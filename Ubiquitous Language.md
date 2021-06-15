@@ -80,6 +80,7 @@ A vehicle that allows [assistants](#recovery-assistant) to recover [e-scooters](
 ## Map
 Bidimensional, polar representation of the Earth surface. Shows, for example, streets, buildings, water courses; what scooters can or cannot cross.
 ### Area of service
+Alias: Service Area
 The map portion inside which [e-scooters](#electric-scooter) [assigned](#assign) to it can be rented.
 #### Drop Point
 A place of interest, inside an area of service, where [electric scooter](#electric-scooter) are usually dropped after [recovery](#recovery).
