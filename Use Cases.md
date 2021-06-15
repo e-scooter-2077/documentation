@@ -39,3 +39,36 @@ _Does the legacy system keep track of all users data?_
 _From the legacy system documentation:_
 The legacy payment system needs access to trip data and to customers rent/unlock requests.
 
+## Use Case Diagram
+```plantuml
+@startuml
+left to right direction
+actor "Customer" as c
+rectangle "Use Cases" {
+    usecase "Rent" as rent
+    usecase "Pay" as pay
+    usecase "Search scooters" as search 
+    usecase "Ring scooter" as ring
+    usecase "Unlock scooter" as unlock
+    usecase "Confirm trip end" as confirm_end
+    usecase "End trip" as end_trip
+    usecase "Exit Area of Service" as exit_area
+    usecase "Ride the scooter" as ride
+    usecase "Ride the scooter until battery runs out" as ride_lot
+    confirm_end .down.> end_trip : <<includes>>
+    exit_area .down.> end_trip : <<includes>>
+    ride_lot .down.> ride : <<extends>>
+    ride_lot .down.> end_trip : <<includes>>
+    rent .down.> unlock : <<includes>>
+    rent .down.> end_trip : <<includes>>
+    rent .> pay : <<includes>>
+}
+c -- search
+c -- ring
+c -- rent
+c -- confirm_end
+c -- exit_area
+c -- ride
+
+@enduml
+```
