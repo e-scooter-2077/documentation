@@ -52,6 +52,7 @@ rectangle "Use Cases" {
     usecase "Search scooters" as search 
     usecase "Ring scooter" as ring
     usecase "Unlock scooter" as unlock
+    usecase "Start trip" as start_trip
     usecase "Confirm trip end" as confirm_end
     usecase "End trip" as end_trip
     usecase "Exit Area of Service" as exit_area
@@ -66,8 +67,8 @@ rectangle "Use Cases" {
     exit_area .down.> end_trip : <<includes>>
     exit_area .down.> area_notification : <<includes>>
     ride_lot .up.> ride : <<extends>>
-    ride_lot .left.> end_trip : <<includes>>
-    rent .down.> unlock : <<includes>>
+    ride_lot .up.> end_trip : <<includes>>
+    rent .down.> start_trip : <<includes>>
     rent .down.> end_trip : <<includes>>
     rent .> pay : <<includes>>
     ride_lot .> battery_notification : <<includes>>
@@ -85,5 +86,31 @@ m -- see_points
 a -- monitor
 a -- see_points
 a -- unlock
+@enduml
+```
+
+## Story Diagrams
+##### Story #1 Diagram
+```plantuml
+@startuml
+|Customer|
+start
+:Search scooter in mobile application;
+:Select a scooter from the map;
+:Confirm the scooter rent;
+|Payment service|
+:Charge unlock cost;
+:Determine maximum ride duration affordable;
+|Scooter|
+:Unlock;
+|Customer|
+:Begin the ride;
+:End the ride;
+:Confirm the end of the ride;
+|Scooter|
+:Lock;
+|Payment service|
+:Charge total rent costs;
+stop
 @enduml
 ```
