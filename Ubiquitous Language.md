@@ -100,4 +100,7 @@ A point inside the [area of service](#area-of-service) where the vehicle was [un
 Alias: end
 A point inside the [map](#map) where the vehicle was [locked](#lock) because the [rent](#rent) ended.
 
-## 
+## Payment
+A payment is a money transaction from the [customer](#customer) to the business bank account.
+### Payment legacy system
+The preexisting service that manages user data and payments for the [e-scooter service](#e-scooter-service).
