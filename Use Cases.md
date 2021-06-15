@@ -17,9 +17,9 @@ Some user stories are taken from end users and some other are taken from the bus
 _How do you want to get warned?_
 >I'd like the scooter to play a specific sound, while I get a notification on my phone.
 ### Story #4
->As a customer, I want to be warned when the battery is running low. I want to be warned with a ringtone.
-### Story #5
 >When the battery goes below a threshold, the scooter enters a power save mode, during which it runs slower than normal.
+### Story #5
+>As a customer, I want to be warned when the battery is running low. I want to be warned with a ringtone.
 ### Story #6
 >When the battery is running low, the scooter warns the customer, if present, that the run must end and enters a standby mode during which it's disabled.
 ### Story #7
@@ -44,6 +44,8 @@ The legacy payment system needs access to trip data and to customers rent/unlock
 @startuml
 left to right direction
 actor "Customer" as c
+actor "Manager" as m
+actor "Assistant" as a
 rectangle "Use Cases" {
     usecase "Rent" as rent
     usecase "Pay" as pay
@@ -55,13 +57,20 @@ rectangle "Use Cases" {
     usecase "Exit Area of Service" as exit_area
     usecase "Ride the scooter" as ride
     usecase "Ride the scooter until battery runs out" as ride_lot
+    usecase "Receive low battery notification" as battery_notification
+    usecase "Receive out of service area notification" as area_notification
+    usecase "Monitor all scooters in the map" as monitor
+    usecase "See suggested drop points" as see_points
+
     confirm_end .down.> end_trip : <<includes>>
     exit_area .down.> end_trip : <<includes>>
+    exit_area .down.> area_notification : <<includes>>
     ride_lot .up.> ride : <<extends>>
     ride_lot .left.> end_trip : <<includes>>
     rent .down.> unlock : <<includes>>
     rent .down.> end_trip : <<includes>>
     rent .> pay : <<includes>>
+    ride_lot .> battery_notification : <<includes>>
 }
 c -- search
 c -- ring
@@ -70,5 +79,11 @@ c -- confirm_end
 c -- exit_area
 c -- ride
 
+m -- monitor
+m -- see_points
+
+a -- monitor
+a -- see_points
+a -- unlock
 @enduml
 ```
