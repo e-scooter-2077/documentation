@@ -34,6 +34,20 @@ Controlled by a hand lever.
 Handle that controls the speed; If the handle isn't turned the [electric break](#electronic-wheel-block) is activated.
 #### Speaker
 A device that can play sounds and can be remotely activated.
+### Mode
+Alias: State
+One of the possible states in which the scooter can be. In each mode, the scooter has a different behavior.
+#### Active mode
+A mode in which the scooter has no electric limit on power.
+#### Power Saving mode
+A mode in which the scooter uses electrically limited power in order to save battery. This happens after the battery gets below a [threshold](#power-saving-threshold)
+##### Power Saving threshold
+The battery level below which the scooter enters Power Saving mode.
+#### Standby mode
+A mode in which the scooter is [disabled](#disable) due to extremely low battery.
+##### Standby threshold
+The battery level below which the scooter enters Standby mode.
+
 ### _Operations_
 #### Unlock
 To turn off the [electric block](#electronic-wheel-block)
