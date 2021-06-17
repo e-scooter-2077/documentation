@@ -4,7 +4,7 @@
 A service that allows [customers](#customer) to [rent](#rent) [electric scooters](#electric-scooter) placed in public areas for a [trip](#trip) within the boundaries of an [area of service](#area-of-service).
 
 ## Electric Scooter
-Alias: e-scooter, scooter
+Alias: e-scooter, scooter  
 Motorized vehicle with two wheels, usable by a person standing on it. It's equipped with some sensors and other devices.
 
 ### E-Scooter equipment
@@ -21,12 +21,12 @@ Measures wheel rounds per second
 #### Accelerometer
 Measures acceleration forces along the three axis
 #### Electronic wheel block
-Alias: electric break, electric block
+Alias: electric break, electric block  
 If turned on, the wheel becomes very hard to rotate
 #### Headlight
 Light source embedded in the front to enable night usage
 #### Manual Breaks
-Alias: Breaks, default breaks, disk breaks, rear break
+Alias: Breaks, default breaks, disk breaks, rear break  
 Friction based stopping system;
 Placed on the back wheel;
 Controlled by a hand lever.
@@ -35,7 +35,7 @@ Handle that controls the speed; If the handle isn't turned the [electric break](
 #### Speaker
 A device that can play sounds and can be remotely activated.
 ### Mode
-Alias: State
+Alias: State  
 One of the possible states in which the scooter can be. In each mode, the scooter has a different behavior.
 #### Active mode
 A mode in which the scooter has no electric limit on power.
@@ -76,7 +76,7 @@ The [e-scooter](#electric-scooter) can be only rented inside that [area](#area-o
 
 
 ## Customer
-Alias: person; user
+Alias: person; user  
 A customer for the [e-scooter service](#e-scooter-service).
 ### Anagraphic information
 Collection of data about the customer, including first name, date of birth, and all the other possible information useful for the [e-scooter service](#e-scooter-service).
@@ -86,7 +86,7 @@ A customer has it if they are able to [rent](#rent) [e-scooters](#electric-scoot
 ## Recovery
 The act of picking up an [e-scooter](#electric-scooter), providing [maintenance](#maintenance) and dropping it somewhere inside the [area of service](#area-of-service) sometime later. The scooter may be unlocked if necessary.
 ### Recovery assistant
-Alias: assistant, employee.
+Alias: assistant, employee.  
 Works for the [e-scooter service](#e-scooter-service) and does recoveries with a [recovery van](#recovery-van).
 ### Recovery van
 A vehicle that allows [assistants](#recovery-assistant) to recover [e-scooters](#electric-scooter).
@@ -109,13 +109,24 @@ The [scooter](#electric-scooter) used for transportation.
 #### Distance
 The distance, in meters, traveled during the trip.
 #### Start position
-Alias: start
+Alias: start  
 A point inside the [area of service](#area-of-service) where the vehicle was [unlocked](#unlock).
 #### End position
-Alias: end
+Alias: end  
 A point inside the [map](#map) where the vehicle was [locked](#lock) because the [rent](#rent) ended.
 
 ## Payment
-A payment is a money transaction from the [customer](#customer) to the business bank account.
+A payment can be either:
+- a [real-world payment](#real-world-payment)
+- an [in-app payment](#in-app-payment)
 ### Payment legacy system
 The preexisting service that manages user data and payments for the [e-scooter service](#e-scooter-service).
+### Virtual Currency
+The amount of imaginary money for every customer. Used to pay scooter [rents](#rent).
+It can be obtained through [real-world purchases](#real-world-payment).
+### In-App Payment
+Alias: in-app purchase  
+It's a [virtual currency](#virtual-currency) transaction inside the system.
+### Real-world payment
+Alias: real-world purchase  
+It's a money transaction from the [customer](#customer) to the business bank account.
