@@ -1,6 +1,0 @@
-@startuml Context Map Style
-!$domain = "[#lightblue]"
-!$core = "[#orange]"
-!$supporting = "[#lightgreen]"
-!$generic = "[#pink]"
-@enduml
