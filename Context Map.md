@@ -23,7 +23,7 @@ Keeps track of customers anagraphic data.
 #### Payment Context
 Manages all customer in-app transactions, virtual currency, and triggers real-world transactions.
 #### Auth Context
-Manages login data and role based authorization for all users, including employees and customers.
+Manages login data and role based authorization for all agents, including employees and customers.
 
 
 ## Impact Map
