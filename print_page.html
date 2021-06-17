@@ -235,6 +235,21 @@
   
   
     <li class="md-nav__item">
+      <a href="Context%20Map.html" class="md-nav__link">
+        Domain Contexts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="Ubiquitous%20Language.html" class="md-nav__link">
         Ubiquitous Language
       </a>
@@ -309,11 +324,39 @@
             </div>
         </section>
         <section class="print-page" id="index"><h1 id="index-documentation">documentation</h1>
-<p>Documentation reports and diagrams</p></section><section class="print-page" id="ubiquitous%20language"><h1 id="ubiquitous%20language-ubiquitous-language">Ubiquitous Language</h1>
+<p>Documentation reports and diagrams</p></section><section class="print-page" id="context%20map"><h1 id="context%20map-domain-contexts">Domain Contexts</h1>
+<h2 id="context%20map-context-list">Context List</h2>
+<h4 id="context%20map-scooter-monitor-context">Scooter Monitor Context</h4>
+<p>One of the core contexts. Responsible for keeping track of scooter positions, battery level and other useful data for ma#ny business use cases.</p>
+<h4 id="context%20map-scooter-logic-control-context">Scooter Logic Control Context</h4>
+<p>Responsible for defining control policies to be applied to e-scooters according to domain/business policies.</p>
+<h4 id="context%20map-scooter-remote-control-context">Scooter Remote Control Context</h4>
+<p>Responsible for all physical actuation of logic control policies.</p>
+<h4 id="context%20map-scooter-data-context">Scooter Data Context</h4>
+<p>Storage of e-scooters technical and logical static information, like ID, serial number, dimensions, weight...</p>
+<h4 id="context%20map-scooter-search-context">Scooter Search Context</h4>
+<p>Uses data from the Scooter Monitor Context to provide the search functionality to customers (that are looking for available scooters to ride).</p>
+<h4 id="context%20map-area-of-service-context">Area of Service Context</h4>
+<p>Keeps track of service areas, scooter-area bindings and scooter position in order to detect escapes.</p>
+<h4 id="context%20map-rent-context">Rent Context</h4>
+<p>Handles the process of scooter renting from the beginning to its end.</p>
+<h4 id="context%20map-trip-context">Trip Context</h4>
+<p>Data collection about trips done by all customers.</p>
+<h4 id="context%20map-drop-points-planning-context">Drop points Planning Context</h4>
+<p>Exploits usage data from other contexts to compute drop point locations or suggestions.</p>
+<h4 id="context%20map-customer-context">Customer Context</h4>
+<p>Keeps track of customers anagraphic data.</p>
+<h4 id="context%20map-payment-context">Payment Context</h4>
+<p>Manages all customer in-app transactions, virtual currency, and triggers real-world transactions.</p>
+<h4 id="context%20map-auth-context">Auth Context</h4>
+<p>Manages login data and role based authorization for all agents, including employees and customers.</p>
+<h2 id="context%20map-impact-map">Impact Map</h2>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iNDcycHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDo2NjFweDtoZWlnaHQ6NDcycHg7YmFja2dyb3VuZDojRkZGRkZGOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjYxIDQ3MiIgd2lkdGg9IjY2MXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcz48ZmlsdGVyIGhlaWdodD0iMzAwJSIgaWQ9ImZuODc2ZWhvcGxkczIiIHdpZHRoPSIzMDAlIiB4PSItMSIgeT0iLTEiPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImJsdXJPdXQiIHN0ZERldmlhdGlvbj0iMi4wIi8+PGZlQ29sb3JNYXRyaXggaW49ImJsdXJPdXQiIHJlc3VsdD0iYmx1ck91dDIiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAuNCAwIi8+PGZlT2Zmc2V0IGR4PSI0LjAiIGR5PSI0LjAiIGluPSJibHVyT3V0MiIgcmVzdWx0PSJibHVyT3V0MyIvPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXJPdXQzIiBtb2RlPSJub3JtYWwiLz48L2ZpbHRlcj48L2RlZnM+PGc+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2ZuODc2ZWhvcGxkczIpIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTQyIiB4PSIxMCIgeT0iMjE3LjAzOTEiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMjIiIHg9IjIwIiB5PSIyNDAuMDM0MiI+RS1TY29vdGVyIFNlcnZpY2U8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2ZuODc2ZWhvcGxkczIpIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTMwIiB4PSIyMDIiIHk9IjE4OC44OTA2Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEwIiB4PSIyMTIiIHk9IjIxMS44ODU3Ij5TY29vdGVyIE1vbml0b3I8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2ZuODc2ZWhvcGxkczIpIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNTMiIHg9IjM4MiIgeT0iNDguMTQ4NCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjMzIiB4PSIzOTIiIHk9IjcxLjE0MzYiPlJlbnQ8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2ZuODc2ZWhvcGxkczIpIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iODAiIHg9IjQ4NSIgeT0iMjAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2MCIgeD0iNDk1IiB5PSI0Mi45OTUxIj5QYXltZW50PC90ZXh0PjxwYXRoIGQ9Ik00MzUsNjYuMjk2OSBMNDQ1LDY2LjI5NjkgQzQ2MCw2Ni4yOTY5IDQ2MCwzOC4xNDg0IDQ3NSwzOC4xNDg0IEw0ODUsMzguMTQ4NCAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmbjg3NmVob3BsZHMyKSIgaGVpZ2h0PSIzNi4yOTY5IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9Ijg4IiB4PSI0ODUiIHk9Ijc2LjI5NjkiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2OCIgeD0iNDk1IiB5PSI5OS4yOTIiPkN1c3RvbWVyPC90ZXh0PjxwYXRoIGQ9Ik00MzUsNjYuMjk2OSBMNDQ1LDY2LjI5NjkgQzQ2MCw2Ni4yOTY5IDQ2MCw5NC40NDUzIDQ3NSw5NC40NDUzIEw0ODUsOTQuNDQ1MyAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxwYXRoIGQ9Ik0zMzIsMjA3LjAzOTEgTDM0MiwyMDcuMDM5MSBDMzU3LDIwNy4wMzkxIDM1Nyw2Ni4yOTY5IDM3Miw2Ni4yOTY5IEwzODIsNjYuMjk2OSAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmbjg3NmVob3BsZHMyKSIgaGVpZ2h0PSIzNi4yOTY5IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjE2NCIgeD0iMzgyIiB5PSIxMzIuNTkzOCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE0NCIgeD0iMzkyIiB5PSIxNTUuNTg4OSI+RHJvcCBwb2ludHMgUGxhbm5pbmc8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2ZuODc2ZWhvcGxkczIpIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNDYiIHg9IjU5NiIgeT0iMTMyLjU5MzgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNiIgeD0iNjA2IiB5PSIxNTUuNTg4OSI+VHJpcDwvdGV4dD48cGF0aCBkPSJNNTQ2LDE1MC43NDIyIEw1NTYsMTUwLjc0MjIgQzU3MSwxNTAuNzQyMiA1NzEsMTUwLjc0MjIgNTg2LDE1MC43NDIyIEw1OTYsMTUwLjc0MjIgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cGF0aCBkPSJNMzMyLDIwNy4wMzkxIEwzNDIsMjA3LjAzOTEgQzM1NywyMDcuMDM5MSAzNTcsMTUwLjc0MjIgMzcyLDE1MC43NDIyIEwzODIsMTUwLjc0MjIgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZm44NzZlaG9wbGRzMikiIGhlaWdodD0iMzYuMjk2OSIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxMjYiIHg9IjM4MiIgeT0iMTg4Ljg5MDYiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDYiIHg9IjM5MiIgeT0iMjExLjg4NTciPlNjb290ZXIgU2VhcmNoPC90ZXh0PjxwYXRoIGQ9Ik0zMzIsMjA3LjAzOTEgTDM0MiwyMDcuMDM5MSBDMzU3LDIwNy4wMzkxIDM1NywyMDcuMDM5MSAzNzIsMjA3LjAzOTEgTDM4MiwyMDcuMDM5MSAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmbjg3NmVob3BsZHMyKSIgaGVpZ2h0PSIzNi4yOTY5IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjEyMiIgeD0iMzgyIiB5PSIyNDUuMTg3NSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwMiIgeD0iMzkyIiB5PSIyNjguMTgyNiI+QXJlYSBvZiBTZXJ2aWNlPC90ZXh0PjxwYXRoIGQ9Ik0zMzIsMjA3LjAzOTEgTDM0MiwyMDcuMDM5MSBDMzU3LDIwNy4wMzkxIDM1NywyNjMuMzM1OSAzNzIsMjYzLjMzNTkgTDM4MiwyNjMuMzM1OSAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmbjg3NmVob3BsZHMyKSIgaGVpZ2h0PSIzNi4yOTY5IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjExMCIgeD0iMzgyIiB5PSIzMDEuNDg0NCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjkwIiB4PSIzOTIiIHk9IjMyNC40Nzk1Ij5TY29vdGVyIERhdGE8L3RleHQ+PHBhdGggZD0iTTMzMiwyMDcuMDM5MSBMMzQyLDIwNy4wMzkxIEMzNTcsMjA3LjAzOTEgMzU3LDMxOS42MzI4IDM3MiwzMTkuNjMyOCBMMzgyLDMxOS42MzI4ICIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2ZuODc2ZWhvcGxkczIpIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNTIiIHg9IjM4MiIgeT0iMzU3Ljc4MTMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzMiIgeD0iMzkyIiB5PSIzODAuNzc2NCI+QXV0aDwvdGV4dD48cGF0aCBkPSJNMzMyLDIwNy4wMzkxIEwzNDIsMjA3LjAzOTEgQzM1NywyMDcuMDM5MSAzNTcsMzc1LjkyOTcgMzcyLDM3NS45Mjk3IEwzODIsMzc1LjkyOTcgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cGF0aCBkPSJNMTUyLDIzNS4xODc1IEwxNjIsMjM1LjE4NzUgQzE3NywyMzUuMTg3NSAxNzcsMjA3LjAzOTEgMTkyLDIwNy4wMzkxIEwyMDIsMjA3LjAzOTEgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZm44NzZlaG9wbGRzMikiIGhlaWdodD0iMzYuMjk2OSIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxNjgiIHg9IjIwMiIgeT0iNDE0LjA3ODEiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNDgiIHg9IjIxMiIgeT0iNDM3LjA3MzIiPlNjb290ZXIgTG9naWMgQ29udHJvbDwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZm44NzZlaG9wbGRzMikiIGhlaWdodD0iMzYuMjk2OSIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxODciIHg9IjQyMCIgeT0iNDE0LjA3ODEiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNjciIHg9IjQzMCIgeT0iNDM3LjA3MzIiPlNjb290ZXIgUmVtb3RlIENvbnRyb2w8L3RleHQ+PHBhdGggZD0iTTM3MCw0MzIuMjI2NiBMMzgwLDQzMi4yMjY2IEMzOTUsNDMyLjIyNjYgMzk1LDQzMi4yMjY2IDQxMCw0MzIuMjI2NiBMNDIwLDQzMi4yMjY2ICIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTE1MiwyMzUuMTg3NSBMMTYyLDIzNS4xODc1IEMxNzcsMjM1LjE4NzUgMTc3LDQzMi4yMjY2IDE5Miw0MzIuMjI2NiBMMjAyLDQzMi4yMjY2ICIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PCEtLU1ENT1bMTljMjQ3NDE4ZDFlYzRhOWE3YzU1MDg1M2M5MTY2NjRdCkBzdGFydG1pbmRtYXANCiogRS1TY29vdGVyIFNlcnZpY2UNCioqIFNjb290ZXIgTW9uaXRvcg0KKioqIFJlbnQNCioqKiogUGF5bWVudA0KKioqKiBDdXN0b21lcg0KKioqIERyb3AgcG9pbnRzIFBsYW5uaW5nDQoqKioqIFRyaXANCioqKiBTY29vdGVyIFNlYXJjaA0KKioqIEFyZWEgb2YgU2VydmljZQ0KKioqIFNjb290ZXIgRGF0YQ0KKioqIEF1dGgNCioqIFNjb290ZXIgTG9naWMgQ29udHJvbA0KKioqIFNjb290ZXIgUmVtb3RlIENvbnRyb2wNCkBlbmRtaW5kbWFwDQoKUGxhbnRVTUwgdmVyc2lvbiAxLjIwMjEuNyhTdW4gTWF5IDIzIDEyOjQwOjA3IEdNVCAyMDIxKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogT3BlbkpESyBSdW50aW1lIEVudmlyb25tZW50CkpWTTogT3BlbkpESyA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IFVURi04Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" class="UML" alt="UML diagram image" title="UML diagram" /></p>
+<h2 id="context%20map-context-map">Context Map</h2></section><section class="print-page" id="ubiquitous%20language"><h1 id="ubiquitous%20language-ubiquitous-language">Ubiquitous Language</h1>
 <h2 id="ubiquitous%20language-e-scooter-service">E-Scooter service</h2>
 <p>A service that allows <a href="#ubiquitous%20language-customer">customers</a> to <a href="#ubiquitous%20language-rent">rent</a> <a href="#ubiquitous%20language-electric-scooter">electric scooters</a> placed in public areas for a <a href="#ubiquitous%20language-trip">trip</a> within the boundaries of an <a href="#ubiquitous%20language-area-of-service">area of service</a>.</p>
 <h2 id="ubiquitous%20language-electric-scooter">Electric Scooter</h2>
-<p>Alias: e-scooter, scooter
+<p>Alias: e-scooter, scooter<br />
 Motorized vehicle with two wheels, usable by a person standing on it. It's equipped with some sensors and other devices.</p>
 <h3 id="ubiquitous%20language-e-scooter-equipment">E-Scooter equipment</h3>
 <h4 id="ubiquitous%20language-electric-engine">Electric engine</h4>
@@ -329,12 +372,12 @@ Motorized vehicle with two wheels, usable by a person standing on it. It's equip
 <h4 id="ubiquitous%20language-accelerometer">Accelerometer</h4>
 <p>Measures acceleration forces along the three axis</p>
 <h4 id="ubiquitous%20language-electronic-wheel-block">Electronic wheel block</h4>
-<p>Alias: electric break, electric block
+<p>Alias: electric break, electric block<br />
 If turned on, the wheel becomes very hard to rotate</p>
 <h4 id="ubiquitous%20language-headlight">Headlight</h4>
 <p>Light source embedded in the front to enable night usage</p>
 <h4 id="ubiquitous%20language-manual-breaks">Manual Breaks</h4>
-<p>Alias: Breaks, default breaks, disk breaks, rear break
+<p>Alias: Breaks, default breaks, disk breaks, rear break<br />
 Friction based stopping system;
 Placed on the back wheel;
 Controlled by a hand lever.</p>
@@ -343,7 +386,7 @@ Controlled by a hand lever.</p>
 <h4 id="ubiquitous%20language-speaker">Speaker</h4>
 <p>A device that can play sounds and can be remotely activated.</p>
 <h3 id="ubiquitous%20language-mode">Mode</h3>
-<p>Alias: State
+<p>Alias: State<br />
 One of the possible states in which the scooter can be. In each mode, the scooter has a different behavior.</p>
 <h4 id="ubiquitous%20language-active-mode">Active mode</h4>
 <p>A mode in which the scooter has no electric limit on power.</p>
@@ -380,7 +423,7 @@ One of the possible states in which the scooter can be. In each mode, the scoote
 <h4 id="ubiquitous%20language-belong-to-area">Belong to area</h4>
 <p>The <a href="#ubiquitous%20language-electric-scooter">e-scooter</a> can be only rented inside that <a href="#ubiquitous%20language-area-of-service">area</a>.</p>
 <h2 id="ubiquitous%20language-customer">Customer</h2>
-<p>Alias: person; user
+<p>Alias: person; user<br />
 A customer for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter service</a>.</p>
 <h3 id="ubiquitous%20language-anagraphic-information">Anagraphic information</h3>
 <p>Collection of data about the customer, including first name, date of birth, and all the other possible information useful for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter service</a>.</p>
@@ -389,7 +432,7 @@ A customer for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter 
 <h2 id="ubiquitous%20language-recovery">Recovery</h2>
 <p>The act of picking up an <a href="#ubiquitous%20language-electric-scooter">e-scooter</a>, providing <a href="#ubiquitous%20language-maintenance">maintenance</a> and dropping it somewhere inside the <a href="#ubiquitous%20language-area-of-service">area of service</a> sometime later. The scooter may be unlocked if necessary.</p>
 <h3 id="ubiquitous%20language-recovery-assistant">Recovery assistant</h3>
-<p>Alias: assistant, employee.
+<p>Alias: assistant, employee.<br />
 Works for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter service</a> and does recoveries with a <a href="#ubiquitous%20language-recovery-van">recovery van</a>.</p>
 <h3 id="ubiquitous%20language-recovery-van">Recovery van</h3>
 <p>A vehicle that allows <a href="#ubiquitous%20language-recovery-assistant">assistants</a> to recover <a href="#ubiquitous%20language-electric-scooter">e-scooters</a>.</p>
@@ -410,15 +453,26 @@ The map portion inside which <a href="#ubiquitous%20language-electric-scooter">e
 <h4 id="ubiquitous%20language-distance">Distance</h4>
 <p>The distance, in meters, traveled during the trip.</p>
 <h4 id="ubiquitous%20language-start-position">Start position</h4>
-<p>Alias: start
+<p>Alias: start<br />
 A point inside the <a href="#ubiquitous%20language-area-of-service">area of service</a> where the vehicle was <a href="#ubiquitous%20language-unlock">unlocked</a>.</p>
 <h4 id="ubiquitous%20language-end-position">End position</h4>
-<p>Alias: end
+<p>Alias: end<br />
 A point inside the <a href="#ubiquitous%20language-map">map</a> where the vehicle was <a href="#ubiquitous%20language-lock">locked</a> because the <a href="#ubiquitous%20language-rent">rent</a> ended.</p>
 <h2 id="ubiquitous%20language-payment">Payment</h2>
-<p>A payment is a money transaction from the <a href="#ubiquitous%20language-customer">customer</a> to the business bank account.</p>
+<p>A payment can be either:
+- a <a href="#ubiquitous%20language-real-world-payment">real-world payment</a>
+- an <a href="#ubiquitous%20language-in-app-payment">in-app payment</a></p>
 <h3 id="ubiquitous%20language-payment-legacy-system">Payment legacy system</h3>
-<p>The preexisting service that manages user data and payments for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter service</a>.</p></section><section class="print-page" id="use%20cases"><h1 id="use%20cases-use-cases">Use Cases</h1>
+<p>The preexisting service that manages user data and payments for the <a href="#ubiquitous%20language-e-scooter-service">e-scooter service</a>.</p>
+<h3 id="ubiquitous%20language-virtual-currency">Virtual Currency</h3>
+<p>The amount of imaginary money for every customer. Used to pay scooter <a href="#ubiquitous%20language-rent">rents</a>.
+It can be obtained through <a href="#ubiquitous%20language-real-world-payment">real-world purchases</a>.</p>
+<h3 id="ubiquitous%20language-in-app-payment">In-App Payment</h3>
+<p>Alias: in-app purchase<br />
+It's a <a href="#ubiquitous%20language-virtual-currency">virtual currency</a> transaction inside the system.</p>
+<h3 id="ubiquitous%20language-real-world-payment">Real-world payment</h3>
+<p>Alias: real-world purchase<br />
+It's a money transaction from the <a href="#ubiquitous%20language-customer">customer</a> to the business bank account.</p></section><section class="print-page" id="use%20cases"><h1 id="use%20cases-use-cases">Use Cases</h1>
 <h2 id="use%20cases-user-stories">User stories</h2>
 <p>Some user stories are taken from end users and some other are taken from the business representative, business employees.</p>
 <h5 id="use%20cases-1a-search-of-a-scooter">1a - Search of a scooter</h5>
