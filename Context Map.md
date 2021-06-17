@@ -3,7 +3,15 @@
 ## Impact Mapping
 ```plantuml
 @startmindmap
-* asd
+*[#lightblue] Increase E-Scooter Rents
+** Effective Scooter Search
+*** Service Availability
+*** Up-to-date Data
+*** User-friendly operation
+*** Quick results
+** Strategic Drop Points
+*** Trip Data Analysis
+*** Search Data Analysis
 @endmindmap
 ```
 
@@ -32,7 +40,7 @@ Handles the process of scooter renting from the beginning to its end.
 Data collection about trips done by all customers.
 
 ### Insight Subdomain
-*Supporting Subdomain*
+*Core Subdomain*
 #### Drop points Planning Context
 Exploits usage data from other contexts to compute drop point locations or suggestions.
 
@@ -50,10 +58,8 @@ Manages login data and role based authorization for all agents, including employ
 
 
 ## Context Map
-```plantuml
-@startuml
-label ""
-@enduml
+```
+TODO
 ```
 ```plantuml
 @startuml
