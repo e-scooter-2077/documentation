@@ -1,36 +1,36 @@
 # Use Cases
 ## User stories
 Some user stories are taken from end users and some other are taken from the business representative, business employees.
-##### Story #1a
+##### 1a - Search of a scooter
 >As a customer, I want to open the mobile application and search for free scooters in my area.
-##### Story #1b
+##### 1b - Choose and find a scooter
 >As a customer, I want to be able to select a scooter near myself and make it ring in order to find it if it's hidden.
-##### Story #1c
+##### 1c - Rent a scooter
 >As a customer, I want to confirm on my phone and start riding. When I'm done, I want to leave the scooter where I can and confirm the end of the trip on the app.
-##### Story #2
+##### 2 - Battery level
 >As a customer, when I'm searching a scooter, I want to know its battery level in advance.
-##### Story #3a
+##### 3a - Area of service policy
 >When a scooter is taken out of the area of service borders, it locks.
-##### Story #3b
+##### 3b - Customer notification of the area border
 >As a customer, when I'm approaching the area of service border, I want to be warned about the possibility that my scooter gets locked.
 
 _How do you want to get warned?_
 >I'd like the scooter to play a specific sound, while I get a notification on my phone.
-##### Story #4
+##### 4 - Power save policy
 >When the battery goes below a threshold, the scooter enters a power save mode, during which it runs slower than normal.
-##### Story #5
+##### 5 - Customer notification of battery usage
 >As a customer, I want to be warned when the battery is running low. I want to be warned with a ringtone.
-##### Story #6
+##### 6 - Battery exhausted policy
 >When the battery is running low, the scooter warns the customer, if present, that the run must end and enters a standby mode during which it's disabled.
-##### Story #7
+##### 7 - Monitoring of scooters
 >As the business manager, I want to be able to see the position and the battery level of every scooter in a map.
-##### Story #8
+##### 8 - Insights from the system
 >As the business manager, I want to get suggestions about strategic places for the drop points of the next day.
-##### Story #9
+##### 9 - Unlock policy for employees.
 >As a business employee I want to be able to unlock freely the scooters in order to move them.
-##### Story #10
+##### 10 - Vandalism prevention 
 >The scooter should discourage theft and vandalism by playing a message when moved while locked or disabled.
-##### Story #11
+##### 11 - Integration with legacy payment system
 >As the business manager, I want the customers to pay for rides through the existing system.
 
 _Does the legacy system keep track of all users data?_
