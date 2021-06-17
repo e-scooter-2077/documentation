@@ -33,7 +33,7 @@ _How do you want to get warned?_
 ##### 11 - Integration with legacy payment system
 >As the business manager, I want the customers to pay for rides through the existing system.
 
-_Does the legacy system keep track of all users data?_
+_Does the legacy system keep track of all customers data?_
 >If I remember correctly, yes.
 
 _From the legacy system documentation:_

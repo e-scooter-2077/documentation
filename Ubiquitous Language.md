@@ -76,7 +76,6 @@ The [e-scooter](#electric-scooter) can be only rented inside that [area](#area-o
 
 
 ## Customer
-Alias: person; user  
 A customer for the [e-scooter service](#e-scooter-service).
 ### Anagraphic information
 Collection of data about the customer, including first name, date of birth, and all the other possible information useful for the [e-scooter service](#e-scooter-service).
@@ -120,7 +119,7 @@ A payment can be either:
 - a [real-world payment](#real-world-payment)
 - an [in-app payment](#in-app-payment)
 ### Payment legacy system
-The preexisting service that manages user data and payments for the [e-scooter service](#e-scooter-service).
+The preexisting service that manages customer data and payments for the [e-scooter service](#e-scooter-service).
 ### Virtual Currency
 The amount of imaginary money for every customer. Used to pay scooter [rents](#rent).
 It can be obtained through [real-world purchases](#real-world-payment).
