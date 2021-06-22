@@ -1,0 +1,25 @@
+@startuml Context Map Metamodel
+!$subdomain = "rectangle"
+'
+!$context = "component"
+'
+!unquoted procedure $customer_supplier($customer, $supplier)
+$supplier "U" -(0->> "D" $customer : Customer Supplier
+!endprocedure
+'
+!unquoted procedure $conformist($conformist, $supplier)
+$conformist "D" <<-(0- "U" $supplier : Conformist
+!endprocedure
+'
+!function $optional_brackets($content)
+!if ($content == "")
+    !return ""
+!else
+    !return "(" + $content + ")"
+!endif
+!endfunction
+'
+!unquoted procedure $shared_kernel($left, $right, $kernel_description = "")
+$left -(0)- $right : Shared Kernel\n$optional_brackets($kernel_description)
+!endprocedure
+@enduml
