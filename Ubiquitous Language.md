@@ -58,7 +58,7 @@ Use the scooter to move.
 #### Disable
 To deny the possibility that a [customer](#customer) pays for [unlocking](#unlock) the scooter.
 #### Enable
-To allow the possibility that a [customer](#customer) pays for [unlocking](#unlock) the scooter.
+To allow the possibility that a [customer](#customer) pays for [unlocking](#unlock) the scooter, if the [rent](#rent) business policies allow it.
 #### Maintain
 Repair any damage and/or recharge the battery.
 #### Rent

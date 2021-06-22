@@ -20,9 +20,11 @@
 ### E-Scooter Subdomain
 *Core Subdomain*
 #### Scooter Monitor Context
-One of the core contexts. Responsible for keeping track of scooter positions, battery level and other useful data for many business use cases.
-#### Scooter Logic Context
-Responsible for defining control policies and applying policies to e-scooters according to other contexts. It's considered the ground truth for scooter's logic data like unlocked/locked state.
+One of the core contexts. Responsible for keeping track of scooter positions, battery level and other useful data for many business use cases. In other words, the scooter physical state.
+#### Scooter State Context
+Responsible for defining state policies and applying policies to e-scooters according to other contexts. It's considered the ground truth for scooter's logic data like unlocked/locked state.
+#### Scooter Policy Context
+Responsible for defining control policies, like power save, max speed, that depend only on the scooter physical state.
 #### Scooter Physical Control Context
 Responsible for all physical actuation of logic control policies.
 #### Scooter Data Context
@@ -35,7 +37,7 @@ Uses data from the Scooter Monitor Context to provide the search functionality t
 #### Area of Service Context
 Keeps track of service areas, scooter-area bindings and scooter position in order to detect escapes.
 #### Rent Context
-Handles the process of scooter renting from the beginning to its end. Also responsible for the rent business policies.
+Handles the process of scooter renting, asking for allowance to othe contextes. Also responsible for the rent business policies.
 #### Trip Context
 Data collection about trips done by all customers.
 
@@ -63,16 +65,19 @@ Manages login data and role based authorization for all agents, including employ
 !include Metamodel/ContextMap.metamodel.iuml
 $subdomain "E-Scooter Subdomain" {
     $context "Scooter Monitor Context" as monitor
-    $context "Scooter Logic Context" as logic
+    $context "Scooter Policy Context" as policy
+    $context "Scooter State Context" as state
     $context "Scooter Physical Control Context" as control
     $context "Scooter Data Context" as data
     $context "Scooter Search Context" as search
 
-    $customer_supplier(control, logic)
+    $customer_supplier(control, state)
     $conformist(search, monitor)
-    $conformist(logic, monitor)
-    $conformist(search, logic)
+    $conformist(state, monitor)
+    $conformist(search, state)
     $shared_kernel(monitor, control, Azure Digital-Twins)
+    $conformist(policy, monitor)
+    $customer_supplier(state, policy)
 }
 
 $subdomain "Trip Subdomain" {
@@ -81,14 +86,14 @@ $subdomain "Trip Subdomain" {
     $context "Trip Context" as trip
 
     $conformist(trip, rent)
-    $conformist(rent, area)
 }
 
+$conformist(area, state)
 $conformist(area, monitor)
 $conformist(trip, monitor)
-$customer_supplier(logic, rent)
-$conformist(rent, logic)
-$
+$customer_supplier(state, rent)
+$conformist(rent, state)
+
 
 $subdomain "Insight Subdomain" {
     $context "Drop Points Planning Context" as planning
