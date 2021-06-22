@@ -73,8 +73,8 @@ $subdomain "E-Scooter Subdomain" {
 
     $customer_supplier(control, state)
     $conformist(search, monitor)
-    $conformist(state, monitor)
     $conformist(search, state)
+    $conformist(state, monitor)
     $shared_kernel(monitor, control, Azure Digital-Twins)
     $conformist(policy, monitor)
     $customer_supplier(state, policy)
@@ -88,7 +88,7 @@ $subdomain "Trip Subdomain" {
     $conformist(trip, rent)
 }
 
-$conformist(area, state)
+$customer_supplier(state, area)
 $conformist(area, monitor)
 $conformist(trip, monitor)
 $customer_supplier(state, rent)
