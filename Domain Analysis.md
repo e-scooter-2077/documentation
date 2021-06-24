@@ -117,13 +117,12 @@ $conformist(payment, rent)
 $subdomain "User Subdomain" {
     $context "Customer Context" as customer
     $context "Authorization Context" as auth
+    note right of auth
+        Provider of global authentication medium
+    end note
     $customer_supplier(auth, customer)
 }
 
 $conformist(payment, customer)
-
-
-
-
 @enduml
 ```
