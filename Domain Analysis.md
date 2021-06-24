@@ -20,31 +20,30 @@
 ### E-Scooter Subdomain
 *Core Subdomain*
 #### Scooter Monitor Context
-One of the core contexts. Responsible for keeping track of scooter positions, battery level and other useful data for many business use cases. In other words, the scooter physical state.
+One of the core contexts. Responsible for keeping track of scooter positions, battery level and other useful data coming from the physical devices. 
 #### Scooter State Context
-Responsible for defining state policies and applying policies to e-scooters according to other contexts. It's considered the ground truth for scooter's logic data like unlocked/locked state.
+Responsible for keeping track of the scooter logic state, meaning managing the properties of being locked/unlocked and enabled/disabled. Provides all the operations on the scooter state to other contexts and it's considered the ground truth on this data.
 #### Scooter Policy Context
-Responsible for defining control policies, like power save, max speed, that depend only on the scooter physical state.
+Responsible for defining control policies and apply them operating on the State Context, like power save, max speed, that depend only on the scooter physical state.
 #### Scooter Physical Control Context
-Responsible for all physical actuation of logic control policies.
+Responsible for physical actuation of all the remote operations on the scooter.
+#### Area of Service Context
+Keeps track of service areas, scooter-area bindings and scooter position in order to detect escapes.
 #### Scooter Data Context
 Storage of e-scooters technical and logical static information, like ID, serial number, dimensions, weight...
-#### Scooter Search Context
-Uses data from the Scooter Monitor Context to provide the search functionality to customers (that are looking for available scooters to ride). ALso responsible for the searchability policies.
 
 ### Trip Subdomain
 *Core Subdomain*
-#### Area of Service Context
-Keeps track of service areas, scooter-area bindings and scooter position in order to detect escapes.
-#### Rent Context
-Handles the process of scooter renting, asking for allowance to othe contextes. Also responsible for the rent business policies.
+#### Renting Context
+Manages the renting operations including storing data on which scooters are rented and by whom. Provides the interface for searching and renting scooters and communicates with the State Context in order to update the state when needed.
 #### Trip Context
-Data collection about trips done by all customers.
+Data collection about trips done by all customers such as starting points, duration, kilometers.
 
 ### Insight Subdomain
 *Core Subdomain*
 #### Drop points Planning Context
 Exploits usage data from other contexts to compute drop point locations or suggestions.
+Stores data about user search requests coming to the Rent Context.
 
 ### Payment Subdomain
 *Supporting Subdomain*
@@ -69,44 +68,62 @@ $subdomain "E-Scooter Subdomain" {
     $context "Scooter State Context" as state
     $context "Scooter Physical Control Context" as control
     $context "Scooter Data Context" as data
-    $context "Scooter Search Context" as search
+    $context "Area of Service Context" as area
+
+    $common_interface(data, Scooter Lifecycle, lifecycle)
+    $conformist(state, lifecycle, $interface=true)
+    $conformist(monitor, lifecycle, $interface=true)
+    $conformist(control, lifecycle, $interface=true)
+    $conformist(policy, lifecycle, $interface=true)
+    $conformist(area, lifecycle, $interface=true)
+
+    $common_interface(monitor, Scooter Positions, positions)
+    $conformist(area, positions, $interface=true)
 
     $customer_supplier(control, state)
-    $conformist(search, monitor)
-    $conformist(search, state)
-    $conformist(state, monitor)
     $shared_kernel(monitor, control, Azure Digital-Twins)
     $conformist(policy, monitor)
     $customer_supplier(state, policy)
 }
 
 $subdomain "Trip Subdomain" {
-    $context "Area of Service Context" as area
     $context "Rent Context" as rent
     $context "Trip Context" as trip
-
+    
     $conformist(trip, rent)
 }
 
-$customer_supplier(state, area)
-$conformist(area, monitor)
-$conformist(trip, monitor)
-$customer_supplier(state, rent)
-$conformist(rent, state)
+$conformist(rent, lifecycle, $interface=true)
+$bidirectional_customer_supplier(state, rent)
 
+$customer_supplier(state, area)
+$conformist(rent, positions, $interface=true)
+$conformist(trip, positions, $interface=true)
 
 $subdomain "Insight Subdomain" {
     $context "Drop Points Planning Context" as planning
 }
 
+$conformist(planning, trip)
+$conformist(planning, rent)
+
 $subdomain "Payment Subdomain" {
     $context "Payment Context" as payment
 }
 
+$conformist(payment, trip)
+$conformist(payment, rent)
+
 $subdomain "User Subdomain" {
     $context "Customer Context" as customer
     $context "Authorization Context" as auth
+    $customer_supplier(auth, customer)
 }
+
+$conformist(payment, customer)
+
+
+
 
 @enduml
 ```

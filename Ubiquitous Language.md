@@ -34,6 +34,7 @@ Controlled by a hand lever.
 Handle that controls the speed; If the handle isn't turned the [electric break](#electronic-wheel-block) is activated.
 #### Speaker
 A device that can play sounds and can be remotely activated.
+
 ### Mode
 Alias: State  
 One of the possible states in which the scooter can be. In each mode, the scooter has a different behavior.
