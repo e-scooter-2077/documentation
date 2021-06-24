@@ -3,6 +3,8 @@
 '
 !$context = "component"
 '
+!$anticorruption_layer = "storage"
+'
 !unquoted procedure $customer_supplier($customer, $supplier)
 $supplier "U" -(0->> "D" $customer : Customer Supplier
 !endprocedure

@@ -108,7 +108,10 @@ $conformist(planning, trip)
 $conformist(planning, rent)
 
 $subdomain "Payment Subdomain" {
-    $context "Payment Context" as payment
+    $anticorruption_layer "Payment Context" as payment {
+        $context "Payment Legacy Service" as payment_legacy
+
+    }
 }
 
 $conformist(payment, trip)
