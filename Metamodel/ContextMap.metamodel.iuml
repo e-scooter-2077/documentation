@@ -7,8 +7,21 @@
 $supplier "U" -(0->> "D" $customer : Customer Supplier
 !endprocedure
 '
-!unquoted procedure $conformist($conformist, $supplier)
-$conformist "D" <<-(0- "U" $supplier : Conformist
+!unquoted procedure $bidirectional_customer_supplier($customer, $supplier)
+$supplier <<-(0->> $customer : Customer Supplier
+!endprocedure
+'
+!unquoted procedure $conformist($conformist, $supplier, $interface="false")
+!if ($interface != "false")
+    $conformist "D" --( $supplier
+!else
+    $conformist "D" <<-(0- "U" $supplier : Conformist
+!endif
+!endprocedure
+'
+!unquoted procedure $common_interface($supplier, $interface_name, $id)
+interface "$interface_name" as $id
+$id -- "U" $supplier
 !endprocedure
 '
 !function $optional_brackets($content)
