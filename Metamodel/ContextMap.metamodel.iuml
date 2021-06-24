@@ -13,7 +13,7 @@ $supplier <<-(0->> $customer : Customer Supplier
 '
 !unquoted procedure $conformist($conformist, $supplier, $interface="false")
 !if ($interface != "false")
-    $conformist "D" ..> $supplier
+    $conformist "D" --( $supplier
 !else
     $conformist "D" <<-(0- "U" $supplier : Conformist
 !endif
