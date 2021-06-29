@@ -59,6 +59,7 @@ Represents the entry point that clients of the service use to make requests. Cli
 
 ### Inter-Service dependencies
 Inter-service communication can happen with:
+
 * Synchronous API calls from the _Infrastructure_ layer to the recipient _API_ layer
 * Asynchronous Event notification received through the _Application_ layer that adheres to the sender _Contracts_ layer
 
