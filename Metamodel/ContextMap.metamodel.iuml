@@ -1,4 +1,6 @@
 @startuml Context Map Metamodel
+!theme plain
+'
 !$subdomain = "rectangle"
 '
 !$context = "component"
