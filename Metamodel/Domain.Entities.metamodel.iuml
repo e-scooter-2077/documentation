@@ -1,0 +1,3 @@
+@startuml Domain Entities Metamodel
+!$entity="class"
+@enduml
