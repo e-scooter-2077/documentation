@@ -1,0 +1,6 @@
+@startuml Architecture Metamodel
+!$layer="component"
+!$module="card"
+!$microservice="storage"
+!theme plain
+@enduml
