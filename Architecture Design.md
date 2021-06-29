@@ -58,6 +58,9 @@ technology-agnostic interfaces declared by the [Application Layer](#application-
 Represents the entry point that clients of the service use to make requests. Clients can make requests using the REST API exposed by each microservice, therefore this layer defines a set of **Controllers** that declare which endpoints are supported. In addition, this is where each service defines its **DTOs** (Data Transfer Objects, i.e. the objects modeling the format of communication with clients). Lastly, this layer is responsible of managing the **Authentication** process, delegating authorization to the [Application Layer](#application-layer).
 
 ### Inter-Service dependencies
+Inter-service communication can happen with:
+- Synchronous API calls from the _Infrastructure_ layer to the recipient _API_ layer
+- Asynchronous Event notification received through the _Application_ layer that adheres to the sender _Contracts_ layer
 ```plantuml
 @startuml
 !include Metamodel/Architecture.metamodel.iuml
