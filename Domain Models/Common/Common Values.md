@@ -58,3 +58,54 @@ $value "Name" {
 **Constraints**:
 
 - $len(value) > 0$
+
+## Latitude
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "Latitude" {
+  + value : Real
+}
+@enduml
+```
+**Constraints**:
+
+- $value > -90 and value < 90$
+
+
+## Longitude
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "Longitude" {
+  + value : Real
+}
+@enduml
+```
+**Constraints**:
+
+- $value > -180 and value < 180$
+
+## GeoPoint
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "GeoPoint" {
+  + latitude : Latitude
+  + longitude: Longitude
+}
+@enduml
+```
+
+## Distance
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "Distance" {
+  + kilometers : Real
+}
+@enduml
+```
+**Constraints**:
+
+- $kilometers >= 0$
