@@ -4,7 +4,8 @@
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$entity "Scooter" {
+$entity "Scooter" as scooter {
+  + id : EntityId
   + locked : Boolean
   + disabled : Boolean
   + powerMode : PowerMode
@@ -18,32 +19,46 @@ $entity "Scooter" {
   + setPowerMode(mode : PowerMode)
 }
 
-$value "Speed" {
-  + metersPerSecond : Real
-  + kilometersPerHour : Real
+
+$service("PowerModeManager") {
+  + onBatteryLevelChanged(batteryLevel : BatteryLevel)
 }
 
+$factory("ScooterFactory", scooter_factory) {
+  + createScooter(id : EntityId) : Scooter
+}
+
+scooter_factory ..> scooter
+@enduml
+```
+
+## Details
+
+### PowerMode
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
 $enum "PowerMode" {
   ACTIVE
   POWER_SAVING
   STANDBY
 }
 @enduml
-```
-
-## Details
-
-### Speed
-_metersPerSecond_ and _kilometersPerHour_ are two different units for the same speed value.
-**Constraints**:
-
-- $metersPerSecond = kilometersPerHour / 3.6$
-- $metersPerSecond >= 0$
-
-### PowerMode
+``` 
 Represents all the possible power-related modes a scooter can have.
-## Behaviours
 
+### BatteryLevel
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "BatteryLevel" {
+  + percentage : Percentage
+}
+@enduml
+```
+_percentage_ represents a Percentage of the level of the battery.
+
+## Behaviours
 
 ## Domain Services
 
@@ -53,9 +68,9 @@ The Power Mode State Diagram:
 @startuml
 hide empty description
 [*] --> ACTIVE
-ACTIVE --> POWER_SAVING : battery <= POWER_SAVING_THRESHOLD
-POWER_SAVING -> ACTIVE : battery > POWER_SAVING_THRESHOLD
-POWER_SAVING --> STANDBY : battery <= STANDBY_THRESHOLD / disable()
-STANDBY -> ACTIVE : battery > POWER_SAVING_THRESHOLD
+ACTIVE --> POWER_SAVING : batteryLevel <= POWER_SAVING_THRESHOLD
+POWER_SAVING -> ACTIVE : batteryLevel > POWER_SAVING_THRESHOLD
+POWER_SAVING --> STANDBY : batteryLevel <= STANDBY_THRESHOLD / disable()
+STANDBY -> ACTIVE : batteryLevel > POWER_SAVING_THRESHOLD
 @enduml
 ```
