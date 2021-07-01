@@ -11,7 +11,7 @@ $aggregate("Area of Service"){
     + shape : Shape
     + isInArea(point : GeoPoint) : Boolean
   }
-  $value "Shape" as shape{
+  $value("Shape", shape) {
     + isInArea(point : GeoPoint) : Boolean
   }
 
@@ -24,7 +24,7 @@ $factory("ShapeFactory", shape_factory){
 }
 shape_factory ..> shape
 
-$aggregate("Existing Scooters"){
+$aggregate("Existing Scooters") {
  $aggregate_root("Scooter", scooter) {
    + id : EntityId
  }

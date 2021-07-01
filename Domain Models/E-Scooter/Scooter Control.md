@@ -54,7 +54,7 @@ Represents all the possible power-related modes a scooter can have.
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "BatteryLevel" {
+$value("BatteryLevel") {
   + percentage : Percentage
 }
 @enduml

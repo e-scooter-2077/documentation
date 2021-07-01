@@ -23,7 +23,7 @@ $aggregate("Scooter") {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "SerialNumber" {
+$value("SerialNumber") {
   + value : String
 }
 @enduml
@@ -36,7 +36,7 @@ $value "SerialNumber" {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "Weight" {
+$value("Weight") {
   + kilograms : Real
 }
 @enduml
@@ -50,7 +50,7 @@ $value "Weight" {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "ModelInfo" {
+$value("ModelInfo") {
   + model : Name
   + vendorName : Name
 }

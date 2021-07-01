@@ -4,7 +4,7 @@
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "EntityId" {
+$value("EntityId") {
   + id : UniqueId
 }
 @enduml
@@ -15,7 +15,7 @@ _EntityId_ represents how the identity of entities is passed in the system enabl
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "Percentage" {
+$value("Percentage") {
   + base100Value : Integer
   + base1Value : Real
 }
@@ -33,7 +33,7 @@ _percentage_ represents the level of a source as number in [0,1].
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "Speed" {
+$value("Speed") {
   + metersPerSecond : Real
   + kilometersPerHour : Real
 }
@@ -50,7 +50,7 @@ _metersPerSecond_ and _kilometersPerHour_ are two different units for the same s
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "Name" {
+$value("Name") {
   + value : String
 }
 @enduml
@@ -63,7 +63,7 @@ $value "Name" {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "Latitude" {
+$value("Latitude") {
   + value : Real
 }
 @enduml
@@ -77,7 +77,7 @@ $value "Latitude" {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "Longitude" {
+$value("Longitude") {
   + value : Real
 }
 @enduml
@@ -90,7 +90,7 @@ $value "Longitude" {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "GeoPoint" {
+$value("GeoPoint") {
   + latitude : Latitude
   + longitude: Longitude
 }
@@ -101,7 +101,7 @@ $value "GeoPoint" {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "Distance" {
+$value("Distance") {
   + kilometers : Real
 }
 @enduml
