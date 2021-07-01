@@ -7,7 +7,7 @@
 $aggregate("Area of Service"){
   $aggregate_root("AreaOfService", area){
     + id : EntityId
-    + scooters : Set<EntityId>
+    + scooters : Set[EntityId]
     + shape : Shape
     + isInArea(point : GeoPoint) : Boolean
   }
