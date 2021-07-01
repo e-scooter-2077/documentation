@@ -4,7 +4,7 @@
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$entity "Scooter" as scooter {
+$entity("Scooter", scooter) {
   + id : EntityId
   + locked : Boolean
   + disabled : Boolean
@@ -20,14 +20,15 @@ $entity "Scooter" as scooter {
 }
 
 
-$service("PowerModeManager") {
-  + onBatteryLevelChanged(batteryLevel : BatteryLevel)
+$service("PowerModeManager", power_manager) {
+  + onBatteryLevelChanged(scooter: Scooter, batteryLevel : BatteryLevel)
 }
 
 $factory("ScooterFactory", scooter_factory) {
   + createScooter(id : EntityId) : Scooter
 }
 
+power_manager ..> scooter
 scooter_factory ..> scooter
 @enduml
 ```
@@ -38,7 +39,7 @@ scooter_factory ..> scooter
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$enum "PowerMode" {
+$enum(PowerMode) {
   ACTIVE
   POWER_SAVING
   STANDBY
@@ -57,10 +58,6 @@ $value "BatteryLevel" {
 @enduml
 ```
 _percentage_ represents a Percentage of the level of the battery.
-
-## Behaviours
-
-## Domain Services
 
 ### Power Mode Manager
 The Power Mode State Diagram:
