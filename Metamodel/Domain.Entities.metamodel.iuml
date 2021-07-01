@@ -1,4 +1,5 @@
 @startuml Domain Entities Metamodel
 !$entity="entity"
 !$value="class"
+!$enum="enum"
 @enduml
