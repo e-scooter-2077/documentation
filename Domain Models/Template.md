@@ -5,7 +5,8 @@ Lorem Ipsum Lorem
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$entity Entity_Test
+$entity(Entity_Test)
+$service(Entity_Test_Policy)
 @enduml
 ```
 
@@ -13,8 +14,4 @@ $entity Entity_Test
 
 ### Entity_Test
 
-## Behaviours
-
 ### Entity_Test_Policy
-
-## Domain Services
