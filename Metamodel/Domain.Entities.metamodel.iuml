@@ -45,6 +45,10 @@ rectangle "$name Aggregate"
 !endprocedure
 '
 !unquoted procedure $enum($name)
-$value "$name" << Enum >>
+$common_class($name, Enum)
+!endprocedure
+'
+!unquoted procedure $enum($name, $alias)
+$common_class($name, $alias, Enum)
 !endprocedure
 @enduml
