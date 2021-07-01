@@ -1,9 +1,7 @@
 # Domain X
 Lorem Ipsum Lorem
 
-## Entities
-
-### Entity Diagram
+## Class Diagram
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
@@ -11,12 +9,12 @@ $entity Entity_Test
 @enduml
 ```
 
-### Entity descriptions
+## Details
 
-#### Entity_Test
+### Entity_Test
 
-### Behaviours
+## Behaviours
 
-#### Entity_Test_Policy
+### Entity_Test_Policy
 
 ## Domain Services
