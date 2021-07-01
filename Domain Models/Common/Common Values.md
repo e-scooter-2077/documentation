@@ -45,3 +45,16 @@ _metersPerSecond_ and _kilometersPerHour_ are two different units for the same s
 - $metersPerSecond = kilometersPerHour / 3.6$
 - $metersPerSecond >= 0$
 
+
+## Name
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "Name" {
+  + value : String
+}
+@enduml
+```
+**Constraints**:
+
+- $len(value) > 0$
