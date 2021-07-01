@@ -1,4 +1,10 @@
 @startuml Domain Entities Metamodel
+!unquoted procedure $service($name)
+class $name << Domain Service >>
+!endprocedure
+!unquoted procedure $factory($name)
+class $name << Factory >>
+!endprocedure
 !$entity="entity"
 !$value="class"
 !$enum="enum"
