@@ -109,3 +109,45 @@ $value "Distance" {
 **Constraints**:
 
 - $kilometers >= 0$
+
+
+## Timestamp
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "Timestamp" {
+  + value : Integer
+}
+@enduml
+```
+_value_ is the number of milliseconds passed since 01/01/1970 00:00:00 (Epoch)
+
+## DomainError
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "DomainError"{
+}
+@enduml
+```
+
+## Nothing
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "Nothing"{
+}
+@enduml
+```
+
+## Result
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value "Result"<T> {
+  + value : T
+  + error: DomainError
+}
+@enduml
+```
+
