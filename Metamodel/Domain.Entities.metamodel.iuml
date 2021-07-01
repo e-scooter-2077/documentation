@@ -1,17 +1,38 @@
 @startuml Domain Entities Metamodel
+!unquoted procedure $common_class($name, $stereotype)
+class "$name" << $stereotype >>
+!endprocedure
+'
+!unquoted procedure $common_class($name, $alias, $stereotype)
+class "$name" as $alias << $stereotype >>
+!endprocedure
+'
 !unquoted procedure $service($name)
-class "$name" << Domain Service >>
+$common_class($name, Domain Service)
 !endprocedure
+'
 !unquoted procedure $service($name, $alias)
-class "$name" as $alias << Domain Service >>
+$common_class($name, $alias, Domain Service)
 !endprocedure
+'
 !unquoted procedure $factory($name)
-class "$name" << Factory >>
+$common_class($name, Factory)
 !endprocedure
+'
 !unquoted procedure $factory($name, $alias)
-class "$name" as $alias << Factory >>
+$common_class($name, $alias, Factory)
 !endprocedure
-!$entity="entity"
+'
+!unquoted procedure $entity($name)
+$common_class($name, Entity)
+!endprocedure
+'
+!unquoted procedure $entity($name, $alias)
+$common_class($name, $alias, Entity)
+!endprocedure
 !$value="class"
-!$enum="enum"
+'
+!unquoted procedure $enum($name)
+$value "$name" << Enum >>
+!endprocedure
 @enduml
