@@ -32,7 +32,7 @@ Storage of e-scooters technical and logical static information, like ID, serial 
 
 ### Trip Subdomain
 *Core Subdomain*
-#### Renting Context
+#### Rent Context
 Manages the renting operations including storing data on which scooters are rented and by whom. Provides the interface for searching and renting scooters and communicates with the State Context in order to update the state when needed.
 #### Trip Context
 Data collection about trips done by all customers such as starting points, duration, kilometers.
