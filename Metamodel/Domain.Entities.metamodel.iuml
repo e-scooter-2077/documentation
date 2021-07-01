@@ -40,6 +40,9 @@ $common_class($name, $alias, Aggregate Root)
 !endprocedure
 '
 !$value="class"
+!unquoted procedure $aggregate($name)
+rectangle "$name Aggregate"
+!endprocedure
 '
 !unquoted procedure $enum($name)
 $value "$name" << Enum >>
