@@ -4,14 +4,17 @@
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$entity("Scooter", scooter) {
-  + id : EntityId
 
-  + lock()
-  + unlock()
-  + setMaxSpeed(speed : Speed)
-  + setPowerSavingOn()
-  + setPowerSavingOff()
+$aggregate("Scooter") {
+  $aggregate_root("Scooter", scooter) {
+    + id : EntityId
+
+    + lock()
+    + unlock()
+    + setMaxSpeed(speed : Speed)
+    + setPowerSavingOn()
+    + setPowerSavingOff()
+  }
 }
 @enduml
 ```

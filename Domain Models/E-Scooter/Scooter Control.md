@@ -4,19 +4,21 @@
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$entity("Scooter", scooter) {
-  + id : EntityId
-  + locked : Boolean
-  + disabled : Boolean
-  + powerMode : PowerMode
-  + maxSpeed : Speed
+$aggregate("Scooter") {
+  $aggregate_root("Scooter", scooter) {
+    + id : EntityId
+    + locked : Boolean
+    + disabled : Boolean
+    + powerMode : PowerMode
+    + maxSpeed : Speed
 
-  + lock()
-  + unlock()
-  + enable()
-  + disable()
-  + setMaxSpeed(speed : Speed)
-  + setPowerMode(mode : PowerMode)
+    + lock()
+    + unlock()
+    + enable()
+    + disable()
+    + setMaxSpeed(speed : Speed)
+    + setPowerMode(mode : PowerMode)
+  }
 }
 
 
