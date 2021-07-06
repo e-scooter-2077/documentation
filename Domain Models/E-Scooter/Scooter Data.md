@@ -6,10 +6,10 @@
 !include Metamodel/Domain.Entities.metamodel.iuml
 $aggregate("Scooter") {
   $aggregate_root("Scooter", scooter) {
-    + id : EntityId
-    + serialNumber : SerialNumber
-    + weight : Weight
-    + model : ModelInfo
+    + id: EntityId
+    + serialNumber: SerialNumber
+    + weight: Weight
+    + model: ModelInfo
   }
 }
 @enduml
@@ -23,8 +23,8 @@ $aggregate("Scooter") {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "SerialNumber" {
-  + value : String
+$value("SerialNumber") {
+  + value: String
 }
 @enduml
 ```
@@ -36,8 +36,8 @@ $value "SerialNumber" {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "Weight" {
-  + kilograms : Real
+$value("Weight") {
+  + kilograms: Real
 }
 @enduml
 ```
@@ -50,9 +50,9 @@ $value "Weight" {
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "ModelInfo" {
-  + model : Name
-  + vendorName : Name
+$value("ModelInfo") {
+  + model: Name
+  + vendorName: Name
 }
 @enduml
 ```

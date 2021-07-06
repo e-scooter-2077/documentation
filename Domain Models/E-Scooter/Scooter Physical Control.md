@@ -7,11 +7,11 @@
 
 $aggregate("Scooter") {
   $aggregate_root("Scooter", scooter) {
-    + id : EntityId
+    + id: EntityId
 
     + lock()
     + unlock()
-    + setMaxSpeed(speed : Speed)
+    + setMaxSpeed(speed: Speed)
     + setPowerSavingOn()
     + setPowerSavingOff()
   }

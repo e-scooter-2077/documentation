@@ -6,28 +6,28 @@
 !include Metamodel/Domain.Entities.metamodel.iuml
 $aggregate("Scooter") {
   $aggregate_root("Scooter", scooter) {
-    + id : EntityId
-    + locked : Boolean
-    + disabled : Boolean
-    + powerMode : PowerMode
-    + maxSpeed : Speed
+    + id: EntityId
+    + locked: Boolean
+    + disabled: Boolean
+    + powerMode: PowerMode
+    + maxSpeed: Speed
 
     + lock()
     + unlock()
     + enable()
     + disable()
-    + setMaxSpeed(speed : Speed)
-    + setPowerMode(mode : PowerMode)
+    + setMaxSpeed(speed: Speed)
+    + setPowerMode(mode: PowerMode)
   }
 }
 
 
 $service("PowerModeManager", power_manager) {
-  + onBatteryLevelChanged(scooter: Scooter, batteryLevel : BatteryLevel)
+  + onBatteryLevelChanged(scooter: Scooter, batteryLevel: BatteryLevel)
 }
 
 $factory("ScooterFactory", scooter_factory) {
-  + createScooter(id : EntityId) : Scooter
+  + createScooter(id: EntityId): Scooter
 }
 
 power_manager ..> scooter
@@ -54,8 +54,8 @@ Represents all the possible power-related modes a scooter can have.
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "BatteryLevel" {
-  + percentage : Percentage
+$value("BatteryLevel") {
+  + percentage: Percentage
 }
 @enduml
 ```
@@ -67,9 +67,9 @@ The Power Mode State Diagram:
 @startuml
 hide empty description
 [*] --> ACTIVE
-ACTIVE --> POWER_SAVING : batteryLevel <= POWER_SAVING_THRESHOLD
-POWER_SAVING -> ACTIVE : batteryLevel > POWER_SAVING_THRESHOLD
-POWER_SAVING --> STANDBY : batteryLevel <= STANDBY_THRESHOLD / disable()
-STANDBY -> ACTIVE : batteryLevel > POWER_SAVING_THRESHOLD
+ACTIVE --> POWER_SAVING: batteryLevel <= POWER_SAVING_THRESHOLD
+POWER_SAVING -> ACTIVE: batteryLevel > POWER_SAVING_THRESHOLD
+POWER_SAVING --> STANDBY: batteryLevel <= STANDBY_THRESHOLD / disable()
+STANDBY -> ACTIVE: batteryLevel > POWER_SAVING_THRESHOLD
 @enduml
 ```
