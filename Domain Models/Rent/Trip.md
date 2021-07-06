@@ -7,18 +7,19 @@
 
 $aggregate("Trip") {
     $aggregate_root("Trip", trip) {
-        + distance: 
+        + distance: Distance
         + start: TripPoint
         + end: TripPoint
-        + rider: EntityId
+        + rent: EntityId
         + vehicle: EntityId
-        
     }
 
-    $value("TripPoint") {
+    $value("TripPoint", point) {
         + time: Timestamp
         + position: Position
     }
+
+    point -o trip
 }
 @enduml
 ```

@@ -122,12 +122,28 @@ $value("Distance") {
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
 $value("Timestamp") {
-  + value: Integer
+  + milliseconds: Integer
 }
 @enduml
 ```
 
 _value_ is the number of milliseconds passed since 01/01/1970 00:00:00 (Epoch)
+
+## Duration
+```plantuml
+@startuml
+!include Metamodel/Domain.Entities.metamodel.iuml
+$value("Duration") {
+  + milliseconds: Integer
+}
+@enduml
+```
+
+_milliseconds_ is the number of milliseconds.
+
+**Constraints**:
+
+- $milliseconds >= 0$
 
 ## DomainError
 ```plantuml
