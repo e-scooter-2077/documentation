@@ -101,6 +101,7 @@ $subdomain "Insight Subdomain" {
 
 $conformist(planning, trip)
 $conformist(planning, rent)
+$conformist(planning, area)
 
 $subdomain "Payment Subdomain" {
     $anticorruption_layer "Payment Context" as payment {
