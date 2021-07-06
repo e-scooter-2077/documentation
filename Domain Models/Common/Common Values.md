@@ -9,6 +9,7 @@ $value "EntityId" {
 }
 @enduml
 ```
+
 _EntityId_ represents how the identity of entities is passed in the system enabling the possibility to distinguish between one another of the same kind.
 
 ## Percentage
@@ -39,6 +40,7 @@ $value "Speed" {
 }
 @enduml
 ```
+
 _metersPerSecond_ and _kilometersPerHour_ are two different units for the same speed value.
 **Constraints**:
 
@@ -55,6 +57,7 @@ $value "Name" {
 }
 @enduml
 ```
+
 **Constraints**:
 
 - $len(value) > 0$
@@ -68,6 +71,7 @@ $value "Latitude" {
 }
 @enduml
 ```
+
 **Constraints**:
 
 - $value > -90 and value < 90$
@@ -82,6 +86,7 @@ $value "Longitude" {
 }
 @enduml
 ```
+
 **Constraints**:
 
 - $value > -180 and value < 180$
@@ -106,6 +111,7 @@ $value "Distance" {
 }
 @enduml
 ```
+
 **Constraints**:
 
 - $kilometers >= 0$
@@ -120,6 +126,7 @@ $value "Timestamp" {
 }
 @enduml
 ```
+
 _value_ is the number of milliseconds passed since 01/01/1970 00:00:00 (Epoch)
 
 ## DomainError
