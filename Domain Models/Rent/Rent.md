@@ -6,37 +6,80 @@
 !include Metamodel/Domain.Entities.metamodel.iuml
 $aggregate("Scooter") {
   $aggregate_root("Scooter", scooter) {
-    + id : EntityId
-    + rentable : Boolean
-    + currentlyRented : Boolean
-    + rent() : Result[Nothing]
+    + id: EntityId
+    + rentable: Boolean
+    + currentlyRented: Boolean
+
+    + rent(): Result[Nothing]
+    + setFree(): Result[Nothing]
   }
 }
 
-$aggregate("Rent") {
-  $aggregate_root("Rent", rent){
-    + user : EntityId
-    + scooter : EntityId
-    + endReason: Option[RentEndReason]
-    + startDate : Timestamp
-    + endDate :  Option[Timestamp]
-    + end( reason : RentEndReason)
+$aggregate("Customer") {
+  $aggregate_root("Customer", customer) {
+    + id: EntityId
+    + rents: Set[Rent]
+    
+    + requestRent(scooter: EntityId): Result[Rent]
+    + confirmLastRent(time: Timestamp, maxDuration: Duration): Result[Rent]
+    + cancelLastRent(reason: RentCancellationInfo): Result[Rent]
+    + stopLastRent(reason: RentEndReason, time: Timestamp): Result[Rent]
   }
 
-  $enum("RentEndReason", end_reason){
+  $entity("Rent", rent) {
+    + id: EntityId
+    + scooter: EntityId
+    + confirmation: Option[RentConfirmationInfo]
+    + end: Option[RentEndInfo]
+    + cancel: Option[RentCancellationInfo]
+    
+    + stop(reason: RentEndReason): Result[Nothing]
+    + confirm(maxDuration: Duration): Result[Nothing]
+  }
+
+  $value("RentEndInfo", rentEndInfo) {
+    + reason: RentEndReason
+    + date: Timestamp
+  }
+
+  $value("RentCancellationInfo", rentCancellationInfo) {
+    + reason: RentCancellationReason
+  }
+
+  $value("RentConfirmationInfo", rentConfirmationInfo) {
+    + maxEnd: Timestamp
+    + date: Timestamp
+  }
+
+  rentEndInfo --o rent
+  rentConfirmationInfo --o rent
+  rentCancellationInfo --o rent
+
+  $enum("RentEndReason", endReason) {
     OUT_OF_AREA
-    USER
+    CUSTOMER
     CREDIT_EXHAUSTED
     BATTERY_LOW
   }
 
-  rent ..> end_reason
+  $enum("RentCancellationReason", cancellationReason) {
+    CREDIT_INSUFFICIENT
+  }
+
+  customer "1" -- "*" rent
+
+  rentEndInfo ..> endReason
+  rentCancellationInfo ..> cancellationReason
 }
+
+rent .. scooter
 @enduml
 ```
 
 ## Details
 
-### Entity_Test
+### Rent
+**Constraints**:
 
-### Entity_Test_Policy
+- $confirmation.date + confirmation.maxEnd >= end.date \text{ if } \exists end$
+- $\exists confirmation \text{ if } \exists end$
