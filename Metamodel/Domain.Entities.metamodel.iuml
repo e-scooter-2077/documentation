@@ -39,7 +39,14 @@ $common_class($name, Aggregate Root)
 $common_class($name, $alias, Aggregate Root)
 !endprocedure
 '
-!$value="class"
+!unquoted procedure $value($name)
+class "$name"
+!endprocedure
+'
+!unquoted procedure $value($name, $alias)
+class "$name" as $alias
+!endprocedure
+'
 !unquoted procedure $aggregate($name)
 rectangle "$name Aggregate"
 !endprocedure
