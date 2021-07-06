@@ -7,26 +7,22 @@
 
 $aggregate("Trip") {
     $aggregate_root("Trip", trip) {
-        + distance: Distance
+        + travelledistance: Distance
         + start: TripPoint
-        + end: TripPoint
+        + end: Option[TripPoint]
         + rent: EntityId
         + vehicle: EntityId
+
+        + end(point: TripPoint): Result[Nothing]
+        + addDistance(distance: Distance): Result[Nothing]
     }
 
     $value("TripPoint", point) {
         + time: Timestamp
-        + position: Position
+        + position: GeoPoint
     }
 
     point -o trip
 }
 @enduml
 ```
-
-## Details
-
-### Rent
-**Constraints**:
-
-- $startDate + maxDuration >= endDate \text{ if } \exists endDate$
