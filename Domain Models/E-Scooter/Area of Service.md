@@ -11,7 +11,7 @@ $aggregate("Area of Service") {
     + shape: Shape
     + isInArea(point: GeoPoint): Boolean
   }
-  $value "Shape" as shape{
+  $value("Shape", shape) {
     + isInArea(point: GeoPoint): Boolean
   }
 
