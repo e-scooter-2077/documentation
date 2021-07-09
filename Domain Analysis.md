@@ -30,12 +30,14 @@ Keeps track of service areas, scooter-area bindings and scooter position in orde
 #### Scooter Data Context
 Storage of e-scooters technical and logical static information, like ID, serial number, dimensions, weight...
 
-### Trip Subdomain
+### Rent Subdomain
 *Core Subdomain*
 #### Rent Context
 Manages the renting operations including storing data on which scooters are rented and by whom. Provides the interface for searching and renting scooters and communicates with the State Context in order to update the state when needed.
 #### Trip Context
 Data collection about trips done by all customers such as starting points, duration, kilometers.
+#### Rent Payment Context
+Responsible for managing the payment policy for customer rents.
 
 ### Insight Subdomain
 *Core Subdomain*
@@ -81,11 +83,14 @@ $subdomain "E-Scooter Subdomain" {
     $conformist(control, monitor)
 }
 
-$subdomain "Trip Subdomain" {
+$subdomain "Rent Subdomain" {
     $context "Rent Context" as rent
     $context "Trip Context" as trip
-    
+    $context "Rent Payment Context" as rent_payment
+
     $conformist(trip, rent)
+    $conformist(rent_payment, rent)
+    $conformist(rent, rent_payment)
 }
 
 $conformist(rent, lifecycle, $interface=true)
@@ -110,8 +115,7 @@ $subdomain "Payment Subdomain" {
     }
 }
 
-$conformist(payment, trip)
-$conformist(payment, rent)
+$conformist(rent_payment, payment)
 
 $subdomain "User Subdomain" {
     $context "Customer Context" as customer

@@ -6,18 +6,18 @@
 !$anticorruption_layer = "storage"
 '
 !unquoted procedure $customer_supplier($customer, $supplier)
-$supplier "U" -(0->> "D" $customer : Customer Supplier
+$supplier "U" -(0- "D" $customer : Customer Supplier
 !endprocedure
 '
 !unquoted procedure $bidirectional_customer_supplier($customer, $supplier)
-$supplier <<-(0->> $customer : Customer Supplier
+$supplier -(0- $customer : Customer Supplier
 !endprocedure
 '
 !unquoted procedure $conformist($conformist, $supplier, $interface="false")
 !if ($interface != "false")
     $conformist "D" --( $supplier
 !else
-    $conformist "D" <<-(0- "U" $supplier : Conformist
+    $conformist "D" -(0- "U" $supplier : Conformist
 !endif
 !endprocedure
 '
