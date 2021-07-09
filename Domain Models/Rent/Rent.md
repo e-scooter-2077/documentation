@@ -82,3 +82,10 @@ rent .. scooter
 
 - $confirmation.date + confirmation.maxEnd >= end.date \text{ if } \exists end$
 - $\exists confirmation \text{ if } \exists end$
+
+## Domain Events
+
+- **RentRequested**:  
+- **RentConfirmed**: 
+- **RentStopped**: 
+- **RentCanceled**: 

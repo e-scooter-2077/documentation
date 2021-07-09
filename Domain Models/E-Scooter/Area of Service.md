@@ -35,7 +35,12 @@ area .> scooter
 @enduml
 ```
 
-## Details
+## Domain Events
 
-### AreaOfService
-
+- **AreaCreated**: emitted when an area is created
+- **AreaDeleted**: emitted when an area is deleted
+- **ScooterAssignedToArea**: emitted when a scooter is set to belong to a certain area of service.
+- **ScooterRemovedFromArea**: emitted when a scooter is set to not belong to any area.
+- **AreaShapeChanged**: emitted when the shape of an area of service is changed.
+- **ScooterWentOutsideArea**: emitted when a scooter that belongs to an area is moved outside of its shape.
+- **ScooterReturnedInsideArea**: emitted when a scooter returns inside its area of service after having moved out.

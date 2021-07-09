@@ -24,3 +24,5 @@ $aggregate("Scooter") {
 ### Scooter
 Exposes the possible action to do on the physical Scooter.
 All the actions are idempotent.
+
+## Domain Events

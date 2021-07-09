@@ -26,3 +26,8 @@ $aggregate("Trip") {
 }
 @enduml
 ```
+
+## Domain Events
+
+- **TripStarted**: 
+- **TripEnded**: 

@@ -60,5 +60,4 @@ $value("ModelInfo") {
 ## Domain events
 
 - **ScooterCreated**: emitted when a new scooter is registered to the system.
-
 - **ScooterRemoved**: emitted when a scooter is removed from the system.

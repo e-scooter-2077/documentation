@@ -15,13 +15,18 @@ $aggregate("Rent") {
   }
 }
 
-$service("RentPaymentManager") {
+$value("Currency", currency) {
+  + amount: Integer
+}
+
+$service("RentPaymentManager", rentpay) {
   + onRentStarted(rentId: EntityId): Result[Rent]
   + onRentStopped(rent: Rent): Result[Nothing]
   + onNextPayment(rent: Rent): Result[Nothing]
 }
 
-
+rentpay ..> currency
+rentpay .> rent
 
 @enduml
 ```
@@ -76,3 +81,10 @@ rent ->> control : lockScooter(scooterId)
 
 @enduml
 ```
+
+## Domain Events
+
+- **RentAuthorized**: 
+- **RentNotAuthorized**: 
+- **CreditExhaustedForRent**: 
+ 

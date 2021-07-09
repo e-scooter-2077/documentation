@@ -46,3 +46,6 @@ $aggregate("Area") {
 ## Details
 
 ### Drop Point
+A drop point is a GeoPoint representing a suggested spot where to place some scooters.
+
+## Domain Events

@@ -73,3 +73,12 @@ POWER_SAVING --> STANDBY: batteryLevel <= STANDBY_THRESHOLD / disable()
 STANDBY -> ACTIVE: batteryLevel > POWER_SAVING_THRESHOLD
 @enduml
 ```
+
+## Domain Events
+
+- **ScooterUnlocked**: emitted when
+- **ScooterLocked**: emitted when
+- **ScooterPowerModeChanged**: emitted when
+- **ScooterMaxSpeedChanged**: emitted when
+- **ScooterEnabled**: emitted when
+- **ScooterDisabled**: emitted when
