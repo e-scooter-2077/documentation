@@ -7,12 +7,12 @@
 
 $aggregate("Trip") {
     $aggregate_root("Trip", trip) {
-        + travelledistance: Distance
+        + travelledDistance: Distance
         + start: TripPoint
         + end: Option[TripPoint]
         + rent: EntityId
         + vehicle: EntityId
-
+s
         + end(point: TripPoint): Result[Nothing]
         + addDistance(distance: Distance): Result[Nothing]
     }
