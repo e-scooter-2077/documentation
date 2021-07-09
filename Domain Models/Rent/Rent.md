@@ -33,8 +33,8 @@ $aggregate("Customer") {
     + end: Option[RentEndInfo]
     + cancel: Option[RentCancellationInfo]
     
-    + stop(reason: RentEndReason): Result[Nothing]
-    + confirm(maxDuration: Duration): Result[Nothing]
+    + stop(timestamp: Timestamp, reason: RentEndReason): Result[Nothing]
+    + confirm(timestamp: Timestamp): Result[Nothing]
   }
 
   $value("RentEndInfo", rentEndInfo) {
@@ -47,7 +47,6 @@ $aggregate("Customer") {
   }
 
   $value("RentConfirmationInfo", rentConfirmationInfo) {
-    + maxEnd: Timestamp
     + date: Timestamp
   }
 
