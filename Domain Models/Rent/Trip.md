@@ -6,23 +6,23 @@
 !include Metamodel/Domain.Entities.metamodel.iuml
 
 $aggregate("Trip") {
-    $aggregate_root("Trip", trip) {
-        + travelledDistance: Distance
-        + start: TripPoint
-        + end: Option[TripPoint]
-        + rent: EntityId
-        + vehicle: EntityId
-s
-        + end(point: TripPoint): Result[Nothing]
-        + addDistance(distance: Distance): Result[Nothing]
-    }
+  $aggregate_root("Trip", trip) {
+    + travelledDistance: Distance
+    + start: TripPoint
+    + end: Option[TripPoint]
+    + rent: EntityId
+    + vehicle: EntityId
 
-    $value("TripPoint", point) {
-        + time: Timestamp
-        + position: GeoPoint
-    }
+    + end(point: TripPoint): Result[Nothing]
+    + addDistance(distance: Distance): Result[Nothing]
+  }
 
-    point -o trip
+  $value("TripPoint", point) {
+    + time: Timestamp
+    + position: GeoPoint
+  }
+
+  point -o trip
 }
 @enduml
 ```

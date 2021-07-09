@@ -62,6 +62,7 @@ Manages login data and role based authorization for all agents, including employ
 ```plantuml
 @startuml
 !include Metamodel/ContextMap.metamodel.iuml
+
 $subdomain "E-Scooter Subdomain" {
     $context "Area of Service Context" as area
     $context "Scooter Monitor Context" as monitor

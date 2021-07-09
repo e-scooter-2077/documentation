@@ -1,4 +1,4 @@
-# Payment Domain Model
+# Rent Payment Domain Model
 
 ## Class Diagram
 ```plantuml
@@ -6,68 +6,22 @@
 !include Metamodel/Domain.Entities.metamodel.iuml
 
 $aggregate("Rent") {
-    $aggregate_root("Rent") {
-        + id: EntityId
-        + start: Timestamp
-        + rider: EntityId
-        + stopped: Boolean
-    }
-
-    $entity("Transaction") {
-        + id: EntityId
-        + time: Timestamp
-    }
+  $aggregate_root("Rent", rent) {
+    + id: EntityId
+    + start: Timestamp
+    + lastPaymentTime: Timestamp
+    + rider: EntityId
+    + stopped: Boolean
+  }
 }
 
-' $aggregate("Customer") {
+$service("RentPaymentManager") {
+  + onRentStarted(rentId: EntityId): Result[Rent]
+  + onRentStopped(rent: Rent): Result[Nothing]
+  + onNextPayment(rent: Rent): Result[Nothing]
+}
 
-'     $aggregate_root("Customer", customer) {
-'         + id: EntityId
-'         + balance: Credit
-'         + locked: Boolean
-'         + transactions: Set[Transaction]
 
-'         + addCredit(credit: Credit)
-'         + pay(credit: Credit): Result[Credit]
-'     }
-
-'     $value("Credit", credit) {
-'         + amount: Integer
-'         + inDollars: Real
-'         + inEuros: Real
-'     }
-
-'     customer o- credit
-
-'     $entity("Transaction", transaction) {
-        
-'     }
-' }
-
-' $factory("CreditFactory", credit_factory) {
-'     + fromAmount(amount: Integer) : Credit
-'     + fromEuros(euros: Real): Credit
-'     + fromDollars(dollars: Real): Credit
-' }
-
-' $service("CreditVerifier", verifier) {
-'     + checkIfCustomerCanUnlock(customer: Customer): Result[Nothing]
-'     + checkBalanceForRent(customer: Customer): Result[RentCheckResult]
-' }
-
-' $value("RentCheckResult") {
-'     + duration: Duration
-' }
-
-' $service("PaymentManager", payment_manager) {
-'     + pay(credit: Credit, customer: Customer): Result[Payment]
-' }
-
-' $service("PaymentPolicy", payment_policy) {
-'     + computeTripFee(trip: Trip)
-' }
-
-' credit_factory ..> credit
 
 @enduml
 ```
@@ -79,7 +33,9 @@ $aggregate("Rent") {
 ```plantuml
 @startuml
 participant "Customer" as customer
+participant "Scooter Control Service" as control
 participant "Rent Service" as rent
+participant "Rent Payment Service" as rent_payment
 participant "Payment Service" as payment
 
 customer -> rent : request rent
@@ -87,10 +43,36 @@ customer -> rent : request rent
 rent -> rent : create pending rent
 return Rent
 
-rent ->> payment : rentStarted(customerId, rentId)
+rent ->> rent_payment : rentRequested(customerId, rentId)
 
+rent --> customer : OK
 
-payment ->> rent : creditChecked(rentId, maxDuration)
+rent_payment -> payment : charge unlock price + first x minutes
+return OK
+
+rent_payment ->> rent : rentAuthorized(rentId, startTime)
+
+rent ->> customer : rentConfirmed(rentId)
+
+rent ->> control : unlockScooter(scooterId)
+
+loop every x minutes while credit is sufficient and rent is not stopped
+  rent_payment -> payment : charge x minutes price
+  alt
+    payment --> rent_payment : OK
+  else
+    payment --> rent_payment : Insufficient credit
+    rent_payment ->> rent : creditExhaustedForRent(rentId, endTime)
+
+    rent ->> control : lockScooter(scooterId)
+  end
+end
+
+customer -> rent : stop rent
+
+rent ->> rent_payment : rentStopped(rentId)
+
+rent ->> control : lockScooter(scooterId)
 
 @enduml
 ```
