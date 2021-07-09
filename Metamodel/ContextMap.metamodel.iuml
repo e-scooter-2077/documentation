@@ -6,11 +6,11 @@
 !$anticorruption_layer = "storage"
 '
 !unquoted procedure $customer_supplier($customer, $supplier)
-$supplier "U" -(0- "D" $customer : Customer Supplier
+$supplier "U" -(0-- "D" $customer : Customer Supplier
 !endprocedure
 '
 !unquoted procedure $bidirectional_customer_supplier($customer, $supplier)
-$supplier -(0- $customer : Customer Supplier
+$supplier -(0-- $customer : Customer Supplier
 !endprocedure
 '
 !unquoted procedure $conformist($conformist, $supplier, $interface="false")
@@ -23,7 +23,7 @@ $supplier -(0- $customer : Customer Supplier
 '
 !unquoted procedure $common_interface($supplier, $interface_name, $id)
 interface "$interface_name" as $id
-$id -- "U" $supplier
+$id - "U" $supplier
 !endprocedure
 '
 !function $optional_brackets($content)
