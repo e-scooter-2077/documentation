@@ -1,4 +1,4 @@
-# ScooterData
+# Scooter Data
 
 ## API
 

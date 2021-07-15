@@ -76,9 +76,9 @@ STANDBY -> ACTIVE: batteryLevel > POWER_SAVING_THRESHOLD
 
 ## Domain Events
 
-- **ScooterUnlocked**: emitted when
-- **ScooterLocked**: emitted when
-- **ScooterPowerModeChanged**: emitted when
-- **ScooterMaxSpeedChanged**: emitted when
-- **ScooterEnabled**: emitted when
-- **ScooterDisabled**: emitted when
+- **ScooterUnlocked**: emitted when a scooter is unlocked
+- **ScooterLocked**: emitted when a scooter is locked
+- **ScooterPowerModeChanged**: emitted when the power mode of a scooter is changed
+- **ScooterMaxSpeedChanged**: emitted when the max speed of a scooter is changed
+- **ScooterEnabled**: emitted when a scooter is enabled
+- **ScooterDisabled**: emitted when a scooter is disabled

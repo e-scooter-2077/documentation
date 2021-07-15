@@ -213,7 +213,7 @@ Code 404: if the scooter or the area doesn't exist.
 }
 ```
 
-## Incoming Events
+## Subscriptions
 
 ### ScooterData  
 - ScooterCreated

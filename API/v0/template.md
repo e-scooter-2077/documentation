@@ -45,7 +45,11 @@ Code ***:
 }
 ```
 
-## Incoming Events
+## Commands
+
+### Name
+
+## Subscriptions
 
 ### Service  
 - EventName
