@@ -54,7 +54,7 @@
 
 ## Subscriptions
 
-### ScooterData
+### Scooter Data
 - ScooterCreated
 - ScooterDeleted
 
