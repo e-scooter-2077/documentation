@@ -229,6 +229,6 @@ Code 404: if the scooter or the area doesn't exist.
 
 ## Subscriptions
 
-### ScooterData  
+### Scooter Data  
 - ScooterCreated
 - ScooterDeleted
