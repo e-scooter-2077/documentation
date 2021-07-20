@@ -4,7 +4,7 @@
 
 ### /areas
 
-#### GET
+#### GET  
 Returns a list of Areas of service.
 
 **Query Parameters**  
@@ -43,7 +43,6 @@ Code 201:
   "id": string, //EntityId
   "shape": object //Shape
 }
-}
 ```
 
 Code 400
@@ -53,7 +52,22 @@ Code 400
 **URL Parameters**  
 - **id**: the EntityId that identifies the requested area.
 
-#### PUT
+#### GET  
+get the properties of an existing area.
+
+**Response**  
+Code 200:
+```json
+{
+  "id": string, //EntityId
+  "shape": object, //Shape
+  "scooters": Set[string] //Set[EntityId]
+}
+```
+Code 400
+Code 404
+
+#### PUT  
 Modify the properties of an existing area.
 **Body**
 ```json
