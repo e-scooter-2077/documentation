@@ -26,6 +26,28 @@ Code 200:
 }
 ```
 
+### /rents/{rentId}
+
+**URL Parameters**  
+- **rentId**: the EntityId that identifies the requested rent
+
+#### GET  
+Requests the end of a rent
+
+**Response**
+Code 201:
+```json
+{
+  "scooterId": string, //EntityId
+  "customerId": string, //EntityId
+  "rentId": string, //EntityId
+  //TODO "confirmed": boolean
+  //TODO "end": boolean
+}
+```
+
+Code 404
+
 ### /rents/startWith/{scooterId}
 
 **URL Parameters**  
@@ -87,26 +109,31 @@ Code 404
 *Fires when* a rent is confirmed
 ```json
 {
+  /* TODO ci vanno? 
+  "scooterId": string, //EntityId
+  "customerId": string, //EntityId
+  */
   "rentId": string //EntityId
 }
 ```
 
 ### RentStopped  
-*Fires when* a rent is stopped from the customer
+*Fires when* a rent is stopped for the reason specified in the body
 ```json
 {
-  "rentId": string //EntityId
+  "rentId": string, //EntityId
+  "reason": string //RentEndReason
 }
 ```
-
+<!-- TODO
 ### RentCanceled  
 *Fires when* a rent is canceled for other reasons
 ```json
 {
   "rentId": string //EntityId
-  //TODO "reason": string //RentEndReason
+  
 }
-```
+``` -->
 
 ## Subscriptions
 
