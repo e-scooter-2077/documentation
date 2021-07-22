@@ -61,13 +61,14 @@ Code 200:
 ```json
 {
   "id": string, //EntityId
-  //TODO gestire start stop come TripPoint? "start": object, //TripPoint
+  //TODO gestire start stop come TripPoint? "start": object, //TripPoint "stop": object, //TripPoint
   "travelledDistance": number //Distance
 }
 ```
 Code 400
 Code 404
 
+<!--ho pensato che non si potesse creare un trip da API perché viene fatto in modo automatico con l'evento del Rent-->
 
 ## Outgoing Events
 
@@ -75,7 +76,8 @@ Code 404
 *Fires when* a new trip starts
 ```json
 {
-  "id": string //EntityId
+  "id": string, //EntityId
+  //TODO gestire start stop come TripPoint? "start": object, //TripPoint
 }
 ```
 
@@ -83,7 +85,8 @@ Code 404
 *Fires when* a new trip ends
 ```json
 {
-  "id": string //EntityId
+  "id": string, //EntityId
+  //TODO gestire start stop come TripPoint? "stop": object, //TripPoint
 }
 ```
 
