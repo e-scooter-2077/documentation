@@ -41,8 +41,8 @@ Code 201:
   "scooterId": string, //EntityId
   "customerId": string, //EntityId
   "rentId": string, //EntityId
-  //TODO "confirmed": boolean
-  //TODO "end": boolean
+  "confirmed": boolean,
+  "end": boolean
 }
 ```
 
@@ -101,7 +101,7 @@ Code 404
 *Fires when* a rent is created but still not confirmed
 ```json
 {
-  "rentId": string //EntityId
+  "rentId": string, //EntityId
 }
 ```
 
@@ -113,7 +113,8 @@ Code 404
   "scooterId": string, //EntityId
   "customerId": string, //EntityId
   */
-  "rentId": string //EntityId
+  "rentId": string, //EntityId
+  "confirm": number //Timestamp
 }
 ```
 
@@ -122,21 +123,18 @@ Code 404
 ```json
 {
   "rentId": string, //EntityId
-  "reason": string //RentEndReason
+  "reason": string, //RentEndReason
+  "stop": number //Timestamp
 }
 ```
-<!-- TODO
-### RentCanceled  
-*Fires when* a rent is canceled for other reasons
-```json
-{
-  "rentId": string //EntityId
-  
-}
-``` -->
 
 ## Subscriptions
 
 ### ScooterData  
 - ScooterCreated
 - ScooterDeleted
+
+### Rent Payment
+- RentAuthorized 
+- RentNotAuthorized
+- CreditExhaustedForRent
