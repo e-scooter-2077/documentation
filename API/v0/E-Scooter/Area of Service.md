@@ -11,18 +11,16 @@ Returns a list of Areas of service.
 - **pageNum**: number of requested page given the pageSize
 - **pageSize**: elements per page
 
-**Response**
-Code 200:
+**Response**  
+Code 200:  
+[paginated response](../paginate.md)
 ```json
 {
-  "pageNum": integer,
-  "pageSize": integer,
-  "areas": [
+  "data": [
     {
       "id": string //EntityId
     }
-  ],
-  "next": string
+  ]
 }
 ```
 
@@ -101,11 +99,13 @@ Code 200:
 
 Code 404
 
-### /areas/{areaId}/contains/scooter/{scooterId}
+### /areas/{areaId}?contains={scooterId}
 
 **URL Parameters**  
 - **areaId**: the EntityId that identifies the area in which to search
-- **scooterId**: the EntityId that identifies the requested scooter
+
+**Query Parameters**  
+- **contains**: the EntityId that identifies the requested scooter
 
 #### GET
 Returns whether a scooter belonging to an area is currently inside tha area boundary.
@@ -122,35 +122,16 @@ Code 200:
 
 Code 404: if the scooter doesn't belong to the selected area or the area doesn't exist.
 
-### /areas/{areaId}/contains/point/{point}
-
-#### GET
-Returns whether a point is inside he boundary of an Area of Service.
-
-**URL Parameters**  
-- **areaId**: the EntityId that identifies the area in which to search
-- **point**: the Geopoint to search in the area
-
-**Response**  
-Code 200:
-```json
-{
-  "areaId": string, //EntityId
-  "point": object, //Geopoint
-  "isInArea": boolean
-}
-```
-
-Code 404: if the area doesn't exist.
-
-### /scooters/{id}/belongsTo/{areaId}
+### /scooters/{id}?belongsTo={areaId}
 
 #### GET
 Returns whether a scooter belongs to an Area of Service.
 
 **URL Parameters**  
 - **scooterId**: the EntityId that identifies the requested scooter
-- **areaId**: the EntityId that identifies the area in which to search
+
+**Query Parameters**
+- **belongsTo**: the EntityId that identifies the area in which to search
 
 **Response**  
 Code 200:
