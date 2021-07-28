@@ -12,17 +12,15 @@ Returns a list of Rents.
 - **pageSize**: elements per page
 
 **Response**
-Code 200:
+Code 200:  
+[paginated response](../paginate.md)
 ```json
 {
-  "pageNum": integer,
-  "pageSize": integer,
-  "rents": [
+  "data": [
     {
       "id": string //EntityId
     }
-  ],
-  "next": string
+  ]
 }
 ```
 

@@ -12,17 +12,15 @@ Returns a list of Trips.
 - **pageSize**: elements per page
 
 **Response**
-Code 200:
+Code 200:  
+[paginated response](../paginate.md)
 ```json
 {
-  "pageNum": integer,
-  "pageSize": integer,
-  "areas": [
+  "data": [
     {
       "id": string //EntityId
     }
-  ],
-  "next": string
+  ]
 }
 ```
 

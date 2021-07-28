@@ -12,17 +12,15 @@ Returns the list of the best drop points
 - **pageSize**: elements per page
 
 **Response**  
-Code 200:
+Code 200:  
+[paginated response](../paginate.md)
 ```json
 {
-  "pageNum": integer,
-  "pageSize": integer,
-  "points": [
+  "data": [
     {
       "id": string //EntityId
     }
-  ],
-  "next": string
+  ]
 }
 ```
 
