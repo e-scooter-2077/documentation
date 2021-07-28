@@ -149,7 +149,7 @@ _milliseconds_ is the number of milliseconds.
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "DomainError"{
+$value("DomainError"){
 }
 @enduml
 ```
@@ -158,7 +158,7 @@ $value "DomainError"{
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value "Nothing"{
+$value("Nothing"){
 }
 @enduml
 ```
