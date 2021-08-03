@@ -34,7 +34,7 @@
 }
 ```
 
-### ScooterPoweModeChanged
+### ScooterPowerModeChanged
 *Fires when* the power mode of a scooter is changed
 ```json
 {
