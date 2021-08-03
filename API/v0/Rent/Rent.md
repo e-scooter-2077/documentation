@@ -46,7 +46,7 @@ Code 201:
 
 Code 404
 
-### /rents/startWith/{scooterId}
+### /scooter/{scooterId}/rent
 
 **URL Parameters**  
 - **scooterId**: the EntityId that identifies the requested scooter
