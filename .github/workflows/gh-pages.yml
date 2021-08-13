@@ -1,4 +1,4 @@
-name: Update GitHub Actions
+name: Update GitHub Pages
 
 on:
   push:
