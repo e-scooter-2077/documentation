@@ -167,7 +167,7 @@ $value("Nothing"){
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value("Result"<T>) {
+$value(Result<T>) {
   + value: T
   + error: DomainError
 }
