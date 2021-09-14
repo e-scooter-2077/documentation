@@ -20,4 +20,5 @@
 
     !!! note Emulation
         Emulating a device means firing a sequence of realistic updates on its reported properties on IoT Hub. We consider every device to be an **E-Scooter**.
+
 1. Can be executed both as script and as a library
