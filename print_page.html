@@ -1835,21 +1835,20 @@ Code 404</p>
 <li>
 <p>Emulate all the devices on a Iot Hub instance</p>
 <ol>
-<li>Fetch the list of all devices</li>
+<li>Fetch the list of all devices, periodically</li>
 <li>For each device, start an infinite emulation that lasts until a "stop event" is fired<ol>
 <li>A stop event can be a keyboard interrupt or a C# method call</li>
 <li>The emulation consists of:<ol>
 <li>Load device data</li>
 <li>Decide which property should be changed, why and how<ol>
-<li>If the device is not in-between a trip, start a trip randomly</li>
-<li>If it's in-between a trip, randomly select an action:<ol>
-<li>End the trip, lock the device</li>
+<li>If the device is locked, do nothing</li>
+<li>If it's unlocked, randomly select an action:<ol>
+<li>Do nothing</li>
 <li>Change position based on velocity</li>
 <li>Change position and change velocity</li>
 </ol>
 </li>
-<li>If it's in-between a trip, consume some battery<ol>
-<li>If the battery is below the power saving threshold go in power saving mode</li>
+<li>If it's moving, consume some battery<ol>
 <li>If the battery is below the standby threshold go in standby mode</li>
 </ol>
 </li>
