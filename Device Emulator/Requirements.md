@@ -10,7 +10,7 @@
                 1. If the device is locked, do nothing
                 1. If it's unlocked, randomly select an action:
                     1. Do nothing
-                    1. Change position based on velocity
+                    1. Change position based on velocity (only if velocity is not 0)
                     1. Change position and change velocity
                 1. If it's moving, consume some battery
                     1. If the battery is below the standby threshold go in standby mode
