@@ -80,7 +80,7 @@ $subdomain "E-Scooter Subdomain" {
     $conformist(area, positions, $interface=true)
 
     $customer_supplier(physical, control)
-    $shared_kernel(monitor, physical, Azure Digital-Twins)
+    $shared_kernel(monitor, physical, Azure IoT Hub)
     $conformist(control, monitor)
 }
 
