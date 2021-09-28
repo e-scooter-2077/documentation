@@ -1,0 +1,33 @@
+@startuml Architecture Metamodel
+!$subdomain = "rectangle"
+'
+!$microservice="agent"
+'
+!$function="cloud"
+'
+!$azureiothub="storage"
+'
+!$azuredt="storage"
+'
+!$device="actor"
+'
+!$frontend="person"
+'
+!unquoted procedure $updates($subject, $object)
+$subject --> $object
+!endprocedure
+'
+!unquoted procedure $queries($subject, $object)
+$subject --(0 $object
+!endprocedure
+'
+!unquoted procedure $listens($subject, $object)
+$subject <.. $object
+!endprocedure
+'
+!unquoted procedure $exposes_interface($subject, $interface_name, $id)
+interface "$interface_name" as $id
+$id - $subject
+!endprocedure
+'
+@enduml
