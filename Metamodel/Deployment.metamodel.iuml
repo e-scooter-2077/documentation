@@ -1,6 +1,8 @@
 @startuml Architecture Metamodel
 !$subdomain = "rectangle"
 '
+!$context = "card"
+'
 !$microservice="agent"
 '
 !$function="cloud"
