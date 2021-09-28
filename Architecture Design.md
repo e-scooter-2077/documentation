@@ -101,55 +101,53 @@ $queries(adminApp, twins)
 
 $subdomain "E-Scooter Subdomain" {
 
-    $microservice "Scooter Data" as data
-    $exposes_interface(data, "Scooter Lifecycle", scooterLifecycle)
+    $context "Scooter Data" {
+        $microservice "Scooter Data" as data
+        $exposes_interface(data, "Scooter Lifecycle", scooterLifecycle)
+    }
 
-
-    $microservice "Scooter Physical Control" as physical
-    $azureiothub "Scooter IoT Hub" as scooterhub
-    $function "Manage Devices" as deviceManager
-    $listens(deviceManager, data)
-    $listens(deviceManager, scooterLifecycle)
-    $updates(deviceManager, scooterhub)
-    $updates(deviceManager, twins)
-
-    $updates(physical, scooterhub)
-    $listens(physical, scooterLifecycle)
+    $context "Scooter Physical Control" {
+        $microservice "Scooter Physical Control" as physical
+        $azureiothub "Scooter IoT Hub" as scooterhub
+        $function "Manage Devices" as deviceManager
+        $listens(deviceManager, data)
+        $listens(deviceManager, scooterLifecycle)
+        $updates(deviceManager, scooterhub)
+        $updates(deviceManager, twins)
+        $updates(physical, scooterhub)
+        $listens(physical, scooterLifecycle)
+    }
 
     $device "Scooter" as scooter
     $listens(scooter, scooterhub)
     $updates(scooter, scooterhub)
 
-    $microservice "Scooter Monitor" as monitor
-    $exposes_interface(monitor, "Scooter Positions", scooterPositions)
-    $function "Manage Telemetry" as telemetryManager
-    $listens(monitor, scooterLifecycle)
-    $listens(telemetryManager, scooterhub)
-    $updates(telemetryManager, monitor)
-    $updates(telemetryManager, twins)
+    $context "Scooter Monitor" {
+        $microservice "Scooter Monitor" as monitor
+        $exposes_interface(monitor, "Scooter Status", scooterPositions)
+        $function "Manage Telemetry" as telemetryManager
+        $listens(monitor, scooterLifecycle)
+        $listens(telemetryManager, scooterhub)
+        $updates(telemetryManager, monitor)
+        $updates(telemetryManager, twins)
+    }
 
-    $microservice "Area of Service" as area
-    $listens(area, scooterLifecycle)
-    $listens(area, scooterPositions)
-    
-    $microservice "Scooter Control" as control
-    $listens(control, area)
-    $listens(control, scooterLifecycle)
-    $listens(control, scooterPositions)
-    $updates(control, physical)
-    $function "Manage Controls" as controlsManager
-    $listens(controlsManager, control)
-    $updates(controlsManager, twins)
+    $context "Area of Service" {
+        $microservice "Area of Service" as area
+        $listens(area, scooterLifecycle)
+        $listens(area, scooterPositions)
+    }
 
-
-    '$conformist(area, lifecycle, $interface=true)
-
-    '$common_interface(monitor, Scooter Positions, positions)
-    '$conformist(area, positions, $interface=true)
-
-    '$customer_supplier(physical, control)
-    '$shared_kernel(monitor, physical, Azure IoT Hub)
-    '$conformist(control, monitor)
+    $context "Scooter Control" {
+        $microservice "Scooter Control" as control
+        $listens(control, area)
+        $listens(control, scooterLifecycle)
+        $listens(control, scooterPositions)
+        $updates(control, physical)
+        $function "Manage Controls" as controlsManager
+        $listens(controlsManager, control)
+        $updates(controlsManager, twins)
+    }
 }
 
 ' $subdomain "Rent Subdomain" {

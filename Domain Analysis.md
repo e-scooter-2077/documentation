@@ -76,12 +76,12 @@ $subdomain "E-Scooter Subdomain" {
     $conformist(physical, lifecycle, $interface=true)
     $conformist(area, lifecycle, $interface=true)
 
-    $common_interface(monitor, Scooter Positions, positions)
+    $common_interface(monitor, Scooter Status, positions)
     $conformist(area, positions, $interface=true)
 
     $customer_supplier(physical, control)
     $shared_kernel(monitor, physical, Azure IoT Hub)
-    $conformist(control, monitor)
+    $conformist(control, positions, $interface=true)
 }
 
 $subdomain "Rent Subdomain" {
