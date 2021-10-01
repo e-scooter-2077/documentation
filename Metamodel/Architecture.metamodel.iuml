@@ -2,5 +2,4 @@
 !$layer="component"
 !$module="card"
 !$microservice="storage"
-!theme plain
 @enduml
