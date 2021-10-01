@@ -23,7 +23,7 @@ $subject --> $object
 $subject --(0 $object
 !endprocedure
 '
-!unquoted procedure $listens($subject, $object)
+!unquoted procedure $observes($subject, $object)
 $subject <.. $object
 !endprocedure
 '

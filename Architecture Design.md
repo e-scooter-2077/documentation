@@ -110,42 +110,42 @@ $subdomain "E-Scooter Subdomain" {
         $microservice "Scooter Physical Control" as physical
         $azureiothub "Scooter IoT Hub" as scooterhub
         $function "Manage Devices" as deviceManager
-        $listens(deviceManager, data)
-        $listens(deviceManager, scooterLifecycle)
+        $observes(deviceManager, data)
+        $observes(deviceManager, scooterLifecycle)
         $updates(deviceManager, scooterhub)
         $updates(deviceManager, twins)
         $updates(physical, scooterhub)
-        $listens(physical, scooterLifecycle)
+        $observes(physical, scooterLifecycle)
     }
 
     $device "Scooter" as scooter
-    $listens(scooter, scooterhub)
+    $observes(scooter, scooterhub)
     $updates(scooter, scooterhub)
 
     $context "Scooter Monitor" {
         $microservice "Scooter Monitor" as monitor
         $exposes_interface(monitor, "Scooter Status", scooterPositions)
         $function "Manage Telemetry" as telemetryManager
-        $listens(monitor, scooterLifecycle)
-        $listens(telemetryManager, scooterhub)
+        $observes(monitor, scooterLifecycle)
+        $observes(telemetryManager, scooterhub)
         $updates(telemetryManager, monitor)
         $updates(telemetryManager, twins)
     }
 
     $context "Area of Service" {
         $microservice "Area of Service" as area
-        $listens(area, scooterLifecycle)
-        $listens(area, scooterPositions)
+        $observes(area, scooterLifecycle)
+        $observes(area, scooterPositions)
     }
 
     $context "Scooter Control" {
         $microservice "Scooter Control" as control
-        $listens(control, area)
-        $listens(control, scooterLifecycle)
-        $listens(control, scooterPositions)
+        $observes(control, area)
+        $observes(control, scooterLifecycle)
+        $observes(control, scooterPositions)
         $updates(control, physical)
         $function "Manage Controls" as controlsManager
-        $listens(controlsManager, control)
+        $observes(controlsManager, control)
         $updates(controlsManager, twins)
     }
 }
