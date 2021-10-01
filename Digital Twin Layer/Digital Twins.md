@@ -17,11 +17,6 @@
         "PowerSavingMode": String
     },
     "Relationships": [
-        {
-            "displayName": "is used by",
-            "description": "the device is being ridden by",
-            "target": Customer
-        }
     ],
     "Telemetry": {
         "Battery": Number,
@@ -47,7 +42,10 @@
         {
             "displayName": "uses",
             "description": "the customer is riding",
-            "target": Scooter
+            "target": Scooter,
+            "properties": {
+                "rentId": Id
+            }
         }
     ],
     "Telemetry": {
