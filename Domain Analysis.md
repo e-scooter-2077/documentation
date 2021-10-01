@@ -54,8 +54,8 @@ Manages all customer in-app transactions, virtual currency, and triggers real-wo
 *Generic Subdomain*
 #### Customer Context
 Keeps track of customers anagraphic data.
-#### Authorization Context
-Manages login data and role based authorization for all agents, including employees and customers.
+#### Authentication Context
+Manages login data and role based authentication for all agents, including employees and customers.
 
 
 ## Context Map
@@ -98,7 +98,6 @@ $conformist(rent, lifecycle, $interface=true)
 $bidirectional_customer_supplier(control, rent)
 
 $customer_supplier(control, area)
-$conformist(rent, positions, $interface=true)
 $conformist(trip, positions, $interface=true)
 
 $subdomain "Insight Subdomain" {
@@ -120,7 +119,7 @@ $conformist(rent_payment, payment)
 
 $subdomain "User Subdomain" {
     $context "Customer Context" as customer
-    $context "Authorization Context" as auth
+    $context "Authentication Context" as auth
     note right of auth
         Provider of global authentication medium
     end note
