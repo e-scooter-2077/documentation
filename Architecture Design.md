@@ -87,10 +87,132 @@ infrastructure_2 ..> api_1
 ## Global Architecture
 
 ### Deployment Diagram
+
+#### Legend
+```plantuml
+@startuml
+!include Metamodel/Deployment.metamodel.iuml
+$print_legend()
+@enduml
+```
+
 ```plantuml
 @startuml
 !include Metamodel/Deployment.metamodel.iuml
 
+$subdomain "E-Scooter Subdomain" {
+
+    $context "Scooter Data" {
+        $microservice "Scooter Data" as data
+        $exposes_topic(data, "Scooter Lifecycle", scooterLifecycle)
+    }
+
+    $context "Scooter Monitor & Physical Control Context" {
+        $function "Scooter Physical Control" as physical
+        $azureiothub "Scooter IoT Hub" as scooterhub
+        $function "Manage Devices" as deviceManager
+        $observes(deviceManager, scooterLifecycle)
+        $updates(deviceManager, scooterhub)
+        $updates(physical, scooterhub)
+        $observes(physical, scooterLifecycle)
+        $device "Scooter" as scooter
+        $observes(scooter, scooterhub)
+        $updates(scooter, scooterhub)
+
+        $microservice "Scooter Monitor" as monitor
+        $exposes_topic(monitor, "Scooter Status", scooterStatus)
+        $function "Manage Telemetry" as telemetryManager
+        $function "Manage Reported Properties" as telemetryManager
+        $observes(monitor, scooterLifecycle)
+        $observes(telemetryManager, scooterhub)
+        $updates(telemetryManager, monitor)
+    }
+
+    $context "Area of Service" {
+        $microservice "Area of Service" as area
+        $observes(area, scooterLifecycle)
+        $observes(area, scooterStatus)
+    }
+
+    $context "Scooter Control" {
+        $microservice "Scooter Control" as control
+        $sends_commands(area, control)
+        $observes(control, scooterLifecycle)
+        $observes(control, scooterStatus)
+        $sends_commands(control, physical)
+        $function "Manage Controls" as controlsManager
+        $observes(controlsManager, control)
+    }
+}
+
+$subdomain "User Subdomain" {
+    $context "Customer Context" {
+        $microservice Customer as customer
+        $exposes_topic(customer, Customer Lifecycle, customerLifecycle)
+    }
+    $context "Authentication Context" {
+        $microservice Authentication as auth
+    }
+    $observes(auth, customerLifecycle)
+    '$customer_supplier(auth, customer)
+}
+
+$subdomain "Rent Subdomain" {
+
+    $context "Rent Context" {
+        $microservice "Rent" as rent
+        $observes(rent, scooterLifecycle)
+        $observes(rent, scooterStatus)
+        $observes(control, rent)
+        $observes(rent, control)
+        $exposes_topic(rent, Rent Lifecycle, rentLifecycle)
+        $function "Rent Manager" as rentManager
+        $observes(rentManager, rentLifecycle)
+    }
+
+    $context "Trip Context" {
+        $microservice "Trip" as trip
+        $observes(trip, rentLifecycle)
+        $observes(trip, scooterStatus)
+    }
+    
+    $context "Rent Payment Context" {
+        $microservice "Rent Payment" as rentPayment
+        $observes(rentPayment, rentLifecycle)
+        $observes(rent, rentPayment)
+    }
+}
+
+$subdomain "Insight Subdomain" {
+    $context "Drop Points Planning Context" {
+        $microservice "Drop Points Planning" as dpPlanning
+        $observes(dpPlanning, trip)
+        $observes(dpPlanning, area)
+    }
+}
+
+
+
+$subdomain "Payment Subdomain" {
+    $context "Payment Context" {
+        $microservice "Payment" as payment
+        $microservice "Legacy Payment" as paymentLegacy
+        $updates(paymentLegacy, payment)
+        $updates(payment, paymentLegacy)
+        $observes(payment, customerLifecycle)
+    }
+}
+
+$observes(rentPayment, payment)
+$sends_commands(rentPayment, payment)
+
+@enduml
+```
+
+
+```plantuml
+@startuml
+!include Metamodel/Deployment.metamodel.iuml
 $azuredt "Scooter Digital Twins" as twins
 $microservice "Scooter DT Gateway" as twinsGateway
 $frontend "Mobile App" as app
@@ -99,100 +221,16 @@ $queries(twinsGateway, twins)
 $frontend "Administrator Application" as adminApp
 $queries(adminApp, twins)
 
-$subdomain "E-Scooter Subdomain" {
+$function "Manage Controls" as controlsManager
+$updates(controlsManager, twins)
 
-    $context "Scooter Data" {
-        $microservice "Scooter Data" as data
-        $exposes_interface(data, "Scooter Lifecycle", scooterLifecycle)
-    }
+$function "Manage Telemetry" as telemetryManager
+$updates(telemetryManager, twins)
 
-    $context "Scooter Physical Control" {
-        $microservice "Scooter Physical Control" as physical
-        $azureiothub "Scooter IoT Hub" as scooterhub
-        $function "Manage Devices" as deviceManager
-        $observes(deviceManager, data)
-        $observes(deviceManager, scooterLifecycle)
-        $updates(deviceManager, scooterhub)
-        $updates(deviceManager, twins)
-        $updates(physical, scooterhub)
-        $observes(physical, scooterLifecycle)
-    }
+$function "Manage Devices" as deviceManager
+$updates(deviceManager, twins)
 
-    $device "Scooter" as scooter
-    $observes(scooter, scooterhub)
-    $updates(scooter, scooterhub)
-
-    $context "Scooter Monitor" {
-        $microservice "Scooter Monitor" as monitor
-        $exposes_interface(monitor, "Scooter Status", scooterPositions)
-        $function "Manage Telemetry" as telemetryManager
-        $observes(monitor, scooterLifecycle)
-        $observes(telemetryManager, scooterhub)
-        $updates(telemetryManager, monitor)
-        $updates(telemetryManager, twins)
-    }
-
-    $context "Area of Service" {
-        $microservice "Area of Service" as area
-        $observes(area, scooterLifecycle)
-        $observes(area, scooterPositions)
-    }
-
-    $context "Scooter Control" {
-        $microservice "Scooter Control" as control
-        $observes(control, area)
-        $observes(control, scooterLifecycle)
-        $observes(control, scooterPositions)
-        $updates(control, physical)
-        $function "Manage Controls" as controlsManager
-        $observes(controlsManager, control)
-        $updates(controlsManager, twins)
-    }
-}
-
-' $subdomain "Rent Subdomain" {
-'     $context "Rent Context" as rent
-'     $context "Trip Context" as trip
-'     $context "Rent Payment Context" as rent_payment
-
-'     $conformist(trip, rent)
-'     $conformist(rent_payment, rent)
-'     $conformist(rent, rent_payment)
-' }
-
-' $conformist(rent, lifecycle, $interface=true)
-' $bidirectional_customer_supplier(control, rent)
-
-' $customer_supplier(control, area)
-' $conformist(rent, positions, $interface=true)
-' $conformist(trip, positions, $interface=true)
-
-' $subdomain "Insight Subdomain" {
-'     $context "Drop Points Planning Context" as planning
-' }
-
-' $conformist(planning, trip)
-' $conformist(planning, rent)
-' $conformist(planning, area)
-
-' $subdomain "Payment Subdomain" {
-'     $anticorruption_layer "Payment Context" as payment {
-'         $context "Payment Legacy Service" as payment_legacy
-
-'     }
-' }
-
-' $conformist(rent_payment, payment)
-
-' $subdomain "User Subdomain" {
-'     $context "Customer Context" as customer
-'     $context "Authorization Context" as auth
-'     note right of auth
-'         Provider of global authentication medium
-'     end note
-'     $customer_supplier(auth, customer)
-' }
-
-' $conformist(payment, customer)
+$function "Rent Manager" as rentManager
+$updates(rentManager, twins)
 @enduml
 ```
