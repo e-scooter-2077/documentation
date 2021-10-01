@@ -37,33 +37,31 @@ $id -- $subject
 !endprocedure
 '
 !unquoted procedure $print_legend()
-folder LEGEND {
-    label A
-    label B
-    label C    
-    label D
-    label E
-    label F
-    label G
-    label H
-    label I
-    $updates(A, B) : Updates
-    $observes(C, D) : Observes
-    $queries(E, F) : Queries
-    $sends_commands(G, H) : Sends Commands
-    $exposes_topic(I, Topic Name, _) : Exposes Topic
+label A
+label B
+label C    
+label D
+label E
+label F
+label G
+label H
+label I
+$updates(A, B) : Updates
+$observes(C, D) : Observes
+$queries(E, F) : Queries
+$sends_commands(G, H) : Sends Commands
+$exposes_topic(I, Topic Name, _) : Exposes Topic
 
-    $subdomain "Subdomain Name" {
-        $context "Context Name" {
-            $microservice "Microservice Name"
-            $function "Function Name"
-            $azureiothub "Azure IoT Hub Name"
-            $azuredt "Azure Data Table Name"
-            $device "Device Name"
-        }
+$subdomain "Subdomain Name" {
+    $context "Context Name" {
+        $microservice "Microservice Name"
+        $function "Function Name"
+        $azureiothub "Azure IoT Hub Name"
+        $azuredt "Azure Data Table Name"
+        $device "Device Name"
     }
-    $frontend "Frontend Name"
 }
+$frontend "Frontend Name"
 !endprocedure
 '
 @enduml

@@ -88,14 +88,14 @@ infrastructure_2 ..> api_1
 
 ### Deployment Diagram
 
-#### Legend
 ```plantuml
 @startuml
+title Legend
 !include Metamodel/Deployment.metamodel.iuml
 $print_legend()
 @enduml
 ```
-
+-----------------------------------------------------------
 ```plantuml
 @startuml
 !include Metamodel/Deployment.metamodel.iuml
@@ -191,8 +191,6 @@ $subdomain "Insight Subdomain" {
     }
 }
 
-
-
 $subdomain "Payment Subdomain" {
     $context "Payment Context" {
         $microservice "Payment" as payment
@@ -208,7 +206,6 @@ $sends_commands(rentPayment, payment)
 
 @enduml
 ```
-
 
 ```plantuml
 @startuml
