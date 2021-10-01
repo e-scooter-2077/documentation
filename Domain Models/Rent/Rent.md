@@ -63,6 +63,8 @@ $aggregate("Customer") {
 
   $enum("RentCancellationReason", cancellationReason) {
     CREDIT_INSUFFICIENT
+    SCOOTER_UNAVAILABLE
+    INTERNAL_ERROR
   }
 
   customer "1" -- "*" rent
