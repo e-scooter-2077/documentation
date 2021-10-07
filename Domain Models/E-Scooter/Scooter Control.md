@@ -50,16 +50,15 @@ $enum(PowerMode) {
 ``` 
 Represents all the possible power-related modes a scooter can have.
 
-### BatteryLevel
+### Battery
 ```plantuml
 @startuml
 !include Metamodel/Domain.Entities.metamodel.iuml
-$value("BatteryLevel") {
-  + percentage: Percentage
+$value("Battery") {
+  + level: Fraction
 }
 @enduml
 ```
-_percentage_ represents a Percentage of the level of the battery.
 
 ### Power Mode Manager
 The Power Mode State Diagram:
