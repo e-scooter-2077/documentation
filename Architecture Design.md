@@ -102,7 +102,7 @@ $print_legend()
 
 $subdomain "E-Scooter Subdomain" {
 
-    $context "Scooter Data" {
+    $context "Scooter Data Context" {
         $microservice "Scooter Data" as data
         $exposes_topic(data, "Scooter Lifecycle", scooterLifecycle)
     }
@@ -128,13 +128,13 @@ $subdomain "E-Scooter Subdomain" {
         $updates(telemetryManager, monitor)
     }
 
-    $context "Area of Service" {
+    $context "Area of Service Context" {
         $microservice "Area of Service" as area
         $observes(area, scooterLifecycle)
         $observes(area, scooterStatus)
     }
 
-    $context "Scooter Control" {
+    $context "Scooter Control Context" {
         $microservice "Scooter Control" as control
         $sends_commands(area, control)
         $observes(control, scooterLifecycle)
