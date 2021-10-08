@@ -157,13 +157,22 @@ $subdomain "User Subdomain" {
     '$customer_supplier(auth, customer)
 }
 
+$subdomain "Payment Subdomain" {
+    $context "Payment Context" {
+        $microservice "Payment" as payment
+        $microservice "Legacy Payment" as paymentLegacy
+        $updates(payment, paymentLegacy)
+        $observes(payment, customerLifecycle)
+    }
+}
+
 $subdomain "Rent Subdomain" {
 
     $context "Rent Context" {
         $microservice "Rent" as rent
         $observes(rent, scooterLifecycle)
         $observes(rent, scooterStatus)
-        $observes(control, rent)
+        $sends_commands(rent, control)
         $observes(rent, control)
         $exposes_topic(rent, Rent Lifecycle, rentLifecycle)
         $function "Rent Manager" as rentManager
@@ -180,6 +189,7 @@ $subdomain "Rent Subdomain" {
         $microservice "Rent Payment" as rentPayment
         $observes(rentPayment, rentLifecycle)
         $observes(rent, rentPayment)
+        $updates(rentPayment, payment)
     }
 }
 
@@ -190,19 +200,6 @@ $subdomain "Insight Subdomain" {
         $observes(dpPlanning, area)
     }
 }
-
-$subdomain "Payment Subdomain" {
-    $context "Payment Context" {
-        $microservice "Payment" as payment
-        $microservice "Legacy Payment" as paymentLegacy
-        $updates(paymentLegacy, payment)
-        $updates(payment, paymentLegacy)
-        $observes(payment, customerLifecycle)
-    }
-}
-
-$observes(rentPayment, payment)
-$sends_commands(rentPayment, payment)
 
 @enduml
 ```
