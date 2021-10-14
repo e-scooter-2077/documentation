@@ -16,11 +16,11 @@
 !$frontend="person"
 '
 !unquoted procedure $updates($subject, $object)
-$subject -> $object
+$subject --> $object
 !endprocedure
 '
 !unquoted procedure $queries($subject, $object)
-$subject -(0 $object
+$subject --(0 $object
 !endprocedure
 '
 !unquoted procedure $observes($subject, $object)
@@ -33,7 +33,7 @@ $subject .(0 $object
 '
 !unquoted procedure $exposes_topic($subject, $topic_name, $id)
 interface "$topic_name" as $id
-$id -- $subject
+$id - $subject
 !endprocedure
 '
 !unquoted procedure $print_legend()

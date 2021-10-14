@@ -107,25 +107,33 @@ $subdomain "E-Scooter Subdomain" {
         $exposes_topic(data, "Scooter Lifecycle", scooterLifecycle)
     }
 
-    $context "Scooter Monitor & Physical Control Context" {
-        $function "Scooter Physical Control" as physical
+    $context "Scooter Monitor & Control Context" {
         $azureiothub "Scooter IoT Hub" as scooterhub
+
         $function "Manage Devices" as deviceManager
         $observes(deviceManager, scooterLifecycle)
         $updates(deviceManager, scooterhub)
-        $updates(physical, scooterhub)
-        $observes(physical, scooterLifecycle)
+
         $device "Scooter" as scooter
         $observes(scooter, scooterhub)
         $updates(scooter, scooterhub)
 
         $microservice "Scooter Monitor" as monitor
         $exposes_topic(monitor, "Scooter Status", scooterStatus)
-        $function "Manage Telemetry" as telemetryManager
-        $function "Manage Reported Properties" as telemetryManager
         $observes(monitor, scooterLifecycle)
+
+        $function "Manage Telemetry" as telemetryManager
         $observes(telemetryManager, scooterhub)
         $updates(telemetryManager, monitor)
+        $function "Manage Reported Properties" as reportedManager
+        $observes(reportedManager, scooterhub)
+        $updates(reportedManager, monitor)
+
+        $function "Scooter Control" as control
+        $observes(control, scooterStatus)
+        $updates(control, scooterhub)
+        $function "Manage Controls" as controlsManager
+        $observes(controlsManager, control)
     }
 
     $context "Area of Service Context" {
@@ -134,15 +142,8 @@ $subdomain "E-Scooter Subdomain" {
         $observes(area, scooterStatus)
     }
 
-    $context "Scooter Control Context" {
-        $microservice "Scooter Control" as control
-        $sends_commands(area, control)
-        $observes(control, scooterLifecycle)
-        $observes(control, scooterStatus)
-        $sends_commands(control, physical)
-        $function "Manage Controls" as controlsManager
-        $observes(controlsManager, control)
-    }
+
+
 }
 
 $subdomain "User Subdomain" {
@@ -172,11 +173,13 @@ $subdomain "Rent Subdomain" {
         $microservice "Rent" as rent
         $observes(rent, scooterLifecycle)
         $observes(rent, scooterStatus)
+        $observes(rent, area)
         $sends_commands(rent, control)
-        $observes(rent, control)
         $exposes_topic(rent, Rent Lifecycle, rentLifecycle)
-        $function "Rent Manager" as rentManager
+        $function "Manage Rents" as rentManager
         $observes(rentManager, rentLifecycle)
+        $function "Manage Scooter Availability" as availabilityManager
+        $observes(availabilityManager, rent)
     }
 
     $context "Trip Context" {
