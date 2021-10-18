@@ -14,10 +14,11 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run action
-        uses: ldeluigi/markdown-docs@master
+        uses: ldeluigi/markdown-docs@v0
         with:
           src: .
           dst: ./gh-pages
+          icon: scooter-electric
       - name: Deploy GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
