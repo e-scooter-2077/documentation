@@ -2,7 +2,7 @@
 
 ```plantuml
 @startuml
-!include Metamodel/Architecture.metamodel.iuml
+!include metamodel/architecture.metamodel.iuml
 left to right direction
 $microservice "Microservice" {
     $layer "API" as api {
@@ -61,7 +61,7 @@ Inter-service communication can happen with:
 
 ```plantuml
 @startuml
-!include Metamodel/Architecture.metamodel.iuml
+!include metamodel/architecture.metamodel.iuml
 left to right direction
 title "Service 2 depends on Service 1"
 
