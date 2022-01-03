@@ -3,14 +3,14 @@
 ```plantuml
 @startuml
 title Legend
-!include Metamodel/Deployment.metamodel.iuml
+!include metamodel/deployment.metamodel.iuml
 $print_legend()
 @enduml
 ```
 -----------------------------------------------------------
 ```plantuml
 @startuml
-!include Metamodel/Deployment.metamodel.iuml
+!include metamodel/deployment.metamodel.iuml
 
 $subdomain "E-Scooter Subdomain" {
 
@@ -121,7 +121,7 @@ $subdomain "Insight Subdomain" {
 
 ```plantuml
 @startuml
-!include Metamodel/Deployment.metamodel.iuml
+!include metamodel/deployment.metamodel.iuml
 $azuredt "Scooter Digital Twins" as twins
 $microservice "Scooter DT Gateway" as twinsGateway
 $frontend "Mobile App" as app
