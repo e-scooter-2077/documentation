@@ -9,19 +9,19 @@
       
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
-        <title>Scooter Data - e-scooter-2077/documentation</title>
+        <title>Trip Domain Model - e-scooter-2077/documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.db9e7362.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.db9e7362.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
       
     
@@ -36,9 +36,9 @@
     
     
     
-      <link rel="stylesheet" href="../../../css/print-site.css">
+      <link rel="stylesheet" href="../../css/print-site.css">
     
-      <link rel="stylesheet" href="../../../css/print-site-material.css">
+      <link rel="stylesheet" href="../../css/print-site-material.css">
     
     
       
@@ -59,7 +59,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scooter-data" class="md-skip">
+        <a href="#trip-domain-model" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../index.html" title="e-scooter-2077/documentation" class="md-header__button md-logo" aria-label="e-scooter-2077/documentation" data-md-component="logo">
+    <a href="../../index.html" title="e-scooter-2077/documentation" class="md-header__button md-logo" aria-label="e-scooter-2077/documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.82 16H15v-1c0-2.21 1.79-4 4-4h.74l-1.9-8.44A2.009 2.009 0 0 0 15.89 1H12v2h3.89l1.4 6.25h-.01A6.008 6.008 0 0 0 13.09 14H7.82a2.996 2.996 0 0 0-3.42-1.94c-1.18.23-2.13 1.2-2.35 2.38A3.002 3.002 0 0 0 5 18c1.3 0 2.4-.84 2.82-2M5 16c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m14-4c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3m0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m-8 4H7l6 3v-2h4l-6-3v2z"/></svg>
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scooter Data
+              Trip Domain Model
             
           </span>
         </div>
@@ -204,7 +204,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../index.html" title="e-scooter-2077/documentation" class="md-nav__button md-logo" aria-label="e-scooter-2077/documentation" data-md-component="logo">
+    <a href="../../index.html" title="e-scooter-2077/documentation" class="md-nav__button md-logo" aria-label="e-scooter-2077/documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.82 16H15v-1c0-2.21 1.79-4 4-4h.74l-1.9-8.44A2.009 2.009 0 0 0 15.89 1H12v2h3.89l1.4 6.25h-.01A6.008 6.008 0 0 0 13.09 14H7.82a2.996 2.996 0 0 0-3.42-1.94c-1.18.23-2.13 1.2-2.35 2.38A3.002 3.002 0 0 0 5 18c1.3 0 2.4-.84 2.82-2M5 16c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m14-4c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3m0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m-8 4H7l6 3v-2h4l-6-3v2z"/></svg>
@@ -236,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../index.html" class="md-nav__link">
+      <a href="../../index.html" class="md-nav__link">
         documentation
       </a>
     </li>
@@ -251,7 +251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Architecture%20Design.html" class="md-nav__link">
+      <a href="../../Architecture%20Design.html" class="md-nav__link">
         Architecture Design
       </a>
     </li>
@@ -266,7 +266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Domain%20Analysis.html" class="md-nav__link">
+      <a href="../../Domain%20Analysis.html" class="md-nav__link">
         Domain Analysis
       </a>
     </li>
@@ -281,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Implementation.html" class="md-nav__link">
+      <a href="../../Implementation.html" class="md-nav__link">
         Implementation
       </a>
     </li>
@@ -296,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ubiquitous%20Language.html" class="md-nav__link">
+      <a href="../../Ubiquitous%20Language.html" class="md-nav__link">
         Ubiquitous Language
       </a>
     </li>
@@ -311,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Use%20Cases.html" class="md-nav__link">
+      <a href="../../Use%20Cases.html" class="md-nav__link">
         Use Cases
       </a>
     </li>
@@ -324,14 +324,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
       
       
@@ -352,14 +350,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
       
       
       
@@ -382,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../paginate.html" class="md-nav__link">
+      <a href="../../API/v0/paginate.html" class="md-nav__link">
         Paginate
       </a>
     </li>
@@ -396,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../template.html" class="md-nav__link">
+      <a href="../../API/v0/template.html" class="md-nav__link">
         Context
       </a>
     </li>
@@ -408,14 +404,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1_3" type="checkbox" id="__nav_7_1_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1_3" type="checkbox" id="__nav_7_1_3" >
       
       
       
@@ -438,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Area%20of%20Service.html" class="md-nav__link">
+      <a href="../../API/v0/E-Scooter/Area%20of%20Service.html" class="md-nav__link">
         Area of Service
       </a>
     </li>
@@ -452,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Scooter%20Control.html" class="md-nav__link">
+      <a href="../../API/v0/E-Scooter/Scooter%20Control.html" class="md-nav__link">
         Scooter Control
       </a>
     </li>
@@ -464,138 +458,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Scooter Data
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="Scooter%20Data.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../API/v0/E-Scooter/Scooter%20Data.html" class="md-nav__link">
         Scooter Data
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
-  </a>
-  
-    <nav class="md-nav" aria-label="API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scooters" class="md-nav__link">
-    /scooters
-  </a>
-  
-    <nav class="md-nav" aria-label="/scooters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get" class="md-nav__link">
-    GET
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post" class="md-nav__link">
-    POST
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scootersid" class="md-nav__link">
-    /scooters/{id}
-  </a>
-  
-    <nav class="md-nav" aria-label="/scooters/{id}">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get_1" class="md-nav__link">
-    GET
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete" class="md-nav__link">
-    DELETE
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outgoing-events" class="md-nav__link">
-    Outgoing Events
-  </a>
-  
-    <nav class="md-nav" aria-label="Outgoing Events">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scootercreated" class="md-nav__link">
-    ScooterCreated
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scooterdeleted" class="md-nav__link">
-    ScooterDeleted
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -607,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Scooter%20Physical%20Control.html" class="md-nav__link">
+      <a href="../../API/v0/E-Scooter/Scooter%20Physical%20Control.html" class="md-nav__link">
         Scooter Physical Control
       </a>
     </li>
@@ -654,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Insight/Drop%20Points%20Planning.html" class="md-nav__link">
+      <a href="../../API/v0/Insight/Drop%20Points%20Planning.html" class="md-nav__link">
         Drop Points Planning
       </a>
     </li>
@@ -701,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Rent/Rent%20Payment.html" class="md-nav__link">
+      <a href="../../API/v0/Rent/Rent%20Payment.html" class="md-nav__link">
         Rent Payment
       </a>
     </li>
@@ -715,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Rent/Rent.html" class="md-nav__link">
+      <a href="../../API/v0/Rent/Rent.html" class="md-nav__link">
         Rent
       </a>
     </li>
@@ -729,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Rent/Trip.html" class="md-nav__link">
+      <a href="../../API/v0/Rent/Trip.html" class="md-nav__link">
         Trip
       </a>
     </li>
@@ -783,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../v1/index.html" class="md-nav__link">
+      <a href="../../API/v1/index.html" class="md-nav__link">
         API v1
       </a>
     </li>
@@ -838,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Device%20Emulator/Requirements.html" class="md-nav__link">
+      <a href="../../Device%20Emulator/Requirements.html" class="md-nav__link">
         Device Emulator Requirements
       </a>
     </li>
@@ -886,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Digital%20Twin%20Layer/Digital%20Twins.html" class="md-nav__link">
+      <a href="../../Digital%20Twin%20Layer/Digital%20Twins.html" class="md-nav__link">
         Digital Twins
       </a>
     </li>
@@ -906,12 +773,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
       
       
       
@@ -960,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Domain%20Models/Common/Common%20Values.html" class="md-nav__link">
+      <a href="../Common/Common%20Values.html" class="md-nav__link">
         Common Types
       </a>
     </li>
@@ -1007,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Domain%20Models/E-Scooter/Area%20of%20Service.html" class="md-nav__link">
+      <a href="../E-Scooter/Area%20of%20Service.html" class="md-nav__link">
         Area of Service Domain Model
       </a>
     </li>
@@ -1021,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Domain%20Models/E-Scooter/Scooter%20Control.html" class="md-nav__link">
+      <a href="../E-Scooter/Scooter%20Control.html" class="md-nav__link">
         Scooter Control Domain Model
       </a>
     </li>
@@ -1035,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Domain%20Models/E-Scooter/Scooter%20Data.html" class="md-nav__link">
+      <a href="../E-Scooter/Scooter%20Data.html" class="md-nav__link">
         Scooter Data Domain Model
       </a>
     </li>
@@ -1049,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Domain%20Models/E-Scooter/Scooter%20Physical%20Control.html" class="md-nav__link">
+      <a href="../E-Scooter/Scooter%20Physical%20Control.html" class="md-nav__link">
         Scooter Physical Control Domain Model
       </a>
     </li>
@@ -1096,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Domain%20Models/Insight/Drop%20Points%20Planning.html" class="md-nav__link">
+      <a href="../Insight/Drop%20Points%20Planning.html" class="md-nav__link">
         Drop Points Planning Domain
       </a>
     </li>
@@ -1115,12 +984,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" checked>
       
       
       
@@ -1143,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Domain%20Models/Rent/Rent%20Payment.html" class="md-nav__link">
+      <a href="Rent%20Payment.html" class="md-nav__link">
         Rent Payment Domain Model
       </a>
     </li>
@@ -1157,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Domain%20Models/Rent/Rent.html" class="md-nav__link">
+      <a href="Rent.html" class="md-nav__link">
         Rent Domain Model
       </a>
     </li>
@@ -1169,11 +1040,58 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../Domain%20Models/Rent/Trip.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Trip Domain Model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Trip.html" class="md-nav__link md-nav__link--active">
         Trip Domain Model
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-diagram" class="md-nav__link">
+    Class Diagram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-events" class="md-nav__link">
+    Domain Events
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1200,7 +1118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../print_page.html" class="md-nav__link">
+      <a href="../../print_page.html" class="md-nav__link">
         Print as PDF
       </a>
     </li>
@@ -1233,96 +1151,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
+  <a href="#class-diagram" class="md-nav__link">
+    Class Diagram
   </a>
-  
-    <nav class="md-nav" aria-label="API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scooters" class="md-nav__link">
-    /scooters
-  </a>
-  
-    <nav class="md-nav" aria-label="/scooters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get" class="md-nav__link">
-    GET
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post" class="md-nav__link">
-    POST
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scootersid" class="md-nav__link">
-    /scooters/{id}
-  </a>
-  
-    <nav class="md-nav" aria-label="/scooters/{id}">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get_1" class="md-nav__link">
-    GET
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete" class="md-nav__link">
-    DELETE
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#outgoing-events" class="md-nav__link">
-    Outgoing Events
+  <a href="#domain-events" class="md-nav__link">
+    Domain Events
   </a>
-  
-    <nav class="md-nav" aria-label="Outgoing Events">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scootercreated" class="md-nav__link">
-    ScooterCreated
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scooterdeleted" class="md-nav__link">
-    ScooterDeleted
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1339,84 +1177,19 @@
               
   
                 
-                  <a href="https://github.com/e-scooter-2077/documentation/edit/master/API/v0/E-Scooter/Scooter Data.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/e-scooter-2077/documentation/edit/master/Domain Models/Rent/Trip.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="scooter-data">Scooter Data</h1>
-<h2 id="api">API</h2>
-<h3 id="scooters">/scooters</h3>
-<h4 id="get">GET</h4>
-<p>Returns a list of Scooters.</p>
-<p><strong>Query Params</strong> <br />
-- <strong>pageNum</strong>: number of requested page given the pageSize
-- <strong>pageSize</strong>: elements per page</p>
-<p><strong>Response</strong><br />
-Code 200:<br />
-<a href="../paginate.html">paginated response</a>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span> <span class="err">//E</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">yId</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<h4 id="post">POST</h4>
-<p>Creates a new Scooter.</p>
-<p><strong>Body</strong><br />
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="p">,</span> <span class="err">//E</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">yId</span>
-    <span class="nt">&quot;serialNumber&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="p">,</span> <span class="err">//SerialNumber</span>
-    <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="err">i</span><span class="kc">nte</span><span class="err">ger</span><span class="p">,</span> <span class="err">//Weigh</span><span class="kc">t</span>
-    <span class="nt">&quot;model&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="p">,</span> <span class="err">//ModelI</span><span class="kc">nf</span><span class="err">o</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p><strong>Response</strong><br />
-Code 201:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span> <span class="err">//E</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">yId</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p>Code 400</p>
-<h3 id="scootersid">/scooters/{id}</h3>
-<p><strong>URL Parameters</strong><br />
-- <strong>id</strong>: the EntityId that identifies the requested scooter.</p>
-<h4 id="get_1">GET</h4>
-<p>Returns the detail of the specified scooter.</p>
-<p><strong>Response</strong>
-Code 200:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="p">,</span> <span class="err">//E</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">yId</span>
-  <span class="nt">&quot;serialNumber&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="p">,</span> <span class="err">//</span> <span class="err">SerialNumber</span>
-  <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="err">i</span><span class="kc">nte</span><span class="err">ger</span><span class="p">,</span> <span class="err">//Weigh</span><span class="kc">t</span>
-  <span class="nt">&quot;model&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="p">,</span> <span class="err">//ModelI</span><span class="kc">nf</span><span class="err">o</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p>Code 404</p>
-<h4 id="delete">DELETE</h4>
-<p>Removes the specified scooter.  </p>
-<p><strong>Response</strong>
-Code 200:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span> <span class="err">//E</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">yId</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p>Code 404</p>
-<h2 id="outgoing-events">Outgoing Events</h2>
-<h3 id="scootercreated">ScooterCreated</h3>
-<p><em>Fires when</em> a new scooter is added to the System.
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span> <span class="err">//E</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">yId</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<h3 id="scooterdeleted">ScooterDeleted</h3>
-<p><em>Fires when</em> a new scooter is removed from the System.
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span> <span class="err">//E</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">yId</span>
-<span class="p">}</span>
-</code></pre></div></p>
+                <h1 id="trip-domain-model">Trip Domain Model</h1>
+<h2 id="class-diagram">Class Diagram</h2>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjM5cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDo2MDVweDtoZWlnaHQ6MjM5cHg7YmFja2dyb3VuZDojRkZGRkZGOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjA1IDIzOSIgd2lkdGg9IjYwNXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PCEtLU1ENT1bN2VmMzI0YTBkNTFlZDQyNzMyMmM5NGQ2NWEzNjU2ZGZdCmNsdXN0ZXIgVHJpcCBBZ2dyZWdhdGUtLT48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjIyMSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iNTg3IiB4PSIxMiIgeT0iMTIiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iVmVyZGFuYSIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTE5IiB4PSIyNDYiIHk9IjI2Ljk5NTEiPlRyaXAgQWdncmVnYXRlPC90ZXh0PjwhLS1NRDU9WzIyZDYwOWY1MzY1M2U4ODNiNmRiMmUwNjgxMjEwMjc0XQpjbGFzcyB0cmlwLS0+PHJlY3QgY29kZUxpbmU9IjYiIGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMTcwLjM0MzgiIGlkPSJ0cmlwIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIzNjciIHg9IjIxNS41IiB5PSI0NyIvPjxlbGxpcHNlIGN4PSIzNDAuNzUiIGN5PSI2Ny4xMzI4IiBmaWxsPSIjRkZGRkZGIiByeD0iOSIgcnk9IjkiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS4wOyIvPjxwYXRoIGQ9Ik0zNDMuNzE4OCw3Mi43NzM0IFEzNDMuMTQwNiw3My4wNzAzIDM0Mi41LDczLjIxMDkgUTM0MS44NTk0LDczLjM2NzIgMzQxLjE1NjMsNzMuMzY3MiBRMzM4LjY1NjMsNzMuMzY3MiAzMzcuMzI4MSw3MS43MjY2IFEzMzYuMDE1Niw3MC4wNzAzIDMzNi4wMTU2LDY2Ljk0NTMgUTMzNi4wMTU2LDYzLjgyMDMgMzM3LjMyODEsNjIuMTY0MSBRMzM4LjY1NjMsNjAuNTA3OCAzNDEuMTU2Myw2MC41MDc4IFEzNDEuODU5NCw2MC41MDc4IDM0Mi41LDYwLjY2NDEgUTM0My4xNTYzLDYwLjgyMDMgMzQzLjcxODgsNjEuMTE3MiBMMzQzLjcxODgsNjMuODM1OSBRMzQzLjA5MzgsNjMuMjU3OCAzNDIuNSw2Mi45OTIyIFEzNDEuOTA2Myw2Mi43MTA5IDM0MS4yODEzLDYyLjcxMDkgUTMzOS45Mzc1LDYyLjcxMDkgMzM5LjI1LDYzLjc4OTEgUTMzOC41NjI1LDY0Ljg1MTYgMzM4LjU2MjUsNjYuOTQ1MyBRMzM4LjU2MjUsNjkuMDM5MSAzMzkuMjUsNzAuMTE3MiBRMzM5LjkzNzUsNzEuMTc5NyAzNDEuMjgxMyw3MS4xNzk3IFEzNDEuOTA2Myw3MS4xNzk3IDM0Mi41LDcwLjkxNDEgUTM0My4wOTM4LDcwLjYzMjggMzQzLjcxODgsNzAuMDU0NyBMMzQzLjcxODgsNzIuNzczNCBaICIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjEyIiBmb250LXN0eWxlPSJpdGFsaWMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEzIiB4PSIzNTYuMjUiIHk9IjYzLjEzODciPsKrQWdncmVnYXRlIFJvb3TCuzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iVmVyZGFuYSIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNiIgeD0iMzk5Ljc1IiB5PSI3OC45NjM5Ij5UcmlwPC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxNi41IiB4Mj0iNTgxLjUiIHkxPSI4Ny4yNjU2IiB5Mj0iODcuMjY1NiIvPjxlbGxpcHNlIGN4PSIyMjYuNSIgY3k9Ijk4LjI2NTYiIHJ4PSIzIiByeT0iMyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjA7ZmlsbDpub25lOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE4OSIgeD0iMjMzLjUiIHk9IjEwNC4yNjA3Ij50cmF2ZWxsZWREaXN0YW5jZTogRGlzdGFuY2U8L3RleHQ+PGVsbGlwc2UgY3g9IjIyNi41IiBjeT0iMTE0LjU2MjUiIHJ4PSIzIiByeT0iMyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjA7ZmlsbDpub25lOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwMSIgeD0iMjMzLjUiIHk9IjEyMC41NTc2Ij5zdGFydDogVHJpcFBvaW50PC90ZXh0PjxlbGxpcHNlIGN4PSIyMjYuNSIgY3k9IjEzMC44NTk0IiByeD0iMyIgcnk9IjMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS4wO2ZpbGw6bm9uZTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iVmVyZGFuYSIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTMiIHg9IjIzMy41IiB5PSIxMzYuODU0NSI+ZW5kOiBPcHRpb25bVHJpcFBvaW50XTwvdGV4dD48ZWxsaXBzZSBjeD0iMjI2LjUiIGN5PSIxNDcuMTU2MyIgcng9IjMiIHJ5PSIzIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuMDtmaWxsOm5vbmU7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iODciIHg9IjIzMy41IiB5PSIxNTMuMTUxNCI+cmVudDogRW50aXR5SWQ8L3RleHQ+PGVsbGlwc2UgY3g9IjIyNi41IiBjeT0iMTYzLjQ1MzEiIHJ4PSIzIiByeT0iMyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjA7ZmlsbDpub25lOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwNyIgeD0iMjMzLjUiIHk9IjE2OS40NDgyIj52ZWhpY2xlOiBFbnRpdHlJZDwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyMTYuNSIgeDI9IjU4MS41IiB5MT0iMTc2Ljc1IiB5Mj0iMTc2Ljc1Ii8+PGVsbGlwc2UgY3g9IjIyNi41IiBjeT0iMTg3Ljc1IiBmaWxsPSIjRkZGRkZGIiByeD0iMyIgcnk9IjMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI1OSIgeD0iMjMzLjUiIHk9IjE5My43NDUxIj5lbmQocG9pbnQ6IFRyaXBQb2ludCk6IFJlc3VsdFtOb3RoaW5nXTwvdGV4dD48ZWxsaXBzZSBjeD0iMjI2LjUiIGN5PSIyMDQuMDQ2OSIgZmlsbD0iI0ZGRkZGRiIgcng9IjMiIHJ5PSIzIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0iVmVyZGFuYSIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzNDMiIHg9IjIzMy41IiB5PSIyMTAuMDQyIj5hZGREaXN0YW5jZShkaXN0YW5jZTogRGlzdGFuY2UpOiBSZXN1bHRbTm90aGluZ108L3RleHQ+PCEtLU1ENT1bYWZmNmMwOGI3NmQ0NmJlNzA5OWVhNDU2ZTU2NTM1MDNdCmNsYXNzIHBvaW50LS0+PHJlY3QgY29kZUxpbmU9IjQ2IiBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9Ijc2LjU5MzgiIGlkPSJwb2ludCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTUyIiB4PSIyOCIgeT0iOTMuNSIvPjxlbGxpcHNlIGN4PSI2OS43NSIgY3k9IjEwNy41IiBmaWxsPSIjRkZGRkZGIiByeD0iOSIgcnk9IjkiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS4wOyIvPjxwYXRoIGQ9Ik03Mi43MTg4LDExMy4xNDA2IFE3Mi4xNDA2LDExMy40Mzc1IDcxLjUsMTEzLjU3ODEgUTcwLjg1OTQsMTEzLjczNDQgNzAuMTU2MywxMTMuNzM0NCBRNjcuNjU2MywxMTMuNzM0NCA2Ni4zMjgxLDExMi4wOTM4IFE2NS4wMTU2LDExMC40Mzc1IDY1LjAxNTYsMTA3LjMxMjUgUTY1LjAxNTYsMTA0LjE4NzUgNjYuMzI4MSwxMDIuNTMxMyBRNjcuNjU2MywxMDAuODc1IDcwLjE1NjMsMTAwLjg3NSBRNzAuODU5NCwxMDAuODc1IDcxLjUsMTAxLjAzMTMgUTcyLjE1NjMsMTAxLjE4NzUgNzIuNzE4OCwxMDEuNDg0NCBMNzIuNzE4OCwxMDQuMjAzMSBRNzIuMDkzOCwxMDMuNjI1IDcxLjUsMTAzLjM1OTQgUTcwLjkwNjMsMTAzLjA3ODEgNzAuMjgxMywxMDMuMDc4MSBRNjguOTM3NSwxMDMuMDc4MSA2OC4yNSwxMDQuMTU2MyBRNjcuNTYyNSwxMDUuMjE4OCA2Ny41NjI1LDEwNy4zMTI1IFE2Ny41NjI1LDEwOS40MDYzIDY4LjI1LDExMC40ODQ0IFE2OC45Mzc1LDExMS41NDY5IDcwLjI4MTMsMTExLjU0NjkgUTcwLjkwNjMsMTExLjU0NjkgNzEuNSwxMTEuMjgxMyBRNzIuMDkzOCwxMTEgNzIuNzE4OCwxMTAuNDIxOSBMNzIuNzE4OCwxMTMuMTQwNiBaICIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjYxIiB4PSI4Ny4yNSIgeT0iMTEyLjM0NjciPlRyaXBQb2ludDwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyOSIgeDI9IjE3OSIgeTE9IjEyMS41IiB5Mj0iMTIxLjUiLz48ZWxsaXBzZSBjeD0iMzkiIGN5PSIxMzIuNSIgcng9IjMiIHJ5PSIzIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuMDtmaWxsOm5vbmU7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTE2IiB4PSI0NiIgeT0iMTM4LjQ5NTEiPnRpbWU6IFRpbWVzdGFtcDwvdGV4dD48ZWxsaXBzZSBjeD0iMzkiIGN5PSIxNDguNzk2OSIgcng9IjMiIHJ5PSIzIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuMDtmaWxsOm5vbmU7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTI4IiB4PSI0NiIgeT0iMTU0Ljc5MiI+cG9zaXRpb246IEdlb1BvaW50PC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjI5IiB4Mj0iMTc5IiB5MT0iMTYyLjA5MzgiIHkyPSIxNjIuMDkzOCIvPjwhLS1NRDU9WzhiMjNlZTY1ZWZlNzhjYWE0ZjY1Y2ZjMmY0NmNkOGE4XQpsaW5rIHBvaW50IHRvIHRyaXAtLT48cGF0aCBjb2RlTGluZT0iMjAiIGQ9Ik0xODAuMDUsMTMyIEMxODcuMzYsMTMyIDE5NC42NywxMzIgMjAxLjk3LDEzMiAiIGZpbGw9Im5vbmUiIGlkPSJwb2ludC10by10cmlwIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjIxNS4xMiwxMzIsMjA5LjEyLDEyOCwyMDMuMTIsMTMyLDIwOS4xMiwxMzYsMjE1LjEyLDEzMiIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjA7Ii8+PCEtLU1ENT1bZGIwMWZlOWY0OWMxNmUyYmE2NGRiNDk5ZmFhZjhjZDhdCkBzdGFydHVtbA0KIXRoZW1lIHBsYWluDQohaW5jbHVkZSBNZXRhbW9kZWwvRG9tYWluLkVudGl0aWVzLm1ldGFtb2RlbC5pdW1sDQoNCiRhZ2dyZWdhdGUoIlRyaXAiKSB7DQogICRhZ2dyZWdhdGVfcm9vdCgiVHJpcCIsIHRyaXApIHsNCiAgICArIHRyYXZlbGxlZERpc3RhbmNlOiBEaXN0YW5jZQ0KICAgICsgc3RhcnQ6IFRyaXBQb2ludA0KICAgICsgZW5kOiBPcHRpb25bVHJpcFBvaW50XQ0KICAgICsgcmVudDogRW50aXR5SWQNCiAgICArIHZlaGljbGU6IEVudGl0eUlkDQoNCiAgICArIGVuZChwb2ludDogVHJpcFBvaW50KTogUmVzdWx0W05vdGhpbmddDQogICAgKyBhZGREaXN0YW5jZShkaXN0YW5jZTogRGlzdGFuY2UpOiBSZXN1bHRbTm90aGluZ10NCiAgfQ0KDQogICR2YWx1ZSgiVHJpcFBvaW50IiwgcG9pbnQpIHsNCiAgICArIHRpbWU6IFRpbWVzdGFtcA0KICAgICsgcG9zaXRpb246IEdlb1BvaW50DQogIH0NCg0KICBwb2ludCAtbyB0cmlwDQp9DQpAZW5kdW1sDQoKQHN0YXJ0dW1sDQoNCg0KDQoNCg0KDQoNCjxzdHlsZT4NCiAgcm9vdCB7DQogICAgQmFja2dyb3VuZENvbG9yIHdoaXRlDQogICAgRm9udENvbG9yIGJsYWNrDQogICAgRm9udE5hbWUgVmVyZGFuYQ0KICAgIEh5cGVyTGlua0NvbG9yIGJsdWUNCiAgICBMaW5lQ29sb3IgYmxhY2sNCiAgICBMaW5lVGhpY2tuZXNzIDENCiAgICBNYXJnaW4gNQ0KICB9DQogIGNhcHRpb24gew0KICAgIExpbmVUaGlja25lc3MgMA0KICB9DQogIGZvb3RlciB7DQogICAgTGluZVRoaWNrbmVzcyAwDQogIH0NCiAgaGVhZGVyIHsNCiAgICBMaW5lVGhpY2tuZXNzIDANCiAgfQ0KICBub2RlIHsNCiAgICBNYXhpbXVtV2lkdGggMzAwDQogIH0NCiAgdGl0bGUgew0KICAgIEZvbnRTaXplIDIyDQogICAgTGluZVRoaWNrbmVzcyAwDQogIH0NCjwvc3R5bGU+DQoNCnNraW5wYXJhbSBBcnJvd0xvbGxpcG9wQ29sb3IgYmxhY2sNCnNraW5wYXJhbSBCYWNrZ3JvdW5kQ29sb3Igd2hpdGUNCnNraW5wYXJhbSBEZWZhdWx0Rm9udE5hbWUgVmVyZGFuYQ0Kc2tpbnBhcmFtIERlZmF1bHRNb25vc3BhY2VkRm9udE5hbWUgQ291cmllcg0Kc2tpbnBhcmFtIExpZmVsaW5lU3RyYXRlZ3kgbm9zb2xpZA0Kc2tpbnBhcmFtIFBhcnRpY2lwYW50UGFkZGluZyAxMA0Kc2tpbnBhcmFtIFNlcXVlbmNlTGlmZUxpbmVCb3JkZXJDb2xvciBibGFjaw0Kc2tpbnBhcmFtIFNoYWRvd2luZyBmYWxzZQ0Kc2tpbnBhcmFtIFVzZUJldGFTdHlsZSB0cnVlDQoNCnNraW5wYXJhbSBBY3Rpdml0eSB7DQogIEJhY2tncm91bmRDb2xvciB3aGl0ZQ0KICBCYXJDb2xvciBibGFjaw0KICBCb3JkZXJDb2xvciBibGFjaw0KICBGb250Q29sb3IgYmxhY2sNCiAgRm9udE5hbWUgVmVyZGFuYQ0KfQ0Kc2tpbnBhcmFtIEJvdW5kYXJ5IHsNCiAgRm9udENvbG9yIGJsYWNrDQp9DQpza2lucGFyYW0gQm94IHsNCiAgUGFkZGluZyA1DQp9DQpza2lucGFyYW0gQ2lyY2xlZENoYXJhY3RlciB7DQogIEZvbnRDb2xvciBibGFjaw0KICBGb250TmFtZSBDb3VyaWVyDQogIFJhZGl1cyA5DQp9DQpza2lucGFyYW0gQ2xhc3Mgew0KICBCYWNrZ3JvdW5kQ29sb3Igd2hpdGUNCiAgQm9yZGVyQ29sb3IgYmxhY2sNCiAgRm9udENvbG9yIGJsYWNrDQogIEZvbnROYW1lIFZlcmRhbmENCn0NCnNraW5wYXJhbSBDbGFzc0F0dHJpYnV0ZSB7DQogIEZvbnRDb2xvciBibGFjaw0KICBGb250TmFtZSBWZXJkYW5hDQp9DQpza2lucGFyYW0gQ2xhc3NTdGVyZW90eXBlIHsNCiAgRm9udENvbG9yIGJsYWNrDQogIEZvbnROYW1lIFZlcmRhbmENCn0NCnNraW5wYXJhbSBGb290ZXIgew0KICBGb250Q29sb3IgYmxhY2sNCiAgRm9udE5hbWUgVmVyZGFuYQ0KfQ0Kc2tpbnBhcmFtIEhlYWRlciB7DQogIEZvbnRDb2xvciBibGFjaw0KICBGb250TmFtZSBWZXJkYW5hDQp9DQpza2lucGFyYW0gSHlwZXJsaW5rIHsNCiAgQ29sb3IgYmx1ZQ0KfQ0Kc2tpbnBhcmFtIEljb25QYWNrYWdlIHsNCiAgQ29sb3IgYmxhY2sNCiAgQmFja2dyb3VuZENvbG9yIHdoaXRlDQp9DQpza2lucGFyYW0gSWNvblByaXZhdGUgew0KICBDb2xvciBibGFjaw0KICBCYWNrZ3JvdW5kQ29sb3Igd2hpdGUNCn0NCnNraW5wYXJhbSBJY29uUHJvdGVjdGVkIHsNCiAgQ29sb3IgYmxhY2sNCiAgQmFja2dyb3VuZENvbG9yIHdoaXRlDQp9DQpza2lucGFyYW0gSWNvblB1YmxpYyB7DQogIENvbG9yIGJsYWNrDQogIEJhY2tncm91bmRDb2xvciB3aGl0ZQ0KfQ0Kc2tpbnBhcmFtIE5vdGUgew0KICBGb250Q29sb3IgYmxhY2sNCiAgRm9udE5hbWUgVmVyZGFuYQ0KfQ0Kc2tpbnBhcmFtIFBhY2thZ2Ugew0KICBCb3JkZXJDb2xvciBibGFjaw0KICBGb250Q29sb3IgYmxhY2sNCiAgRm9udE5hbWUgVmVyZGFuYQ0KfQ0Kc2tpbnBhcmFtIFN0YXRlIHsNCiAgQmFja2dyb3VuZENvbG9yIHdoaXRlDQogIEJvcmRlckNvbG9yIGJsYWNrDQp9DQpza2lucGFyYW0gU3RlcmVvdHlwZUEgew0KICBCYWNrZ3JvdW5kQ29sb3Igd2hpdGUNCiAgQm9yZGVyQ29sb3IgYmxhY2sNCn0NCnNraW5wYXJhbSBTdGVyZW90eXBlQyB7DQogIEJhY2tncm91bmRDb2xvciB3aGl0ZQ0KICBCb3JkZXJDb2xvciBibGFjaw0KfQ0Kc2tpbnBhcmFtIFN0ZXJlb3R5cGVFIHsNCiAgQmFja2dyb3VuZENvbG9yIHdoaXRlDQogIEJvcmRlckNvbG9yIGJsYWNrDQp9DQpza2lucGFyYW0gU3RlcmVvdHlwZUkgew0KICBCYWNrZ3JvdW5kQ29sb3Igd2hpdGUNCiAgQm9yZGVyQ29sb3IgYmxhY2sNCn0NCnNraW5wYXJhbSBTdGVyZW90eXBlTiB7DQogIEJhY2tncm91bmRDb2xvciB3aGl0ZQ0KICBCb3JkZXJDb2xvciBibGFjaw0KfQ0Kc2tpbnBhcmFtIFVzZUNhc2VTdGVyZW9UeXBlIHsNCiAgRm9udENvbG9yIGJsYWNrDQogIEZvbnROYW1lIFZlcmRhbmENCn0NCg0KcmVjdGFuZ2xlICJUcmlwIEFnZ3JlZ2F0ZSIgew0KY2xhc3MgIlRyaXAiIGFzIHRyaXAgPDwgQWdncmVnYXRlIFJvb3QgPj4gew0KICAgICsgdHJhdmVsbGVkRGlzdGFuY2U6IERpc3RhbmNlDQogICAgKyBzdGFydDogVHJpcFBvaW50DQogICAgKyBlbmQ6IE9wdGlvbltUcmlwUG9pbnRdDQogICAgKyByZW50OiBFbnRpdHlJZA0KICAgICsgdmVoaWNsZTogRW50aXR5SWQNCg0KICAgICsgZW5kKHBvaW50OiBUcmlwUG9pbnQpOiBSZXN1bHRbTm90aGluZ10NCiAgICArIGFkZERpc3RhbmNlKGRpc3RhbmNlOiBEaXN0YW5jZSk6IFJlc3VsdFtOb3RoaW5nXQ0KICB9DQoNCiAgY2xhc3MgIlRyaXBQb2ludCIgYXMgcG9pbnQgew0KICAgICsgdGltZTogVGltZXN0YW1wDQogICAgKyBwb3NpdGlvbjogR2VvUG9pbnQNCiAgfQ0KDQogIHBvaW50IC1vIHRyaXANCn0NCkBlbmR1bWwNCgpQbGFudFVNTCB2ZXJzaW9uIDEuMjAyMS4xMihUdWUgT2N0IDA1IDE2OjAxOjU4IEdNVCAyMDIxKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogT3BlbkpESyBSdW50aW1lIEVudmlyb25tZW50CkpWTTogT3BlbkpESyA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IFVURi04Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" class="UML" alt="UML diagram image" title="UML diagram" /></p>
+<h2 id="domain-events">Domain Events</h2>
+<ul>
+<li><strong>TripStarted</strong>: </li>
+<li><strong>TripEnded</strong>: </li>
+</ul>
                 
                   
                     
@@ -1425,9 +1198,9 @@ Code 200:
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">July 28, 2021 12:30:30</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">July 9, 2021 15:29:13</span>
       
-        <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">July 15, 2021 10:19:13</span> 
+        <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">July 6, 2021 14:41:41</span> 
       
     
   </small>
@@ -1439,7 +1212,7 @@ Code 200:
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:Simone.magnani4@studio.unibo.it'>Simone</a> (98.75%), <a href='mailto:samuele.burattini@studio.unibo.it'>Samuele Burattini</a> (1.25%)</span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>Luca Deluigi</a> (34.62%), <a href='mailto:dente.francesco1996@gmail.com'>francescodente</a> (65.38%)</span>
       </small>
     </div>
   
@@ -1461,7 +1234,7 @@ Code 200:
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="Scooter%20Control.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Scooter Control" rel="prev">
+        <a href="Rent.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Rent Domain Model" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1470,26 +1243,11 @@ Code 200:
               <span class="md-footer__direction">
                 Previous
               </span>
-              Scooter Control
+              Rent Domain Model
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="Scooter%20Physical%20Control.html" class="md-footer__link md-footer__link--next" aria-label="Next: Scooter Physical Control" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Scooter Physical Control
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
@@ -1515,19 +1273,19 @@ Code 200:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>
-<script src="../../../search/search_index.js"></script>
+<script src="../../search/search_index.js"></script>
 
 
     
-      <script src="../../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
-        <script src="../../../js/print-site.js"></script>
+        <script src="../../js/print-site.js"></script>
       
-        <script src="../../../js/arithmatex.config.js"></script>
+        <script src="../../js/arithmatex.config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
