@@ -3,7 +3,7 @@
 ## Class Diagram
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 
 $aggregate("Rent") {
   $aggregate_root("Rent", rent) {

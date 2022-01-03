@@ -3,7 +3,7 @@
 ## Class Diagram
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $aggregate("Scooter") {
   $aggregate_root("Scooter", scooter) {
     + id: EntityId
@@ -22,7 +22,7 @@ $aggregate("Scooter") {
 ### SerialNumber
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("SerialNumber") {
   + value: String
 }
@@ -35,7 +35,7 @@ $value("SerialNumber") {
 ### Weight
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Weight") {
   + kilograms: Real
 }
@@ -49,7 +49,7 @@ $value("Weight") {
 ### ModelInfo
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("ModelInfo") {
   + model: Name
   + vendorName: Name

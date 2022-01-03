@@ -3,7 +3,7 @@
 ## EntityId
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("EntityId") {
   + id: UniqueId
 }
@@ -15,7 +15,7 @@ _EntityId_ represents how the identity of entities is passed in the system enabl
 ## Percentage
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Percentage") {
   + base100Value: Integer
   + base1Value: Real
@@ -33,7 +33,7 @@ _percentage_ represents the level of a source as number in [0,1].
 ## Speed
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Speed") {
   + metersPerSecond: Real
   + kilometersPerHour: Real
@@ -51,7 +51,7 @@ _metersPerSecond_ and _kilometersPerHour_ are two different units for the same s
 ## Name
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Name") {
   + value: String
 }
@@ -65,7 +65,7 @@ $value("Name") {
 ## Latitude
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Latitude") {
   + value: Real
 }
@@ -80,7 +80,7 @@ $value("Latitude") {
 ## Longitude
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Longitude") {
   + value: Real
 }
@@ -94,7 +94,7 @@ $value("Longitude") {
 ## GeoPoint
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("GeoPoint") {
   + latitude: Latitude
   + longitude: Longitude
@@ -105,7 +105,7 @@ $value("GeoPoint") {
 ## Distance
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Distance") {
   + kilometers: Real
 }
@@ -120,7 +120,7 @@ $value("Distance") {
 ## Timestamp
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Timestamp") {
   + milliseconds: Integer
 }
@@ -132,7 +132,7 @@ _value_ is the number of milliseconds passed since 01/01/1970 00:00:00 (Epoch)
 ## Duration
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Duration") {
   + milliseconds: Integer
 }
@@ -148,7 +148,7 @@ _milliseconds_ is the number of milliseconds.
 ## DomainError
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("DomainError"){
 }
 @enduml
@@ -157,7 +157,7 @@ $value("DomainError"){
 ## Nothing
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Nothing"){
 }
 @enduml
@@ -166,7 +166,7 @@ $value("Nothing"){
 ## Result
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value(Result<T>) {
   + value: T
   + error: DomainError

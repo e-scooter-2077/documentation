@@ -3,7 +3,7 @@
 ## Class Diagram
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $aggregate("Scooter") {
   $aggregate_root("Scooter", scooter) {
     + id: EntityId
@@ -40,7 +40,7 @@ scooter_factory ..> scooter
 ### PowerMode
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $enum(PowerMode) {
   ACTIVE
   POWER_SAVING
@@ -53,7 +53,7 @@ Represents all the possible power-related modes a scooter can have.
 ### Battery
 ```plantuml
 @startuml
-!include Metamodel/Domain.Entities.metamodel.iuml
+!include metamodel/domain.entities.metamodel.iuml
 $value("Battery") {
   + level: Fraction
 }
