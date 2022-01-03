@@ -1,4 +1,4 @@
 * [Introduction](introduction.md)
-* [Knowledge Crunching](knowledge-crunching.md)
-* [Ubiquitous Language](ubiquitous-language.md)
+* [Domain Exploration](domain-exploration/)
 * [Requirement Analysis](requirement-analysis/)
+* [Domain Analysis](domain-analysis/)
