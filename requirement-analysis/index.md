@@ -3,6 +3,6 @@
 ## Result
 ```plantuml
 @startuml
-!include ./use-case-diagram.puml
+!include requirement-analysis/use-case-diagram.puml
 @enduml
 ```
