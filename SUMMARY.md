@@ -2,3 +2,7 @@
 * [Domain Exploration](domain-exploration/)
 * [Requirement Analysis](requirement-analysis/)
 * [Domain Analysis](domain-analysis/)
+* [Architecture Design](architecture-design/)
+* [DevOps Engineering](devops-engineering.md)
+* [Implementation](implementation.md)
+* [Conclusions](conclusions.md)
