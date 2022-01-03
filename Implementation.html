@@ -868,18 +868,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#microservices" class="md-nav__link">
-    Microservices
+  <a href="#backend-microsoft-azure" class="md-nav__link">
+    Backend - Microsoft Azure
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#microsoft-azure" class="md-nav__link">
-    Microsoft Azure
-  </a>
-  
-    <nav class="md-nav" aria-label="Microsoft Azure">
+    <nav class="md-nav" aria-label="Backend - Microsoft Azure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -889,8 +882,63 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microservice" class="md-nav__link">
+    Microservice
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    Frontend
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#admin-frontend" class="md-nav__link">
+    Admin frontend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer-frontend" class="md-nav__link">
+    Customer frontend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scooter-data" class="md-nav__link">
+    Scooter data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device-emulator" class="md-nav__link">
+    Device emulator
+  </a>
   
 </li>
       
@@ -913,22 +961,50 @@
                 
                 
                 <h1 id="implementation">Implementation</h1>
-<h2 id="microservices">Microservices</h2>
-<h2 id="microsoft-azure">Microsoft Azure</h2>
-<h4 id="naming-convention">Naming Convention</h4>
+<p>In this section is explained how are organized and implemented the parts of the system.</p>
+<h2 id="backend-microsoft-azure">Backend - Microsoft Azure</h2>
+<p>Backend is fully deployed on Microsoft Azure: each resource is under the <code>e-scooter</code> group.</p>
+<h3 id="naming-convention">Naming Convention</h3>
+<p>The usual naming convention used under this group is <a href="https://en.wikipedia.org/wiki/Letter_case#Special_case_styles">kebab case</a></p>
 <ul>
-<li>Every resource is under the <code>e-scooter</code> group;</li>
 <li>The <em>Scooter Physical Control</em> IoT Hub is named <code>scooter-iot-hub</code></li>
-<li>The <em>Scooter Monitor</em> Digital Twin is named <code>scooter-digital-twins</code></li>
+<li>The Digital Twin Layer is named <code>scooter-digital-twins</code></li>
+<li>The Scooter Event Grid is named <code>device-events</code></li>
 <li>The Scooter Event Bus is named <code>scooter-event-bus</code><ul>
-<li>The topic used for events generated from any microservice is named <code>dev/service-events</code></li>
-<li>Every subscription name is in <a href="https://en.wikipedia.org/wiki/Letter_case#Special_case_styles">kebab case</a>
-and should be named after the subscriber name inside Azure</li>
+<li>The topic used for events generated from any microservice is named <code>production/service-events</code></li>
+<li>Every subscription name should be named after the subscriber name inside Azure</li>
 </ul>
 </li>
-<li>Azure Functions should be named after verbs and in kebab case</li>
-<li>The Scooter Event Grid is named <code>scooter-event-grid</code></li>
+<li>Azure Functions should be named with the Domain model and the specific usage, if exists; <code>manage</code> represents functions that update the Digital Twin.</li>
+<li>Microservice should be named with the Domain model followed by <code>-service</code></li>
 </ul>
+<h3 id="functions">Functions</h3>
+<p>Our functions are the link between different services:</p>
+<ul>
+<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> even if is implemented as an Azure function it's logically a service infact it extends the functionality of the IotHub</li>
+<li><a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a></li>
+<li><a href="https://github.com/e-scooter-2077/rent-payment.mock">rent payment</a> (mock)</li>
+<li><a href="https://github.com/e-scooter-2077/customer.manage-customers">manage customer</a></li>
+<li><a href="https://github.com/e-scooter-2077/rent.manage-rents">manage rents</a></li>
+<li><a href="https://github.com/e-scooter-2077/scooter-monitor.manage-telemetry-updates">manage telemetry updates</a></li>
+<li><a href="https://github.com/e-scooter-2077/scooter-physical-control.manage-devices">manage devices</a></li>
+<li><a href="https://github.com/e-scooter-2077/scooter-monitor.manage-reported-properties">manage reported properties</a></li>
+<li><a href="https://github.com/e-scooter-2077/rent.manage-scooter-availability">manage scooter availability</a></li>
+</ul>
+<h3 id="microservice">Microservice</h3>
+<p>Our services differ from functions because they've a status, usually linked with a Database:</p>
+<ul>
+<li><a href="https://github.com/e-scooter-2077/rent-service">Rent service</a></li>
+</ul>
+<h2 id="frontend">Frontend</h2>
+<h3 id="admin-frontend"><a href="https://github.com/e-scooter-2077/admin-frontend">Admin frontend</a></h3>
+<p>The Admin frontend is implemented in angular: it shows the scooters in a 2D map that updates polling the Digital Twin Layer. Clicking on a scooter is possible to check the its status and allow to enable or disable it.</p>
+<h3 id="customer-frontend"><a href="https://github.com/e-scooter-2077/customer-frontend">Customer frontend</a></h3>
+<p>The Customer frontend is implemented in C# using Windows Forms: it allows to rent an available scooter from a list.</p>
+<h3 id="scooter-data"><a href="https://github.com/e-scooter-2077/scooter-data.mock">Scooter data</a></h3>
+<p>The Scooter data is a mock implementation of the real creation of a scooter: it enable to insert or remove a new scooter in the system.</p>
+<h2 id="device-emulator"><a href="https://github.com/e-scooter-2077/device-emulator">Device emulator</a></h2>
+<p>The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters, use the battery.</p>
                 
                   
                     
@@ -937,7 +1013,7 @@ and should be named after the subscriber name inside Azure</li>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">September 12, 2021 13:40:23</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 3, 2022 19:55:02</span>
       
         <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">August 13, 2021 13:01:51</span> 
       
@@ -951,7 +1027,7 @@ and should be named after the subscriber name inside Azure</li>
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>Luca Deluigi</a> (84.62%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (7.69%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (7.69%)</span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:Simone.magnani4@studio.unibo.it'>Simone</a> (91.89%), <a href='mailto:lucadelu97@gmail.com'>Luca Deluigi</a> (8.11%)</span>
       </small>
     </div>
   
