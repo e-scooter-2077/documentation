@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#documentation" class="md-skip">
+        <a href="#e-scooter-2077-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              documentation
+              E-Scooter 2077 documentation
             
           </span>
         </div>
@@ -861,6 +861,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-proposal" class="md-nav__link">
+    Project Proposal
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Proposal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#members" class="md-nav__link">
+    Members
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    Scenario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#course-requirements" class="md-nav__link">
+    Course requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -877,8 +919,48 @@
                   </a>
                 
                 
-                <h1 id="documentation">documentation</h1>
-<p>Documentation reports and diagrams</p>
+                <h1 id="e-scooter-2077-documentation">E-Scooter 2077 documentation</h1>
+<p>This repository contains the documentation regarding the developement process of a DigitalTwin-based monitoring and managing system for a fake e-scooter renting company.</p>
+<p>You can start <a href="https://e-scooter-2077.github.io/documentation/introduction.html">here</a>.</p>
+<h2 id="project-proposal">Project Proposal</h2>
+<h3 id="members">Members</h3>
+<ul>
+<li>Samuele Burattini: samuele.burattini@studio.unibo.it</li>
+<li>Luca Deluigi: luca.deluigi3@studio.unibo.it</li>
+<li>Francesco Dente: francesco.dente@studio.unibo.it</li>
+<li>Simone Magnani: simone.magnani4@studio.unibo.it</li>
+</ul>
+<h3 id="scenario">Scenario</h3>
+<p>The group is committed to design a microservice system that collects and merge e-scooter related data to create a digital twin of the physical entity. The collected data will be:</p>
+<ul>
+<li>Battery percentage</li>
+<li>Position and speed in real-time</li>
+<li>Activity status (rented, idle, etc.)</li>
+<li>Lock state</li>
+<li>Availability for renting</li>
+<li>Any other relevant data discovered while developing</li>
+</ul>
+<p>The goal is to maximize the coverage of the renting service by analyzing users and scooters behaviour to map the more requested areas and which kind of trips the users do most in different areas.</p>
+<p>To also make use of the power of the digital twins onto their corresponding physical device a mechanism of battery conservation is put in place to guarantee a long lasting battery life by limiting speed when the battery is too low and a remote locking and disabling mechanism that activates when the scooter is outside of the recovery service area or when the battery is below the minimum threshold to guarantee the device not to turn off.</p>
+<p>Monitoring will be made possible through an admin dashboard that show the overall state of all the devices in real-time.</p>
+<h3 id="course-requirements">Course requirements</h3>
+<p>The system will be designed with a domain driven approach. 
+In detail the team will have:</p>
+<ul>
+<li>an initial knowledge crunching session (with fake domain experts)</li>
+<li>the definition, mantain and use of the ubiquitous language</li>
+<li>a requirement analysis, carried out through user stories and use-case diagrams</li>
+<li>bounded context partitioning and definition of a context-map</li>
+<li>domain models for each relevant bounded context</li>
+</ul>
+<p>Apart from that the project will follow a developement process based on continuos integration &amp; deployment for most of the system components. The tools used will be:</p>
+<ul>
+<li>Dotnet CLI for build automation</li>
+<li>Github Actions for continuous integration</li>
+<li>Github Pages for the hosting of the automatic generated documentation</li>
+<li>Microsoft Azure as a target platform for the deployment of the whole system</li>
+<li>Quality Assurance tools to be defined during developement (linter, automatic testing etc.)</li>
+</ul>
                 
                   
                     
@@ -887,7 +969,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">June 8, 2021 13:45:15</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 4, 2022 17:03:03</span>
       
         <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">June 8, 2021 13:45:15</span> 
       
@@ -901,7 +983,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:dente.francesco1996@gmail.com'>francescodente</a></span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:samuele.bura98@gmail.com'>Samuele</a></span>
       </small>
     </div>
   
