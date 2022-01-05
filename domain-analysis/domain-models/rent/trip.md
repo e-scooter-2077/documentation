@@ -7,6 +7,7 @@
 
 $aggregate("Trip") {
   $aggregate_root("Trip", trip) {
+    + id: EntityId
     + travelledDistance: Distance
     + start: TripPoint
     + end: Option[TripPoint]
