@@ -1848,7 +1848,7 @@
 <h2 id="e-scooter-service">E-Scooter service</h2>
 <p>A service that allows <a href="#customer">customers</a> to <a href="#rent">rent</a> <a href="#electric-scooter">electric scooters</a> placed in public areas for a <a href="#trip">trip</a> within the boundaries of an <a href="#area-of-service">area of service</a>.</p>
 <h2 id="electric-scooter">Electric Scooter</h2>
-<p>Alias: e-scooter, scooter<br />
+<p>Aliases: e-scooter, scooter<br />
 Motorized vehicle with two wheels, usable by a person standing on it. It's equipped with some sensors and other devices.</p>
 <h3 id="e-scooter-equipment">E-Scooter equipment</h3>
 <h4 id="electric-engine">Electric engine</h4>
@@ -1860,16 +1860,16 @@ Motorized vehicle with two wheels, usable by a person standing on it. It's equip
 <h4 id="gps-sensor">GPS sensor</h4>
 <p>Global Positioning System; estimates a position on Earth by negotiating it with satellites; based on a free service; works better in open places</p>
 <h4 id="speedometer">Speedometer</h4>
-<p>Measures wheel rounds per second</p>
+<p>Measures speed using wheel rotations.</p>
 <h4 id="accelerometer">Accelerometer</h4>
 <p>Measures acceleration forces along the three axis</p>
 <h4 id="electronic-wheel-block">Electronic wheel block</h4>
-<p>Alias: electric break, electric block<br />
+<p>Aliases: electric break, electric block<br />
 If turned on, the wheel becomes very hard to rotate</p>
 <h4 id="headlight">Headlight</h4>
 <p>Light source embedded in the front to enable night usage</p>
 <h4 id="manual-breaks">Manual Breaks</h4>
-<p>Alias: Breaks, default breaks, disk breaks, rear break<br />
+<p>Aliases: Breaks, default breaks, disk breaks, rear break<br />
 Friction based stopping system;
 Placed on the back wheel;
 Controlled by a hand lever.</p>
@@ -1878,16 +1878,16 @@ Controlled by a hand lever.</p>
 <h4 id="speaker">Speaker</h4>
 <p>A device that can play sounds and can be remotely activated.</p>
 <h3 id="mode">Mode</h3>
-<p>Alias: State<br />
+<p>Aliases: State<br />
 One of the possible states in which the scooter can be. In each mode, the scooter has a different behavior.</p>
 <h4 id="active-mode">Active mode</h4>
 <p>A mode in which the scooter has no electric limit on power.</p>
 <h4 id="power-saving-mode">Power Saving mode</h4>
-<p>A mode in which the scooter uses electrically limited power in order to save battery. This happens after the battery gets below a <a href="#power-saving-threshold">threshold</a></p>
+<p>A mode in which the scooter uses a lower maximum speed to limit power consuption. This happens after the battery gets below a <a href="#power-saving-threshold">threshold</a></p>
 <h5 id="power-saving-threshold">Power Saving threshold</h5>
 <p>The battery level below which the scooter enters Power Saving mode.</p>
 <h4 id="standby-mode">Standby mode</h4>
-<p>A mode in which the scooter is <a href="#disable">disabled</a> due to extremely low battery.</p>
+<p>A mode in which the scooter must be <a href="#disable">disabled</a> due to extremely low battery.</p>
 <h5 id="standby-threshold">Standby threshold</h5>
 <p>The battery level below which the scooter enters Standby mode.</p>
 <h3 id="operations"><em>Operations</em></h3>
@@ -1923,14 +1923,14 @@ One of the possible states in which the scooter can be. In each mode, the scoote
 <h2 id="recovery">Recovery</h2>
 <p>The act of picking up an <a href="#electric-scooter">e-scooter</a>, providing <a href="#maintenance">maintenance</a> and dropping it somewhere inside the <a href="#area-of-service">area of service</a> sometime later. The scooter may be unlocked if necessary.</p>
 <h3 id="recovery-assistant">Recovery assistant</h3>
-<p>Alias: assistant, employee.<br />
+<p>Aliases: assistant, employee.<br />
 Works for the <a href="#e-scooter-service">e-scooter service</a> and does recoveries with a <a href="#recovery-van">recovery van</a>.</p>
 <h3 id="recovery-van">Recovery van</h3>
 <p>A vehicle that allows <a href="#recovery-assistant">assistants</a> to recover <a href="#electric-scooter">e-scooters</a>.</p>
 <h2 id="map">Map</h2>
 <p>Bidimensional, polar representation of the Earth surface. Shows, for example, streets, buildings, water courses; what scooters can or cannot cross.</p>
 <h3 id="area-of-service">Area of service</h3>
-<p>Alias: Service Area
+<p>Aliases: Service Area
 The map portion inside which <a href="#electric-scooter">e-scooters</a> <a href="#assign">assigned</a> to it can be rented.</p>
 <h4 id="drop-point">Drop Point</h4>
 <p>A place of interest, inside an area of service, where <a href="#electric-scooter">electric scooter</a> are usually dropped after <a href="#recovery">recovery</a>.</p>
@@ -1944,10 +1944,10 @@ The map portion inside which <a href="#electric-scooter">e-scooters</a> <a href=
 <h4 id="distance">Distance</h4>
 <p>The distance, in meters, traveled during the trip.</p>
 <h4 id="start-position">Start position</h4>
-<p>Alias: start<br />
+<p>Aliases: start<br />
 A point inside the <a href="#area-of-service">area of service</a> where the vehicle was <a href="#unlock">unlocked</a>.</p>
 <h4 id="end-position">End position</h4>
-<p>Alias: end<br />
+<p>Aliases: end<br />
 A point inside the <a href="#map">map</a> where the vehicle was <a href="#lock">locked</a> because the <a href="#rent">rent</a> ended.</p>
 <h2 id="payment">Payment</h2>
 <p>A payment can be either:
@@ -1959,10 +1959,10 @@ A point inside the <a href="#map">map</a> where the vehicle was <a href="#lock">
 <p>The amount of imaginary money for every customer. Used to pay scooter <a href="#rent">rents</a>.
 It can be obtained through <a href="#real-world-payment">real-world purchases</a>.</p>
 <h3 id="in-app-payment">In-App Payment</h3>
-<p>Alias: in-app purchase<br />
+<p>Aliases: in-app purchase<br />
 It's a <a href="#virtual-currency">virtual currency</a> transaction inside the system.</p>
 <h3 id="real-world-payment">Real-world payment</h3>
-<p>Alias: real-world purchase<br />
+<p>Aliases: real-world purchase<br />
 It's a money transaction from the <a href="#customer">customer</a> to the business bank account.</p>
                 
                   
@@ -1972,7 +1972,7 @@ It's a money transaction from the <a href="#customer">customer</a> to the busine
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 3, 2022 16:14:23</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 5, 2022 00:19:15</span>
       
         <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 3, 2022 16:14:23</span> 
       

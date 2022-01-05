@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1225,7 +1225,7 @@
 <h2 id="domain-exploration-ubiquitous-language-e-scooter-service">E-Scooter service</h2>
 <p>A service that allows <a href="#domain-exploration-ubiquitous-language-customer">customers</a> to <a href="#domain-exploration-ubiquitous-language-rent">rent</a> <a href="#domain-exploration-ubiquitous-language-electric-scooter">electric scooters</a> placed in public areas for a <a href="#domain-exploration-ubiquitous-language-trip">trip</a> within the boundaries of an <a href="#domain-exploration-ubiquitous-language-area-of-service">area of service</a>.</p>
 <h2 id="domain-exploration-ubiquitous-language-electric-scooter">Electric Scooter</h2>
-<p>Alias: e-scooter, scooter<br />
+<p>Aliases: e-scooter, scooter<br />
 Motorized vehicle with two wheels, usable by a person standing on it. It's equipped with some sensors and other devices.</p>
 <h3 id="domain-exploration-ubiquitous-language-e-scooter-equipment">E-Scooter equipment</h3>
 <h4 id="domain-exploration-ubiquitous-language-electric-engine">Electric engine</h4>
@@ -1237,16 +1237,16 @@ Motorized vehicle with two wheels, usable by a person standing on it. It's equip
 <h4 id="domain-exploration-ubiquitous-language-gps-sensor">GPS sensor</h4>
 <p>Global Positioning System; estimates a position on Earth by negotiating it with satellites; based on a free service; works better in open places</p>
 <h4 id="domain-exploration-ubiquitous-language-speedometer">Speedometer</h4>
-<p>Measures wheel rounds per second</p>
+<p>Measures speed using wheel rotations.</p>
 <h4 id="domain-exploration-ubiquitous-language-accelerometer">Accelerometer</h4>
 <p>Measures acceleration forces along the three axis</p>
 <h4 id="domain-exploration-ubiquitous-language-electronic-wheel-block">Electronic wheel block</h4>
-<p>Alias: electric break, electric block<br />
+<p>Aliases: electric break, electric block<br />
 If turned on, the wheel becomes very hard to rotate</p>
 <h4 id="domain-exploration-ubiquitous-language-headlight">Headlight</h4>
 <p>Light source embedded in the front to enable night usage</p>
 <h4 id="domain-exploration-ubiquitous-language-manual-breaks">Manual Breaks</h4>
-<p>Alias: Breaks, default breaks, disk breaks, rear break<br />
+<p>Aliases: Breaks, default breaks, disk breaks, rear break<br />
 Friction based stopping system;
 Placed on the back wheel;
 Controlled by a hand lever.</p>
@@ -1255,16 +1255,16 @@ Controlled by a hand lever.</p>
 <h4 id="domain-exploration-ubiquitous-language-speaker">Speaker</h4>
 <p>A device that can play sounds and can be remotely activated.</p>
 <h3 id="domain-exploration-ubiquitous-language-mode">Mode</h3>
-<p>Alias: State<br />
+<p>Aliases: State<br />
 One of the possible states in which the scooter can be. In each mode, the scooter has a different behavior.</p>
 <h4 id="domain-exploration-ubiquitous-language-active-mode">Active mode</h4>
 <p>A mode in which the scooter has no electric limit on power.</p>
 <h4 id="domain-exploration-ubiquitous-language-power-saving-mode">Power Saving mode</h4>
-<p>A mode in which the scooter uses electrically limited power in order to save battery. This happens after the battery gets below a <a href="#domain-exploration-ubiquitous-language-power-saving-threshold">threshold</a></p>
+<p>A mode in which the scooter uses a lower maximum speed to limit power consuption. This happens after the battery gets below a <a href="#domain-exploration-ubiquitous-language-power-saving-threshold">threshold</a></p>
 <h5 id="domain-exploration-ubiquitous-language-power-saving-threshold">Power Saving threshold</h5>
 <p>The battery level below which the scooter enters Power Saving mode.</p>
 <h4 id="domain-exploration-ubiquitous-language-standby-mode">Standby mode</h4>
-<p>A mode in which the scooter is <a href="#domain-exploration-ubiquitous-language-disable">disabled</a> due to extremely low battery.</p>
+<p>A mode in which the scooter must be <a href="#domain-exploration-ubiquitous-language-disable">disabled</a> due to extremely low battery.</p>
 <h5 id="domain-exploration-ubiquitous-language-standby-threshold">Standby threshold</h5>
 <p>The battery level below which the scooter enters Standby mode.</p>
 <h3 id="domain-exploration-ubiquitous-language-operations"><em>Operations</em></h3>
@@ -1300,14 +1300,14 @@ One of the possible states in which the scooter can be. In each mode, the scoote
 <h2 id="domain-exploration-ubiquitous-language-recovery">Recovery</h2>
 <p>The act of picking up an <a href="#domain-exploration-ubiquitous-language-electric-scooter">e-scooter</a>, providing <a href="#domain-exploration-ubiquitous-language-maintenance">maintenance</a> and dropping it somewhere inside the <a href="#domain-exploration-ubiquitous-language-area-of-service">area of service</a> sometime later. The scooter may be unlocked if necessary.</p>
 <h3 id="domain-exploration-ubiquitous-language-recovery-assistant">Recovery assistant</h3>
-<p>Alias: assistant, employee.<br />
+<p>Aliases: assistant, employee.<br />
 Works for the <a href="#domain-exploration-ubiquitous-language-e-scooter-service">e-scooter service</a> and does recoveries with a <a href="#domain-exploration-ubiquitous-language-recovery-van">recovery van</a>.</p>
 <h3 id="domain-exploration-ubiquitous-language-recovery-van">Recovery van</h3>
 <p>A vehicle that allows <a href="#domain-exploration-ubiquitous-language-recovery-assistant">assistants</a> to recover <a href="#domain-exploration-ubiquitous-language-electric-scooter">e-scooters</a>.</p>
 <h2 id="domain-exploration-ubiquitous-language-map">Map</h2>
 <p>Bidimensional, polar representation of the Earth surface. Shows, for example, streets, buildings, water courses; what scooters can or cannot cross.</p>
 <h3 id="domain-exploration-ubiquitous-language-area-of-service">Area of service</h3>
-<p>Alias: Service Area
+<p>Aliases: Service Area
 The map portion inside which <a href="#domain-exploration-ubiquitous-language-electric-scooter">e-scooters</a> <a href="#domain-exploration-ubiquitous-language-assign">assigned</a> to it can be rented.</p>
 <h4 id="domain-exploration-ubiquitous-language-drop-point">Drop Point</h4>
 <p>A place of interest, inside an area of service, where <a href="#domain-exploration-ubiquitous-language-electric-scooter">electric scooter</a> are usually dropped after <a href="#domain-exploration-ubiquitous-language-recovery">recovery</a>.</p>
@@ -1321,10 +1321,10 @@ The map portion inside which <a href="#domain-exploration-ubiquitous-language-el
 <h4 id="domain-exploration-ubiquitous-language-distance">Distance</h4>
 <p>The distance, in meters, traveled during the trip.</p>
 <h4 id="domain-exploration-ubiquitous-language-start-position">Start position</h4>
-<p>Alias: start<br />
+<p>Aliases: start<br />
 A point inside the <a href="#domain-exploration-ubiquitous-language-area-of-service">area of service</a> where the vehicle was <a href="#domain-exploration-ubiquitous-language-unlock">unlocked</a>.</p>
 <h4 id="domain-exploration-ubiquitous-language-end-position">End position</h4>
-<p>Alias: end<br />
+<p>Aliases: end<br />
 A point inside the <a href="#domain-exploration-ubiquitous-language-map">map</a> where the vehicle was <a href="#domain-exploration-ubiquitous-language-lock">locked</a> because the <a href="#domain-exploration-ubiquitous-language-rent">rent</a> ended.</p>
 <h2 id="domain-exploration-ubiquitous-language-payment">Payment</h2>
 <p>A payment can be either:
@@ -1336,10 +1336,10 @@ A point inside the <a href="#domain-exploration-ubiquitous-language-map">map</a>
 <p>The amount of imaginary money for every customer. Used to pay scooter <a href="#domain-exploration-ubiquitous-language-rent">rents</a>.
 It can be obtained through <a href="#domain-exploration-ubiquitous-language-real-world-payment">real-world purchases</a>.</p>
 <h3 id="domain-exploration-ubiquitous-language-in-app-payment">In-App Payment</h3>
-<p>Alias: in-app purchase<br />
+<p>Aliases: in-app purchase<br />
 It's a <a href="#domain-exploration-ubiquitous-language-virtual-currency">virtual currency</a> transaction inside the system.</p>
 <h3 id="domain-exploration-ubiquitous-language-real-world-payment">Real-world payment</h3>
-<p>Alias: real-world purchase<br />
+<p>Aliases: real-world purchase<br />
 It's a money transaction from the <a href="#domain-exploration-ubiquitous-language-customer">customer</a> to the business bank account.</p></section><h1 class='nav-section-title-end'>Ended: Domain Exploration</h1>
                         <h1 class='nav-section-title' id='section-requirement-analysis'>
                             Requirement Analysis <a class='headerlink' href='#section-requirement-analysis' title='Permanent link'>↵</a>
@@ -1753,7 +1753,7 @@ technology-agnostic interfaces declared by the <a href="#architecture-design-ser
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>
