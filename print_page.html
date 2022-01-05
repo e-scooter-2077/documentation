@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1357,9 +1357,9 @@ One of the possible states in which the scooter can be. In each mode, the scoote
 <h4 id="domain-exploration-ubiquitous-language-ride">Ride</h4>
 <p>Use the scooter to move.</p>
 <h4 id="domain-exploration-ubiquitous-language-disable">Disable</h4>
-<p>To deny the possibility that a <a href="#domain-exploration-ubiquitous-language-customer">customer</a> pays for <a href="#domain-exploration-ubiquitous-language-unlock">unlocking</a> the scooter.</p>
+<p>To deny the possibility that a <a href="#domain-exploration-ubiquitous-language-customer">customer</a> <a href="#domain-exploration-ubiquitous-language-rent">rents</a> a scooter.</p>
 <h4 id="domain-exploration-ubiquitous-language-enable">Enable</h4>
-<p>To allow the possibility that a <a href="#domain-exploration-ubiquitous-language-customer">customer</a> pays for <a href="#domain-exploration-ubiquitous-language-unlock">unlocking</a> the scooter, if the <a href="#domain-exploration-ubiquitous-language-rent">rent</a> business policies allow it.</p>
+<p>To allow the possibility that a <a href="#domain-exploration-ubiquitous-language-customer">customer</a> <a href="#domain-exploration-ubiquitous-language-rent">rents</a> a scooter if the business policies allow it.</p>
 <h4 id="domain-exploration-ubiquitous-language-maintain">Maintain</h4>
 <p>Repair any damage and/or recharge the battery.</p>
 <h4 id="domain-exploration-ubiquitous-language-rent">Rent</h4>
@@ -1372,17 +1372,20 @@ One of the possible states in which the scooter can be. In each mode, the scoote
 <p>Make the speaker play a ringtone, useful to find it.</p>
 <h3 id="domain-exploration-ubiquitous-language-relationships"><em>Relationships</em></h3>
 <h4 id="domain-exploration-ubiquitous-language-belong-to-area">Belong to area</h4>
-<p>The <a href="#domain-exploration-ubiquitous-language-electric-scooter">e-scooter</a> can be only rented inside that <a href="#domain-exploration-ubiquitous-language-area-of-service">area</a>.</p>
+<p>The <a href="#domain-exploration-ubiquitous-language-electric-scooter">e-scooter</a> can be only rented and ridden inside that <a href="#domain-exploration-ubiquitous-language-area-of-service">area</a>.</p>
 <h2 id="domain-exploration-ubiquitous-language-customer">Customer</h2>
-<p>A customer for the <a href="#domain-exploration-ubiquitous-language-e-scooter-service">e-scooter service</a>.</p>
+<p>Alias: user.
+A customer for the <a href="#domain-exploration-ubiquitous-language-e-scooter-service">e-scooter service</a>.</p>
 <h3 id="domain-exploration-ubiquitous-language-anagraphic-information">Anagraphic information</h3>
 <p>Collection of data about the customer, including first name, date of birth, and all the other possible information useful for the <a href="#domain-exploration-ubiquitous-language-e-scooter-service">e-scooter service</a>.</p>
 <h3 id="domain-exploration-ubiquitous-language-subscription">Subscription</h3>
 <p>A customer has it if they are able to <a href="#domain-exploration-ubiquitous-language-rent">rent</a> <a href="#domain-exploration-ubiquitous-language-electric-scooter">e-scooters</a> without paying upfront.</p>
+<h2 id="domain-exploration-ubiquitous-language-admin">Admin</h2>
+<p>Works for the <a href="#domain-exploration-ubiquitous-language-e-scooter-service">E-Scooter Service</a>. Monitors and manages <a href="#domain-exploration-ubiquitous-language-e-scooter">scooters</a> from a control dashboard.</p>
 <h2 id="domain-exploration-ubiquitous-language-recovery">Recovery</h2>
 <p>The act of picking up an <a href="#domain-exploration-ubiquitous-language-electric-scooter">e-scooter</a>, providing <a href="#domain-exploration-ubiquitous-language-maintenance">maintenance</a> and dropping it somewhere inside the <a href="#domain-exploration-ubiquitous-language-area-of-service">area of service</a> sometime later. The scooter may be unlocked if necessary.</p>
 <h3 id="domain-exploration-ubiquitous-language-recovery-assistant">Recovery assistant</h3>
-<p>Aliases: assistant, employee.<br />
+<p>Aliases: assistant
 Works for the <a href="#domain-exploration-ubiquitous-language-e-scooter-service">e-scooter service</a> and does recoveries with a <a href="#domain-exploration-ubiquitous-language-recovery-van">recovery van</a>.</p>
 <h3 id="domain-exploration-ubiquitous-language-recovery-van">Recovery van</h3>
 <p>A vehicle that allows <a href="#domain-exploration-ubiquitous-language-recovery-assistant">assistants</a> to recover <a href="#domain-exploration-ubiquitous-language-electric-scooter">e-scooters</a>.</p>
@@ -1908,7 +1911,7 @@ This features are implemented using angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>

@@ -626,6 +626,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    Admin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recovery" class="md-nav__link">
     Recovery
   </a>
@@ -1665,6 +1672,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    Admin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recovery" class="md-nav__link">
     Recovery
   </a>
@@ -1898,9 +1912,9 @@ One of the possible states in which the scooter can be. In each mode, the scoote
 <h4 id="ride">Ride</h4>
 <p>Use the scooter to move.</p>
 <h4 id="disable">Disable</h4>
-<p>To deny the possibility that a <a href="#customer">customer</a> pays for <a href="#unlock">unlocking</a> the scooter.</p>
+<p>To deny the possibility that a <a href="#customer">customer</a> <a href="#rent">rents</a> a scooter.</p>
 <h4 id="enable">Enable</h4>
-<p>To allow the possibility that a <a href="#customer">customer</a> pays for <a href="#unlock">unlocking</a> the scooter, if the <a href="#rent">rent</a> business policies allow it.</p>
+<p>To allow the possibility that a <a href="#customer">customer</a> <a href="#rent">rents</a> a scooter if the business policies allow it.</p>
 <h4 id="maintain">Maintain</h4>
 <p>Repair any damage and/or recharge the battery.</p>
 <h4 id="rent">Rent</h4>
@@ -1913,17 +1927,20 @@ One of the possible states in which the scooter can be. In each mode, the scoote
 <p>Make the speaker play a ringtone, useful to find it.</p>
 <h3 id="relationships"><em>Relationships</em></h3>
 <h4 id="belong-to-area">Belong to area</h4>
-<p>The <a href="#electric-scooter">e-scooter</a> can be only rented inside that <a href="#area-of-service">area</a>.</p>
+<p>The <a href="#electric-scooter">e-scooter</a> can be only rented and ridden inside that <a href="#area-of-service">area</a>.</p>
 <h2 id="customer">Customer</h2>
-<p>A customer for the <a href="#e-scooter-service">e-scooter service</a>.</p>
+<p>Alias: user.
+A customer for the <a href="#e-scooter-service">e-scooter service</a>.</p>
 <h3 id="anagraphic-information">Anagraphic information</h3>
 <p>Collection of data about the customer, including first name, date of birth, and all the other possible information useful for the <a href="#e-scooter-service">e-scooter service</a>.</p>
 <h3 id="subscription">Subscription</h3>
 <p>A customer has it if they are able to <a href="#rent">rent</a> <a href="#electric-scooter">e-scooters</a> without paying upfront.</p>
+<h2 id="admin">Admin</h2>
+<p>Works for the <a href="#e-scooter-service">E-Scooter Service</a>. Monitors and manages <a href="#e-scooter">scooters</a> from a control dashboard.</p>
 <h2 id="recovery">Recovery</h2>
 <p>The act of picking up an <a href="#electric-scooter">e-scooter</a>, providing <a href="#maintenance">maintenance</a> and dropping it somewhere inside the <a href="#area-of-service">area of service</a> sometime later. The scooter may be unlocked if necessary.</p>
 <h3 id="recovery-assistant">Recovery assistant</h3>
-<p>Aliases: assistant, employee.<br />
+<p>Aliases: assistant
 Works for the <a href="#e-scooter-service">e-scooter service</a> and does recoveries with a <a href="#recovery-van">recovery van</a>.</p>
 <h3 id="recovery-van">Recovery van</h3>
 <p>A vehicle that allows <a href="#recovery-assistant">assistants</a> to recover <a href="#electric-scooter">e-scooters</a>.</p>
@@ -1972,7 +1989,7 @@ It's a money transaction from the <a href="#customer">customer</a> to the busine
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 5, 2022 00:19:15</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 5, 2022 15:57:53</span>
       
         <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 3, 2022 16:14:23</span> 
       
@@ -1986,7 +2003,7 @@ It's a money transaction from the <a href="#customer">customer</a> to the busine
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (99.17%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (0.83%)</span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (92.68%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (6.5%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (0.81%)</span>
       </small>
     </div>
   
