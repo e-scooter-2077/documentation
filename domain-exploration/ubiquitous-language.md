@@ -57,9 +57,9 @@ To turn on the [electric block](#electronic-wheel-block).
 #### Ride
 Use the scooter to move.
 #### Disable
-To deny the possibility that a [customer](#customer) pays for [unlocking](#unlock) the scooter.
+To deny the possibility that a [customer](#customer) [rents](#rent) a scooter.
 #### Enable
-To allow the possibility that a [customer](#customer) pays for [unlocking](#unlock) the scooter, if the [rent](#rent) business policies allow it.
+To allow the possibility that a [customer](#customer) [rents](#rent) a scooter if the business policies allow it.
 #### Maintain
 Repair any damage and/or recharge the battery.
 #### Rent
@@ -73,20 +73,23 @@ Make the speaker play a ringtone, useful to find it.
 
 ### _Relationships_
 #### Belong to area
-The [e-scooter](#electric-scooter) can be only rented inside that [area](#area-of-service).
-
+The [e-scooter](#electric-scooter) can be only rented and ridden inside that [area](#area-of-service).
 
 ## Customer
+Alias: user.
 A customer for the [e-scooter service](#e-scooter-service).
 ### Anagraphic information
 Collection of data about the customer, including first name, date of birth, and all the other possible information useful for the [e-scooter service](#e-scooter-service).
 ### Subscription
 A customer has it if they are able to [rent](#rent) [e-scooters](#electric-scooter) without paying upfront.
 
+## Admin
+Works for the [E-Scooter Service](#e-scooter-service). Monitors and manages [scooters](#e-scooter) from a control dashboard.
+
 ## Recovery
 The act of picking up an [e-scooter](#electric-scooter), providing [maintenance](#maintenance) and dropping it somewhere inside the [area of service](#area-of-service) sometime later. The scooter may be unlocked if necessary.
 ### Recovery assistant
-Aliases: assistant, employee.  
+Aliases: assistant
 Works for the [e-scooter service](#e-scooter-service) and does recoveries with a [recovery van](#recovery-van).
 ### Recovery van
 A vehicle that allows [assistants](#recovery-assistant) to recover [e-scooters](#electric-scooter).
