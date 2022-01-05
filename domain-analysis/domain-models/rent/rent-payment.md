@@ -20,7 +20,7 @@ $value("Currency", currency) {
 }
 
 $service("RentPaymentManager", rentpay) {
-  + onRentStarted(rentId: EntityId): Result[Rent]
+  + onRentStarted(rentId: EntityId, rider: EntityId): Result[Rent]
   + onRentStopped(rent: Rent): Result[Nothing]
   + onNextPayment(rent: Rent): Result[Nothing]
 }
