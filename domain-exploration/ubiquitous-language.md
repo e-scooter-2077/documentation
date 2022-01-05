@@ -4,7 +4,7 @@
 A service that allows [customers](#customer) to [rent](#rent) [electric scooters](#electric-scooter) placed in public areas for a [trip](#trip) within the boundaries of an [area of service](#area-of-service).
 
 ## Electric Scooter
-Alias: e-scooter, scooter  
+Aliases: e-scooter, scooter  
 Motorized vehicle with two wheels, usable by a person standing on it. It's equipped with some sensors and other devices.
 
 ### E-Scooter equipment
@@ -17,16 +17,16 @@ Scooter power supply; rechargeable; electric; has finite capacity, power...
 #### GPS sensor
 Global Positioning System; estimates a position on Earth by negotiating it with satellites; based on a free service; works better in open places
 #### Speedometer
-Measures wheel rounds per second
+Measures speed using wheel rotations.
 #### Accelerometer
 Measures acceleration forces along the three axis
 #### Electronic wheel block
-Alias: electric break, electric block  
+Aliases: electric break, electric block  
 If turned on, the wheel becomes very hard to rotate
 #### Headlight
 Light source embedded in the front to enable night usage
 #### Manual Breaks
-Alias: Breaks, default breaks, disk breaks, rear break  
+Aliases: Breaks, default breaks, disk breaks, rear break  
 Friction based stopping system;
 Placed on the back wheel;
 Controlled by a hand lever.
@@ -36,16 +36,16 @@ Handle that controls the speed; If the handle isn't turned the [electric break](
 A device that can play sounds and can be remotely activated.
 
 ### Mode
-Alias: State  
+Aliases: State  
 One of the possible states in which the scooter can be. In each mode, the scooter has a different behavior.
 #### Active mode
 A mode in which the scooter has no electric limit on power.
 #### Power Saving mode
-A mode in which the scooter uses electrically limited power in order to save battery. This happens after the battery gets below a [threshold](#power-saving-threshold)
+A mode in which the scooter uses a lower maximum speed to limit power consuption. This happens after the battery gets below a [threshold](#power-saving-threshold)
 ##### Power Saving threshold
 The battery level below which the scooter enters Power Saving mode.
 #### Standby mode
-A mode in which the scooter is [disabled](#disable) due to extremely low battery.
+A mode in which the scooter must be [disabled](#disable) due to extremely low battery.
 ##### Standby threshold
 The battery level below which the scooter enters Standby mode.
 
@@ -86,7 +86,7 @@ A customer has it if they are able to [rent](#rent) [e-scooters](#electric-scoot
 ## Recovery
 The act of picking up an [e-scooter](#electric-scooter), providing [maintenance](#maintenance) and dropping it somewhere inside the [area of service](#area-of-service) sometime later. The scooter may be unlocked if necessary.
 ### Recovery assistant
-Alias: assistant, employee.  
+Aliases: assistant, employee.  
 Works for the [e-scooter service](#e-scooter-service) and does recoveries with a [recovery van](#recovery-van).
 ### Recovery van
 A vehicle that allows [assistants](#recovery-assistant) to recover [e-scooters](#electric-scooter).
@@ -94,7 +94,7 @@ A vehicle that allows [assistants](#recovery-assistant) to recover [e-scooters](
 ## Map
 Bidimensional, polar representation of the Earth surface. Shows, for example, streets, buildings, water courses; what scooters can or cannot cross.
 ### Area of service
-Alias: Service Area
+Aliases: Service Area
 The map portion inside which [e-scooters](#electric-scooter) [assigned](#assign) to it can be rented.
 #### Drop Point
 A place of interest, inside an area of service, where [electric scooter](#electric-scooter) are usually dropped after [recovery](#recovery).
@@ -109,10 +109,10 @@ The [scooter](#electric-scooter) used for transportation.
 #### Distance
 The distance, in meters, traveled during the trip.
 #### Start position
-Alias: start  
+Aliases: start  
 A point inside the [area of service](#area-of-service) where the vehicle was [unlocked](#unlock).
 #### End position
-Alias: end  
+Aliases: end  
 A point inside the [map](#map) where the vehicle was [locked](#lock) because the [rent](#rent) ended.
 
 ## Payment
@@ -125,8 +125,8 @@ The preexisting service that manages customer data and payments for the [e-scoot
 The amount of imaginary money for every customer. Used to pay scooter [rents](#rent).
 It can be obtained through [real-world purchases](#real-world-payment).
 ### In-App Payment
-Alias: in-app purchase  
+Aliases: in-app purchase  
 It's a [virtual currency](#virtual-currency) transaction inside the system.
 ### Real-world payment
-Alias: real-world purchase  
+Aliases: real-world purchase  
 It's a money transaction from the [customer](#customer) to the business bank account.
