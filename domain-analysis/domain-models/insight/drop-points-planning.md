@@ -6,10 +6,10 @@
 !include metamodel/domain.entities.metamodel.iuml
 $aggregate("Area") {
     $aggregate_root("Area", area) {
+        + id: EntityId
         + points: Set[DropPoint]
         + shape: Shape
         + scooterNumber: Integer
-        + trips: Set[Trip]
     }
 
     abstract $value("Shape", shape) {
@@ -17,21 +17,6 @@ $aggregate("Area") {
     }
 
     shape --o area
-
-    $entity("Trip", trip)  {
-        + travelledDistance: Distance
-        + start: TripPoint
-        + end: Option[TripPoint]
-    }
-
-    $value("TripPoint", point) {
-        + time: Timestamp
-        + position: GeoPoint
-    }
-
-    trip --o area
-    trip o- point
-
     $value("DropPoint", dp) {
         + position: GeoPoint
         + scooterNumber: Integer
@@ -40,6 +25,24 @@ $aggregate("Area") {
     dp -o area
 }
 
+$aggregate("Trip") {
+    $aggregate_root("Trip", trip) {
+        + id: EntityId
+        + travelledDistance: Distance
+        + start: TripPoint
+        + end: Option[TripPoint]
+        + areaId: EntityId
+    }
+
+        $value("TripPoint", point) {
+        + time: Timestamp
+        + position: GeoPoint
+    }
+
+    trip o- point
+}
+
+trip ..> area
 @enduml
 ```
 
