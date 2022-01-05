@@ -39,5 +39,5 @@ Manages all customer in-app transactions, virtual currency, and triggers real-wo
 #### Customer Context
 Keeps track of customers anagraphic data.
 #### Authentication Context
-Manages login data and role based authentication for all agents, including employees and customers.
+Manages login data and role based authentication for all people that use the service, including admins, assistants and customers.
 
