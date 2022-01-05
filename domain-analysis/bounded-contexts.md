@@ -1,4 +1,4 @@
-## Bounded Contexts
+# Bounded Contexts
 
 ### E-Scooter Subdomain
 *Core Subdomain*
