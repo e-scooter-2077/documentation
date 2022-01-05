@@ -1672,7 +1672,8 @@ technology-agnostic interfaces declared by the <a href="#architecture-design-ser
 <h2 id="implementation-backend-microsoft-azure">Backend - Microsoft Azure</h2>
 <p>Backend is fully deployed on Microsoft Azure: each resource is under the <code>e-scooter</code> group.</p>
 <h3 id="implementation-naming-convention">Naming Convention</h3>
-<p>The usual naming convention used under this group is <a href="https://en.wikipedia.org/wiki/Letter_case#Special_case_styles">kebab case</a></p>
+<p>The usual naming convention used under this group is <a href="https://en.wikipedia.org/wiki/Letter_case#Special_case_styles">kebab case</a>.</p>
+<p>Below the list of main resources' name deployed on Azure:</p>
 <ul>
 <li>The <em>Scooter Physical Control</em> IoT Hub is named <code>scooter-iot-hub</code></li>
 <li>The Digital Twin Layer is named <code>scooter-digital-twins</code></li>
@@ -1685,10 +1686,15 @@ technology-agnostic interfaces declared by the <a href="#architecture-design-ser
 <li>Azure Functions should be named with the Domain model and the specific usage, if exists; <code>manage</code> represents functions that update the Digital Twin.</li>
 <li>Microservice should be named with the Domain model followed by <code>-service</code></li>
 </ul>
+<h3 id="implementation-microservice">Microservice</h3>
+<p>Microservices are function with a status, usually implemented with a database:</p>
+<ul>
+<li><a href="https://github.com/e-scooter-2077/rent-service">Rent service</a></li>
+</ul>
 <h3 id="implementation-functions">Functions</h3>
 <p>Our functions are the link between different services:</p>
 <ul>
-<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> even if is implemented as an Azure function it's logically a service infact it extends the functionality of the IotHub</li>
+<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> even if it's implemented as an Azure function, its composition with IotHub (of which extends functionalities) can be considered logically a service</li>
 <li><a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a></li>
 <li><a href="https://github.com/e-scooter-2077/rent-payment.mock">rent payment</a> (mock)</li>
 <li><a href="https://github.com/e-scooter-2077/customer.manage-customers">manage customer</a></li>
@@ -1698,20 +1704,17 @@ technology-agnostic interfaces declared by the <a href="#architecture-design-ser
 <li><a href="https://github.com/e-scooter-2077/scooter-monitor.manage-reported-properties">manage reported properties</a></li>
 <li><a href="https://github.com/e-scooter-2077/rent.manage-scooter-availability">manage scooter availability</a></li>
 </ul>
-<h3 id="implementation-microservice">Microservice</h3>
-<p>Our services differ from functions because they've a status, usually linked with a Database:</p>
-<ul>
-<li><a href="https://github.com/e-scooter-2077/rent-service">Rent service</a></li>
-</ul>
 <h2 id="implementation-frontend">Frontend</h2>
 <h3 id="implementation-admin-frontend"><a href="https://github.com/e-scooter-2077/admin-frontend">Admin frontend</a></h3>
-<p>The Admin frontend is implemented in angular: it shows the scooters in a 2D map that updates polling the Digital Twin Layer. Clicking on a scooter is possible to check the its status and allow to enable or disable it.</p>
+<p>The Admin frontend is implemented in angular: polling the Digital Twin Layer, it shows the scooters in a 2D map.
+Clicking on a scooter is possible to check the its status and allow to enable or disable it.
+This features are implemented using angular services.</p>
 <h3 id="implementation-customer-frontend"><a href="https://github.com/e-scooter-2077/customer-frontend">Customer frontend</a></h3>
 <p>The Customer frontend is implemented in C# using Windows Forms: it allows to rent an available scooter from a list.</p>
 <h3 id="implementation-scooter-data"><a href="https://github.com/e-scooter-2077/scooter-data.mock">Scooter data</a></h3>
 <p>The Scooter data is a mock implementation of the real creation of a scooter: it enable to insert or remove a new scooter in the system.</p>
 <h2 id="implementation-device-emulator"><a href="https://github.com/e-scooter-2077/device-emulator">Device emulator</a></h2>
-<p>The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters, use the battery.</p></section></div>
+<p>The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters and uses the battery.</p></section></div>
                 
               
 

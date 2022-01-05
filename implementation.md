@@ -8,7 +8,9 @@ Backend is fully deployed on Microsoft Azure: each resource is under the `e-scoo
 
 ### Naming Convention
 
-The usual naming convention used under this group is [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
+The usual naming convention used under this group is [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
+
+Below the list of main resources' name deployed on Azure:
 
 - The *Scooter Physical Control* IoT Hub is named `scooter-iot-hub`
 - The Digital Twin Layer is named `scooter-digital-twins`
@@ -19,11 +21,17 @@ The usual naming convention used under this group is [kebab case](https://en.wik
 - Azure Functions should be named with the Domain model and the specific usage, if exists; `manage` represents functions that update the Digital Twin.
 - Microservice should be named with the Domain model followed by `-service`
 
+### Microservice
+
+Microservices are function with a status, usually implemented with a database:
+
+- [Rent service](https://github.com/e-scooter-2077/rent-service)
+
 ### Functions
 
 Our functions are the link between different services:
 
-- [scooter control](https://github.com/e-scooter-2077/scooter-control) even if is implemented as an Azure function it's logically a service infact it extends the functionality of the IotHub
+- [scooter control](https://github.com/e-scooter-2077/scooter-control) even if it's implemented as an Azure function, its composition with IotHub (of which extends functionalities) can be considered logically a service
 - [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor)
 - [rent payment](https://github.com/e-scooter-2077/rent-payment.mock) (mock)
 - [manage customer](https://github.com/e-scooter-2077/customer.manage-customers)
@@ -33,17 +41,13 @@ Our functions are the link between different services:
 - [manage reported properties](https://github.com/e-scooter-2077/scooter-monitor.manage-reported-properties)
 - [manage scooter availability](https://github.com/e-scooter-2077/rent.manage-scooter-availability)
 
-### Microservice
-
-Our services differ from functions because they've a status, usually linked with a Database:
-
-- [Rent service](https://github.com/e-scooter-2077/rent-service)
-
 ## Frontend
 
 ### [Admin frontend](https://github.com/e-scooter-2077/admin-frontend)
 
-The Admin frontend is implemented in angular: it shows the scooters in a 2D map that updates polling the Digital Twin Layer. Clicking on a scooter is possible to check the its status and allow to enable or disable it.
+The Admin frontend is implemented in angular: polling the Digital Twin Layer, it shows the scooters in a 2D map.
+Clicking on a scooter is possible to check the its status and allow to enable or disable it.
+This features are implemented using angular services.
 
 ### [Customer frontend](https://github.com/e-scooter-2077/customer-frontend)
 
@@ -54,4 +58,5 @@ The Customer frontend is implemented in C# using Windows Forms: it allows to ren
 The Scooter data is a mock implementation of the real creation of a scooter: it enable to insert or remove a new scooter in the system.
 
 ## [Device emulator](https://github.com/e-scooter-2077/device-emulator)
-The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters, use the battery.
+
+The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters and uses the battery.
