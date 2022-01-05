@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1811,7 +1811,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 <h3 id="devops-engineering-public-repository-nuget">Public repository (NuGet)</h3>
 <p>Given the fact that we didn't develop libraries, but only single-purpose services and functions, we didn't use NuGet.</p>
 <h3 id="devops-engineering-dependency-inspectionautomatic-management">Dependency inspection/automatic management</h3>
-<p>We voluntarily ignored the real-time dependency and vulnerability management because of the finite scope of the project. We instead used automatic dependancy and vulnerability management offered by GitHub (such as Dependabot) in some previously made actions, such as <a href="https://github.com/ldeluigi/markdown-docs">Markdown Docs</a>, which Luca Deluigi is actively mantinaing as one of his OS projects. See the <a href="https://github.com/ldeluigi/markdown-docs/blob/master/.github/dependabot.yml">dependabot configuration file</a>. Dependabot creates automatic pull requests that suggest dependency updates. We wanted to avoid receiving those PRs forever.</p>
+<p>We voluntarily ignored the real-time dependency and vulnerability management because of the finite scope of the project. We instead used automatic dependancy and vulnerability management offered by GitHub (such as Dependabot) in some previously made actions, such as <a href="https://github.com/ldeluigi/markdown-docs">Markdown Docs</a>, which Luca Deluigi is actively maintaining as one of his OS projects. See the <a href="https://github.com/ldeluigi/markdown-docs/blob/master/.github/dependabot.yml">dependabot configuration file</a>. Dependabot creates automatic pull requests that suggest dependency updates. We wanted to avoid receiving those PRs forever.</p>
 <h3 id="devops-engineering-missing">Missing</h3>
 <ul>
 <li>Code coverage -&gt; <a href="https://danysk.github.io/Course-Laboratory-of-Software-Systems/07-ci/#/41">slide</a></li>
@@ -1907,7 +1907,7 @@ This features are implemented using angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>

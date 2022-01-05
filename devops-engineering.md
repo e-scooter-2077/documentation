@@ -78,7 +78,7 @@ We automated documentation generation of both the architecture of the system (in
 Given the fact that we didn't develop libraries, but only single-purpose services and functions, we didn't use NuGet.
 
 ### Dependency inspection/automatic management
-We voluntarily ignored the real-time dependency and vulnerability management because of the finite scope of the project. We instead used automatic dependancy and vulnerability management offered by GitHub (such as Dependabot) in some previously made actions, such as [Markdown Docs](https://github.com/ldeluigi/markdown-docs), which Luca Deluigi is actively mantinaing as one of his OS projects. See the [dependabot configuration file](https://github.com/ldeluigi/markdown-docs/blob/master/.github/dependabot.yml). Dependabot creates automatic pull requests that suggest dependency updates. We wanted to avoid receiving those PRs forever.
+We voluntarily ignored the real-time dependency and vulnerability management because of the finite scope of the project. We instead used automatic dependancy and vulnerability management offered by GitHub (such as Dependabot) in some previously made actions, such as [Markdown Docs](https://github.com/ldeluigi/markdown-docs), which Luca Deluigi is actively maintaining as one of his OS projects. See the [dependabot configuration file](https://github.com/ldeluigi/markdown-docs/blob/master/.github/dependabot.yml). Dependabot creates automatic pull requests that suggest dependency updates. We wanted to avoid receiving those PRs forever.
 
 ### Missing
 - Code coverage -> [slide](https://danysk.github.io/Course-Laboratory-of-Software-Systems/07-ci/#/41)
