@@ -2,7 +2,7 @@
 
 This repository contains the documentation regarding the developement process of a DigitalTwin-based monitoring and managing system for a fake e-scooter renting company.
 
-You can start [here](https://e-scooter-2077.github.io/documentation/introduction.html).
+You can start [here](https://e-scooter-2077.github.io/documentation/index.html).
 
 ## Project Proposal 
 
