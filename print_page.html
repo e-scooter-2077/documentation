@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1822,8 +1822,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 <h3 id="implementation-functions">Functions</h3>
 <p>Our functions are the link between different services:</p>
 <ul>
-<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> even if it's implemented as an Azure function, its composition with IotHub (of which extends functionalities) can be considered logically a service</li>
-<li><a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a></li>
+<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> &amp; <a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> even if they're implemented as Azure functions, their composition with IotHub (of which extends functionalities) can be considered logically a service</li>
 <li><a href="https://github.com/e-scooter-2077/rent-payment.mock">rent payment</a> (mock)</li>
 <li><a href="https://github.com/e-scooter-2077/customer.manage-customers">manage customer</a></li>
 <li><a href="https://github.com/e-scooter-2077/rent.manage-rents">manage rents</a></li>
@@ -1838,7 +1837,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 Clicking on a scooter is possible to check the its status and allow to enable or disable it.
 This features are implemented using angular services.</p>
 <h3 id="implementation-customer-frontend"><a href="https://github.com/e-scooter-2077/customer-frontend">Customer frontend</a></h3>
-<p>The Customer frontend is implemented in C# using Windows Forms: it allows to rent an available scooter from a list.</p>
+<p>The Customer frontend is implemented in C# using WPF: it allows to rent an available scooter from a list.</p>
 <h3 id="implementation-scooter-data"><a href="https://github.com/e-scooter-2077/scooter-data.mock">Scooter data</a></h3>
 <p>The Scooter data is a mock implementation of the real creation of a scooter: it enable to insert or remove a new scooter in the system.</p>
 <h2 id="implementation-device-emulator"><a href="https://github.com/e-scooter-2077/device-emulator">Device emulator</a></h2>
@@ -1884,7 +1883,7 @@ This features are implemented using angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>
