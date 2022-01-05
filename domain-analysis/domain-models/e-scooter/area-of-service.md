@@ -7,7 +7,6 @@
 $aggregate("Area of Service") {
   $aggregate_root("AreaOfService", area) {
     + id: EntityId
-    + scooters: Set[EntityId]
     + shape: Shape
     + isInArea(point: GeoPoint): Boolean
   }
@@ -27,10 +26,12 @@ shape_factory ..> shape
 $aggregate("Scooters") {
  $aggregate_root("Scooter", scooter) {
    + id: EntityId
+   + areaId: Option[EntityId]
+   + position: GeoPoint
  }
 }
 
-area .> scooter
+area <. scooter
 
 @enduml
 ```
@@ -43,4 +44,4 @@ area .> scooter
 - **ScooterRemovedFromArea**: emitted when a scooter is set to not belong to any area.
 - **AreaShapeChanged**: emitted when the shape of an area of service is changed.
 - **ScooterWentOutsideArea**: emitted when a scooter that belongs to an area is moved outside of its shape.
-- **ScooterReturnedInsideArea**: emitted when a scooter returns inside its area of service after having moved out.
+- **ScooterWentInsideArea**: emitted when a scooter returns inside its area of service after having moved out.
