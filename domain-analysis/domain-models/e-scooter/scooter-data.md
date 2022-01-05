@@ -28,6 +28,7 @@ $value("SerialNumber") {
 }
 @enduml
 ```
+
 **Constraints**:
 
 - `^[A-Za-z0-9-]+$`
@@ -41,6 +42,7 @@ $value("Weight") {
 }
 @enduml
 ```
+
 **Constraints**:
 
 - $kilograms > 0$
