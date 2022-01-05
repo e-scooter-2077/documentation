@@ -31,8 +31,7 @@ Microservices are function with a status, usually implemented with a database:
 
 Our functions are the link between different services:
 
-- [scooter control](https://github.com/e-scooter-2077/scooter-control) even if it's implemented as an Azure function, its composition with IotHub (of which extends functionalities) can be considered logically a service
-- [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor)
+- [scooter control](https://github.com/e-scooter-2077/scooter-control) & [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) even if they're implemented as Azure functions, their composition with IotHub (of which extends functionalities) can be considered logically a service
 - [rent payment](https://github.com/e-scooter-2077/rent-payment.mock) (mock)
 - [manage customer](https://github.com/e-scooter-2077/customer.manage-customers)
 - [manage rents](https://github.com/e-scooter-2077/rent.manage-rents)
@@ -51,7 +50,7 @@ This features are implemented using angular services.
 
 ### [Customer frontend](https://github.com/e-scooter-2077/customer-frontend)
 
-The Customer frontend is implemented in C# using Windows Forms: it allows to rent an available scooter from a list.
+The Customer frontend is implemented in C# using WPF: it allows to rent an available scooter from a list.
 
 ### [Scooter data](https://github.com/e-scooter-2077/scooter-data.mock)
 
