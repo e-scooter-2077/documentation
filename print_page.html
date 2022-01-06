@@ -796,10 +796,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Implementation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Implementation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Implementation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="implementation.html" class="md-nav__link">
+      <a href="implementation/index.html" class="md-nav__link">
         Implementation
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="implementation/digital-twins-models.html" class="md-nav__link">
+        Digital Twins Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -976,9 +1023,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
+  <a href="#section-implementation" class="md-nav__link">
     Implementation
   </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-index" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-digital-twins-models" class="md-nav__link">
+    Digital Twins Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1143,9 +1210,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
+  <a href="#section-implementation" class="md-nav__link">
     Implementation
   </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-index" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-digital-twins-models" class="md-nav__link">
+    Digital Twins Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1823,55 +1910,163 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 <li>Static Code Analysis</li>
 <li>Unit tests</li>
 <li>Badges -&gt; <a href="https://danysk.github.io/Course-Laboratory-of-Software-Systems/07-ci/#/42">floss</a>, ci test results, coverage, code analysis, size, version... see <a href="https://shields.io/">shields.io</a></li>
-</ul></section><section class="print-page" id="implementation"><h1 id="implementation-implementation">Implementation</h1>
-<p>In this section is explained how are organized and implemented the parts of the system.</p>
-<h2 id="implementation-backend-microsoft-azure">Backend - Microsoft Azure</h2>
-<p>Backend is fully deployed on Microsoft Azure: each resource is under the <code>e-scooter</code> group.</p>
-<h3 id="implementation-naming-convention">Naming Convention</h3>
-<p>The usual naming convention used under this group is <a href="https://en.wikipedia.org/wiki/Letter_case#Special_case_styles">kebab case</a>.</p>
-<p>Below the list of main resources' name deployed on Azure:</p>
+</ul></section>
+                        <h1 class='nav-section-title' id='section-implementation'>
+                            Implementation <a class='headerlink' href='#section-implementation' title='Permanent link'>↵</a>
+                        </h1>
+                        <section class="print-page" id="implementation-index"><h1 id="implementation-index-implementation">Implementation</h1>
+<p>This section explains how the different parts of the system are organized and implemented.</p>
+<h2 id="implementation-index-scooter-service-backend">Scooter Service Backend</h2>
+<p>The backend is fully deployed on Microsoft Azure: each resource is under the <code>e-scooter</code> resource group.</p>
+<p>The next sections describe the different requirements of the system and how they were realized using resources deployed on the Azure Cloud.</p>
+<h3 id="implementation-index-control-of-the-physical-devices">Control of the Physical devices</h3>
+<p>The connection with the physical devices is managed through an <em>IoT Hub</em> named <code>scooter-iot-hub</code>.</p>
+<!-- add something about the emulator? -->
+
+<h3 id="implementation-index-data-aggregation">Data aggregation</h3>
+<p>The layer that aggregates the data from all the different sections of the system is implemented making use of <em>Azure Digital Twins</em> and is named <code>scooter-digital-twins</code>. This layer stores the latest updated state of the whole system keeping data about customers, scooters and rents in a comprehensive view and can be used as an eventual consistent source to read data instead of interrogating each microservice.</p>
+<p>The result structure is a Digital Twin Graph as provided by the azure tool that allow to store current state data about the twins and relationships between each other. <a href="#implementation-digital-twins-models">Here</a> are the models used on the graph for Scooters and Customers twins.</p>
+<h3 id="implementation-index-inter-service-communication">Inter-Service communication</h3>
+<p>Communication among services is carried out in an asynchronous fashion using events queues.</p>
 <ul>
-<li>The <em>Scooter Physical Control</em> IoT Hub is named <code>scooter-iot-hub</code></li>
-<li>The Digital Twin Layer is named <code>scooter-digital-twins</code></li>
-<li>The Scooter Event Grid is named <code>device-events</code></li>
-<li>The Scooter Event Bus is named <code>scooter-event-bus</code><ul>
-<li>The topic used for events generated from any microservice is named <code>production/service-events</code></li>
-<li>Every subscription name should be named after the subscriber name inside Azure</li>
+<li>Events are carried around between services using a <em>Service Bus</em> named <code>scooter-event-bus</code> on the topic <code>production/service-events</code>. </li>
+<li>Each subscriber to the <code>scooter-event-bus</code> manages its own subscription filtering only the relevat events to receive.</li>
+<li>Telemetry events from the devices is transmitted through an <em>Event Grid</em> from the IoTHub.</li>
 </ul>
-</li>
-<li>Azure Functions should be named with the Domain model and the specific usage, if exists; <code>manage</code> represents functions that update the Digital Twin.</li>
-<li>Microservice should be named with the Domain model followed by <code>-service</code></li>
-</ul>
-<h3 id="implementation-microservice">Microservice</h3>
-<p>Microservices are independly deployed software with a status(usually implemented with a database).
-There is only one microservice fully implemented by us, because the others are supported by Azure resources (Digital Twin and IotHub):</p>
+<h3 id="implementation-index-event-handling">Event Handling</h3>
+<p>Azure functions are generally used as event handlers to map the communication from a service to another and especially when dealing with updating the Digital Twin Layer.</p>
+<p>Here is a list of all the implemented Azure functions:</p>
 <ul>
-<li><a href="https://github.com/e-scooter-2077/rent-service">Rent service</a></li>
+<li><a href="https://github.com/e-scooter-2077/scooter-physical-control.manage-devices">manage devices</a> is a function that manages the creation and destruction of scooters on the IoTHub and on the Digital Twin Layer.</li>
+<li><a href="https://github.com/e-scooter-2077/customer.manage-customers">manage customer</a> is a function that manages the creation and destruction of the customers' digital twins.</li>
+<li><a href="https://github.com/e-scooter-2077/rent.manage-rents">manage rents</a> is a function that manages the creation and destruction of renting relationships on the digital twin graph.</li>
+<li><a href="https://github.com/e-scooter-2077/scooter-monitor.manage-telemetry-updates">manage telemetry updates</a> updates the state of each scooter digital twin when new telemetry is received by the IoTHub (e.g. position, speed).</li>
+<li><a href="https://github.com/e-scooter-2077/scooter-monitor.manage-reported-properties">manage reported properties</a> updates the state of each scooter digital twin when reported properties are updated on the device (e.g. lock state, standby).</li>
+<li><a href="https://github.com/e-scooter-2077/rent.manage-scooter-availability">manage scooter availability</a> update the state of each scooter digital twin when the availability is changed from an administrator of the system on the rent service.</li>
 </ul>
-<h3 id="implementation-functions">Functions</h3>
-<p>Azure functions are used as the link between different services.
-Below the list of the Azure functions:</p>
+<p>Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control &amp; Monitor Context: 
+- <a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> ....<!-- add here description of what it does-->
+- <a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> ....<!-- add here description of what it does--></p>
+<p>Functions were also used to implement mocked parts of the system when needed. For example the <a href="https://github.com/e-scooter-2077/rent-payment.mock">rent payment</a> which is a mock implementation of the Rent Payment context that always confirm the rents.</p>
+<h3 id="implementation-index-microservices">Microservices</h3>
+<p>Microservices are implemented with an <em>App Service</em>. We fully developed as a standalone microservice only the <a href="https://github.com/e-scooter-2077/rent-service">Rent service</a> that maps the Rent Context.</p>
+<!--add something here to explain how the rent service is implemented maybe-->
+
+<h2 id="implementation-index-frontend">Frontend</h2>
+<h3 id="implementation-index-admin-frontend"><a href="https://github.com/e-scooter-2077/admin-frontend">Admin frontend</a></h3>
+<p>The Admin frontend is implemented using Angular: polling the Digital Twin Layer, it shows the scooters in a 2D map with an icon colored depending on the state of each scooter:</p>
 <ul>
-<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> &amp; <a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> even if they're implemented as Azure functions, their composition with IotHub (of which extend functionalities) can be considered logically a service</li>
-<li><a href="https://github.com/e-scooter-2077/rent-payment.mock">rent payment</a> (mock)</li>
-<li><a href="https://github.com/e-scooter-2077/customer.manage-customers">manage customer</a></li>
-<li><a href="https://github.com/e-scooter-2077/rent.manage-rents">manage rents</a></li>
-<li><a href="https://github.com/e-scooter-2077/scooter-monitor.manage-telemetry-updates">manage telemetry updates</a></li>
-<li><a href="https://github.com/e-scooter-2077/scooter-physical-control.manage-devices">manage devices</a></li>
-<li><a href="https://github.com/e-scooter-2077/scooter-monitor.manage-reported-properties">manage reported properties</a></li>
-<li><a href="https://github.com/e-scooter-2077/rent.manage-scooter-availability">manage scooter availability</a></li>
+<li>Green when it's free;</li>
+<li>Red when it's currently rented;</li>
+<li>Yellow when it is in standby;</li>
+<li>Grey when it is disabled.</li>
 </ul>
-<h2 id="implementation-frontend">Frontend</h2>
-<h3 id="implementation-admin-frontend"><a href="https://github.com/e-scooter-2077/admin-frontend">Admin frontend</a></h3>
-<p>The Admin frontend is implemented in angular: polling the Digital Twin Layer, it shows the scooters in a 2D map.
-Clicking on a scooter is possible to check the its status and allow to enable or disable it.
-This features are implemented using angular services.</p>
-<h3 id="implementation-customer-frontend"><a href="https://github.com/e-scooter-2077/customer-frontend">Customer frontend</a></h3>
-<p>The Customer frontend is implemented in C# using WPF: it allows to rent an available scooter from a list.</p>
-<h3 id="implementation-scooter-data"><a href="https://github.com/e-scooter-2077/scooter-data.mock">Scooter data</a></h3>
-<p>The Scooter data is a mock implementation of the real creation of a scooter: it enable to insert or remove a new scooter in the system.</p>
-<h2 id="implementation-device-emulator"><a href="https://github.com/e-scooter-2077/device-emulator">Device emulator</a></h2>
-<p>The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters, uses the battery and set standby mode.</p></section><section class="print-page" id="conclusions"><h1 id="conclusions-conclusions">Conclusions</h1>
+<p>Clicking on a scooter it is possible to check the value of its properties and enable or disable it to allow or prevent renting.
+This features are implemented using Angular services.</p>
+<h3 id="implementation-index-customer-frontend"><a href="https://github.com/e-scooter-2077/customer-frontend">Customer frontend</a></h3>
+<p>The Customer frontend is implemented in C# using WPF: it is a very simple mock of the mobile app that users could use to rent an available scooter. </p>
+<h3 id="implementation-index-scooter-data-mock"><a href="https://github.com/e-scooter-2077/scooter-data.mock">Scooter Data mock</a></h3>
+<p>The Scooter Data Mock is a mock implementation with WPF of the Scooter Data context. It allows to create a new scooter identity or to remove an existing one by generating the corresponding events which are then handled by the rest of the system accordingly. It does not store any data about the scooter since this was not relevant for the other core services.</p>
+<h3 id="implementation-index-customer-mock"><a href="https://github.com/e-scooter-2077/customer.mock">Customer mock</a></h3>
+<p>The Customer Mock is a mock implementation with WPF of the Customer context. It allows to create a new customer identity or to remove an existing one by generating the corresponding events which are then handled by the rest of the system accordingly. It does not store any data about the customer since this was not relevant for the other core services.</p>
+<h2 id="implementation-index-device-emulator"><a href="https://github.com/e-scooter-2077/device-emulator">Device emulator</a></h2>
+<p>The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters, uses the battery and set standby mode.</p></section><section class="print-page" id="implementation-digital-twins-models"><h1 id="implementation-digital-twins-models-digital-twins">Digital Twins</h1>
+<h2 id="implementation-digital-twins-models-scooter-dt">Scooter DT</h2>
+<h3 id="implementation-digital-twins-models-model">Model</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;@context&quot;</span><span class="p">:</span> <span class="s2">&quot;dtmi:dtdl:context;2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;dtmi:com:escooter:EScooter;1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Interface&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;E-Scooter&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;contents&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="s2">&quot;TimeSpan&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;UpdateFrequency&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;second&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;writable&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Locked&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;writable&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Enabled&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;writable&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="s2">&quot;Velocity&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MaxSpeed&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;kilometrePerHour&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;writable&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Connected&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span> 
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Standby&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;BatteryLevel&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;percentage semantic type is missing&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Property&quot;</span><span class="p">,</span><span class="s2">&quot;Latitude&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;degreeOfArc&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Property&quot;</span><span class="p">,</span><span class="s2">&quot;Longitude&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;degreeOfArc&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Property&quot;</span><span class="p">,</span><span class="s2">&quot;Velocity&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Speed&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;kilometrePerHour&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="implementation-digital-twins-models-customer-dt">Customer DT</h2>
+<h3 id="implementation-digital-twins-models-model_1">Model</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;@context&quot;</span><span class="p">:</span> <span class="s2">&quot;dtmi:dtdl:context;2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;dtmi:com:escooter:Customer;1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Interface&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;contents&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Relationship&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;is_riding&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;is riding&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;dtmi:com:escooter:EScooter;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;dateTime&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></section><h1 class='nav-section-title-end'>Ended: Implementation</h1><section class="print-page" id="conclusions"><h1 id="conclusions-conclusions">Conclusions</h1>
 <p>This project proved to be a great challenge in trying to be coherent through time with all the notions from the course. </p>
 <p>Keeping a clean developement process during the timespan of the project was quite hard partially due to both the use of the Azure Cloud, which was new for basically all the team members, and the fragmentation in time dedicated to the project caused by other personal and academic obligations that didn't allow to have a smooth route from start to finish. </p>
 <p>Even so, the team agrees that it was a good way to see in practice the strenghts and challenges of the techniques studied during the course in a "real world" scenario. </p>
