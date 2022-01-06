@@ -1,4 +1,7 @@
 # Bounded Contexts
+After understanding the domain with the domain experts the team proceeded with the identification of the different subdomains and the bounded contexts within it.
+
+The analysis brought to the definition of the following contexts that were later analyzed to generate the (context map)[context-mapping.md] in order to understand the relationships between each context and move towards a definition of the different software components that define the architecture of the whole system. 
 
 ### E-Scooter Subdomain
 *Core Subdomain*
