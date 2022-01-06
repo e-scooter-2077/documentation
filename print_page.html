@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1775,8 +1775,8 @@ GitHub Actions offers hosted containers (called <em>runners</em>) that run many 
 <li>Commits should adhere at the <em>Imperative tense, impersonal</em> form.</li>
 <li>Versions are managed with git tags, specifically in the form <code>v#.#.#</code>.</li>
 <li>At each push, software build and tests are performed.</li>
-<li>When a new tag is pushed, after a succefful test job, a release is performed.</li>
-<li>Released happen on GitHub Release page and trigger a deploy.</li>
+<li>When a new tag is pushed, after a successful test job, a release is performed.</li>
+<li>Releases happen on the GitHub Release page and trigger a deploy.</li>
 <li>We used Azure Cloud as our deploy destination for each software components, so that part of the workflow is shared between similar projects.</li>
 <li>Consistency between .NET compilation target, runtime target, build-time dotnet version.</li>
 </ul>
@@ -1803,7 +1803,7 @@ These are:</p>
 It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architecture">Clean Architecture</a> library we made.</p>
 </details>
 <h3 id="devops-engineering-other-tools">Other tools</h3>
-<p>We created a script for the Git Bash that adds a <code>git release</code> command to git to quickly create new patch, new minor or new major versions of our software based on the repository history. The code can be found at https://github.com/francescodente/git-release.</p>
+<p>We created a script for the Git Bash that adds a <code>git release</code> command to git to quickly create new patch, new minor or new major versions of our software based on the repository history. The code can be found <a href="https://github.com/francescodente/git-release">here</a>.</p>
 <h2 id="devops-engineering-quality-control">Quality control</h2>
 <p>We configured each C# project with a consistent style rulesheet inside the <code>.editorconfig</code> file. <a href="https://github.com/DotNetAnalyzers/StyleCopAnalyzers">StyleCop Analyzers</a> takes care of enforncing the style we designed both during development and during automated builds.</p>
 <div class="admonition check">
@@ -1925,7 +1925,7 @@ This features are implemented using angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>

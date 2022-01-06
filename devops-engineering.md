@@ -23,8 +23,8 @@ These are the principles we adopted for every repository:
 - Commits should adhere at the _Imperative tense, impersonal_ form.
 - Versions are managed with git tags, specifically in the form `v#.#.#`.
 - At each push, software build and tests are performed.
-- When a new tag is pushed, after a succefful test job, a release is performed.
-- Released happen on GitHub Release page and trigger a deploy.
+- When a new tag is pushed, after a successful test job, a release is performed.
+- Releases happen on the GitHub Release page and trigger a deploy.
 - We used Azure Cloud as our deploy destination for each software components, so that part of the workflow is shared between similar projects.
 - Consistency between .NET compilation target, runtime target, build-time dotnet version.
 
@@ -60,7 +60,7 @@ The template we made for every EScooter **Azure Function** can be found [here](h
 
 
 ### Other tools
-We created a script for the Git Bash that adds a `git release` command to git to quickly create new patch, new minor or new major versions of our software based on the repository history. The code can be found at https://github.com/francescodente/git-release.
+We created a script for the Git Bash that adds a `git release` command to git to quickly create new patch, new minor or new major versions of our software based on the repository history. The code can be found [here](https://github.com/francescodente/git-release).
 
 
 ## Quality control
