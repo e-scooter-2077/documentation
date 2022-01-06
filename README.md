@@ -39,7 +39,7 @@ In detail the team will have:
 - bounded context partitioning and definition of a context-map
 - domain models for each relevant bounded context
 
-Apart from that the project will follow a developement process based on continuos integration & deployment for most of the system components. The tools used will be:
+Apart from that the project will follow a development process based on continuos integration & deployment for most of the system components. The tools used will be:
 
 - Dotnet CLI for build automation
 - Github Actions for continuous integration

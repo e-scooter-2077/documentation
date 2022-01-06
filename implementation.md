@@ -23,15 +23,17 @@ Below the list of main resources' name deployed on Azure:
 
 ### Microservice
 
-Microservices are function with a status, usually implemented with a database:
+Microservices are independly deployed software with a status(usually implemented with a database).
+There is only one microservice fully implemented by us, because the others are supported by Azure resources (Digital Twin and IotHub):
 
 - [Rent service](https://github.com/e-scooter-2077/rent-service)
 
 ### Functions
 
-Our functions are the link between different services:
+Azure functions are used as the link between different services.
+Below the list of the Azure functions:
 
-- [scooter control](https://github.com/e-scooter-2077/scooter-control) & [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) even if they're implemented as Azure functions, their composition with IotHub (of which extends functionalities) can be considered logically a service
+- [scooter control](https://github.com/e-scooter-2077/scooter-control) & [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) even if they're implemented as Azure functions, their composition with IotHub (of which extend functionalities) can be considered logically a service
 - [rent payment](https://github.com/e-scooter-2077/rent-payment.mock) (mock)
 - [manage customer](https://github.com/e-scooter-2077/customer.manage-customers)
 - [manage rents](https://github.com/e-scooter-2077/rent.manage-rents)
@@ -58,4 +60,4 @@ The Scooter data is a mock implementation of the real creation of a scooter: it 
 
 ## [Device emulator](https://github.com/e-scooter-2077/device-emulator)
 
-The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters and uses the battery.
+The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters, uses the battery and set standby mode.
