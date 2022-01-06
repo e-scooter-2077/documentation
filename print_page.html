@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1508,7 +1508,7 @@ The legacy payment system needs access to trip data and to customers rent/unlock
                         </h1>
                         <section class="print-page" id="domain-analysis-bounded-contexts"><h1 id="domain-analysis-bounded-contexts-bounded-contexts">Bounded Contexts</h1>
 <p>After understanding the domain with the domain experts the team proceeded with the identification of the different subdomains and the bounded contexts within it.</p>
-<p>The analysis brought to the definition of the following contexts that were later analyzed to generate the (context map)[context-mapping.md] in order to understand the relationships between each context and move towards a definition of the different software components that define the architecture of the whole system. </p>
+<p>The analysis brought to the definition of the following contexts that were later analyzed to generate the <a href="#domain-analysis-context-mapping">context map</a> in order to understand the relationships between each context and move towards a definition of the different software components that define the architecture of the whole system. </p>
 <h3 id="domain-analysis-bounded-contexts-e-scooter-subdomain">E-Scooter Subdomain</h3>
 <p><em>Core Subdomain</em></p>
 <h4 id="domain-analysis-bounded-contexts-scooter-control-monitor-context">Scooter Control &amp; Monitor Context</h4>
@@ -1923,7 +1923,7 @@ This features are implemented using angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>
