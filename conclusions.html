@@ -14,7 +14,7 @@
     
     
       
-        <title>Contributing to the documentation - e-scooter-2077/documentation</title>
+        <title>Conclusions - e-scooter-2077/documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing-to-the-documentation" class="md-skip">
+        <a href="#conclusions" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing to the documentation
+              Conclusions
             
           </span>
         </div>
@@ -804,11 +804,58 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="conclusions.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Conclusions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="conclusions.html" class="md-nav__link md-nav__link--active">
         Conclusions
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#domain-driven-design" class="md-nav__link">
+    Domain Driven Design
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devops-process" class="md-nav__link">
+    DevOps process
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -854,36 +901,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#preview-the-results" class="md-nav__link">
-    Preview the results
-  </a>
-  
-    <nav class="md-nav" aria-label="Preview the results">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#download-the-docker-image" class="md-nav__link">
-    Download the docker image
+  <a href="#domain-driven-design" class="md-nav__link">
+    Domain Driven Design
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-the-website" class="md-nav__link">
-    Generate the website
+      
+        <li class="md-nav__item">
+  <a href="#devops-process" class="md-nav__link">
+    DevOps process
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#see-the-result" class="md-nav__link">
-    See the result
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -900,22 +927,24 @@
               
   
                 
-                  <a href="https://github.com/e-scooter-2077/documentation/edit/master/CONTRIBUTING.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/e-scooter-2077/documentation/edit/master/conclusions.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="contributing-to-the-documentation">Contributing to the documentation</h1>
-<h2 id="preview-the-results">Preview the results</h2>
-<p>You can use Docker to install and run the <a href="https://github.com/ldeluigi/markdown-docs">website generation tool</a>.</p>
-<h3 id="download-the-docker-image">Download the docker image</h3>
-<p><code>docker pull deloo/markdown-docs</code></p>
-<h3 id="generate-the-website">Generate the website</h3>
-<p><code>docker run -e "WORKSPACE=/workspace" -v "&lt;Absolute-Path-To-The-Repo&gt;:/workspace" markdown-docs "./" "dest/"</code>  </p>
-<p>!&gt; Clean the output directory before each new generation with <code>rmdir dest /s /q</code> (on Windows).</p>
-<p>!&gt; Remember to replace <code>&lt;Absolute-Path-To-The-Repo&gt;</code>.</p>
-<h3 id="see-the-result">See the result</h3>
-<p><code>explorer dest\index.html</code></p>
+                <h1 id="conclusions">Conclusions</h1>
+<p>This project proved to be a great challenge in trying to be coherent through time with all the notions from the course. </p>
+<p>Keeping a clean developement process during the timespan of the project was quite hard partially due to both the use of the Azure Cloud, which was new for basically all the team members, and the fragmentation in time dedicated to the project caused by other personal and academic obligations that didn't allow to have a smooth route from start to finish. </p>
+<p>Even so, the team agrees that it was a good way to see in practice the strenghts and challenges of the techniques studied during the course in a "real world" scenario. </p>
+<h2 id="domain-driven-design">Domain Driven Design</h2>
+<p>Concerning the Domain Driven Design the team started with a long planning session to try to pin down all the concepts and have a clear holistic view of the whole system.</p>
+<p>Then after studying the technology chosen to implement the system itself some clashes emerged and it was a bit harder to constantly update the documentation to match in real-time what was happening with the software. </p>
+<p>This was identified as the most challenging aspect of the DDD, whilst the analysis process carried out with the tools and the philosophy transmitted during the course felt quite natural and effective since the beginning.</p>
+<p>In retrospective the team feels that some cleaner and more coherent with the Ubiquitous Language code could have been created, but, while developing, that felt unnecessary and overcomplex for smaller pieces of software like the Azure Functions and instead was useful for bigger artifacts like the services and the scooter-emulator. </p>
+<h2 id="devops-process">DevOps process</h2>
+<p>From a DevOps perspective the team put a lot of effort in the automatization of the quality assurance and the deployment of the whole system. This really helped in having a clean, self updating system especially since we were dealing with a cloud service. </p>
+<p>Testing was a bit left behind primarily for time management reasons and because most of the testing was done while integrating different software components instead of having complex business logic that needed intensive single unit tests. </p>
+<p>Overall setting up a pipeline from the very beginning resulted in a helpful tool that guided each team member during the development of the system. </p>
                 
                   
                     
@@ -924,9 +953,9 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 5, 2022 11:57:10</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 6, 2022 10:58:17</span>
       
-        <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 5, 2022 11:30:58</span> 
+        <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 6, 2022 10:58:17</span> 
       
     
   </small>
@@ -938,7 +967,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>ldeluigi</a></span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:samuele.bura98@gmail.com'>Samuele</a></span>
       </small>
     </div>
   
@@ -956,6 +985,26 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="implementation.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Implementation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Implementation
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
