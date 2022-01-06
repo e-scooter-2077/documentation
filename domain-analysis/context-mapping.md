@@ -2,6 +2,7 @@
 The context map below shows all the different context in the scooter service domain. 
 
 Five subdomain are identified:
+
  - **E-Scooter Subdomain**: manages all the logic concerning the physical scooters
  - **Rent Subdomain**: manages all the logic concerning the rent process from the financial policies to the storage of trips' data
  - **Insight Subdomain**: concerns the elaboration of the best possible drop points for scooters to improve the quality of service
