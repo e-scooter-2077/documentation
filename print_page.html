@@ -1546,12 +1546,14 @@ Stores data about user search requests about scooters.</p>
 <h4 id="domain-analysis-bounded-contexts-authentication-context">Authentication Context</h4>
 <p>Manages login data and role based authentication for all people that use the service, including admins, assistants and customers.</p></section><section class="print-page" id="domain-analysis-context-mapping"><h1 id="domain-analysis-context-mapping-context-mapping">Context Mapping</h1>
 <p>The context map below shows all the different context in the scooter service domain. </p>
-<p>Five subdomain are identified:
- - <strong>E-Scooter Subdomain</strong>: manages all the logic concerning the physical scooters
- - <strong>Rent Subdomain</strong>: manages all the logic concerning the rent process from the financial policies to the storage of trips' data
- - <strong>Insight Subdomain</strong>: concerns the elaboration of the best possible drop points for scooters to improve the quality of service
- - <strong>Payment Subdomain</strong>: manages the logic of real-world payments by integrating with a legacy system
- - <strong>User Subdomain</strong>: contains the anagraphical information of the service users and provide authentication</p>
+<p>Five subdomain are identified:</p>
+<ul>
+<li><strong>E-Scooter Subdomain</strong>: manages all the logic concerning the physical scooters</li>
+<li><strong>Rent Subdomain</strong>: manages all the logic concerning the rent process from the financial policies to the storage of trips' data</li>
+<li><strong>Insight Subdomain</strong>: concerns the elaboration of the best possible drop points for scooters to improve the quality of service</li>
+<li><strong>Payment Subdomain</strong>: manages the logic of real-world payments by integrating with a legacy system</li>
+<li><strong>User Subdomain</strong>: contains the anagraphical information of the service users and provide authentication</li>
+</ul>
 <p>The relationships between context are explicitated through the representation of interfaces that are exposed in order to allow the sharing of information in the system. </p>
 <p>The relationships between services are basically all of type conformist since the context which exposes the interface has the truth about that data and it's responsible to decide what to share externally and how.</p>
 <p>The payment context instead is an anti-corruption layer on top of the existing legacy system that manages real world transactions.</p>
