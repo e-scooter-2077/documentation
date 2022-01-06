@@ -1815,14 +1815,16 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 <li>Microservice should be named with the Domain model followed by <code>-service</code></li>
 </ul>
 <h3 id="implementation-microservice">Microservice</h3>
-<p>Microservices are function with a status, usually implemented with a database:</p>
+<p>Microservices are independly deployed software with a status(usually implemented with a database).
+There is only one microservice fully implemented by us, because the others are supported by Azure resources (Digital Twin and IotHub):</p>
 <ul>
 <li><a href="https://github.com/e-scooter-2077/rent-service">Rent service</a></li>
 </ul>
 <h3 id="implementation-functions">Functions</h3>
-<p>Our functions are the link between different services:</p>
+<p>Azure functions are used as the link between different services.
+Below the list of the Azure functions:</p>
 <ul>
-<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> &amp; <a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> even if they're implemented as Azure functions, their composition with IotHub (of which extends functionalities) can be considered logically a service</li>
+<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> &amp; <a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> even if they're implemented as Azure functions, their composition with IotHub (of which extend functionalities) can be considered logically a service</li>
 <li><a href="https://github.com/e-scooter-2077/rent-payment.mock">rent payment</a> (mock)</li>
 <li><a href="https://github.com/e-scooter-2077/customer.manage-customers">manage customer</a></li>
 <li><a href="https://github.com/e-scooter-2077/rent.manage-rents">manage rents</a></li>
@@ -1841,7 +1843,7 @@ This features are implemented using angular services.</p>
 <h3 id="implementation-scooter-data"><a href="https://github.com/e-scooter-2077/scooter-data.mock">Scooter data</a></h3>
 <p>The Scooter data is a mock implementation of the real creation of a scooter: it enable to insert or remove a new scooter in the system.</p>
 <h2 id="implementation-device-emulator"><a href="https://github.com/e-scooter-2077/device-emulator">Device emulator</a></h2>
-<p>The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters and uses the battery.</p></section></div>
+<p>The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters, uses the battery and set standby mode.</p></section></div>
                 
               
 
