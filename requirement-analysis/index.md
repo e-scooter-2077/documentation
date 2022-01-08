@@ -2,7 +2,7 @@
 
 After analyzing the domain with the experts. Another meeting was held focusing on the expected requirements of the whole system.
 
-This interview was conducted following the process to define [user-stories](user-stories.md) from different perspectives in order to deduce the overall behaviour of the system from the expectations that the customer had about the required functionalities. 
+This interview was conducted following the process to define user-stories from different perspectives in order to deduce the overall behaviour of the system from the expectations that the customer had about the required functionalities. 
 
 While defining the user stories a Use Case diagram was produced, detailing how the different use cases emerging from the stories were related between each other and with the actors of the system.
 
