@@ -1,5 +1,4 @@
-# Use Cases
-## User stories
+# User stories
 Some user stories are taken from end users and some other are taken from the business representative, business employees.
 ##### 1a - Search of a scooter
 >As a customer, I want to open the mobile application and search for free scooters in my area.
@@ -39,7 +38,7 @@ _Does the legacy system keep track of all customers data?_
 _From the legacy system documentation:_
 The legacy payment system needs access to trip data and to customers rent/unlock requests.
 
-## Story Diagrams
+# Story Diagrams
 ##### Story #1 Diagram
 ```plantuml
 @startuml
