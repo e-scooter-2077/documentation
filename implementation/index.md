@@ -2,6 +2,16 @@
 
 This section explains how the different parts of the system are organized and implemented.
 
+The choice was to carry out the full analysis of a complex domain to be able to approach a "real-world" problem in its entirity and use the Domain Driven Design techniques to study it, but as far as the implementation goes, we always knew that it was not needed to implement the whole system, so we decided to focus on the core and interesting aspects, mock the supporting services and completly ignore some of the features that were outside of this core prototype boundary scope.
+
+In the end, the most interesting part for us was the implementation of the Scooter Monitor & Control context in order to realize the Digital Twin layer that was at the core of the Pervasive Computer course for which we plan to submit this project too. We then decided to mock the Scooter Data context since it was just a collection of data relevant for the domain but not too much for the functionalities of the system.
+
+Since we chose to implement the renting operations in the Rent Context to have at least one "classic" microservice in place, we decided to put aside the implementation of the Area of Service context in order to focus on the most relevant use-case of the system itself. In an iterative development process of the real system we imagined that this would have probably been the smartest choice to at least guarantee the basic functionalities immediatly and later add the other planned features.
+
+With the same reasoning we chose to skip the implementation of the Insights subdomain, the connected Trip Context and simply mock the Rent Payment context since we didn't need to manage the virtual currency and the relationship with the Payment subdomain.
+
+The User subdomain was plain both from a design and implementative perspective so we didn't focus too much on that. Of course in a real-world scenario authorization and security should have been put in place since the very beginning, but for a proof-of-concept like the one that we developed this was definetly not needed nor particularly interesting.
+
 ## Scooter Service Backend
 
 The backend is fully deployed on Microsoft Azure: each resource is under the `e-scooter` resource group.
