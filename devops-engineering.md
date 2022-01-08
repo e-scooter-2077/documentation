@@ -69,6 +69,9 @@ We configured each C# project with a consistent style rulesheet inside the `.edi
 !!! check
     Style warnings are treated as errors.
 
+### Static Code Analysis
+Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is [CodeQL](https://codeql.github.com/).
+
 ## Documentation Tools
 We automated documentation generation of both the architecture of the system (in this repository) and the API of our microservices with a Swagger plugin for ASP.NET (see the [Rent Service API docs](https://escooter-rent-service.azurewebsites.net/swagger/index.html) as an example).
 
@@ -79,9 +82,3 @@ Given the fact that we didn't develop libraries, but only single-purpose service
 
 ### Dependency inspection/automatic management
 We voluntarily ignored the real-time dependency and vulnerability management because of the finite scope of the project. We instead used automatic dependancy and vulnerability management offered by GitHub (such as Dependabot) in some previously made actions, such as [Markdown Docs](https://github.com/ldeluigi/markdown-docs), which Luca Deluigi is actively maintaining as one of his OS projects. See the [dependabot configuration file](https://github.com/ldeluigi/markdown-docs/blob/master/.github/dependabot.yml). Dependabot creates automatic pull requests that suggest dependency updates. We wanted to avoid receiving those PRs forever.
-
-### Missing
-- Code coverage -> [slide](https://danysk.github.io/Course-Laboratory-of-Software-Systems/07-ci/#/41)
-- Static Code Analysis
-- Unit tests
-- Badges -> [floss](https://danysk.github.io/Course-Laboratory-of-Software-Systems/07-ci/#/42), ci test results, coverage, code analysis, size, version... see [shields.io](https://shields.io/)
