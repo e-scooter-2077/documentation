@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1906,7 +1906,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 <p>Style warnings are treated as errors.</p>
 </div>
 <h3 id="devops-engineering-static-code-analysis">Static Code Analysis</h3>
-<p>Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is <a href="https://codeql.github.com/">CodeQL</a>.</p>
+<p>Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is <a href="https://codeql.github.com/">CodeQL</a>. Both security and code quality alerts are enabled.</p>
 <h2 id="devops-engineering-documentation-tools">Documentation Tools</h2>
 <p>We automated documentation generation of both the architecture of the system (in this repository) and the API of our microservices with a Swagger plugin for ASP.NET (see the <a href="https://escooter-rent-service.azurewebsites.net/swagger/index.html">Rent Service API docs</a> as an example).</p>
 <h2 id="devops-engineering-ignored-aspects">Ignored aspects</h2>
@@ -2128,7 +2128,7 @@ This features are implemented using Angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>

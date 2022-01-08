@@ -70,7 +70,7 @@ We configured each C# project with a consistent style rulesheet inside the `.edi
     Style warnings are treated as errors.
 
 ### Static Code Analysis
-Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is [CodeQL](https://codeql.github.com/).
+Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is [CodeQL](https://codeql.github.com/). Both security and code quality alerts are enabled.
 
 ## Documentation Tools
 We automated documentation generation of both the architecture of the system (in this repository) and the API of our microservices with a Swagger plugin for ASP.NET (see the [Rent Service API docs](https://escooter-rent-service.azurewebsites.net/swagger/index.html) as an example).
