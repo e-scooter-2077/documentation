@@ -1,1 +1,1 @@
-* [Use Cases](use-cases.md)
+* [User stories](user-stories.md)
