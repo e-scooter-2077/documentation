@@ -1896,20 +1896,15 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 <p class="admonition-title">Check</p>
 <p>Style warnings are treated as errors.</p>
 </div>
+<h3 id="devops-engineering-static-code-analysis">Static Code Analysis</h3>
+<p>Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is <a href="https://codeql.github.com/">CodeQL</a>.</p>
 <h2 id="devops-engineering-documentation-tools">Documentation Tools</h2>
 <p>We automated documentation generation of both the architecture of the system (in this repository) and the API of our microservices with a Swagger plugin for ASP.NET (see the <a href="https://escooter-rent-service.azurewebsites.net/swagger/index.html">Rent Service API docs</a> as an example).</p>
 <h2 id="devops-engineering-ignored-aspects">Ignored aspects</h2>
 <h3 id="devops-engineering-public-repository-nuget">Public repository (NuGet)</h3>
 <p>Given the fact that we didn't develop libraries, but only single-purpose services and functions, we didn't use NuGet.</p>
 <h3 id="devops-engineering-dependency-inspectionautomatic-management">Dependency inspection/automatic management</h3>
-<p>We voluntarily ignored the real-time dependency and vulnerability management because of the finite scope of the project. We instead used automatic dependancy and vulnerability management offered by GitHub (such as Dependabot) in some previously made actions, such as <a href="https://github.com/ldeluigi/markdown-docs">Markdown Docs</a>, which Luca Deluigi is actively maintaining as one of his OS projects. See the <a href="https://github.com/ldeluigi/markdown-docs/blob/master/.github/dependabot.yml">dependabot configuration file</a>. Dependabot creates automatic pull requests that suggest dependency updates. We wanted to avoid receiving those PRs forever.</p>
-<h3 id="devops-engineering-missing">Missing</h3>
-<ul>
-<li>Code coverage -&gt; <a href="https://danysk.github.io/Course-Laboratory-of-Software-Systems/07-ci/#/41">slide</a></li>
-<li>Static Code Analysis</li>
-<li>Unit tests</li>
-<li>Badges -&gt; <a href="https://danysk.github.io/Course-Laboratory-of-Software-Systems/07-ci/#/42">floss</a>, ci test results, coverage, code analysis, size, version... see <a href="https://shields.io/">shields.io</a></li>
-</ul></section>
+<p>We voluntarily ignored the real-time dependency and vulnerability management because of the finite scope of the project. We instead used automatic dependancy and vulnerability management offered by GitHub (such as Dependabot) in some previously made actions, such as <a href="https://github.com/ldeluigi/markdown-docs">Markdown Docs</a>, which Luca Deluigi is actively maintaining as one of his OS projects. See the <a href="https://github.com/ldeluigi/markdown-docs/blob/master/.github/dependabot.yml">dependabot configuration file</a>. Dependabot creates automatic pull requests that suggest dependency updates. We wanted to avoid receiving those PRs forever.</p></section>
                         <h1 class='nav-section-title' id='section-implementation'>
                             Implementation <a class='headerlink' href='#section-implementation' title='Permanent link'>↵</a>
                         </h1>
