@@ -85,4 +85,5 @@ The Customer Mock is a mock implementation with WPF of the Customer context. It 
 ## [Device emulator](https://github.com/e-scooter-2077/device-emulator)
 
 The Device emulator is the C# mock implementation of the usage of each scooter.
+
 Implemented as HostedService the emulator executes a loop in which queries for new scooters and then simulates a random usage (based on their last status) to update them: it moves the scooters, uses the battery and set standby mode.
