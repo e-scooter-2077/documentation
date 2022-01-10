@@ -2,11 +2,11 @@
 
 This section explains how the different parts of the system are organized and implemented.
 
-The choice was to carry out the full analysis of a complex domain to be able to approach a "real-world" problem in its entirity and use the Domain Driven Design techniques to study it, but as far as the implementation goes, we always knew that it was not needed to implement the whole system, so we decided to focus on the core and interesting aspects, mock the supporting services and completly ignore some of the features that were outside of this core prototype boundary scope.
+The choice was to carry out the full analysis of a complex domain to be able to approach a "real-world" problem in its entirety and use the Domain Driven Design techniques to study it, but as far as the implementation goes, we always knew that it was not needed to implement the whole system, so we decided to focus on the core and interesting aspects, mock the supporting services and completly ignore some of the features that were outside of this core prototype boundary scope.
 
 In the end, the most interesting part for us was the implementation of the Scooter Monitor & Control context in order to realize the Digital Twin layer that was at the core of the Pervasive Computer course for which we plan to submit this project too. We then decided to mock the Scooter Data context since it was just a collection of data relevant for the domain but not too much for the functionalities of the system.
 
-Since we chose to implement the renting operations in the Rent Context to have at least one "classic" microservice in place, we decided to put aside the implementation of the Area of Service context in order to focus on the most relevant use-case of the system itself. In an iterative development process of the real system we imagined that this would have probably been the smartest choice to at least guarantee the basic functionalities immediatly and later add the other planned features.
+Since we chose to implement the renting operations in the Rent Context to have at least one "classic" microservice in place, we decided to put aside the implementation of the Area of Service context in order to focus on the most relevant use-case of the system itself. In an iterative development process of the real system we imagined that this would have probably been the smartest choice to, at least, guarantee the basic functionalities immediatly and later add the other planned features.
 
 With the same reasoning we chose to skip the implementation of the Insights subdomain, the connected Trip Context and simply mock the Rent Payment context since we didn't need to manage the virtual currency and the relationship with the Payment subdomain.
 
@@ -47,8 +47,8 @@ Here is a list of all the implemented Azure functions:
 - [manage scooter availability](https://github.com/e-scooter-2077/rent.manage-scooter-availability) update the state of each scooter digital twin when the availability is changed from an administrator of the system on the rent service.
 
 Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control & Monitor Context: 
-- [scooter control](https://github.com/e-scooter-2077/scooter-control) ....<!-- add here description of what it does-->
-- [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) ....<!-- add here description of what it does-->
+- [scooter control](https://github.com/e-scooter-2077/scooter-control) is a function that exposes the default applicable actions on the *IoT Hub*: in particular, it manages the lock/unlock command and the telemetries to update *IoT Hub*.
+- [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) is a function that exposes the events of changing of the *IoT Hub*.
 
 Functions were also used to implement mocked parts of the system when needed. For example the [rent payment](https://github.com/e-scooter-2077/rent-payment.mock) which is a mock implementation of the Rent Payment context that always confirm the rents.
 
@@ -84,4 +84,5 @@ The Customer Mock is a mock implementation with WPF of the Customer context. It 
 
 ## [Device emulator](https://github.com/e-scooter-2077/device-emulator)
 
-The Device emulator is the C# mock implementation of the usage of each scooter: it moves the scooters, uses the battery and set standby mode.
+The Device emulator is the C# mock implementation of the usage of each scooter.
+Implemented as HostedService the emulator executes a loop in which queries for new scooters and then simulates a random usage (based on their last status) to update them: it moves the scooters, uses the battery and set standby mode.
