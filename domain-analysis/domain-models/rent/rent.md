@@ -7,58 +7,48 @@
 $aggregate("Scooter") {
   $aggregate_root("Scooter", scooter) {
     + id: EntityId
-    + rentable: Boolean
-    + currentlyRented: Boolean
+    + ongoingRentId: Option[EntityId]
+    + isInStandby: Boolean
+    + isOutOfService: Boolean
+    + isEnabled: Boolean
 
-    + rent(): Result[Nothing]
-    + setFree(): Result[Nothing]
+    + rent(rentId: EntityId): Result[Nothing]
+    + clearRent()
+    + enable()
+    + disable()
+    + enterStandby()
+    + leaveStandby()
+    + enterAreaOfService()
+    + leaveAreaOfService()
   }
 }
 
-$aggregate("Customer") {
-  $aggregate_root("Customer", customer) {
+$aggregate("Rent") {
+  $aggregate_root("Rent", rent) {
     + id: EntityId
-    + rents: Set[Rent]
-    
-    + requestRent(scooter: EntityId): Result[Rent]
-    + confirmLastRent(time: Timestamp, maxDuration: Duration): Result[Rent]
-    + cancelLastRent(reason: RentCancellationInfo): Result[Rent]
-    + stopLastRent(reason: RentEndReason, time: Timestamp): Result[Rent]
+    + scooterId: EntityId
+    + customerId: EntityId
+    + requestTimestamp: Timestamp
+    + confirmationInfo: Option[RentConfirmationInfo]
+    + cancellationInfo: Option[RentCancellationInfo]
+    + stopInfo: Option[RentStopInfo]
+
+    + confirm(confirmationInfo: ConfirationInfo): Result[Nothing]
+    + cancel(cancellationInfo: CancellationInfo): Result[Nothing]
+    + stop(stopInfo: StopInfo): Result[Nothing]
   }
 
-  $entity("Rent", rent) {
-    + id: EntityId
-    + scooter: EntityId
-    + confirmation: Option[RentConfirmationInfo]
-    + end: Option[RentEndInfo]
-    + cancel: Option[RentCancellationInfo]
-    
-    + stop(timestamp: Timestamp, reason: RentEndReason): Result[Nothing]
-    + confirm(timestamp: Timestamp): Result[Nothing]
-  }
-
-  $value("RentEndInfo", rentEndInfo) {
-    + reason: RentEndReason
+  $value("RentConfirmationInfo", confirmationInfo) {
     + date: Timestamp
   }
 
-  $value("RentCancellationInfo", rentCancellationInfo) {
+  $value("RentCancellationInfo", cancellationInfo) {
     + reason: RentCancellationReason
   }
 
-  $value("RentConfirmationInfo", rentConfirmationInfo) {
+  $value("RentStopInfo", stopInfo) {
+    + reason: RentStopReason
     + date: Timestamp
-  }
-
-  rentEndInfo --o rent
-  rentConfirmationInfo --o rent
-  rentCancellationInfo --o rent
-
-  $enum("RentEndReason", endReason) {
-    OUT_OF_AREA
-    CUSTOMER
-    CREDIT_EXHAUSTED
-    BATTERY_LOW
   }
 
   $enum("RentCancellationReason", cancellationReason) {
@@ -67,27 +57,48 @@ $aggregate("Customer") {
     INTERNAL_ERROR
   }
 
-  customer "1" -- "*" rent
+  $enum("RentStopReason", stopReason) {
+    STOPPED_BY_CUSTOMER
+    OUT_OF_AREA
+    CREDIT_EXHAUSTED
+    STANDBY
+    DISABLED
+    NOT_RENTABLE
+  }
 
-  rentEndInfo ..> endReason
-  rentCancellationInfo ..> cancellationReason
+  rent "1" -- "0..1" confirmationInfo
+  rent "1" -- "0..1" cancellationInfo
+  rent "1" -- "0..1" stopInfo
+  stopInfo "*" -- "1" stopReason
+  cancellationInfo "*" -- "1" cancellationReason
+}
+
+$aggregate("Customer") {
+  $aggregate_root("Customer", customer) {
+    + id: EntityId
+    + ongoingRentId: Option[EntityId]
+
+    + startRent(rentId: EntityId): Result[Nothing]
+    + endRent(): Result[Nothing]
+  }
 }
 
 rent .. scooter
+rent .. customer
 @enduml
 ```
 
-## Details
-
-### Rent
-**Constraints**:
-
-- $confirmation.date + confirmation.maxEnd >= end.date \text{ if } \exists end$
-- $\exists confirmation \text{ if } \exists end$
-
 ## Domain Events
 
-- **RentRequested**:  
-- **RentConfirmed**: 
-- **RentStopped**: 
-- **RentCanceled**: 
+### Rent aggregate
+- **RentRequested**: When a customer requests a rent.
+- **RentConfirmed**: When a rent is confirmed.
+- **RentStopped**: When a rent is stopped.
+- **RentCancelled**: When a rent is cancelled.
+- **RentEnded**: When a rent is ended either by cancellation or by stop.
+
+### Scooter aggregate
+- **ScooterEnabled**: When a scooter is enabled.
+- **ScooterDisabled**: When a scooter is disabled.
+- **ScooterBecameRentable**: When the combination of enabled/out of service/standby is changed to make the scooter rentable.
+- **ScooterBecameNotRentable**: When the combination of enabled/out of service/standby is changed to make the scooter not rentable.
