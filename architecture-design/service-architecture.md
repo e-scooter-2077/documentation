@@ -1,81 +1,56 @@
 # Service Architecture
 
+## Clean architecture
+
+Each service of the system follows a strict architecture that splits it into a series of layers, following the principles of the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
+Since there are several different opinions and views on what the clean architecture should look like, the team came up with its own interpretation of the layers contained in each service and of their relationships with each other.
+While the details of each layer are discussed in the next sections, the diagram below shows a holistic view the resulting design.
+
 ```plantuml
 @startuml
 !include metamodel/architecture.metamodel.iuml
-left to right direction
 $microservice "Microservice" {
-    $layer "API" as api {
-        $module "Controllers"
+    $layer "Web" as web {
+        $module "REST API"
         $module "DTO"
         $module "Authentication"
     }
     $layer "Infrastructure" as infrastructure {
-        $module "Utility Services"
         $module "Persistence"
+        $module "Utility Services"
         $module "External Communication"
     }
     $layer "Application" as application {
+        $module "Use cases"
         $module "Handlers"
         $module "Infrastructure Interfaces"
         $module "Authorization"
-    }
-    $layer "Contracts" as contracts {
         $module "External Events"
     }
     $layer "Domain" as domain {
         $module "Entities"
+        $module "Aggregates"
+        $module "Value Objects"
         $module "Domain Services"
         $module "Domain Events"
     }
+    web ..> infrastructure
+    web ..> application
+    application ..> domain
+    infrastructure .> application
 }
 
-api ..> application
-infrastructure ..> application
-application ..> domain
-application ..> contracts
 @enduml
 ```
 
-#### Domain Layer
-This is the core layer of any service and is responsible of defining all **Entities** belonging to the service and their associated behaviors. This layer can also define high level processes or constraints that are encapsulated inside **Domain Services**. Entities and domain services can notify the occurrence of any relevant state change using **Domain Events**.
+### Domain Layer
+This is the core layer of any service and it is responsible of defining the business rules of the context containing the service. It contains the definition of the **entities** and **value objects** belonging to the service and their associated behaviors. Entities and value objects are then organized into **aggregates** enforcing consistency boundaries over them. This layer can also define high level processes or constraints that are encapsulated inside **domain services**. Entities and domain services can notify the occurrence of any relevant state change using **domain events**, which are defined here but handled within the [application layer](#application-layer).
 
-#### Contracts Layer
-Defines a set of **External Events** that are used by other microservices to react to state changes outside of their bounded context. These events are typically emitted by the [Application Layer](#application-layer) in response to internal domain events and expose a subset of the properties of the domain event itself.
+### Application Layer
+Defines a collection of **use cases** exposed by the service and the actions to be executed for each of those through a series of **handlers** that interact with the [domain](#domain-layer) and [infrastructure](#infastructure-layer) layers to carry on those actions. Handlers can also be used to run business logic when events occur in the domain or to integrate with other services/contexts using **external events**. External events are a projection of domain events that is propagated to other contexts, useful to hide inner domain details, therefore making contexts less coupled. Furthermore, this layer is responsible of **authorization**, transactional data access and communication with external services. To keep the application logic as clean as possible, infrastructural concerns like databases, event queues or protocols are kept away from the application layer through **infrastructure interfaces** declared here, but implemented by the infrastructure layer itself.
 
-#### Application Layer
-Defines a collection of **Handlers** that encapsulate the use cases exposed by the service and acts as an entry point to the domain layer. This layer is also responsible of managing **Authorization**, data access, consistency and external communication by delegating to the [Infrastructure Layer](#infrastructure-layer). To keep application logic as clean as possible, this communication uses **Infrastructure Interfaces** declared by the application layer itself, but implemented in [Infrastructure](#infrastructure-layer).
+### Infrastructure Layer
+This layer holds the concrete implementation of the interfaces declared by the [Application Layer](#application-layer) or by the [Domain Layer](#domain-layer). These interfaces typically model behavior related to **Persistence**, **External Communication** and other **Utility Services** required by other layers.
 
-#### Infrastructure Layer
-This layer holds the concrete implementation of the 
-technology-agnostic interfaces declared by the [Application Layer](#application-layer) or by the [Domain Layer](#domain-layer). These interfaces typically model behavior related to **Persistence**, **External Communication** and other **Utility Services** required by other layers.
-
-#### API Layer
-Represents the entry point that clients of the service use to make requests. Clients can make requests using the REST API exposed by each microservice, therefore this layer defines a set of **Controllers** that declare which endpoints are supported. In addition, this is where each service defines its **DTOs** (Data Transfer Objects, i.e. the objects modeling the format of communication with clients). Lastly, this layer is responsible of managing the **Authentication** process, delegating authorization to the [Application Layer](#application-layer).
-
-### Inter-Service dependencies
-Inter-service communication can happen with:
-
-* Synchronous API calls from the _Infrastructure_ layer to the recipient _API_ layer
-* Asynchronous Event notification received through the _Application_ layer that adheres to the sender _Contracts_ layer
-
-```plantuml
-@startuml
-!include metamodel/architecture.metamodel.iuml
-left to right direction
-title "Service 2 depends on Service 1"
-
-$microservice "Service 1" as service_1 {
-    $layer "API" as api_1
-    $layer "Contracts" as contracts_1
-}
-$microservice "Service 2" as service_2 {
-    $layer "Infrastructure" as infrastructure_2
-    $layer "Application" as application_2
-}
-
-application_2 ..> contracts_1
-infrastructure_2 ..> api_1
-
-@enduml
-```
+### Web Layer
+Implements the entry point that clients of the service use to make requests. Clients can make requests using the **REST API** exposed by each microservice, therefore this layer defines the REST endpoints that the service supports along with their interface. To that purpose, each service contains a series of **DTOs** (Data Transfer Objects, i.e. the objects modeling the format of communication with clients) to formally represent the interface of each endpoint. Lastly, this layer is responsible of managing the **Authentication** process to determine the identity of the agent making requests to the service.
