@@ -9,7 +9,7 @@ Components of the system can be categorized in:
 - **Functions**: stateless instances that are typically used to translate and facilitate communication among other components of the system. They fit particularly well in the _serverless_ computation model, and are therefore implemented through _Azure Functions_.
 - **Devices**: computational resources belonging to the physical world.
 
-The diagram shows all the interaction models between each pair of components, classifying them in:
+The diagrams in the sections below show the communication between each pair of components, classifying it in:
 
 - **Synchronous updates (_Updates_ arrow)**: commands sent over synchronous media, like HTTP or RPC.
 - **Asynchronous commands (_Sends commands_ arrow)**: commands sent in an asynchronous way, typically using message queues.
@@ -48,7 +48,8 @@ $subdomain "Subdomain" {
 ```plantuml
 @startuml
 !include metamodel/deployment.metamodel.iuml
-$azure_service "Scooter Digital Twins" as twins
+
+$azure_service "Digital Twins" as twins
 
 $subdomain "E-Scooter Subdomain" {
     $context "Scooter Data Context" {
@@ -89,6 +90,15 @@ $subdomain "E-Scooter Subdomain" {
     $updates(scooter, iotHub)
 }
 
+@enduml
+```
+
+```plantuml
+@startuml
+!include metamodel/deployment.metamodel.iuml
+
+$azure_service "Digital Twins" as twins
+
 $subdomain "User Subdomain" {
     $context "Customer Context" {
         $microservice "Customer (Mock)" as customer
@@ -97,6 +107,36 @@ $subdomain "User Subdomain" {
         $function "Manage Customers" as customerManager
         $observes(customerManager, customerLifecycle)
         $updates(customerManager, twins)
+    }
+}
+
+@enduml
+```
+
+```plantuml
+@startuml
+!include metamodel/deployment.metamodel.iuml
+
+$azure_service "Digital Twins" as twins
+
+$subdomain "E-Scooter Subdomain" {
+    $context "Scooter Data Context" {
+        $microservice "Scooter Data (Mock)" as data
+        $exposes_topic(data, "Scooter Lifecycle", scooterLifecycle)
+    }
+
+    $context "Scooter Monitor & Control Context" {
+        $function "Scooter Monitor" as monitor
+        $exposes_topic(monitor, "Scooter Status", scooterStatus)
+
+        $function "Scooter Control" as control
+    }
+}
+
+$subdomain "User Subdomain" {
+    $context "Customer Context" {
+        $microservice "Customer (Mock)" as customer
+        $exposes_topic(customer, Customer Lifecycle, customerLifecycle)
     }
 }
 
