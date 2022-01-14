@@ -45,6 +45,7 @@ $subdomain "Subdomain" {
 @enduml
 ```
 
+## E-Scooter subdomain
 ```plantuml
 @startuml
 !include metamodel/deployment.metamodel.iuml
@@ -93,6 +94,7 @@ $subdomain "E-Scooter Subdomain" {
 @enduml
 ```
 
+## User subdomain
 ```plantuml
 @startuml
 !include metamodel/deployment.metamodel.iuml
@@ -113,6 +115,7 @@ $subdomain "User Subdomain" {
 @enduml
 ```
 
+## Rent subdomain
 ```plantuml
 @startuml
 !include metamodel/deployment.metamodel.iuml
