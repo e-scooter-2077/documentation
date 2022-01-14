@@ -1046,9 +1046,9 @@ While the details of each layer are discussed in the next sections, the diagram 
 <h3 id="application-layer">Application Layer</h3>
 <p>Defines a collection of <strong>use cases</strong> exposed by the service and the actions to be executed for each of those through a series of <strong>handlers</strong> that interact with the <a href="#domain-layer">domain</a> and <a href="#infastructure-layer">infrastructure</a> layers to carry on those actions. Handlers can also be used to run business logic when events occur in the domain or to integrate with other services/contexts using <strong>external events</strong>. External events are a projection of domain events that is propagated to other contexts, useful to hide inner domain details, therefore making contexts less coupled. Furthermore, this layer is responsible of <strong>authorization</strong>, transactional data access and communication with external services. To keep the application logic as clean as possible, infrastructural concerns like databases, event queues or protocols are kept away from the application layer through <strong>infrastructure interfaces</strong> declared here, but implemented by the infrastructure layer itself.</p>
 <h3 id="infrastructure-layer">Infrastructure Layer</h3>
-<p>This layer holds the concrete implementation of the interfaces declared by the <a href="#application-layer">Application Layer</a> or by the <a href="#domain-layer">Domain Layer</a>. These interfaces typically model behavior related to <strong>Persistence</strong>, <strong>External Communication</strong> and other <strong>Utility Services</strong> required by other layers.</p>
+<p>This layer holds the concrete implementation of the interfaces declared by the <a href="#application-layer">Application Layer</a> or by the <a href="#domain-layer">Domain Layer</a>. These interfaces typically model behavior related to <strong>persistence</strong>, <strong>external communication</strong> and other <strong>utility services</strong> required by other layers.</p>
 <h3 id="web-layer">Web Layer</h3>
-<p>Implements the entry point that clients of the service use to make requests. Clients can make requests using the <strong>REST API</strong> exposed by each microservice, therefore this layer defines the REST endpoints that the service supports along with their interface. To that purpose, each service contains a series of <strong>DTOs</strong> (Data Transfer Objects, i.e. the objects modeling the format of communication with clients) to formally represent the interface of each endpoint. Lastly, this layer is responsible of managing the <strong>Authentication</strong> process to determine the identity of the agent making requests to the service.</p>
+<p>Implements the entry point that clients of the service use to make requests. Clients can make requests using the <strong>REST API</strong> exposed by each microservice, therefore this layer defines the REST endpoints that the service supports along with their interface. To that purpose, each service contains a series of <strong>DTOs</strong> (Data Transfer Objects, i.e. the objects modeling the format of communication with clients) to formally represent the interface of each endpoint. Lastly, this layer is responsible of managing the <strong>authentication</strong> process to determine the identity of the agent making requests to the service.</p>
                 
                   
                     
@@ -1057,7 +1057,7 @@ While the details of each layer are discussed in the next sections, the diagram 
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 13, 2022 17:07:02</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 14, 2022 16:24:43</span>
       
         <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 3, 2022 16:14:23</span> 
       
