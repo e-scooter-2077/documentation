@@ -7,28 +7,12 @@
 '
 !$function="cloud"
 '
-!$azureiothub="storage"
-'
-!$azuredt="storage"
+!$azure_service="storage"
 '
 !$device="actor"
 '
-!$frontend="person"
-'
 !unquoted procedure $updates($subject, $object)
 $subject --> $object
-!endprocedure
-'
-!unquoted procedure $queries($subject, $object)
-$subject --(0 $object
-!endprocedure
-'
-!unquoted procedure $observes($subject, $object)
-$subject <.. $object
-!endprocedure
-'
-!unquoted procedure $sends_commands($subject, $object)
-$subject .(0 $object
 !endprocedure
 '
 !unquoted procedure $exposes_topic($subject, $topic_name, $id)
@@ -36,32 +20,12 @@ interface "$topic_name" as $id
 $id -- $subject
 !endprocedure
 '
-!unquoted procedure $print_legend()
-label A
-label B
-label C    
-label D
-label E
-label F
-label G
-label H
-label I
-$updates(A, B) : Updates
-$observes(C, D) : Observes
-$queries(E, F) : Queries
-$sends_commands(G, H) : Sends Commands
-$exposes_topic(I, Topic Name, _) : Exposes Topic
-
-$subdomain "Subdomain Name" {
-    $context "Context Name" {
-        $microservice "Microservice Name"
-        $function "Function Name"
-        $azureiothub "Azure IoT Hub Name"
-        $azuredt "Azure Data Table Name"
-        $device "Device Name"
-    }
-}
-$frontend "Frontend Name"
+!unquoted procedure $observes($subject, $object)
+$subject --( $object
+!endprocedure
+'
+!unquoted procedure $sends_commands($subject, $object)
+$subject ..> $object
 !endprocedure
 '
 @enduml
