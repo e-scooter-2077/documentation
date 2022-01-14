@@ -94,6 +94,16 @@ $subdomain "E-Scooter Subdomain" {
 @enduml
 ```
 
+This subdomain contains all the services and functions that deal with the scooter lifecycle and with the exchange of information between the physical devices and the system.
+
+Since the **scooter data** context has the authority over the identity of the scooters and, thus, over their existence in the system, a microservice would've been an ideal implementation. However, due to the limited time, it was mocked via a gui that mimics its behavior exposing the _scooter lifecycle_ interface (i.e. notifying the creation/deletion of scooters).
+
+On the other hand, the **Scooter Monitor & Control** context deals with the communication with the physical world. Its access point to the real world has been implemented via the **[Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)**, a service specifically designed to be the pivot point between the cloud and IoT devices.
+
+The IoT Hub can keep track of a large set of entities (denoted as _Devices_), each with its own identity. Each device has two sets of properties to hold state: (i) _Desired properties_, used by the cloud infrastructure to communicate the desired state for the device; (ii) _Reported properties_, used by the device to communicate its actual state (which can be different from the desired one). Furthermore, each device can emit a series of frequent events (almost a continuous stream) denoted as _Telemetry_. These are meant for continuously changing properties (like position, speed or battery level, in the e-scooter domain).
+
+The IoT Hub can be configured to emit events whenever a telemetry is sent or whenever a reported property changes. This feature has been used to integrate it with the rest of the ecosystem.
+
 ## User subdomain
 ```plantuml
 @startuml
