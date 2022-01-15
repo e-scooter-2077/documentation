@@ -17,7 +17,7 @@ The diagrams in the sections below show the communication between each pair of c
 
 ```plantuml
 @startuml
-!include metamodel/deployment.metamodel.iuml
+!include metamodel/components.metamodel.iuml
 
 title Legend
 left to right direction
@@ -48,11 +48,11 @@ $subdomain "Subdomain" {
 ## E-Scooter subdomain
 ```plantuml
 @startuml
-!include metamodel/deployment.metamodel.iuml
-
-$azure_service "Digital Twins" as twins
+!include metamodel/components.metamodel.iuml
 
 $subdomain "E-Scooter Subdomain" {
+    $device "Scooter (Emulated)" as scooter
+
     $context "Scooter Data Context" {
         $microservice "Scooter Data (Mock)" as data
         $exposes_topic(data, "Scooter Lifecycle", scooterLifecycle)
@@ -60,33 +60,23 @@ $subdomain "E-Scooter Subdomain" {
 
     $context "Scooter Monitor & Control Context" {
         $azure_service "Scooter IoT Hub" as iotHub
+        $function "Scooter Monitor" as monitor
+        $function "Scooter Control" as control
+        $function "Manage Devices" as deviceManager
+
         $exposes_topic(iotHub, "Property Updates", properties)
         $exposes_topic(iotHub, "Telemetry Updates", telemetries)
         $exposes_topic(iotHub, "Desired Properties", desired)
 
-        $function "Manage Devices" as deviceManager
         $observes(deviceManager, scooterLifecycle)
-        $updates(deviceManager, twins)
         $updates(deviceManager, iotHub)
 
-        $function "Scooter Monitor" as monitor
         $exposes_topic(monitor, "Scooter Status", scooterStatus)
         $observes(monitor, properties)
         $observes(monitor, telemetries)
 
-        $function "Manage Telemetry" as telemetryManager
-        $observes(telemetryManager, telemetries)
-        $updates(telemetryManager, twins)
-
-        $function "Manage Reported Properties" as reportedManager
-        $observes(reportedManager, scooterStatus)
-        $updates(reportedManager, twins)
-
-        $function "Scooter Control" as control
         $updates(control, iotHub)
     }
-
-    $device "Scooter (Emulated)" as scooter
     $observes(scooter, desired)
     $updates(scooter, iotHub)
 }
@@ -102,23 +92,17 @@ On the other hand, the **Scooter Monitor & Control** context deals with the comm
 
 The IoT Hub can keep track of a large set of entities (denoted as _Devices_), each with its own identity. Each device has two sets of properties to hold state: (i) _Desired properties_, used by the cloud infrastructure to communicate the desired state for the device; (ii) _Reported properties_, used by the device to communicate its actual state (which can be different from the desired one). Furthermore, each device can emit a series of frequent events (almost a continuous stream) denoted as _Telemetry_. These are meant for continuously changing properties (like position, speed or battery level, in the e-scooter domain).
 
-The IoT Hub can be configured to emit events whenever a telemetry is sent or whenever a reported property changes. This feature has been used to integrate it with the rest of the ecosystem.
+The IoT Hub can be configured to emit events whenever a telemetry is sent or whenever a reported property changes. This feature has been used to integrate it with the rest of the ecosystem. In order to expose a simpler interface to the rest of the system, the **Scooter Monitor** function has been developed to intercept events from the IoT Hub and translating them into events tailored for the e-scooter domain.
 
 ## User subdomain
 ```plantuml
 @startuml
-!include metamodel/deployment.metamodel.iuml
-
-$azure_service "Digital Twins" as twins
+!include metamodel/components.metamodel.iuml
 
 $subdomain "User Subdomain" {
     $context "Customer Context" {
         $microservice "Customer (Mock)" as customer
-        $exposes_topic(customer, Customer Lifecycle, customerLifecycle)
-        
-        $function "Manage Customers" as customerManager
-        $observes(customerManager, customerLifecycle)
-        $updates(customerManager, twins)
+        $exposes_topic(customer, "Customer Lifecycle", customerLifecycle)
     }
 }
 
@@ -128,57 +112,85 @@ $subdomain "User Subdomain" {
 ## Rent subdomain
 ```plantuml
 @startuml
-!include metamodel/deployment.metamodel.iuml
-
-$azure_service "Digital Twins" as twins
+!include metamodel/components.metamodel.iuml
 
 $subdomain "E-Scooter Subdomain" {
-    $context "Scooter Data Context" {
-        $microservice "Scooter Data (Mock)" as data
-        $exposes_topic(data, "Scooter Lifecycle", scooterLifecycle)
-    }
-
-    $context "Scooter Monitor & Control Context" {
-        $function "Scooter Monitor" as monitor
-        $exposes_topic(monitor, "Scooter Status", scooterStatus)
-
-        $function "Scooter Control" as control
-    }
+    $topic "Scooter Lifecycle" as scooterLifecycle
+    $topic "Scooter Status" as scooterStatus
+    $function "Scooter Control" as control
 }
 
 $subdomain "User Subdomain" {
-    $context "Customer Context" {
-        $microservice "Customer (Mock)" as customer
-        $exposes_topic(customer, Customer Lifecycle, customerLifecycle)
-    }
+    $topic "Customer Lifecycle" as customerLifecycle
 }
 
 $subdomain "Rent Subdomain" {
     $context "Rent Payment Context" {
         $microservice "Rent Payment (Mock)" as rentPayment
-        $exposes_topic(rentPayment, Rent Payment Events, rentPaymentEvents)
+        $exposes_topic(rentPayment, "Rent Payment Events", rentPaymentEvents)
     }
 
     $context "Rent Context" {
         $microservice "Rent" as rent
-        $exposes_topic(rent, Rent Lifecycle, rentLifecycle)
-        $exposes_topic(rent, Scooter Enabling, scooterEnabling)
+        $exposes_topic(rent, "Rent Lifecycle", rentLifecycle)
+        $exposes_topic(rent, "Scooter Enabling", scooterEnabling)
         $observes(rent, scooterLifecycle)
         $observes(rent, scooterStatus)
         $observes(rent, customerLifecycle)
         $observes(rent, rentPaymentEvents)
-        $updates(rent, control)
-
-        $function "Manage Scooter Enabling" as availabilityManager
-        $observes(availabilityManager, scooterEnabling)
-        $updates(availabilityManager, twins)
-
-        $function "Manage Rents" as rentManager
-        $observes(rentManager, rentLifecycle)
-        $updates(rentManager, twins)
-        
+        $updates(rent, control)        
         $observes(rentPayment, rentLifecycle)
     }
+}
+
+@enduml
+```
+
+## Azure Digital twins
+```plantuml
+@startuml
+!include metamodel/components.metamodel.iuml
+left to right direction
+
+$azure_service "Digital Twins" as twins
+
+$subdomain "E-Scooter Subdomain" {
+    $topic "Scooter Lifecycle" as scooterLifecycle
+    $topic "Scooter Status" as scooterStatus
+    $topic "Telemetry Updates" as telemetries
+
+    $function "Manage Devices" as deviceManager
+    $observes(deviceManager, scooterLifecycle)
+    $updates(deviceManager, twins)
+
+    $function "Manage Telemetry" as telemetryManager
+    $observes(telemetryManager, telemetries)
+    $updates(telemetryManager, twins)
+
+    $function "Manage Reported Properties" as reportedManager
+    $observes(reportedManager, scooterStatus)
+    $updates(reportedManager, twins)
+}
+
+$subdomain "User Subdomain" {
+    $topic "Customer Lifecycle" as customerLifecycle
+    
+    $function "Manage Customers" as customerManager
+    $observes(customerManager, customerLifecycle)
+    $updates(customerManager, twins)
+}
+
+$subdomain "Rent Subdomain" {
+    $topic "Scooter Enabling" as scooterEnabling
+    $topic "Rent Lifecycle" as rentLifecycle
+
+    $function "Manage Scooter Enabling" as availabilityManager
+    $observes(availabilityManager, scooterEnabling)
+    $updates(availabilityManager, twins)
+
+    $function "Manage Rents" as rentManager
+    $observes(rentManager, rentLifecycle)
+    $updates(rentManager, twins)
 }
 
 @enduml

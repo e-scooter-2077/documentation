@@ -5,18 +5,20 @@
 '
 !$microservice="agent"
 '
-!$function="cloud"
+!$function="storage"
 '
-!$azure_service="storage"
+!$azure_service="cloud"
 '
 !$device="actor"
+'
+!$topic="interface"
 '
 !unquoted procedure $updates($subject, $object)
 $subject --> $object
 !endprocedure
 '
 !unquoted procedure $exposes_topic($subject, $topic_name, $id)
-interface "$topic_name" as $id
+$topic "$topic_name" as $id
 $id -- $subject
 !endprocedure
 '
