@@ -204,3 +204,9 @@ $subdomain "Rent Subdomain" {
 
 @enduml
 ```
+
+Since this project is about the exploration of the **digital twins** paradigm, the team decided to adopt a standard and production-ready solution to keep track of the real-time state of the system. that gives clients the possibility to query it in arbitrary ways. The solution of choice was **[Azure Digital Twins](https://docs.microsoft.com/en-us/azure/digital-twins/overview)**, which has all the required features.
+
+Azure Digital Twins allows developers to define a set of _DTDL models_ to define real-world assets as twins along with their _properties_ and the _relationships_ they can have with other digital twins. Once the models are uploaded to the Azure Digital Twins instance, external agents can use its API and/or SDK to run CRUD operations on both digital twins and relationships, in order to control the _digital twin graph_.
+
+Azure Digital Twins can be easily integrated with other cloud services (including the IoT Hub) using Azure Functions. In particular, the team developed a group of functions to create digital twins for the scooters and the customers managed by the rest of the system and also to keep them up to date with the real-time state.
