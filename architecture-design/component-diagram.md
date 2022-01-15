@@ -85,7 +85,7 @@ $subdomain "E-Scooter Subdomain" {
 
 This subdomain contains all the services and functions that deal with the scooter lifecycle and with the exchange of information between the physical devices and the system.
 
-Since the **scooter data** context has the authority over the identity of the scooters and, thus, over their existence in the system, a microservice would've been an ideal implementation. However, due to the limited time, it was mocked via a gui that mimics its behavior exposing the _scooter lifecycle_ interface (i.e. notifying the creation/deletion of scooters).
+Since the **scooter data** context has the authority over the identity of the scooters and, thus, over their existence in the system, a microservice would've been an ideal implementation. However, due to the limited time, it was mocked via a GUI that mimics its behavior exposing the _scooter lifecycle_ interface (i.e. notifying the creation/deletion of scooters).
 
 On the other hand, the **Scooter Monitor & Control** context deals with the communication with the physical world. Its access point to the real world has been implemented via the **[Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)**, a service specifically designed to be the pivot point between the cloud and IoT devices.
 
@@ -111,6 +111,8 @@ $subdomain "User Subdomain" {
 
 @enduml
 ```
+
+Being a generic subdomain, the team decided to have the User subdomain be implemented using an off-the-shelf package. Therefore, the team opted to mock the interfaces of this subdomain that were needed by other components in other subdomains, namely the _Customer lifecycle_ topic. This is the topic exposed by the designed **Customer Microservice** to let others know about customers signing up to the system or customers unregistering from it. Like the _scooter data_ microservice, this was implemented via a GUI emitting the events for other services to observe.
 
 ## Rent subdomain
 ```plantuml
