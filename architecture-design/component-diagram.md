@@ -6,7 +6,7 @@ Components of the system can be categorized in:
 
 - **Microservices**: standalone services that encapsulate their state and provide a well defined set of functionalities accessible through their public interface. Microservices can communicate with each other through events or asynchronous commands.
 - **Azure services**: instances of services offered by the _Microsoft Azure_ cloud infrastructure, providing a wide range of features that need to be integrated with other services.
-- **Functions**: stateless instances that are typically used to translate and facilitate communication among other components of the system. They fit particularly well in the _serverless_ computation model, and are therefore implemented through _Azure Functions_.
+- **Functions**: stateless instances that are typically used to translate and facilitate communication among other components of the system. They fit particularly well in the _serverless_ computation model, and are therefore implemented through _Azure Functions_. An important thing to note is that in Azure, the minimal unit of deployment is a _Function App_, which can host multiple functions with different tasks that scale together. The following sections use the term "function" to indicate an Azure Function App, that can therefore contain multiple instances of serverless functions.
 - **Devices**: computational resources belonging to the physical world.
 
 The diagrams in the sections below show the communication between each pair of components, classifying it in:
@@ -73,7 +73,6 @@ $subdomain "E-Scooter Subdomain" {
 
         $exposes_topic(monitor, "Scooter Status", scooterStatus)
         $observes(monitor, properties)
-        $observes(monitor, telemetries)
 
         $updates(control, iotHub)
     }
@@ -92,7 +91,11 @@ On the other hand, the **Scooter Monitor & Control** context deals with the comm
 
 The IoT Hub can keep track of a large set of entities (denoted as _Devices_), each with its own identity. Each device has two sets of properties to hold state: (i) _Desired properties_, used by the cloud infrastructure to communicate the desired state for the device; (ii) _Reported properties_, used by the device to communicate its actual state (which can be different from the desired one). Furthermore, each device can emit a series of frequent events (almost a continuous stream) denoted as _Telemetry_. These are meant for continuously changing properties (like position, speed or battery level, in the e-scooter domain).
 
-The IoT Hub can be configured to emit events whenever a telemetry is sent or whenever a reported property changes. This feature has been used to integrate it with the rest of the ecosystem. In order to expose a simpler interface to the rest of the system, the **Scooter Monitor** function has been developed to intercept events from the IoT Hub and translating them into events tailored for the e-scooter domain.
+New scooters that are registered to the system are recorded as devices inside the IoT Hub thanks to the **Manage Devices** function, relying on the _scooter lifecycle_ topic. After registration, the scooter can start to be monitored and/or controlled by the system.
+
+The physical actuation of control policies is demanded to the **Scooter Control** function, which receives asynchronous commands from other components in order for them to be propagated to the physical devices via the IoT Hub. This commands, among others, include the operations to _lock_/_unlock_ scooters, for example when a customer rents one. 
+
+The IoT Hub can also be configured to emit events whenever a telemetry is sent or whenever a reported property changes. This feature has been used to integrate it with the rest of the ecosystem. In particular, the cloud service emits events when properties like _locked_ or _standby_ change. In order to have a simpler interface for reported properties updates to the rest of the system, the **Scooter Monitor** function has been developed to translate them into events tailored for the e-scooter domain.
 
 ## User subdomain
 ```plantuml
