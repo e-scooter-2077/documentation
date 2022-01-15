@@ -151,6 +151,10 @@ $subdomain "Rent Subdomain" {
 @enduml
 ```
 
+The rent subdomain deals with the functionalities that allow customers to rent scooters, along with side features reserved to assistants and admins of the service. The core of this subdomain is the **Rent Microservice**, which provides clients with an interface to _start_ and _stop_ rents as a customer, or to _enable_ or _disable_ scooters as an assistant or as an admin. To work properly, it needs to know about the existing customers and scooters, which is done by subscribing to the _Scooter Lifecycle_, _Scooter Status_ and _Customer Lifecycle_ topics. This service is also responsible for the _locking_ and _unlocking_ of scooters according to the lifecycle of the related rents. Since these operations are offered by the _Scooter Control_ function, the rent service only needs to send asynchronous commands to it when necessary.
+
+The Rent Microservice does not directly deal with the payment of the rides, but delegates this responsibility to another microservice from a different bounded context, the **Rent Payment Service**. Since payments are assumed to use _virtual currency_ managed by the system, this service needs to ensure that: (i) a renting customer has enough credit to start a rent, that is _authorizing_ or _rejecting_ the rent; (ii) a rent is stopped when a customer's credit runs out. This collaboration between the two services is carried out via an exchange of events using the _Rent Lifecycle_ and _Rent Payment Events_ topics. Due to the limited time though, the Rent Payment service was mocked with a function that always authorizes rents when they are requested.
+
 ## Azure Digital twins
 ```plantuml
 @startuml
