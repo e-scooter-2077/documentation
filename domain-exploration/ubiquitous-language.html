@@ -754,6 +754,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rent-process" class="md-nav__link">
+    Rent process
+  </a>
+  
+    <nav class="md-nav" aria-label="Rent process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorizing-rent" class="md-nav__link">
+    Authorizing Rent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejecting-rent" class="md-nav__link">
+    Rejecting Rent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirming-rent" class="md-nav__link">
+    Confirming Rent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#payment" class="md-nav__link">
     Payment
   </a>
@@ -771,6 +805,20 @@
           <li class="md-nav__item">
   <a href="#virtual-currency" class="md-nav__link">
     Virtual Currency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unlocking-fee" class="md-nav__link">
+    Unlocking fee
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-based-charging" class="md-nav__link">
+    Time based charging
   </a>
   
 </li>
@@ -1880,6 +1928,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rent-process" class="md-nav__link">
+    Rent process
+  </a>
+  
+    <nav class="md-nav" aria-label="Rent process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorizing-rent" class="md-nav__link">
+    Authorizing Rent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejecting-rent" class="md-nav__link">
+    Rejecting Rent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirming-rent" class="md-nav__link">
+    Confirming Rent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#payment" class="md-nav__link">
     Payment
   </a>
@@ -1897,6 +1979,20 @@
           <li class="md-nav__item">
   <a href="#virtual-currency" class="md-nav__link">
     Virtual Currency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unlocking-fee" class="md-nav__link">
+    Unlocking fee
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-based-charging" class="md-nav__link">
+    Time based charging
   </a>
   
 </li>
@@ -2046,6 +2142,14 @@ A point inside the <a href="#area-of-service">area of service</a> where the vehi
 <h4 id="end-position">End position</h4>
 <p>Aliases: end<br />
 A point inside the <a href="#map">map</a> where the vehicle was <a href="#lock">locked</a> because the <a href="#rent">rent</a> ended.</p>
+<h2 id="rent-process">Rent process</h2>
+<p><em>See scooter operation <a href="#rent">rent</a>.</em></p>
+<h3 id="authorizing-rent">Authorizing Rent</h3>
+<p>A rent is authorized when the <a href="#customer">customer</a> has enough <a href="#virtual-currency">virtual currency</a> to pay the <a href="#unlocking-fee">unlocking fee</a>.</p>
+<h3 id="rejecting-rent">Rejecting Rent</h3>
+<p>A rent is rejected when the <a href="#customer">customer</a> has not enough <a href="#virtual-currency">virtual currency</a> to pay the <a href="#unlocking-fee">unlocking fee</a>.</p>
+<h3 id="confirming-rent">Confirming Rent</h3>
+<p>A rent is confirmed when it's authorized. This marks the starting time of the rent for <a href="#time-based-charging">time-based charging</a>.</p>
 <h2 id="payment">Payment</h2>
 <p>A payment can be either:
 - a <a href="#real-world-payment">real-world payment</a>
@@ -2055,6 +2159,10 @@ A point inside the <a href="#map">map</a> where the vehicle was <a href="#lock">
 <h3 id="virtual-currency">Virtual Currency</h3>
 <p>The amount of imaginary money for every customer. Used to pay scooter <a href="#rent">rents</a>.
 It can be obtained through <a href="#real-world-payment">real-world purchases</a>.</p>
+<h3 id="unlocking-fee">Unlocking fee</h3>
+<p>The price to unlock a scooter before initiating a rent. Charged only once per rent.</p>
+<h3 id="time-based-charging">Time based charging</h3>
+<p>The process of charging an amount of virtual currency depending on how much time a rent is taking.</p>
 <h3 id="in-app-payment">In-App Payment</h3>
 <p>Aliases: in-app purchase<br />
 It's a <a href="#virtual-currency">virtual currency</a> transaction inside the system.</p>
@@ -2069,7 +2177,7 @@ It's a money transaction from the <a href="#customer">customer</a> to the busine
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 5, 2022 15:57:53</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 16, 2022 08:47:08</span>
       
         <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 3, 2022 16:14:23</span> 
       
@@ -2083,7 +2191,7 @@ It's a money transaction from the <a href="#customer">customer</a> to the busine
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (92.68%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (6.5%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (0.81%)</span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (84.44%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (14.81%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (0.74%)</span>
       </small>
     </div>
   

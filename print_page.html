@@ -1545,6 +1545,14 @@ A point inside the <a href="#domain-exploration-ubiquitous-language-area-of-serv
 <h4 id="domain-exploration-ubiquitous-language-end-position">End position</h4>
 <p>Aliases: end<br />
 A point inside the <a href="#domain-exploration-ubiquitous-language-map">map</a> where the vehicle was <a href="#domain-exploration-ubiquitous-language-lock">locked</a> because the <a href="#domain-exploration-ubiquitous-language-rent">rent</a> ended.</p>
+<h2 id="domain-exploration-ubiquitous-language-rent-process">Rent process</h2>
+<p><em>See scooter operation <a href="#domain-exploration-ubiquitous-language-rent">rent</a>.</em></p>
+<h3 id="domain-exploration-ubiquitous-language-authorizing-rent">Authorizing Rent</h3>
+<p>A rent is authorized when the <a href="#domain-exploration-ubiquitous-language-customer">customer</a> has enough <a href="#domain-exploration-ubiquitous-language-virtual-currency">virtual currency</a> to pay the <a href="#domain-exploration-ubiquitous-language-unlocking-fee">unlocking fee</a>.</p>
+<h3 id="domain-exploration-ubiquitous-language-rejecting-rent">Rejecting Rent</h3>
+<p>A rent is rejected when the <a href="#domain-exploration-ubiquitous-language-customer">customer</a> has not enough <a href="#domain-exploration-ubiquitous-language-virtual-currency">virtual currency</a> to pay the <a href="#domain-exploration-ubiquitous-language-unlocking-fee">unlocking fee</a>.</p>
+<h3 id="domain-exploration-ubiquitous-language-confirming-rent">Confirming Rent</h3>
+<p>A rent is confirmed when it's authorized. This marks the starting time of the rent for <a href="#domain-exploration-ubiquitous-language-time-based-charging">time-based charging</a>.</p>
 <h2 id="domain-exploration-ubiquitous-language-payment">Payment</h2>
 <p>A payment can be either:
 - a <a href="#domain-exploration-ubiquitous-language-real-world-payment">real-world payment</a>
@@ -1554,6 +1562,10 @@ A point inside the <a href="#domain-exploration-ubiquitous-language-map">map</a>
 <h3 id="domain-exploration-ubiquitous-language-virtual-currency">Virtual Currency</h3>
 <p>The amount of imaginary money for every customer. Used to pay scooter <a href="#domain-exploration-ubiquitous-language-rent">rents</a>.
 It can be obtained through <a href="#domain-exploration-ubiquitous-language-real-world-payment">real-world purchases</a>.</p>
+<h3 id="domain-exploration-ubiquitous-language-unlocking-fee">Unlocking fee</h3>
+<p>The price to unlock a scooter before initiating a rent. Charged only once per rent.</p>
+<h3 id="domain-exploration-ubiquitous-language-time-based-charging">Time based charging</h3>
+<p>The process of charging an amount of virtual currency depending on how much time a rent is taking.</p>
 <h3 id="domain-exploration-ubiquitous-language-in-app-payment">In-App Payment</h3>
 <p>Aliases: in-app purchase<br />
 It's a <a href="#domain-exploration-ubiquitous-language-virtual-currency">virtual currency</a> transaction inside the system.</p>
