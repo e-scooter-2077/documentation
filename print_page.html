@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -826,6 +826,53 @@
       <a href="implementation/index.html" class="md-nav__link">
         Implementation
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Device Emulator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Device Emulator" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Device Emulator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="implementation/device-emulator/requirements.html" class="md-nav__link">
+        Device Emulator Requirements
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -2012,7 +2059,50 @@ This features are implemented using Angular services.</p>
 <h2 id="implementation-index-device-emulator"><a href="https://github.com/e-scooter-2077/device-emulator">Device emulator</a></h2>
 <p>The Device emulator simulates the typical behavior of e-scooters in the real world, allowing us to live-test the entire system.</p>
 <p>Implemented as <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-6.0&amp;tabs=visual-studio">HostedService</a> with C# .NET, the emulator executes a loop in which queries for new or updated scooters and simulates a random realistic usage to update them: it moves the scooters, uses the battery and sets standby mode eventually, as if humans were using them to move around Cesena.</p>
-<p>The requirement analysis of the device emulator can be found <a href="https://e-scooter-2077.github.io/documentation/Device%20Emulator/Requirements.html">here</a>.</p></section><section class="print-page" id="implementation-digital-twins-models"><h1 id="implementation-digital-twins-models-digital-twins">Digital Twins</h1>
+<p>The requirement analysis of the device emulator can be found <a href="https://e-scooter-2077.github.io/documentation/implementation/device-emulator/requirements.html">here</a>.</p></section>
+                        <h2 class='nav-section-title' id='section-device-emulator'>
+                            Device Emulator <a class='headerlink' href='#section-device-emulator' title='Permanent link'>↵</a>
+                        </h2>
+                        <section class="print-page" id="implementation-device-emulator-requirements"><h1 id="implementation-device-emulator-requirements-device-emulator-requirements">Device Emulator Requirements</h1>
+<ol>
+<li>
+<p>Emulate all the devices on a Iot Hub instance</p>
+<ol>
+<li>Fetch the list of all devices, periodically</li>
+<li>For each device, start an infinite emulation that lasts until a "stop event" is fired<ol>
+<li>A stop event can be a keyboard interrupt or a C# method call</li>
+<li>The emulation consists of:<ol>
+<li>Load device data</li>
+<li>Decide which property should be changed, why and how<ol>
+<li>If the device is locked, do nothing</li>
+<li>If it's unlocked, randomly select an action:<ol>
+<li>Do nothing</li>
+<li>Change position based on velocity (only if velocity is not 0)</li>
+<li>Change position and change velocity</li>
+</ol>
+</li>
+<li>If it's moving, consume some battery<ol>
+<li>If the battery is below the standby threshold go in standby mode</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Change the property values</li>
+<li>Submit the update to IoT Hub</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<div class="admonition note emulation">
+<p class="admonition-title">Note</p>
+<p>Emulating a device means firing a sequence of realistic updates on its reported properties on IoT Hub. We consider every device to be an <strong>E-Scooter</strong>.</p>
+</div>
+</li>
+<li>
+<p>Can be executed both as script and as a library</p>
+</li>
+</ol></section><h1 class='nav-section-title-end'>Ended: Device Emulator</h1><section class="print-page" id="implementation-digital-twins-models"><h1 id="implementation-digital-twins-models-digital-twins">Digital Twins</h1>
 <h2 id="implementation-digital-twins-models-scooter-dt">Scooter DT</h2>
 <h3 id="implementation-digital-twins-models-model">Model</h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -2162,7 +2252,7 @@ This features are implemented using Angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>
