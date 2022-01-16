@@ -32,7 +32,7 @@ These are the principles we adopted for every repository:
 - Consistency between .NET compilation target, runtime target, build-time dotnet version.
 
 ### GitHub Actions Workflows
-Workflows define the automation processes of a repository. An example of a workflow we created and used can be found [here](https://github.com/e-scooter-2077/azure-function-template/blob/master/.github/workflows/ci.yml).
+Workflows define the automation processes of a repository. An example of a workflow that was created by us and used in this project can be found [here](https://github.com/e-scooter-2077/azure-function-template/blob/master/.github/workflows/ci.yml).
 
 Workflows are composed by jobs which can run concurrently or in sequence based on a graph of dependencies between each other. Each job is composed by a sequence of steps to be made. Steps can fail, when it happens normally the job is interrupted and flagged as failed. Steps can run scripts or actions.
 
@@ -52,7 +52,7 @@ Every action takes care of one build step. Some custom actions aggregate repeate
     * [Dotnet Test](https://github.com/EasyDesk/action-dotnet-test) - Runs the tests with dotnet.
 
 #### Reusable workflows
-After the release of [reusable workflows](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows) by GitHub we decided to apply DRY principles extensively between all the repositories, so we created two singleton workflow file that each piece of software implemented with .NET would call. One for [Azure Functions CI/CD](https://github.com/e-scooter-2077/azure-functions-ci), one for [Dekstop applications and Hosted Runners CI/CD](https://github.com/e-scooter-2077/csharp-app-ci).
+After the release of [reusable workflows](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows) by GitHub, as DRY principles were applied extensively between all the repositories, two singleton workflow file were created so that each piece of software implemented with .NET would call them instead of repeating the same workflow making updating the workflow between projects and mantaining the same standard easier. One was created for [Azure Functions CI/CD](https://github.com/e-scooter-2077/azure-functions-ci) to include delivery on the cloud resource, one for [Dekstop applications and Hosted Runners CI/CD](https://github.com/e-scooter-2077/csharp-app-ci).
 
 #### Workflow Design
 The two main workflows the team designed are:
