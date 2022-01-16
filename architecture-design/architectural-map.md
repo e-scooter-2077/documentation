@@ -1,4 +1,4 @@
-# Component Diagram
+# Architectural map
 
 This section contains an overview of the final version of the system as it's been implemented, giving an holistic view of the developed components and their relationships with each other.
 

@@ -1,2 +1,2 @@
+* [Architectural Map](architectural-map.md)
 * [Service Architecture](service-architecture.md)
-* [Component Diagram](component-diagram.md)
