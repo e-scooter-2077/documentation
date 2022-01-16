@@ -118,6 +118,15 @@ A point inside the [area of service](#area-of-service) where the vehicle was [un
 Aliases: end  
 A point inside the [map](#map) where the vehicle was [locked](#lock) because the [rent](#rent) ended.
 
+## Rent process
+*See scooter operation [rent](#rent).*
+### Authorizing Rent
+A rent is authorized when the [customer](#customer) has enough [virtual currency](#virtual-currency) to pay the [unlocking fee](#unlocking-fee).
+### Rejecting Rent
+A rent is rejected when the [customer](#customer) has not enough [virtual currency](#virtual-currency) to pay the [unlocking fee](#unlocking-fee).
+### Confirming Rent
+A rent is confirmed when it's authorized. This marks the starting time of the rent for [time-based charging](#time-based-charging).
+
 ## Payment
 A payment can be either:
 - a [real-world payment](#real-world-payment)
@@ -127,6 +136,10 @@ The preexisting service that manages customer data and payments for the [e-scoot
 ### Virtual Currency
 The amount of imaginary money for every customer. Used to pay scooter [rents](#rent).
 It can be obtained through [real-world purchases](#real-world-payment).
+### Unlocking fee
+The price to unlock a scooter before initiating a rent. Charged only once per rent.
+### Time based charging
+The process of charging an amount of virtual currency depending on how much time a rent is taking.
 ### In-App Payment
 Aliases: in-app purchase  
 It's a [virtual currency](#virtual-currency) transaction inside the system.
