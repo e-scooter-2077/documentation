@@ -30,5 +30,5 @@ $aggregate("Trip") {
 
 ## Domain Events
 
-- **TripStarted**: 
-- **TripEnded**: 
+- **TripStarted**: when a new trip starts.
+- **TripEnded**: when a trip ends.

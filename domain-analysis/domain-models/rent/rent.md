@@ -20,6 +20,8 @@ $aggregate("Scooter") {
     + leaveStandby()
     + enterAreaOfService()
     + leaveAreaOfService()
+    + isRentable(): Boolean
+    + isAvailable(): Boolean
   }
 }
 
@@ -36,6 +38,7 @@ $aggregate("Rent") {
     + confirm(confirmationInfo: ConfirationInfo): Result[Nothing]
     + cancel(cancellationInfo: CancellationInfo): Result[Nothing]
     + stop(stopInfo: StopInfo): Result[Nothing]
+    + getState(): RentState
   }
 
   $value("RentConfirmationInfo", confirmationInfo) {
@@ -66,9 +69,17 @@ $aggregate("Rent") {
     NOT_RENTABLE
   }
 
+  $enum("RentState", rentState) {
+    PENDING
+    ONGOING
+    CANCELLED
+    COMPLETED
+  }
+
   rent "1" -- "0..1" confirmationInfo
   rent "1" -- "0..1" cancellationInfo
   rent "1" -- "0..1" stopInfo
+  rent "*" - "1" rentState
   stopInfo "*" -- "1" stopReason
   cancellationInfo "*" -- "1" cancellationReason
 }
@@ -83,8 +94,83 @@ $aggregate("Customer") {
   }
 }
 
-rent .. scooter
-rent .. customer
+rent "0..1" <..> "1" scooter
+rent "0..1" <..> "1" customer
+
+@enduml
+```
+
+## Rules
+
+A scooter has three properties that decide if customers have the ability to rent it.
+
+- _enabled_: a scooter disabled by an employee cannot be rented;
+- _standby_: a scooter in standby mode cannot be rented;
+- _outOfService_: a scooter outside of its area of service cannot be rented.
+
+While this context has the authority over the enabled property, the remaining are owned by different contexts which _Rent_ has to integrate with.
+
+The combination of the aforementioned properties defines the _rentability_ of a scooter for what concerns the _rent context_. In addition, a scooter cannot be rented by any customer if another customer is already riding it. This defines its _availability_ state. In order to succeed, a _rent request_ must be made on a scooter that is both rentable and available at the time of the request.
+
+Finally, a constraint exists to prevent customers from renting scooter while another rent is ongoing for them.
+
+## Rent lifecycle diagram
+
+```plantuml
+@startuml
+hide empty description
+
+[*] --> Pending
+Pending --> Ongoing : Rent payment authorized
+Ongoing --> Completed : Customer stops the rent **OR** Credit expires **OR** Scooter becomes not rentable
+Pending --> Cancelled : Rent payment rejected
+@enduml
+```
+
+## Rent Process Diagram
+```plantuml
+@startuml
+participant "Customer" as customer
+participant "Scooter Control Context" as control
+participant "Rent Context" as rent
+participant "Rent Payment Context" as rent_payment
+participant "Payment Context" as payment
+
+customer -> rent : request rent
+
+rent -> rent : create pending rent
+
+rent ->> rent_payment : rentRequested(customerId, rentId)
+
+rent --> customer : OK
+
+rent_payment -> payment : charge unlock price + first x minutes
+return OK
+
+rent_payment ->> rent : rentAuthorized(rentId, startTime)
+
+rent ->> customer : rentConfirmed(rentId)
+
+rent ->> control : unlockScooter(scooterId)
+
+loop every x minutes while credit is sufficient and rent is not stopped
+  rent_payment -> payment : charge x minutes price
+  alt
+    payment --> rent_payment : OK
+  else
+    payment --> rent_payment : Insufficient credit
+    rent_payment ->> rent : creditExhaustedForRent(rentId, endTime)
+
+    rent ->> control : lockScooter(scooterId)
+  end
+end
+
+customer -> rent : stop rent
+
+rent ->> rent_payment : rentStopped(rentId)
+
+rent ->> control : lockScooter(scooterId)
+
 @enduml
 ```
 
