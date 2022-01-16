@@ -5,59 +5,59 @@
 @startuml
 !include metamodel/domain.entities.metamodel.iuml
 $aggregate("Scooter") {
-  $aggregate_root("Scooter", scooter) {
-    + id: EntityId
-    + serialNumber: SerialNumber
-    + weight: Weight
-    + model: ModelInfo
-  }
+    $aggregate_root("Scooter", scooter) {
+        + id: EntityId
+        + data: ScooterData
+    }
+
+    $value("ScooterData") {
+        + serialNumber: SerialNumber
+        + weight: Weight
+        + model: ModelInfo
+    }
+
+    $value("SerialNumber") {
+        + value: String
+    }
+
+    $value("ModelInfo") {
+        + model: Name
+        + vendorName: Name
+    }
+
+    $value("Name") {
+        + value: String
+    }
+
+    $value("Weight") {
+        + kilograms: Real
+    }
+
+    scooter o-- ScooterData
+    ScooterData -- SerialNumber
+    ScooterData -- ModelInfo
+    ScooterData -- Weight
+    ModelInfo -- Name
 }
 @enduml
 ```
 
 ## Details
 
-### Scooter
-
-### SerialNumber
-```plantuml
-@startuml
-!include metamodel/domain.entities.metamodel.iuml
-$value("SerialNumber") {
-  + value: String
-}
-@enduml
-```
-
-**Constraints**:
-
-- `^[A-Za-z0-9-]+$`
-
 ### Weight
-```plantuml
-@startuml
-!include metamodel/domain.entities.metamodel.iuml
-$value("Weight") {
-  + kilograms: Real
-}
-@enduml
-```
-
 **Constraints**:
 
 - $kilograms > 0$
 
+### Name
+**Constraints**:
 
-### ModelInfo
-```plantuml
-@startuml
-!include metamodel/domain.entities.metamodel.iuml
-$value("ModelInfo") {
-  + model: Name
-  + vendorName: Name
-}
-@enduml
-```
+- value must not be empty
+
+### SerialNumber
+**Constraints**
+
+- value matches `^[A-Za-z0-9-]+$`
 
 ## Domain events
 

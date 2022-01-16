@@ -5,30 +5,34 @@
 @startuml
 !include metamodel/domain.entities.metamodel.iuml
 $aggregate("Area of Service") {
-  $aggregate_root("AreaOfService", area) {
-    + id: EntityId
-    + shape: Shape
-    + isInArea(point: GeoPoint): Boolean
-  }
-  abstract $value("Shape", shape) {
-    + isInArea(point: GeoPoint): Boolean
-  }
+    $aggregate_root("AreaOfService", area) {
+        + id: EntityId
+        + shape: Shape
+        + isInArea(point: GeoPoint): Boolean
+    }
+    abstract $value("Shape", shape) {
+        + isInArea(point: GeoPoint): Boolean
+    }
 
-  shape --o area
+    shape --o area
 }
 
 $factory("ShapeFactory", shape_factory) {
-  + createCircle(center: GeoPoint, radius: Distance): Shape
-  + {method} ...
+    + createCircle(center: GeoPoint, radius: Distance): Shape
+    + {method} ...
 }
 shape_factory ..> shape
 
-$aggregate("Scooters") {
- $aggregate_root("Scooter", scooter) {
-   + id: EntityId
-   + areaId: Option[EntityId]
-   + position: GeoPoint
- }
+$aggregate("Scooter") {
+    $aggregate_root("Scooter", scooter) {
+        + id: EntityId
+        + areaId: Option[EntityId]
+        + position: GeoPoint
+
+        + assignToArea(areaId: EntityId)
+        + removeFromCurrentArea(): Result[Nothing]
+        + recordPosition(position: GeoPoint)
+    }
 }
 
 area <. scooter
