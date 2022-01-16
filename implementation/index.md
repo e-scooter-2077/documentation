@@ -47,6 +47,7 @@ Here is a list of all the implemented Azure functions:
 - [manage scooter availability](https://github.com/e-scooter-2077/rent.manage-scooter-availability) update the state of each scooter digital twin when the availability is changed from an administrator of the system on the rent service.
 
 Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control & Monitor Context: 
+
 - [scooter control](https://github.com/e-scooter-2077/scooter-control) is a function that exposes the default applicable actions on the *IoT Hub*: in particular, it manages the lock/unlock command and the telemetries to update *IoT Hub*.
 - [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) is a function that exposes the events of changing of the *IoT Hub*.
 
