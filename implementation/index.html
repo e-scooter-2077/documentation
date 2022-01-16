@@ -1180,9 +1180,11 @@
 <li><a href="https://github.com/e-scooter-2077/scooter-monitor.manage-reported-properties">manage reported properties</a> updates the state of each scooter digital twin when reported properties are updated on the device (e.g. lock state, standby).</li>
 <li><a href="https://github.com/e-scooter-2077/rent.manage-scooter-availability">manage scooter availability</a> update the state of each scooter digital twin when the availability is changed from an administrator of the system on the rent service.</li>
 </ul>
-<p>Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control &amp; Monitor Context: 
-- <a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> is a function that exposes the default applicable actions on the <em>IoT Hub</em>: in particular, it manages the lock/unlock command and the telemetries to update <em>IoT Hub</em>.
-- <a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> is a function that exposes the events of changing of the <em>IoT Hub</em>.</p>
+<p>Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control &amp; Monitor Context: </p>
+<ul>
+<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> is a function that exposes the default applicable actions on the <em>IoT Hub</em>: in particular, it manages the lock/unlock command and the telemetries to update <em>IoT Hub</em>.</li>
+<li><a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> is a function that exposes the events of changing of the <em>IoT Hub</em>.</li>
+</ul>
 <p>Functions were also used to implement mocked parts of the system when needed. For example the <a href="https://github.com/e-scooter-2077/rent-payment.mock">rent payment</a> which is a mock implementation of the Rent Payment context that always confirm the rents.</p>
 <h3 id="microservices">Microservices</h3>
 <p>Microservices are implemented with an <em>App Service</em>. We fully developed as a standalone microservice only the <a href="https://github.com/e-scooter-2077/rent-service">Rent service</a> that maps the Rent Context.</p>
@@ -1216,7 +1218,7 @@ This features are implemented using Angular services.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 10, 2022 12:00:16</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 16, 2022 08:14:03</span>
       
         <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 6, 2022 15:44:47</span> 
       
