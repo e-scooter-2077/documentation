@@ -51,6 +51,9 @@ Every action takes care of one build step. Some custom actions aggregate repeate
     * [Publish Webapp on Azure Job](https://github.com/EasyDesk/job-azure-publish-webapp) - Deploys a microservice/webapp application on Azure Cloud.
     * [Dotnet Test](https://github.com/EasyDesk/action-dotnet-test) - Runs the tests with dotnet.
 
+#### Reusable workflows
+After the release of [reusable workflows](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows) by GitHub we decided to apply DRY principles extensively between all the repositories, so we created two singleton workflow file that each piece of software implemented with .NET would call. One for [Azure Functions CI/CD](https://github.com/e-scooter-2077/azure-functions-ci), one for [Dekstop applications and Hosted Runners CI/CD](https://github.com/e-scooter-2077/csharp-app-ci).
+
 ### Repository templates
 Repository templates allow a faster bootstrap phase of a project, scaffolding a hello world version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.
 
