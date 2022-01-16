@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1984,6 +1984,8 @@ These are:</p>
 <li><a href="https://github.com/EasyDesk/action-dotnet-test">Dotnet Test</a> - Runs the tests with dotnet.</li>
 </ul>
 </details>
+<h4 id="devops-engineering-reusable-workflows">Reusable workflows</h4>
+<p>After the release of <a href="https://docs.github.com/en/actions/learn-github-actions/reusing-workflows">reusable workflows</a> by GitHub we decided to apply DRY principles extensively between all the repositories, so we created two singleton workflow file that each piece of software implemented with .NET would call. One for <a href="https://github.com/e-scooter-2077/azure-functions-ci">Azure Functions CI/CD</a>, one for <a href="https://github.com/e-scooter-2077/csharp-app-ci">Dekstop applications and Hosted Runners CI/CD</a>.</p>
 <h3 id="devops-engineering-repository-templates">Repository templates</h3>
 <p>Repository templates allow a faster bootstrap phase of a project, scaffolding a hello world version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.</p>
 <p>The template we made for every EScooter <strong>Azure Function</strong> can be found <a href="https://github.com/e-scooter-2077/azure-function-template">here</a>.</p>
@@ -2268,7 +2270,7 @@ This features are implemented using Angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>
