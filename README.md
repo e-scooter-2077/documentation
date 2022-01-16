@@ -4,6 +4,9 @@ This repository contains the documentation regarding the developement process of
 
 You can start [here](https://e-scooter-2077.github.io/documentation/index.html).
 
+#### Automatic deploy status:  
+[![Update GitHub Pages](https://github.com/e-scooter-2077/documentation/actions/workflows/gh-pages.yml/badge.svg?branch=master)](https://github.com/e-scooter-2077/documentation/actions/workflows/gh-pages.yml)
+
 ## Project Proposal 
 
 ### Members
