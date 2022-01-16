@@ -859,6 +859,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#workflow-design" class="md-nav__link">
+    Workflow Design
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1160,6 +1167,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#workflow-design" class="md-nav__link">
+    Workflow Design
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1302,6 +1316,17 @@ These are:</p>
 </details>
 <h4 id="reusable-workflows">Reusable workflows</h4>
 <p>After the release of <a href="https://docs.github.com/en/actions/learn-github-actions/reusing-workflows">reusable workflows</a> by GitHub we decided to apply DRY principles extensively between all the repositories, so we created two singleton workflow file that each piece of software implemented with .NET would call. One for <a href="https://github.com/e-scooter-2077/azure-functions-ci">Azure Functions CI/CD</a>, one for <a href="https://github.com/e-scooter-2077/csharp-app-ci">Dekstop applications and Hosted Runners CI/CD</a>.</p>
+<h4 id="workflow-design">Workflow Design</h4>
+<p>The two main workflows the team designed are:</p>
+<ul>
+<li><a href="https://github.com/e-scooter-2077/azure-functions-ci/blob/master/.github/workflows/azure-functions-ci.yml">Azure Functions CI</a></li>
+<li><a href="https://github.com/e-scooter-2077/csharp-app-ci">C# App CI</a></li>
+</ul>
+<p>They both start with a <code>build</code> job (Continuous Integration) consisting of checkout, building (compiling + linking),
+unit testing, publishing (artifact generation) and artifact uploading (artifacts on GitHub aren't volatile, they are kept for about a day based on the configuration).</p>
+<p>The <code>release</code> (Continuous Delivery) job is run only if a new tag respecting Semantic Versioning gets pushed. This job creates a GitHub release and uploads the binaries.</p>
+<p>The Azure Functions CI provides also the <code>deploy</code> job (Continuous Deployment), which uploads the function to the relative slot on Azure Cloud.</p>
+<p>The <code>analyze</code> job, present in both the workflows, builds the sources with CodeQL and runs all the default code quality and security queries, provided by the CodeQL team, reporting results in the Security tab of the repository. The outcome of the analysis is ignored for the purposes of build success, because CodeQL proved to be slightly unstable and too computational expensive (time and memory) to be waited every time.</p>
 <h3 id="repository-templates">Repository templates</h3>
 <p>Repository templates allow a faster bootstrap phase of a project, scaffolding a hello world version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.</p>
 <p>The template we made for every EScooter <strong>Azure Function</strong> can be found <a href="https://github.com/e-scooter-2077/azure-function-template">here</a>.</p>
@@ -1333,7 +1358,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 16, 2022 18:23:55</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 16, 2022 18:59:57</span>
       
         <br>Created: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 3, 2022 16:14:23</span> 
       
@@ -1347,7 +1372,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (83.61%), <a href='mailto:dente.francesco1996@gmail.com'>Francesco Dente</a> (3.28%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (4.92%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (8.2%)</span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (85.71%), <a href='mailto:dente.francesco1996@gmail.com'>Francesco Dente</a> (2.86%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (4.29%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (7.14%)</span>
       </small>
     </div>
   

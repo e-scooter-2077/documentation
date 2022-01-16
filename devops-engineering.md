@@ -54,6 +54,21 @@ Every action takes care of one build step. Some custom actions aggregate repeate
 #### Reusable workflows
 After the release of [reusable workflows](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows) by GitHub we decided to apply DRY principles extensively between all the repositories, so we created two singleton workflow file that each piece of software implemented with .NET would call. One for [Azure Functions CI/CD](https://github.com/e-scooter-2077/azure-functions-ci), one for [Dekstop applications and Hosted Runners CI/CD](https://github.com/e-scooter-2077/csharp-app-ci).
 
+#### Workflow Design
+The two main workflows the team designed are:
+
+- [Azure Functions CI](https://github.com/e-scooter-2077/azure-functions-ci/blob/master/.github/workflows/azure-functions-ci.yml)
+- [C# App CI](https://github.com/e-scooter-2077/csharp-app-ci)
+
+They both start with a `build` job (Continuous Integration) consisting of checkout, building (compiling + linking),
+unit testing, publishing (artifact generation) and artifact uploading (artifacts on GitHub aren't volatile, they are kept for about a day based on the configuration).
+
+The `release` (Continuous Delivery) job is run only if a new tag respecting Semantic Versioning gets pushed. This job creates a GitHub release and uploads the binaries.
+
+The Azure Functions CI provides also the `deploy` job (Continuous Deployment), which uploads the function to the relative slot on Azure Cloud.
+
+The `analyze` job, present in both the workflows, builds the sources with CodeQL and runs all the default code quality and security queries, provided by the CodeQL team, reporting results in the Security tab of the repository. The outcome of the analysis is ignored for the purposes of build success, because CodeQL proved to be slightly unstable and too computational expensive (time and memory) to be waited every time.
+
 ### Repository templates
 Repository templates allow a faster bootstrap phase of a project, scaffolding a hello world version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.
 
