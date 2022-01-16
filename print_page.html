@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1969,7 +1969,7 @@ GitHub Actions offers hosted containers (called <em>runners</em>) that run many 
 <li>Consistency between .NET compilation target, runtime target, build-time dotnet version.</li>
 </ul>
 <h3 id="devops-engineering-github-actions-workflows">GitHub Actions Workflows</h3>
-<p>Workflows define the automation processes of a repository. An example of a workflow we created and used can be found <a href="https://github.com/e-scooter-2077/azure-function-template/blob/master/.github/workflows/ci.yml">here</a>.</p>
+<p>Workflows define the automation processes of a repository. An example of a workflow that was created by us and used in this project can be found <a href="https://github.com/e-scooter-2077/azure-function-template/blob/master/.github/workflows/ci.yml">here</a>.</p>
 <p>Workflows are composed by jobs which can run concurrently or in sequence based on a graph of dependencies between each other. Each job is composed by a sequence of steps to be made. Steps can fail, when it happens normally the job is interrupted and flagged as failed. Steps can run scripts or actions.</p>
 <p>Every action takes care of one build step. Some custom actions aggregate repeated steps into a single one (see <a href="https://docs.github.com/en/actions/creating-actions/creating-a-composite-action">Composite Actions</a>).</p>
 <details class="info"><summary>Actions we developed in first person</summary><p>Some members of the team had previously developed custom GitHub Actions for their projects and reused them for EScooter.
@@ -1985,7 +1985,7 @@ These are:</p>
 </ul>
 </details>
 <h4 id="devops-engineering-reusable-workflows">Reusable workflows</h4>
-<p>After the release of <a href="https://docs.github.com/en/actions/learn-github-actions/reusing-workflows">reusable workflows</a> by GitHub we decided to apply DRY principles extensively between all the repositories, so we created two singleton workflow file that each piece of software implemented with .NET would call. One for <a href="https://github.com/e-scooter-2077/azure-functions-ci">Azure Functions CI/CD</a>, one for <a href="https://github.com/e-scooter-2077/csharp-app-ci">Dekstop applications and Hosted Runners CI/CD</a>.</p>
+<p>After the release of <a href="https://docs.github.com/en/actions/learn-github-actions/reusing-workflows">reusable workflows</a> by GitHub, as DRY principles were applied extensively between all the repositories, two singleton workflow file were created so that each piece of software implemented with .NET would call them instead of repeating the same workflow making updating the workflow between projects and mantaining the same standard easier. One was created for <a href="https://github.com/e-scooter-2077/azure-functions-ci">Azure Functions CI/CD</a> to include delivery on the cloud resource, one for <a href="https://github.com/e-scooter-2077/csharp-app-ci">Dekstop applications and Hosted Runners CI/CD</a>.</p>
 <h4 id="devops-engineering-workflow-design">Workflow Design</h4>
 <p>The two main workflows the team designed are:</p>
 <ul>
@@ -2281,7 +2281,7 @@ This features are implemented using Angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>
