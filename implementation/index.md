@@ -47,7 +47,6 @@ Here is a list of all the implemented Azure functions:
 - [manage scooter availability](https://github.com/e-scooter-2077/rent.manage-scooter-availability) update the state of each scooter digital twin when the availability is changed from an administrator of the system on the rent service.
 
 Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control & Monitor Context: 
-
 - [scooter control](https://github.com/e-scooter-2077/scooter-control) is a function that exposes the default applicable actions on the *IoT Hub*: in particular, it manages the lock/unlock command and the telemetries to update *IoT Hub*.
 - [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) is a function that exposes the events of changing of the *IoT Hub*.
 
@@ -85,6 +84,6 @@ The Customer Mock is a mock implementation with WPF of the Customer context. It 
 
 ## [Device emulator](https://github.com/e-scooter-2077/device-emulator)
 
-The Device emulator is the C# mock implementation of the usage of each scooter.
+The Device emulator simulates the typical behavior of e-scooters in the real world, allowing us to live-test the entire system.
 
-Implemented as HostedService the emulator executes a loop in which queries for new scooters and then simulates a random usage (based on their last status) to update them: it moves the scooters, uses the battery and set standby mode.
+Implemented as HostedService with C# .NET, the emulator executes a loop in which queries for new or updated scooters and simulates a random usage (based on their last status) to update them: it moves the scooters, uses the battery and sets standby mode eventually.
