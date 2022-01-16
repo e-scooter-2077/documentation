@@ -1,13 +1,13 @@
 # Architectural map
 
-This section contains an overview of the final version of the system as it's been implemented, giving an holistic view of the developed components and their relationships with each other.
+This section contains an overview of the final version of the system as it has been designed for implementation, giving an holistic view of the developed components and their relationships with each other.
 
 Components of the system can be categorized in:
 
 - **Microservices**: standalone services that encapsulate their state and provide a well defined set of functionalities accessible through their public interface. Microservices can communicate with each other through events or asynchronous commands.
 - **Azure services**: instances of services offered by the _Microsoft Azure_ cloud infrastructure, providing a wide range of features that need to be integrated with other services.
-- **Functions**: stateless instances that are typically used to translate and facilitate communication among other components of the system. They fit particularly well in the _serverless_ computation model, and are therefore implemented through _Azure Functions_. An important thing to note is that in Azure, the minimal unit of deployment is a _Function App_, which can host multiple functions with different tasks that scale together. The following sections use the term "function" to indicate an Azure Function App, that can therefore contain multiple instances of serverless functions.
-- **Devices**: computational resources belonging to the physical world.
+- **Functions**: stateless instances that are typically used to translate and facilitate communication among other components of the system. They fit particularly well in the _serverless_ computation model, and are therefore chosen to be implemented through _Azure Functions_. An important thing to note is that in Azure, the minimal unit of deployment is a _Function App_, which can host multiple functions with different tasks that scale together. The following sections use the term "function" to indicate an Azure Function App, that can therefore contain multiple instances of serverless functions.
+- **Devices**: computational resources belonging to the physical world. They are embedded IoT devices onto the electric scooters managed by the system.
 
 The diagrams in the sections below show the communication between each pair of components, classifying it in:
 
@@ -85,9 +85,9 @@ $subdomain "E-Scooter Subdomain" {
 
 This subdomain contains all the services and functions that deal with the scooter lifecycle and with the exchange of information between the physical devices and the system.
 
-Since the **scooter data** context has the authority over the identity of the scooters and, thus, over their existence in the system, a microservice would've been an ideal implementation. However, due to the limited time, it was mocked via a GUI that mimics its behavior exposing the _scooter lifecycle_ interface (i.e. notifying the creation/deletion of scooters).
+Since the **scooter data** context has the authority over the identity of the scooters and, thus, over their existence in the system, we planned to build it as a microservice. However, for this prototypal implementation, due to the limited time, it was mocked via a GUI that mimics its behavior exposing the _scooter lifecycle_ interface (i.e. notifying the creation/deletion of scooters).
 
-On the other hand, the **Scooter Monitor & Control** context deals with the communication with the physical world. Its access point to the real world has been implemented via the **[Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)**, a service specifically designed to be the pivot point between the cloud and IoT devices.
+On the other hand, the **Scooter Monitor & Control** context deals with the communication with the physical world. Its access point to the real world has been chosen to be realized via the **[Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)**, a service specifically designed to be the pivot point between the cloud and IoT devices.
 
 The IoT Hub can keep track of a large set of entities (denoted as _Devices_), each with its own identity. Each device has two sets of properties to hold state: (i) _Desired properties_, used by the cloud infrastructure to communicate the desired state for the device; (ii) _Reported properties_, used by the device to communicate its actual state (which can be different from the desired one). Furthermore, each device can emit a series of frequent events (almost a continuous stream) denoted as _Telemetry_. These are meant for continuously changing properties (like position, speed or battery level, in the e-scooter domain).
 
@@ -95,7 +95,7 @@ New scooters that are registered to the system are recorded as devices inside th
 
 The physical actuation of control policies is demanded to the **Scooter Control** function, which receives asynchronous commands from other components in order for them to be propagated to the physical devices via the IoT Hub. This commands, among others, include the operations to _lock_/_unlock_ scooters, for example when a customer rents one. 
 
-The IoT Hub can also be configured to emit events whenever a telemetry is sent or whenever a reported property changes. This feature has been used to integrate it with the rest of the ecosystem. In particular, the cloud service emits events when properties like _locked_ or _standby_ change. In order to have a simpler interface for reported properties updates to the rest of the system, the **Scooter Monitor** function has been developed to translate them into events tailored for the e-scooter domain.
+The IoT Hub can also be configured to emit events whenever a telemetry is sent or whenever a reported property changes. This feature has been exploited to integrate it with the rest of the ecosystem. In particular, the cloud service emits events when properties like _locked_ or _standby_ change. In order to have a simpler interface for reported properties updates, the **Scooter Monitor** function has been put in between the Hub and the rest of the system, to translate them into events tailored for the e-scooter domain.
 
 ## User subdomain
 ```plantuml
@@ -209,4 +209,4 @@ Since this project is about the exploration of the **digital twins** paradigm, t
 
 Azure Digital Twins allows developers to define a set of _DTDL models_ to define real-world assets as twins along with their _properties_ and the _relationships_ they can have with other digital twins. Once the models are uploaded to the Azure Digital Twins instance, external agents can use its API and/or SDK to run CRUD operations on both digital twins and relationships, in order to control the _digital twin graph_.
 
-Azure Digital Twins can be easily integrated with other cloud services (including the IoT Hub) using Azure Functions. In particular, the team developed a group of functions to create digital twins for the scooters and the customers managed by the rest of the system and also to keep them up to date with the real-time state.
+Azure Digital Twins can be easily integrated with other cloud services (including the IoT Hub) using Azure Functions. In particular, the team planned to develop a group of functions to create digital twins for the scooters and the customers managed by the rest of the system and also to keep them up to date with the real-time state.
