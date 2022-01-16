@@ -1,6 +1,9 @@
 # DevOps Engineering
 DevOps is considered a fundamental part of a microservice based system. In this section, we will discuss the tools and methodologies put in practice by the team.
 
+## DVCS Strategy
+Having a large set of repositories, each typically maintained by a single developer (or at most two using pair-programming), the chosen branching strategy is **Trunk-based**. This simplifies the management of the repositories by individual developers, while still giving them the possibility to occasionally open feature/hotfix branches if needed.
+
 ## Licenses
 Each piece of software made is provided under the [MIT License](https://en.wikipedia.org/wiki/MIT_License), which makes it [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 
