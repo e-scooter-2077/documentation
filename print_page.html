@@ -65,7 +65,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -1982,11 +1982,9 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 <li><a href="https://github.com/e-scooter-2077/scooter-monitor.manage-reported-properties">manage reported properties</a> updates the state of each scooter digital twin when reported properties are updated on the device (e.g. lock state, standby).</li>
 <li><a href="https://github.com/e-scooter-2077/rent.manage-scooter-availability">manage scooter availability</a> update the state of each scooter digital twin when the availability is changed from an administrator of the system on the rent service.</li>
 </ul>
-<p>Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control &amp; Monitor Context: </p>
-<ul>
-<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> is a function that exposes the default applicable actions on the <em>IoT Hub</em>: in particular, it manages the lock/unlock command and the telemetries to update <em>IoT Hub</em>.</li>
-<li><a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> is a function that exposes the events of changing of the <em>IoT Hub</em>.</li>
-</ul>
+<p>Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control &amp; Monitor Context: 
+- <a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> is a function that exposes the default applicable actions on the <em>IoT Hub</em>: in particular, it manages the lock/unlock command and the telemetries to update <em>IoT Hub</em>.
+- <a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> is a function that exposes the events of changing of the <em>IoT Hub</em>.</p>
 <p>Functions were also used to implement mocked parts of the system when needed. For example the <a href="https://github.com/e-scooter-2077/rent-payment.mock">rent payment</a> which is a mock implementation of the Rent Payment context that always confirm the rents.</p>
 <h3 id="implementation-index-microservices">Microservices</h3>
 <p>Microservices are implemented with an <em>App Service</em>. We fully developed as a standalone microservice only the <a href="https://github.com/e-scooter-2077/rent-service">Rent service</a> that maps the Rent Context.</p>
@@ -2010,8 +2008,8 @@ This features are implemented using Angular services.</p>
 <h3 id="implementation-index-customer-mock"><a href="https://github.com/e-scooter-2077/customer.mock">Customer mock</a></h3>
 <p>The Customer Mock is a mock implementation with WPF of the Customer context. It allows to create a new customer identity or to remove an existing one by generating the corresponding events which are then handled by the rest of the system accordingly. It does not store any data about the customer since this was not relevant for the other core services.</p>
 <h2 id="implementation-index-device-emulator"><a href="https://github.com/e-scooter-2077/device-emulator">Device emulator</a></h2>
-<p>The Device emulator is the C# mock implementation of the usage of each scooter.</p>
-<p>Implemented as HostedService the emulator executes a loop in which queries for new scooters and then simulates a random usage (based on their last status) to update them: it moves the scooters, uses the battery and set standby mode.</p></section><section class="print-page" id="implementation-digital-twins-models"><h1 id="implementation-digital-twins-models-digital-twins">Digital Twins</h1>
+<p>The Device emulator simulates the typical behavior of e-scooters in the real world, allowing us to live-test the entire system.</p>
+<p>Implemented as HostedService with C# .NET, the emulator executes a loop in which queries for new or updated scooters and simulates a random usage (based on their last status) to update them: it moves the scooters, uses the battery and sets standby mode eventually.</p></section><section class="print-page" id="implementation-digital-twins-models"><h1 id="implementation-digital-twins-models-digital-twins">Digital Twins</h1>
 <h2 id="implementation-digital-twins-models-scooter-dt">Scooter DT</h2>
 <h3 id="implementation-digital-twins-models-model">Model</h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -2161,7 +2159,7 @@ This features are implemented using Angular services.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-<script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
 
 <script src="https://unpkg.com/iframe-worker/polyfill"></script>
