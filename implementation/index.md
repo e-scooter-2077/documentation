@@ -48,8 +48,8 @@ Here is a list of all the implemented Azure functions:
 
 Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control & Monitor Context: 
 
-- [scooter control](https://github.com/e-scooter-2077/scooter-control) is a function that exposes the default applicable actions on the *IoT Hub*: in particular, it manages the lock/unlock command and the telemetries to update *IoT Hub*.
-- [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) is a function that exposes the events of changing of the *IoT Hub*.
+- [scooter control](https://github.com/e-scooter-2077/scooter-control) is a function that exposes the default applicable actions on the devices: in particular, it manages the lock/unlock command and listens to the telemetries from the *IoTHub* to apply domain policies (e.g. modifying max speed according to battery level).
+- [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) is a function that exposes the events concerning changes of the device state (e.g. lock, standby)
 
 Functions were also used to implement mocked parts of the system when needed. For example the [rent payment](https://github.com/e-scooter-2077/rent-payment.mock) which is a mock implementation of the Rent Payment context that always confirm the rents.
 
@@ -89,4 +89,4 @@ The Device emulator simulates the typical behavior of e-scooters in the real wor
 
 Implemented as [HostedService](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-6.0&tabs=visual-studio) with C# .NET, the emulator executes a loop in which queries for new or updated scooters and simulates a random realistic usage to update them: it moves the scooters, uses the battery and sets standby mode eventually, as if humans were using them to move around Cesena.
 
-The requirement analysis of the device emulator can be found [here](https://e-scooter-2077.github.io/documentation/implementation/device-emulator/requirements.html).
+The requirement analysis of the device emulator can be found [here](https://e-scooter-2077.github.io/documentation/Device%20Emulator/Requirements.html).

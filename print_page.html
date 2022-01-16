@@ -2031,8 +2031,8 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 </ul>
 <p>Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control &amp; Monitor Context: </p>
 <ul>
-<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> is a function that exposes the default applicable actions on the <em>IoT Hub</em>: in particular, it manages the lock/unlock command and the telemetries to update <em>IoT Hub</em>.</li>
-<li><a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> is a function that exposes the events of changing of the <em>IoT Hub</em>.</li>
+<li><a href="https://github.com/e-scooter-2077/scooter-control">scooter control</a> is a function that exposes the default applicable actions on the devices: in particular, it manages the lock/unlock command and listens to the telemetries from the <em>IoTHub</em> to apply domain policies (e.g. modifying max speed according to battery level).</li>
+<li><a href="https://github.com/e-scooter-2077/scooter-monitor">scooter monitor</a> is a function that exposes the events concerning changes of the device state (e.g. lock, standby)</li>
 </ul>
 <p>Functions were also used to implement mocked parts of the system when needed. For example the <a href="https://github.com/e-scooter-2077/rent-payment.mock">rent payment</a> which is a mock implementation of the Rent Payment context that always confirm the rents.</p>
 <h3 id="implementation-index-microservices">Microservices</h3>
@@ -2059,7 +2059,7 @@ This features are implemented using Angular services.</p>
 <h2 id="implementation-index-device-emulator"><a href="https://github.com/e-scooter-2077/device-emulator">Device emulator</a></h2>
 <p>The Device emulator simulates the typical behavior of e-scooters in the real world, allowing us to live-test the entire system.</p>
 <p>Implemented as <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-6.0&amp;tabs=visual-studio">HostedService</a> with C# .NET, the emulator executes a loop in which queries for new or updated scooters and simulates a random realistic usage to update them: it moves the scooters, uses the battery and sets standby mode eventually, as if humans were using them to move around Cesena.</p>
-<p>The requirement analysis of the device emulator can be found <a href="https://e-scooter-2077.github.io/documentation/implementation/device-emulator/requirements.html">here</a>.</p></section>
+<p>The requirement analysis of the device emulator can be found <a href="https://e-scooter-2077.github.io/documentation/Device%20Emulator/Requirements.html">here</a>.</p></section>
                         <h2 class='nav-section-title' id='section-device-emulator'>
                             Device Emulator <a class='headerlink' href='#section-device-emulator' title='Permanent link'>↵</a>
                         </h2>
