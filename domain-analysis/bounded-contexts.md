@@ -7,11 +7,11 @@ The analysis brought to the definition of the following contexts that were later
 *Core Subdomain*
 #### Scooter Control & Monitor Context
 One of the core contexts. Responsible for keeping track of scooter positions, battery level and other useful data coming from the physical devices. 
-Provides the operation of locking and unlocking on a scooter to other contexts and it's considered the ground truth on this data.
-Also responsible for defining control policies and apply them operating on the physical devices, like power save, max speed, that depend only on the scooter physical state.
+Provides the operation of locking and unlocking scooters to other contexts and it's considered the ground truth on the scooter settings/control data.
+Also responsible for defining control policies and apply them by operating on the physical devices, like power saving,  and enforcing speed limits that could depend on the scooter physical state.
 Responsible for physical actuation of all the remote operations on the scooter.
 #### Area of Service Context
-Keeps track of service areas, scooter-area bindings and scooter position in order to detect when a scooter is crossing the area boundary and notify the other contexts when that happen.
+Keeps track of service areas, scooter-to-area bindings and scooter positions in order to detect when a scooter is crossing the area boundary and notify the other contexts when that happens.
 #### Scooter Data Context
 Storage of e-scooters technical and logical static information, like ID, serial number, dimensions, weight...
 Is the ground truth on the identity of a scooter. 
@@ -30,12 +30,12 @@ Responsible for managing the payment policy for customer rents. Authorizes the r
 *Core Subdomain*
 #### Drop points Planning Context
 Exploits usage data from other contexts to compute drop point locations or suggestions.
-Stores data about user search requests about scooters.
+Stores data of scooter searches from users.
 
 ### Payment Subdomain
 *Supporting Subdomain*
 #### Payment Context
-Manages all customer in-app transactions, virtual currency, and triggers real-world transactions.
+Manages all customers in-app transactions, virtual currency, and triggers real-world transactions.
 
 ### User Subdomain
 *Generic Subdomain*

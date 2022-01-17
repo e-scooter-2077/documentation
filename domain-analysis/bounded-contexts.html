@@ -1274,11 +1274,11 @@
 <p><em>Core Subdomain</em></p>
 <h4 id="scooter-control-monitor-context">Scooter Control &amp; Monitor Context</h4>
 <p>One of the core contexts. Responsible for keeping track of scooter positions, battery level and other useful data coming from the physical devices. 
-Provides the operation of locking and unlocking on a scooter to other contexts and it's considered the ground truth on this data.
-Also responsible for defining control policies and apply them operating on the physical devices, like power save, max speed, that depend only on the scooter physical state.
+Provides the operation of locking and unlocking scooters to other contexts and it's considered the ground truth on the scooter settings/control data.
+Also responsible for defining control policies and apply them by operating on the physical devices, like power saving,  and enforcing speed limits that could depend on the scooter physical state.
 Responsible for physical actuation of all the remote operations on the scooter.</p>
 <h4 id="area-of-service-context">Area of Service Context</h4>
-<p>Keeps track of service areas, scooter-area bindings and scooter position in order to detect when a scooter is crossing the area boundary and notify the other contexts when that happen.</p>
+<p>Keeps track of service areas, scooter-to-area bindings and scooter positions in order to detect when a scooter is crossing the area boundary and notify the other contexts when that happens.</p>
 <h4 id="scooter-data-context">Scooter Data Context</h4>
 <p>Storage of e-scooters technical and logical static information, like ID, serial number, dimensions, weight...
 Is the ground truth on the identity of a scooter. </p>
@@ -1295,11 +1295,11 @@ Manages the logic enabling and disabling of a scooter and provides an interface 
 <p><em>Core Subdomain</em></p>
 <h4 id="drop-points-planning-context">Drop points Planning Context</h4>
 <p>Exploits usage data from other contexts to compute drop point locations or suggestions.
-Stores data about user search requests about scooters.</p>
+Stores data of scooter searches from users.</p>
 <h3 id="payment-subdomain">Payment Subdomain</h3>
 <p><em>Supporting Subdomain</em></p>
 <h4 id="payment-context">Payment Context</h4>
-<p>Manages all customer in-app transactions, virtual currency, and triggers real-world transactions.</p>
+<p>Manages all customers in-app transactions, virtual currency, and triggers real-world transactions.</p>
 <h3 id="user-subdomain">User Subdomain</h3>
 <p><em>Generic Subdomain</em></p>
 <h4 id="customer-context">Customer Context</h4>
@@ -1312,7 +1312,7 @@ Stores data about user search requests about scooters.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 6, 2022 11:19:20</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 17, 2022 10:55:18</span>
       
         <br>
         Created:
@@ -1327,7 +1327,7 @@ Stores data about user search requests about scooters.</p>
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (66.67%), <a href='mailto:samuele.bura98@gmail.com'>Samuele</a> (5.13%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (28.21%)</span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (64.1%), <a href='mailto:samuele.bura98@gmail.com'>Samuele</a> (5.13%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (17.95%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (12.82%)</span>
       </small>
     </div>
   
