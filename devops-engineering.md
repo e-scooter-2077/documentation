@@ -52,7 +52,7 @@ Every action takes care of one build step. Some custom actions aggregate repeate
     * [Dotnet Publish](https://github.com/EasyDesk/action-dotnet-publish) - Produces a folder with the final `.exe` file and all its dependencies.
 
 #### Reusable workflows
-After the release of [reusable workflows](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows) by GitHub, as DRY principles were applied extensively between all the repositories, two singleton workflow file were created so that each piece of software implemented with .NET would call them instead of repeating the same workflow making updating the workflow between projects and mantaining the same standard easier. One was created for [Azure Functions CI/CD](https://github.com/e-scooter-2077/azure-functions-ci) to include delivery on the cloud resource, one for [Dekstop applications and Hosted Runners CI/CD](https://github.com/e-scooter-2077/csharp-app-ci).
+After the release of [reusable workflows](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows) by GitHub, DRY principles were applied extensively on CI/CD code too. Two unique workflow file were created so that each piece of software implemented with .NET would reference them instead of repeating the same code and configuration. One was created for [Azure Functions CI/CD](https://github.com/e-scooter-2077/azure-functions-ci) to include delivery on the cloud resource, one for [Dekstop applications and Hosted Runners CI/CD](https://github.com/e-scooter-2077/csharp-app-ci).
 
 #### Workflow Design
 The two main workflows the team designed are:
