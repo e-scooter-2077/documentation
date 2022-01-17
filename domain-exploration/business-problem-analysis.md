@@ -1,7 +1,7 @@
 # Business Problem Analysis
-To kick-off the knowledge crunching process the first discussion with the stakeholders is focused on the identification of the business needs to derive how it might be possible to create a software system that could fit in with those and make the company gain business value from the solution.
+In order to kick-off the knowledge crunching process, the first discussion with the stakeholders is focused on the identification of the business needs. The objective is to derive how it might be possible to create a software system that could maximise the company business gain/value.
 
-While doing so the analysts start developing the [Ubiquitous Language](ubiquitous-language.md) in parallel, to write down the definition of the different domain terms and have a clear understanding of the vocabulary in the domain space.
+While doing so the analysts start developing the [Ubiquitous Language](ubiquitous-language.md) in parallel, to write down the definition of the domain terminology given that they have a clear understanding of the vocabulary in the domain space.
 
 ## Stakeholders Interview
 
