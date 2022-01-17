@@ -70,12 +70,12 @@ The Azure Functions CI provides also the `deploy` job (Continuous Deployment), w
 The `analyze` job, present in both the workflows, builds the sources with CodeQL and runs all the default code quality and security queries, provided by the CodeQL team, reporting results in the Security tab of the repository. The outcome of the analysis is ignored for the purposes of build success, because CodeQL proved to be slightly unstable and too computational expensive (time and memory) to be waited every time.
 
 ??? info "Other reusable workflows adopted"
-    Rent service CI/CD uses the following workflows:
+    Microservices CI/CD uses the following workflows:
 
     - [Microservice Build](https://github.com/EasyDesk/microservice-cicd)
     - [Microservice Azure Deploy](https://github.com/EasyDesk/microservice-azure-deploy)
 
-    These workflows were developed by some members of the team for a different project.
+    These workflows were developed by some members of the team for a different project, and reused within the Rent service repository.
 
 ### Repository templates
 Repository templates allow a faster bootstrap phase of a project, scaffolding a hello world version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.
