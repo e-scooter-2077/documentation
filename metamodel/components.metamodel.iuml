@@ -23,7 +23,7 @@ $subject -- $id
 !endprocedure
 '
 !unquoted procedure $observes($subject, $object)
-$subject --( $object
+$subject ---( $object
 !endprocedure
 '
 !unquoted procedure $sends_commands($subject, $object)
