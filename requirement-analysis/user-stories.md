@@ -38,25 +38,26 @@ _Does the legacy system keep track of all customers data?_
 _From the legacy system documentation:_
 The legacy payment system needs access to trip data and to customers rent/unlock requests.
 
-# Activity Diagrams
+# Stories diagrams
 ## Renting process diagram
 ```plantuml
 @startuml
 |Customer|
 start
-:Search scooter;
 :Select a scooter from the map;
-:Start the scooter rent;
+:Start rent for the scooter;
 |Payment system|
 :Charge unlock cost;
 |Scooter|
 :Unlock;
 |Customer|
-:Begin the ride;
+fork
+:Ride the scooter;
+fork again
 |Payment system|
 :Periodically charge upkeep cost;
 |Customer|
-:End the ride;
+end fork
 :Stop the rent;
 |Scooter|
 :Lock;
