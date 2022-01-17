@@ -158,7 +158,7 @@ The rent subdomain deals with the functionalities that allow customers to rent s
 
 The Rent Microservice does not directly deal with the payment of the rides, but delegates this responsibility to another microservice from a different bounded context, the **Rent Payment Service**. Since payments are assumed to use _virtual currency_ managed by the system, this service needs to ensure that: (i) a renting customer has enough credit to start a rent, that is _authorizing_ or _rejecting_ the rent; (ii) a rent is stopped when a customer's credit runs out. This collaboration between the two services is carried out via an exchange of events using the _Rent Lifecycle_ and _Rent Payment Events_ topics. Due to the limited time though, the Rent Payment service was mocked with a function that always authorizes rents when they are requested.
 
-## Azure Digital twins
+## Azure Digital Twins
 ```plantuml
 @startuml
 !include metamodel/components.metamodel.iuml
@@ -208,8 +208,11 @@ $subdomain "Rent Subdomain" {
 @enduml
 ```
 
-Since this project is about the exploration of the **digital twins** paradigm, the team decided to adopt a standard and production-ready solution to keep track of the real-time state of the system. that gives clients the possibility to query it in arbitrary ways. The solution of choice was **[Azure Digital Twins](https://docs.microsoft.com/en-us/azure/digital-twins/overview)**, which has all the required features.
+Since this project is about the exploration of the **digital twins** paradigm, the team decided to adopt a standard and production-ready solution to keep track of the real-time state of the system. This gives clients the possibility to query it in arbitrary ways. The solution of choice was **[Azure Digital Twins](https://docs.microsoft.com/en-us/azure/digital-twins/overview)**, which has all the required features.
 
 Azure Digital Twins allows developers to define a set of _DTDL models_ to define real-world assets as twins along with their _properties_ and the _relationships_ they can have with other digital twins. Once the models are uploaded to the Azure Digital Twins instance, external agents can use its API and/or SDK to run CRUD operations on both digital twins and relationships, in order to control the _digital twin graph_.
+
+??? example "EScooter DTDL Models"
+    DTDL models of EScooter digital twins can be found in the [twins-models repository](https://github.com/e-scooter-2077/twins-models).
 
 Azure Digital Twins can be easily integrated with other cloud services (including the IoT Hub) using Azure Functions. In particular, the team planned to develop a group of functions to create digital twins for the scooters and the customers managed by the rest of the system and also to keep them up to date with the real-time state.
