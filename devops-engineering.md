@@ -99,7 +99,7 @@ Every C# project was configured with a consistent style rulesheet inside the `.e
     Style warnings are treated as errors.
 
 ### Static Code Analysis
-Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is [CodeQL](https://codeql.github.com/). Both **security** and **code quality** alerts are enabled.
+Static code analysis for the C# language is performed automatically within the CI pipeline for every Azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is [CodeQL](https://codeql.github.com/). Both **security** and **code quality** alerts are enabled.
 
 !!! info
     CodeQL security and code quality warnings and errors are ignored by the workflows and are simply treated as suggestions. The reason is the instability of the CodeQL suite (bot the software and the default ruleset) which isn't always updated/fixed in time.
