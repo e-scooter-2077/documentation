@@ -71,8 +71,8 @@ GeoPoint o-- Longitude
 
 **Constraints**:
 
-- $-90 < latitude < 90$
-- $-180 < longitude < 180$
+- $-90 < latitude.value < 90$
+- $-180 < longitude.value < 180$
 
 ## Distance
 Represents a linear, non-directed (meaning an absolute value) distance.
