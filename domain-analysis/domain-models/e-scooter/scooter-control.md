@@ -81,12 +81,12 @@ A scooter has some properties that an employee can set to alter its behavior:
 - _powerSavingMaxSpeed_: the maximum speed a scooter can reach while in power saving mode;
 - _powerSavingThreshold_: the battery level below which the scooter goes in power saving mode.
 
-The policy of the scooters dictate that at any moment, the speed of a scooter should be below the desired max speed. Also, while in power saving mode the scooter must also obey to the powerSavingMaxSpeed rule. Therefore, at any moment the real maximum speed can be calculated as:
+The policy of the scooters dictate that, at any moment, the speed of a scooter should be below the desired max speed. Also, while in power saving mode, the scooter must also obey to the powerSavingMaxSpeed rule. Therefore, at any moment the real maximum speed can be calculated as:
 
-- _desiredMaxSpeed_, if the scooter is in _active_ mode
-- _min(desiredMaxSpeed, powerSavingMaxSpeed)_, otherwise
+- _desiredMaxSpeed_, if the scooter is in _active_ mode.
+- _min(desiredMaxSpeed, powerSavingMaxSpeed)_, otherwise.
 
-Furthermore, a scooter can at any moment go in standby mode. This behavior is dicteted by the hardware mounted on the scooter itself, and cannot be changed easily.
+Furthermore, a scooter can at any moment go in standby mode. This behavior is dictated by the hardware mounted on the scooter itself. The system reacts to the switch by notyfing all services so that polices can be applied.
 
 ## Domain Events
 
