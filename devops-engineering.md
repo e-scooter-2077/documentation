@@ -47,10 +47,9 @@ Every action takes care of one build step. Some custom actions aggregate repeate
     * [Markdown Docs](https://github.com/ldeluigi/markdown-docs) - Generates a website from markdown files.
     * [SemVer Checkout](https://github.com/EasyDesk/action-semver-checkout) - Checkouts the full history of a repo to determine the software version with semantic versioning.
     * [SemVer Release](https://github.com/EasyDesk/action-semver-release) - Creates a GitHub release of the software artifacts using its semantic version, generating a changelog.
-    * [Dotnet build](https://github.com/EasyDesk/action-dotnet-build) - Runs dotnet restore & dotnet build.
-    * [Microservice Build Job](https://github.com/EasyDesk/job-microservice-build) - Runs multiple actions to build a microservice for test and release.
-    * [Publish Webapp on Azure Job](https://github.com/EasyDesk/job-azure-publish-webapp) - Deploys a microservice/webapp application on Azure Cloud.
+    * [Dotnet Build](https://github.com/EasyDesk/action-dotnet-build) - Runs dotnet restore & dotnet build.
     * [Dotnet Test](https://github.com/EasyDesk/action-dotnet-test) - Runs the tests with dotnet.
+    * [Dotnet Publish](https://github.com/EasyDesk/action-dotnet-publish) - Produces a folder with the final `.exe` file and all its dependencies.
 
 #### Reusable workflows
 After the release of [reusable workflows](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows) by GitHub, as DRY principles were applied extensively between all the repositories, two singleton workflow file were created so that each piece of software implemented with .NET would call them instead of repeating the same workflow making updating the workflow between projects and mantaining the same standard easier. One was created for [Azure Functions CI/CD](https://github.com/e-scooter-2077/azure-functions-ci) to include delivery on the cloud resource, one for [Dekstop applications and Hosted Runners CI/CD](https://github.com/e-scooter-2077/csharp-app-ci).
