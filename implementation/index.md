@@ -25,7 +25,7 @@ The connection with the physical devices is managed through an *IoT Hub* named `
 ### Data aggregation
 The layer that aggregates the data from all the different sections of the system is implemented making use of *Azure Digital Twins* and is named `scooter-digital-twins`. This layer stores the latest updated state of the whole system keeping data about customers, scooters and rents in a comprehensive view and can be used as an eventual consistent source to read data instead of interrogating each microservice.
 
-The result structure is a Digital Twin Graph as provided by the azure tool that allow to store current state data about the twins and relationships between each other. [Here](digital-twins-models.md) are the models used on the graph for Scooters and Customers twins.
+The result structure is a Digital Twin Graph as provided by the Azure tool that allow to store current state data about the twins and relationships between each other. [Here](digital-twins-models.md) are the models used on the graph for Scooters and Customers twins.
 
 ### Inter-Service communication
 Communication among services is carried out in an asynchronous fashion using events queues.

@@ -1996,7 +1996,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 <p>Style warnings are treated as errors.</p>
 </div>
 <h3 id="devops-engineering-static-code-analysis">Static Code Analysis</h3>
-<p>Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is <a href="https://codeql.github.com/">CodeQL</a>. Both <strong>security</strong> and <strong>code quality</strong> alerts are enabled.</p>
+<p>Static code analysis for the C# language is performed automatically within the CI pipeline for every Azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is <a href="https://codeql.github.com/">CodeQL</a>. Both <strong>security</strong> and <strong>code quality</strong> alerts are enabled.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>CodeQL security and code quality warnings and errors are ignored by the workflows and are simply treated as suggestions. The reason is the instability of the CodeQL suite (bot the software and the default ruleset) which isn't always updated/fixed in time.</p>
@@ -2027,7 +2027,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
 
 <h3 id="implementation-index-data-aggregation">Data aggregation</h3>
 <p>The layer that aggregates the data from all the different sections of the system is implemented making use of <em>Azure Digital Twins</em> and is named <code>scooter-digital-twins</code>. This layer stores the latest updated state of the whole system keeping data about customers, scooters and rents in a comprehensive view and can be used as an eventual consistent source to read data instead of interrogating each microservice.</p>
-<p>The result structure is a Digital Twin Graph as provided by the azure tool that allow to store current state data about the twins and relationships between each other. <a href="#implementation-digital-twins-models">Here</a> are the models used on the graph for Scooters and Customers twins.</p>
+<p>The result structure is a Digital Twin Graph as provided by the Azure tool that allow to store current state data about the twins and relationships between each other. <a href="#implementation-digital-twins-models">Here</a> are the models used on the graph for Scooters and Customers twins.</p>
 <h3 id="implementation-index-inter-service-communication">Inter-Service communication</h3>
 <p>Communication among services is carried out in an asynchronous fashion using events queues.</p>
 <ul>
