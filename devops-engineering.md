@@ -18,6 +18,7 @@ GitHub Actions offers hosted containers (called _runners_) that run many kind of
 Many script reuse techniques are possible. We used:
 
 - Custom Actions
+- Reusable Workflows
 - Repository templating
 
 ### Principles adopted
