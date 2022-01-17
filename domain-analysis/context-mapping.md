@@ -9,11 +9,11 @@ Five subdomain are identified:
  - **Payment Subdomain**: manages the logic of real-world payments by integrating with a legacy system
  - **User Subdomain**: contains the anagraphical information of the service users and provide authentication
 
-The relationships between context are explicitated through the representation of interfaces that are exposed in order to allow the sharing of information in the system. 
+The relationships between contexts are explicitated through the representation of interfaces that are exposed in to allow the sharing of information in the system. 
 
-The relationships between services are basically all of type conformist since the context which exposes the interface has the truth about that data and it's responsible to decide what to share externally and how.
+Basically all the relationships between services are of type _conformist_ since the context which exposes the interface holds the truth source about that data and it's responsible to decide what to share externally and how.
 
-The payment context instead is an anti-corruption layer on top of the existing legacy system that manages real world transactions.
+The payment context is an anti-corruption layer on top of the existing legacy system that manages real world transactions.
 
 ## Context Map
 ```plantuml
