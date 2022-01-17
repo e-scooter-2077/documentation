@@ -1,4 +1,5 @@
 # Digital Twins
+Available also in the [repository](https://github.com/e-scooter-2077/twins-models).
 
 ## Scooter DT
 
