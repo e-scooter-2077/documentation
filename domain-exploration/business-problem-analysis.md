@@ -12,7 +12,7 @@ _What are the possible factors that influence that?_
 >Electric scooters have batteries that run out during the day, we often are not able to recharge them until night so we progressively lose available scooters as the day goes on.
 
 _Do you think there is a way to save some battery during the day to make the scooter last longer?_
->Speed is the main factor that drain the scooter battery. If you want to go fast the motor consumes more energy, maybe speed control might be a thing to look into. Also it's very important that scooters with a low level of battery don't turn off because we can loose the tracking.
+>Speed is the main factor that drain the scooter battery. If you want to go fast the motor consumes more energy, maybe speed control might be a thing to look into. Also it's very important that scooters with a low level of battery don't turn off because we can lose the tracking.
 
 _About that, should the users be prevented from picking up very low battery scooters?_
 >Yes we would like that so we don't encounter problems. Also we would like to be very upfront with our customers about the information about the scooter when they need to choose one: if you need to do a long trip the worst thing that can happen is to have your scooter stop at some point and need to find another one.
