@@ -1268,40 +1268,40 @@
 
 
 <h1 id="devops-engineering">DevOps Engineering</h1>
-<p>DevOps is considered a fundamental part of a microservice based system. In this section, we will discuss the tools and methodologies put in practice by the team.</p>
+<p>DevOps is considered a fundamental part of a microservice based system. This section will be discuss the tools and methodologies put in practice by the team.</p>
 <h2 id="dvcs-strategy">DVCS Strategy</h2>
 <p>Having a large set of repositories, each typically maintained by a single developer (or at most two using pair-programming), the chosen branching strategy is <strong>Trunk-based</strong>. This simplifies the management of the repositories by individual developers, while still giving them the possibility to occasionally open feature/hotfix branches if needed.</p>
 <h2 id="licenses">Licenses</h2>
 <p>Each piece of software made is provided under the <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>, which makes it <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">FOSS</a>.</p>
 <h2 id="versioning">Versioning</h2>
-<p>Each of the softwares developed is versioned with the Semantic Versioning system. We used git annotated tags to declare new versions, and based our release system on that.
-We created a <a href="https://github.com/EasyDesk/action-semver-checkout/blob/master/git-compute-version.sh">tool</a> that searches for the latest tag and generates a version for our build automation.</p>
+<p>Each of the softwares developed is versioned with the Semantic Versioning system. Git annotated tags were used to declare new versions and trigger the release system.
+A <a href="https://github.com/EasyDesk/action-semver-checkout/blob/master/git-compute-version.sh">tool</a> was implemented to search for the latest tag and generate a version for the build automation.</p>
 <h2 id="software-build-lifecycle">Software Build Lifecycle</h2>
 <p>Every step of the software build lifecycle was automated through Git and <a href="https://docs.github.com/en/actions">GitHub Actions</a>.
 GitHub Actions offers hosted containers (called <em>runners</em>) that run many kind of scripts divided in flows and tasks, in an imperative fashion.</p>
-<p>Many script reuse techniques are possible. We used:</p>
+<p>Many script reuse techniques are possible. The team eployed:</p>
 <ul>
 <li>Custom Actions</li>
 <li>Reusable Workflows</li>
 <li>Repository templating</li>
 </ul>
 <h3 id="principles-adopted">Principles adopted</h3>
-<p>These are the principles we adopted for every repository:</p>
+<p>These are the principles adopted for every repository:</p>
 <ul>
 <li>Commits should adhere at the <em>Imperative tense, impersonal</em> form.</li>
 <li>Versions are managed with git tags, specifically in the form <code>v#.#.#</code>.</li>
 <li>At each push, software build and tests are performed.</li>
 <li>When a new tag is pushed, after a successful test job, a release is performed.</li>
 <li>Releases happen on the GitHub Release page and trigger a deploy.</li>
-<li>We used Azure Cloud as our deploy destination for each software components, so that part of the workflow is shared between similar projects.</li>
+<li>Azure Cloud was the deploy destination for each software components, so that part of the workflow is shared between similar projects.</li>
 <li>Consistency between .NET compilation target, runtime target, build-time dotnet version.</li>
 </ul>
 <h3 id="github-actions-workflows">GitHub Actions Workflows</h3>
-<p>Workflows define the automation processes of a repository. An example of a workflow that was created by us and used in this project can be found <a href="https://github.com/e-scooter-2077/azure-function-template/blob/master/.github/workflows/ci.yml">here</a>.</p>
-<p>Workflows are composed by jobs which can run concurrently or in sequence based on a graph of dependencies between each other. Each job is composed by a sequence of steps to be made. Steps can fail, when it happens normally the job is interrupted and flagged as failed. Steps can run scripts or actions.</p>
+<p>Workflows define the automation processes of a repository. An example of a workflow that was created by the team and was used in this project can be found <a href="https://github.com/e-scooter-2077/azure-function-template/blob/master/.github/workflows/ci.yml">here</a>.</p>
+<p>Workflows are composed by jobs which can run concurrently or in sequence based on a graph of dependencies between each other. Each job is composed by a sequence of steps to be made. Steps can fail. When it happens, normally the job is interrupted and flagged as failed. Steps can run scripts or actions.</p>
 <p>Every action takes care of one build step. Some custom actions aggregate repeated steps into a single one (see <a href="https://docs.github.com/en/actions/creating-actions/creating-a-composite-action">Composite Actions</a>).</p>
 <details class="info">
-<summary>Actions we developed in first person</summary>
+<summary>Actions the team developed in first person</summary>
 <p>Some members of the team had previously developed custom GitHub Actions for their projects and reused them for EScooter.
 These are:</p>
 <ul>
@@ -1314,7 +1314,7 @@ These are:</p>
 </ul>
 </details>
 <h4 id="reusable-workflows">Reusable workflows</h4>
-<p>After the release of <a href="https://docs.github.com/en/actions/learn-github-actions/reusing-workflows">reusable workflows</a> by GitHub, as DRY principles were applied extensively between all the repositories, two singleton workflow file were created so that each piece of software implemented with .NET would call them instead of repeating the same workflow making updating the workflow between projects and mantaining the same standard easier. One was created for <a href="https://github.com/e-scooter-2077/azure-functions-ci">Azure Functions CI/CD</a> to include delivery on the cloud resource, one for <a href="https://github.com/e-scooter-2077/csharp-app-ci">Dekstop applications and Hosted Runners CI/CD</a>.</p>
+<p>After the release of <a href="https://docs.github.com/en/actions/learn-github-actions/reusing-workflows">reusable workflows</a> by GitHub, DRY principles were applied extensively on CI/CD code too. Two unique workflow file were created so that each piece of software implemented with .NET would reference them instead of repeating the same code and configuration. One was created for <a href="https://github.com/e-scooter-2077/azure-functions-ci">Azure Functions CI/CD</a> to include delivery on the cloud resource, one for <a href="https://github.com/e-scooter-2077/csharp-app-ci">Dekstop applications and Hosted Runners CI/CD</a>.</p>
 <h4 id="workflow-design">Workflow Design</h4>
 <p>The two main workflows the team designed are:</p>
 <ul>
@@ -1328,45 +1328,49 @@ unit testing, publishing (artifact generation) and artifact uploading (artifacts
 <p>The <code>analyze</code> job, present in both the workflows, builds the sources with CodeQL and runs all the default code quality and security queries, provided by the CodeQL team, reporting results in the Security tab of the repository. The outcome of the analysis is ignored for the purposes of build success, because CodeQL proved to be slightly unstable and too computational expensive (time and memory) to be waited every time.</p>
 <details class="info">
 <summary>Other reusable workflows adopted</summary>
-<p>Rent service CI/CD uses the following workflows:</p>
+<p>Microservices CI/CD uses the following workflows:</p>
 <ul>
 <li><a href="https://github.com/EasyDesk/microservice-cicd">Microservice Build</a></li>
 <li><a href="https://github.com/EasyDesk/microservice-azure-deploy">Microservice Azure Deploy</a></li>
 </ul>
-<p>These workflows were developed by some members of the team for a different project.</p>
+<p>These workflows were developed by some members of the team for a different project, and reused within the Rent service repository.</p>
 </details>
 <h3 id="repository-templates">Repository templates</h3>
-<p>Repository templates allow a faster bootstrap phase of a project, scaffolding a hello world version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.</p>
-<p>The template we made for every EScooter <strong>Azure Function</strong> can be found <a href="https://github.com/e-scooter-2077/azure-function-template">here</a>.</p>
+<p>Repository templates allow a faster bootstrap phase of a project, scaffolding a <em>hello world</em> version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.</p>
+<p>The template used for every EScooter <strong>Azure Function</strong> can be found <a href="https://github.com/e-scooter-2077/azure-function-template">here</a>.</p>
 <details class="info">
 <summary>Microservice template</summary>
-<p>A template we used for microservices but we made for a different project can be found <a href="https://github.com/EasyDesk/easydesk-microservice-template">here</a>.
-It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architecture">Clean Architecture</a> library we made.</p>
+<p>A template used for microservices but made for a different project can be found <a href="https://github.com/EasyDesk/easydesk-microservice-template">here</a>.
+It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architecture">Clean Architecture</a> library developed by some members of the team for every microservice based on the Clean Architecture and .NET.</p>
 </details>
 <h3 id="other-tools">Other tools</h3>
-<p>We created a script for the Git Bash that adds a <code>git release</code> command to git to quickly create new patch, new minor or new major versions of our software based on the repository history. The code can be found <a href="https://github.com/francescodente/git-release">here</a>.</p>
+<p>A script was created for the <em>Git Bash</em> that adds a <code>git release</code> command. The purpose is to quickly create the new patch, new minor or new major version of some software based on the repository history and semantic versioning. The code can be found <a href="https://github.com/francescodente/git-release">here</a>.</p>
 <h2 id="quality-control">Quality control</h2>
-<p>We configured each C# project with a consistent style rulesheet inside the <code>.editorconfig</code> file. <a href="https://github.com/DotNetAnalyzers/StyleCopAnalyzers">StyleCop Analyzers</a> takes care of enforncing the style we designed both during development and during automated builds.</p>
+<p>Every C# project was configured with a consistent style rulesheet inside the <code>.editorconfig</code> file. <a href="https://github.com/DotNetAnalyzers/StyleCopAnalyzers">StyleCop Analyzers</a> takes care of enforncing the style designed both during development and during automated builds.</p>
 <div class="admonition check">
 <p class="admonition-title">Check</p>
 <p>Style warnings are treated as errors.</p>
 </div>
 <h3 id="static-code-analysis">Static Code Analysis</h3>
-<p>Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is <a href="https://codeql.github.com/">CodeQL</a>. Both security and code quality alerts are enabled.</p>
+<p>Static code analysis for the C# language is performed automatically within the CI pipeline for every azure function project. Reports are put under the Security tab of the relative GitHub project. The tool used for the analysis is <a href="https://codeql.github.com/">CodeQL</a>. Both <strong>security</strong> and <strong>code quality</strong> alerts are enabled.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>CodeQL security and code quality warnings and errors are ignored by the workflows and are simply treated as suggestions. The reason is the instability of the CodeQL suite (bot the software and the default ruleset) which isn't always updated/fixed in time.</p>
+</div>
 <h2 id="documentation-tools">Documentation Tools</h2>
-<p>We automated documentation generation of both the architecture of the system (in this repository) and the API of our microservices with a Swagger plugin for ASP.NET (see the <a href="https://escooter-rent-service.azurewebsites.net/swagger/index.html">Rent Service API docs</a> as an example).</p>
+<p>Automated documentation generation is provided of both the overall design of the system and the API of every microservice. Microservices use a Swagger plugin for ASP.NET (see the <a href="https://escooter-rent-service.azurewebsites.net/swagger/index.html">Rent Service API docs</a> as an example).</p>
 <h2 id="ignored-aspects">Ignored aspects</h2>
 <h3 id="public-repository-nuget">Public repository (NuGet)</h3>
-<p>Given the fact that we didn't develop libraries, but only single-purpose services and functions, we didn't use NuGet.</p>
+<p>Given the fact that the EScooter project didn't include libraries, but only single-purpose services and functions, NuGet wasn't used.</p>
 <h3 id="dependency-inspectionautomatic-management">Dependency inspection/automatic management</h3>
-<p>We voluntarily ignored the real-time dependency and vulnerability management because of the finite scope of the project. We instead used automatic dependancy and vulnerability management offered by GitHub (such as Dependabot) in some previously made actions, such as <a href="https://github.com/ldeluigi/markdown-docs">Markdown Docs</a>, which Luca Deluigi is actively maintaining as one of his OS projects. See the <a href="https://github.com/ldeluigi/markdown-docs/blob/master/.github/dependabot.yml">dependabot configuration file</a>. Dependabot creates automatic pull requests that suggest dependency updates. We wanted to avoid receiving those PRs forever.</p>
+<p>The team voluntarily ignored any real-time dependency and vulnerability management because of the finite scope of the project. GitHub Dependabot creates automatic pull requests that suggest dependency updates. The team wanted to avoid receiving those PRs forever.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 17, 2022 15:03:40</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 17, 2022 15:29:22</span>
       
         <br>
         Created:
@@ -1381,7 +1385,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:dente.francesco1996@gmail.com'>Francesco Dente</a> (5.33%), <a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (81.33%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (6.67%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (6.67%)</span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:dente.francesco1996@gmail.com'>Francesco Dente</a> (5.19%), <a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (88.31%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (3.9%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (2.6%)</span>
       </small>
     </div>
   
