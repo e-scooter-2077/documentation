@@ -19,7 +19,7 @@ $subject --> $object
 '
 !unquoted procedure $exposes_topic($subject, $topic_name, $id)
 $topic "$topic_name" as $id
-$id -- $subject
+$subject -- $id
 !endprocedure
 '
 !unquoted procedure $observes($subject, $object)
