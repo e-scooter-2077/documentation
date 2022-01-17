@@ -31,8 +31,8 @@ label A
 
 $updates(A, B) : Updates
 $sends_commands(C, D) : Sends commands
-$exposes_topic(E, Topic Name, _) : Exposes topic
-$observes(F, topic) : Observes
+$exposes_topic(E, Topic Name, t) : Exposes topic
+F --( topic : Observes
 
 $subdomain "Subdomain" {
     $context "Context" {
@@ -76,6 +76,7 @@ $subdomain "E-Scooter Subdomain" {
 
         $updates(control, iotHub)
     }
+
     $observes(scooter, desired)
     $updates(scooter, iotHub)
 }
@@ -118,7 +119,7 @@ Being a generic subdomain, the team decided to have the User subdomain be implem
 ```plantuml
 @startuml
 !include metamodel/components.metamodel.iuml
-
+left to right direction
 $subdomain "E-Scooter Subdomain" {
     $topic "Scooter Lifecycle" as scooterLifecycle
     $topic "Scooter Status" as scooterStatus
@@ -130,12 +131,13 @@ $subdomain "User Subdomain" {
 }
 
 $subdomain "Rent Subdomain" {
-    $context "Rent Payment Context" {
+    $context "Rent Payment Context" as rpc {
         $microservice "Rent Payment (Mock)" as rentPayment
         $exposes_topic(rentPayment, "Rent Payment Events", rentPaymentEvents)
     }
 
-    $context "Rent Context" {
+
+    $context "Rent Context" as rc{
         $microservice "Rent" as rent
         $exposes_topic(rent, "Rent Lifecycle", rentLifecycle)
         $exposes_topic(rent, "Scooter Enabling", scooterEnabling)
@@ -143,10 +145,11 @@ $subdomain "Rent Subdomain" {
         $observes(rent, scooterStatus)
         $observes(rent, customerLifecycle)
         $observes(rent, rentPaymentEvents)
-        $updates(rent, control)        
         $observes(rentPayment, rentLifecycle)
     }
 }
+
+$updates(rent, control)        
 
 @enduml
 ```
