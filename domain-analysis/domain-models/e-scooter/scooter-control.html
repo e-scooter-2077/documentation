@@ -1142,12 +1142,12 @@
 <li><em>powerSavingMaxSpeed</em>: the maximum speed a scooter can reach while in power saving mode;</li>
 <li><em>powerSavingThreshold</em>: the battery level below which the scooter goes in power saving mode.</li>
 </ul>
-<p>The policy of the scooters dictate that at any moment, the speed of a scooter should be below the desired max speed. Also, while in power saving mode the scooter must also obey to the powerSavingMaxSpeed rule. Therefore, at any moment the real maximum speed can be calculated as:</p>
+<p>The policy of the scooters dictate that, at any moment, the speed of a scooter should be below the desired max speed. Also, while in power saving mode, the scooter must also obey to the powerSavingMaxSpeed rule. Therefore, at any moment the real maximum speed can be calculated as:</p>
 <ul>
-<li><em>desiredMaxSpeed</em>, if the scooter is in <em>active</em> mode</li>
-<li><em>min(desiredMaxSpeed, powerSavingMaxSpeed)</em>, otherwise</li>
+<li><em>desiredMaxSpeed</em>, if the scooter is in <em>active</em> mode.</li>
+<li><em>min(desiredMaxSpeed, powerSavingMaxSpeed)</em>, otherwise.</li>
 </ul>
-<p>Furthermore, a scooter can at any moment go in standby mode. This behavior is dicteted by the hardware mounted on the scooter itself, and cannot be changed easily.</p>
+<p>Furthermore, a scooter can at any moment go in standby mode. This behavior is dictated by the hardware mounted on the scooter itself. The system reacts to the switch by notyfing all services so that polices can be applied.</p>
 <h2 id="domain-events">Domain Events</h2>
 <ul>
 <li><strong>ScooterStatusChanged</strong>: emitted after scooter status updates (namely at least one of updateFrequency, locked, maxSpeed or standby).</li>
@@ -1159,7 +1159,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 16, 2022 23:20:33</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 17, 2022 11:43:20</span>
       
         <br>
         Created:
@@ -1174,7 +1174,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:simone.magnani4@studio.unibo.it'>Simone</a> (11.27%), <a href='mailto:dente.francesco1996@gmail.com'>Francesco Dente</a> (83.1%), <a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (5.63%)</span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:simone.magnani4@studio.unibo.it'>Simone</a> (11.27%), <a href='mailto:dente.francesco1996@gmail.com'>Francesco Dente</a> (77.46%), <a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (5.63%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (5.63%)</span>
       </small>
     </div>
   

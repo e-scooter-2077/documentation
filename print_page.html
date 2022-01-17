@@ -1760,12 +1760,12 @@ Stores data of scooter searches from users.</p>
 <li><em>powerSavingMaxSpeed</em>: the maximum speed a scooter can reach while in power saving mode;</li>
 <li><em>powerSavingThreshold</em>: the battery level below which the scooter goes in power saving mode.</li>
 </ul>
-<p>The policy of the scooters dictate that at any moment, the speed of a scooter should be below the desired max speed. Also, while in power saving mode the scooter must also obey to the powerSavingMaxSpeed rule. Therefore, at any moment the real maximum speed can be calculated as:</p>
+<p>The policy of the scooters dictate that, at any moment, the speed of a scooter should be below the desired max speed. Also, while in power saving mode, the scooter must also obey to the powerSavingMaxSpeed rule. Therefore, at any moment the real maximum speed can be calculated as:</p>
 <ul>
-<li><em>desiredMaxSpeed</em>, if the scooter is in <em>active</em> mode</li>
-<li><em>min(desiredMaxSpeed, powerSavingMaxSpeed)</em>, otherwise</li>
+<li><em>desiredMaxSpeed</em>, if the scooter is in <em>active</em> mode.</li>
+<li><em>min(desiredMaxSpeed, powerSavingMaxSpeed)</em>, otherwise.</li>
 </ul>
-<p>Furthermore, a scooter can at any moment go in standby mode. This behavior is dicteted by the hardware mounted on the scooter itself, and cannot be changed easily.</p>
+<p>Furthermore, a scooter can at any moment go in standby mode. This behavior is dictated by the hardware mounted on the scooter itself. The system reacts to the switch by notyfing all services so that polices can be applied.</p>
 <h2 id="domain-analysis-domain-models-e-scooter-scooter-control-domain-events">Domain Events</h2>
 <ul>
 <li><strong>ScooterStatusChanged</strong>: emitted after scooter status updates (namely at least one of updateFrequency, locked, maxSpeed or standby).</li>
