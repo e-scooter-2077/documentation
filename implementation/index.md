@@ -4,13 +4,14 @@ This section explains how the different parts of the system are organized and im
 
 The choice was to carry out the full analysis of a complex domain to be able to approach a "real-world" problem in its entirety and use the Domain Driven Design techniques to study it, but as far as the implementation goes, we always knew that it was not needed to implement the whole system, so we decided to focus on the core and interesting aspects, mock the supporting services and completly ignore some of the features that were outside of this core prototype boundary scope.
 
-In the end, the most interesting part for us was the implementation of the Scooter Monitor & Control context in order to realize the Digital Twin layer that was at the core of the Pervasive Computer course for which we plan to submit this project too. We then decided to mock the Scooter Data context since it was just a collection of data relevant for the domain but not too much for the functionalities of the system.
+In the end, the most interesting part was the implementation of the Scooter Monitor & Control context in order to realize the Digital Twin layer that was at the core of the Pervasive Computer course for which this project will be submitted too. This meant that the Scooter Data context was mocked since it was just a collection of data relevant for the domain but not too much for the functionalities of the system.
 
-Since we chose to implement the renting operations in the Rent Context to have at least one "classic" microservice in place, we decided to put aside the implementation of the Area of Service context in order to focus on the most relevant use-case of the system itself. In an iterative development process of the real system we imagined that this would have probably been the smartest choice to, at least, guarantee the basic functionalities immediatly and later add the other planned features.
+Renting operations in the Rent Context were implemented to have at least one standalone microservice in place to challenge ourselves with the requirements of the clean architecture.
+The implementation of the Area of Service context was put aside in order to focus on the most relevant use-case of the system itself which was the scooter rent management. In an iterative development process of the real system this would have probably been the smartest choice to, at least, guarantee the basic functionalities immediatly and later add the other planned features.
 
-With the same reasoning we chose to skip the implementation of the Insights subdomain, the connected Trip Context and simply mock the Rent Payment context since we didn't need to manage the virtual currency and the relationship with the Payment subdomain.
+With the same reasoning the implementation of the Insights subdomain and the connected Trip Context were skipped and the Rent Payment context was mocked since we didn't need to manage the virtual currency and the relationship with the Payment subdomain.
 
-The User subdomain was plain both from a design and implementative perspective so we didn't focus too much on that. Of course in a real-world scenario authorization and security should have been put in place since the very beginning, but for a proof-of-concept like the one that we developed this was definetly not needed nor particularly interesting.
+The User subdomain was plain both from a design and implementative perspective so the group didn't focus too much on that. Of course in a real-world scenario authorization and security should have been put in place since the very beginning, but for a proof-of-concept like the one that was developed this was definetly not needed nor particularly interesting.
 
 ## Scooter Service Backend
 
@@ -18,14 +19,13 @@ The backend is fully deployed on Microsoft Azure: each resource is under the `e-
 
 The next sections describe the different requirements of the system and how they were realized using resources deployed on the Azure Cloud.
 
-### Control of the Physical devices
-The connection with the physical devices is managed through an *IoT Hub* named `scooter-iot-hub`.
-<!-- add something about the emulator? -->
+### Communication with the Physical devices
+The connection with the physical devices is managed through an *IoT Hub* named `scooter-iot-hub`. The IoT Hub manages devices representing them with a set of desired and reported properties and some metadata describing the device itself. Services can edit desired properties of the digital device which are pushed as events on the physical device itself and can trigger changes in the device status. Notifications on status changes can be achieved either from the use of reported properties when changes are not frequent or through telemetry events that are usually proactive streams of data coming from the physical device's sensors.
 
 ### Data aggregation
-The layer that aggregates the data from all the different sections of the system is implemented making use of *Azure Digital Twins* and is named `scooter-digital-twins`. This layer stores the latest updated state of the whole system keeping data about customers, scooters and rents in a comprehensive view and can be used as an eventual consistent source to read data instead of interrogating each microservice.
+The layer that aggregates the data from all the different sections of the system is implemented making use of *Azure Digital Twins* and is named `scooter-digital-twins`. This layer stores the latest updated state of the whole system keeping data about customers, scooters and rents in an eventually consistent source. This means that the Digital Twin layer offers a comprehensive view of the domain to query the state of the system instead of interrogating each microservice separately.
 
-The result structure is a Digital Twin Graph as provided by the Azure tool that allow to store current state data about the twins and relationships between each other. [Here](digital-twins-models.md) are the models used on the graph for Scooters and Customers twins.
+The result structure is a Digital Twin Graph as provided by the Azure tool that allow to store current state of the twins and relationships between each other. [Here](digital-twins-models.md) are the models used on the graph for Scooters and Customers twins which are the main entities modelled.
 
 ### Inter-Service communication
 Communication among services is carried out in an asynchronous fashion using events queues.
@@ -39,14 +39,14 @@ Azure functions are generally used as event handlers to map the communication fr
 
 Here is a list of all the implemented Azure functions:
 
-- [manage devices](https://github.com/e-scooter-2077/scooter-physical-control.manage-devices) is a function that manages the creation and destruction of scooters on the IoTHub and on the Digital Twin Layer.
-- [manage customer](https://github.com/e-scooter-2077/customer.manage-customers) is a function that manages the creation and destruction of the customers' digital twins.
-- [manage rents](https://github.com/e-scooter-2077/rent.manage-rents) is a function that manages the creation and destruction of renting relationships on the digital twin graph.
+- [manage devices](https://github.com/e-scooter-2077/scooter-physical-control.manage-devices) is a function that manages the creation and removal of scooters on the IoTHub and on the Digital Twin Layer.
+- [manage customer](https://github.com/e-scooter-2077/customer.manage-customers) is a function that manages the creation and removal of the customers' digital twins.
+- [manage rents](https://github.com/e-scooter-2077/rent.manage-rents) is a function that manages the creation and removal of renting relationships on the digital twin graph.
 - [manage telemetry updates](https://github.com/e-scooter-2077/scooter-monitor.manage-telemetry-updates) updates the state of each scooter digital twin when new telemetry is received by the IoTHub (e.g. position, speed).
 - [manage reported properties](https://github.com/e-scooter-2077/scooter-monitor.manage-reported-properties) updates the state of each scooter digital twin when reported properties are updated on the device (e.g. lock state, standby).
 - [manage scooter availability](https://github.com/e-scooter-2077/rent.manage-scooter-availability) update the state of each scooter digital twin when the availability is changed from an administrator of the system on the rent service.
 
-Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to create the equivalent of the Scooter Control & Monitor Context: 
+Two functions instead of managing the state of the Digital Twin Graph are extending the functionalities of the IoTHub to implement the Scooter Control & Monitor Context: 
 
 - [scooter control](https://github.com/e-scooter-2077/scooter-control) is a function that exposes the default applicable actions on the devices: in particular, it manages the lock/unlock command and listens to the telemetries from the *IoTHub* to apply domain policies (e.g. modifying max speed according to battery level).
 - [scooter monitor](https://github.com/e-scooter-2077/scooter-monitor) is a function that exposes the events concerning changes of the device state (e.g. lock, standby)
@@ -54,9 +54,7 @@ Two functions instead of managing the state of the Digital Twin Graph are extend
 Functions were also used to implement mocked parts of the system when needed. For example the [rent payment](https://github.com/e-scooter-2077/rent-payment.mock) which is a mock implementation of the Rent Payment context that always confirm the rents.
 
 ### Microservices
-Microservices are implemented with an *App Service*. We fully developed as a standalone microservice only the [Rent service](https://github.com/e-scooter-2077/rent-service) that maps the Rent Context.
-<!--add something here to explain how the rent service is implemented maybe-->
-
+Microservices are implemented with an *App Service*. Only the [Rent service](https://github.com/e-scooter-2077/rent-service) was developed as a fully standalone microservice that maps the Rent Context.
 
 ## Frontend
 
