@@ -41,7 +41,7 @@ Apart from that the project will follow a development process based on continuos
 
 - Dotnet CLI for build automation
 - Github Actions for continuous integration
-- Github Pages for the hosting of the automatic generated documentation
+- Github Pages for the hosting of the automatically generated documentation website
 - Microsoft Azure as a target platform for the deployment of the whole system
 - Quality Assurance tools to be defined during developement (linter, automatic testing etc.)
 
