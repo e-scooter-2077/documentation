@@ -69,8 +69,7 @@ The Admin frontend is implemented using Angular: polling the Digital Twin Layer,
 - Yellow when it is in standby;
 - Grey when it is disabled.
   
-Clicking on a scooter it is possible to check the value of its properties and enable or disable it to allow or prevent renting.
-This features are implemented using Angular services.
+By clicking on a scooter it is possible to check the value of its properties and enable or disable it to allow or prevent renting.
 
 ### [Customer frontend](https://github.com/e-scooter-2077/customer-frontend)
 
