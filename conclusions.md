@@ -16,7 +16,7 @@ This was identified as the most challenging aspect of the DDD, whilst the analys
 In retrospective the team feels that some cleaner and more coherent with the Ubiquitous Language code could have been created, but, while developing, that felt unnecessary and overcomplex for smaller pieces of software like the Azure Functions and instead was useful for bigger artifacts like the services and the scooter-emulator. 
 
 ## DevOps process
-From a DevOps perspective the team put a lot of effort in the automatization of the quality assurance and the deployment of the whole system. This really helped in having a clean, self updating system especially since we were dealing with a cloud service. 
+From a DevOps perspective the team put a lot of effort in the automatization of the quality assurance and the deployment of the whole system. This really helped in having a clean, self updating system especially since the final product was a cloud service. 
 
 Testing was a bit left behind primarily for time management reasons and because most of the testing was done while integrating different software components instead of having complex business logic that needed intensive single unit tests. 
 
