@@ -78,9 +78,9 @@ The `analyze` job, present in both the workflows, builds the sources with CodeQL
     These workflows were developed by some members of the team for a different project, and reused within the Rent service repository.
 
 ### Repository templates
-Repository templates allow a faster bootstrap phase of a project, scaffolding a hello world version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.
+Repository templates allow a faster bootstrap phase of a project, scaffolding a _hello world_ version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.
 
-The template we made for every EScooter **Azure Function** can be found [here](https://github.com/e-scooter-2077/azure-function-template).
+The template used for every EScooter **Azure Function** can be found [here](https://github.com/e-scooter-2077/azure-function-template).
 
 ??? info "Microservice template"
 
