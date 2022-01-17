@@ -2,15 +2,6 @@
 
 This section contains a set of value objects used throughout the domain models of the identified bounded contexts, to avoid repeating them in each diagram.
 
-## Nothing
-Represents the absence of any value, _nothingness_.
-```plantuml
-@startuml
-!include metamodel/domain.entities.metamodel.iuml
-$value("Nothing")
-@enduml
-```
-
 ## Result
 Represents the outcome of a domain operation, which may result in a success (in which case the result contains a _value_ of type T) or in a failure (which results in a _DomainError_).
 
@@ -103,3 +94,13 @@ $value("Timestamp") {
 ```
 
 _value_ is the number of milliseconds passed since 01/01/1970 00:00:00 (Epoch).
+
+## Nothing
+Represents the absence of any value, _nothingness_.
+
+```plantuml
+@startuml
+!include metamodel/domain.entities.metamodel.iuml
+$value("Nothing")
+@enduml
+```
