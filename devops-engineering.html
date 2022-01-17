@@ -1327,6 +1327,15 @@ unit testing, publishing (artifact generation) and artifact uploading (artifacts
 <p>The <code>release</code> (Continuous Delivery) job is run only if a new tag respecting Semantic Versioning gets pushed. This job creates a GitHub release and uploads the binaries.</p>
 <p>The Azure Functions CI provides also the <code>deploy</code> job (Continuous Deployment), which uploads the function to the relative slot on Azure Cloud.</p>
 <p>The <code>analyze</code> job, present in both the workflows, builds the sources with CodeQL and runs all the default code quality and security queries, provided by the CodeQL team, reporting results in the Security tab of the repository. The outcome of the analysis is ignored for the purposes of build success, because CodeQL proved to be slightly unstable and too computational expensive (time and memory) to be waited every time.</p>
+<details class="info">
+<summary>Other reusable workflows adopted</summary>
+<p>Rent service CI/CD uses the following workflows:</p>
+<ul>
+<li><a href="https://github.com/EasyDesk/microservice-cicd">Microservice Build</a></li>
+<li><a href="https://github.com/EasyDesk/microservice-azure-deploy">Microservice Azure Deploy</a></li>
+</ul>
+<p>These workflows were developed by some members of the team for a different project.</p>
+</details>
 <h3 id="repository-templates">Repository templates</h3>
 <p>Repository templates allow a faster bootstrap phase of a project, scaffolding a hello world version of the program to be developed. This includes the automatic generation of the build lifecycle from the very first commit.</p>
 <p>The template we made for every EScooter <strong>Azure Function</strong> can be found <a href="https://github.com/e-scooter-2077/azure-function-template">here</a>.</p>
@@ -1358,7 +1367,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 17, 2022 14:48:43</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 17, 2022 15:01:51</span>
       
         <br>
         Created:
@@ -1373,7 +1382,7 @@ It makes use of the <a href="https://github.com/EasyDesk/easydesk-clean-architec
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:dente.francesco1996@gmail.com'>Francesco Dente</a> (2.82%), <a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (83.1%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (7.04%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (7.04%)</span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:dente.francesco1996@gmail.com'>Francesco Dente</a> (2.63%), <a href='mailto:lucadelu97@gmail.com'>ldeluigi</a> (84.21%), <a href='mailto:44567586+ldeluigi@users.noreply.github.com'>ldeluigi</a> (6.58%), <a href='mailto:32274195+samubura@users.noreply.github.com'>Samuele Burattini</a> (6.58%)</span>
       </small>
     </div>
   
