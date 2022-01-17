@@ -84,6 +84,7 @@ Collection of data about the customer, including first name, date of birth, and 
 A customer has it if they are able to [rent](#rent) [e-scooters](#electric-scooter) without paying upfront.
 
 ## Admin
+Alias: manager
 Works for the [E-Scooter Service](#e-scooter-service). Monitors and manages [scooters](#e-scooter) from a control dashboard.
 
 ## Recovery
