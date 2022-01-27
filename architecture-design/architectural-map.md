@@ -149,7 +149,7 @@ $subdomain "Rent Subdomain" {
     }
 }
 
-$updates(rent, control)        
+$sends_commands(rent, control)        
 
 @enduml
 ```
