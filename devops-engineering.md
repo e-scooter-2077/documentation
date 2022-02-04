@@ -15,7 +15,7 @@ A [tool](https://github.com/EasyDesk/action-semver-checkout/blob/master/git-comp
 Every step of the software build lifecycle was automated through Git and [GitHub Actions](https://docs.github.com/en/actions).
 GitHub Actions offers hosted containers (called _runners_) that run many kind of scripts divided in flows and tasks, in an imperative fashion.
 
-Many script reuse techniques are possible. The team eployed:
+Many script reuse techniques are possible. The team employed:
 
 - Custom Actions
 - Reusable Workflows
