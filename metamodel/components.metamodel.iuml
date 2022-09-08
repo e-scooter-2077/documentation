@@ -13,21 +13,31 @@
 '
 !$topic="interface"
 '
+!$client="actor"
+'
 !unquoted procedure $updates($subject, $object)
 $subject --> $object
 !endprocedure
 '
 !unquoted procedure $exposes_topic($subject, $topic_name, $id)
 $topic "$topic_name" as $id
-$subject -- $id
+$subject - $id
 !endprocedure
 '
 !unquoted procedure $observes($subject, $object)
-$subject ---( $object
+$subject ...( $object
 !endprocedure
 '
 !unquoted procedure $sends_commands($subject, $object)
-$subject ..> $object
+$subject ...> $object
+!endprocedure
+'
+!unquoted procedure $queries($subject, $object)
+$subject ----( $object
+!endprocedure
+'
+!unquoted procedure $queries_and_updates($subject, $object)
+$subject <--> $object
 !endprocedure
 '
 @enduml
